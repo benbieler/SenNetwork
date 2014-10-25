@@ -1,0 +1,8 @@
+before_commands:
+    - 'composer install -d api'
+    - 'bower install'
+
+filter:
+    exluded_paths:
+        - api/spec/
+        - api/app/
