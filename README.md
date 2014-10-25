@@ -1,6 +1,7 @@
 Sententiaregum
 ==============
 
+[![Build Status](https://travis-ci.org/Ma27/SenNetwork.svg?branch=master)](https://travis-ci.org/Ma27/SenNetwork)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Ma27/SenNetwork/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Ma27/SenNetwork/?branch=master)
 
 Sententiaregum is free social network based on an angularjs one-page application. In the background runs a RESTful 
