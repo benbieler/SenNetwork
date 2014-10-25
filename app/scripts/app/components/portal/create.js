@@ -5,6 +5,7 @@ angular.module('sen.component.portal.create-account', [])
         function ($scope, page, activeMenuItem) {
 
             $scope.progress = false;
+            $scope.data = {};
             page.setPageTitle('Create account');
             activeMenuItem.purgeActiveAttributes(menuTemplates.portal);
             page.setMenuItems(activeMenuItem.markItemAsActive(menuTemplates.portal, 1));
@@ -12,6 +13,8 @@ angular.module('sen.component.portal.create-account', [])
             $scope.createAccount = function () {
 
             };
+
+            $scope.data.password = '';
 
             $scope.getPasswordStrengthMessage = function () {
                 $scope.calculateStrength = true;
@@ -35,7 +38,7 @@ angular.module('sen.component.portal.create-account', [])
                     while (password.indexOf(str) !== -1) {
                         // no character should appear more than five times
                         // if this happens, the secure points will be decreased
-                        if (5 === occurrences) {
+                        if (3 === occurrences) {
                             securePoints--;
                             continue;
                         }
@@ -46,17 +49,22 @@ angular.module('sen.component.portal.create-account', [])
                 }
 
                 // increase for numbers
-                var chars = password.match(/\d+/).length;
-                securePoints += Math.floor(chars / 4);
+                var charMatches = password.match(/\d+/);
 
-                // increase points for string length
-                var passLen = password.length;
+                if (null !== charMatches && typeof charMatches !== 'undefined') {
+                    var chars = charMatches.length;
 
-                if (0 !== passLen) {
-                    if (passLen <= 100) {
-                        securePoints += Math.floor(passLen / 4);
-                    } else {
-                        securePoints += Math.floor(passLen / 8);
+                    securePoints += Math.floor(chars / 4);
+
+                    // increase points for string length
+                    var passLen = password.length;
+
+                    if (0 !== passLen) {
+                        if (passLen <= 100) {
+                            securePoints += Math.floor(passLen / 4);
+                        } else {
+                            securePoints += Math.floor(passLen / 8);
+                        }
                     }
                 }
 
@@ -93,13 +101,16 @@ angular.module('sen.component.portal.create-account', [])
                         break;
                     case securePoints > 20:
                         var msg = 'Extremly strong';
-
-                        break;
                 }
 
                 $scope.calculateStrength = false;
+                $scope.passwordStrength = msg;
+
+                // just return it
                 return msg;
             };
+
+            $scope.getPasswordStrengthMessage();
 
         }
     ]);
