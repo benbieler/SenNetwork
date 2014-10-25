@@ -3,6 +3,6 @@ before_commands:
     - 'bower install'
 
 filter:
-    exluded_paths:
+    excluded_paths:
         - api/spec/
         - api/app/
