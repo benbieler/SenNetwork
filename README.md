@@ -1,6 +1,8 @@
 Sententiaregum
 ==============
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Ma27/SenNetwork/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Ma27/SenNetwork/?branch=master)
+
 Sententiaregum is free social network based on an angularjs one-page application. In the background runs a RESTful 
 webservice based on Symfony 2.
 
