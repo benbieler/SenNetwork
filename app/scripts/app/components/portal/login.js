@@ -36,6 +36,7 @@ angular.module('sen.component.portal.login', [])
                             break;
                         case 401:
                             $scope.errors = data.errors;
+                            $scope.credentials.password = '';
 
                             break;
                         default:
