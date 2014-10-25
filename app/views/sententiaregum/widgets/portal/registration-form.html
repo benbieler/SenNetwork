@@ -5,12 +5,7 @@
     </div>
     <div class="form-group">
         <label for="password" class="control-label">Password</label>
-        <input type="password" ng-model="data.password" class="form-control" name="password" ng-change="getPasswordStrengthMessage()" />
-        <p class="form-additional-element">
-            <span>Password strength: </span>
-            <img src="images/ajax-loader.gif" ng-show="calculateStrength" />
-            <span ng-hide="calculateStrength">{{passwordStrength}}</span>
-        </p>
+        <input type="password" ng-model="data.password" class="form-control" name="password" />
     </div>
     <div class="form-group">
         <label for="password-confirm" class="control-label">Confirm password</label>
