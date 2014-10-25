@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service id="ma27.account.controller" class="Ma27\SocialNetworkingBundle\Controller\AccountController">
+            <argument type="service" id="ma27.security.token" />
+            <argument type="service" id="ma27.security.user_provider" />
+            <argument type="service" id="ma27.util.hasher" />
+        </service>
+        
+        <service id="ma27.user.repository" class="Ma27\SocialNetworkingBundle\Entity\User\UserRepository">
+            <argument type="service" id="database_connection" />
+        </service>
+
+        <service id="ma27.security.user_provider" class="Ma27\SocialNetworkingBundle\Security\UserProvider">
+            <argument type="service" id="ma27.user.repository" />
+        </service>
+
+        <service id="ma27.security.api_key_auth" class="Ma27\SocialNetworkingBundle\Security\ApiKeyAuthentication">
+            <argument type="service" id="ma27.security.user_provider" />
+        </service>
+
+        <service id="ma27.security.token" class="Ma27\SocialNetworkingBundle\Service\Token">
+            <argument type="service" id="ma27.user.repository" />
+        </service>
+
+        <service id="ma27.util.hasher" class="Ma27\SocialNetworkingBundle\Util\PasswordHasher" />
+
+    </services>
+
+</container>

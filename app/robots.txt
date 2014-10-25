@@ -1,0 +1,2 @@
+User-agent: *
+# sitemap: http://sententiaregum.dev/sitemap.xml

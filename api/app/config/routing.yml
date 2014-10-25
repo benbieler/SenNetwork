@@ -1,0 +1,5 @@
+ma27_social_networking:
+    resource: "@Ma27SocialNetworkingBundle/Resources/config/routing/routing.xml"
+    prefix:   /api
+
+

@@ -1,0 +1,120 @@
+/**
+ * custom-ui.css
+ *
+ * This css file contains some customizations for twitter bootstrap
+ * from the sententiaregum application
+ */
+* {
+    font-family: Tahoma, Verdana, "Helvetica", "Helvetica Neue", sans-serif;
+}
+
+*:focus {
+    outline: none;
+}
+
+body {
+    background-color: #f8f8f8;
+}
+
+li {
+    list-style-type: square;
+}
+
+.navbar-default {
+    border-radius: 0px;
+}
+
+.navbar-default {
+    background-color: rgba(255, 255, 255, 1);
+    border-bottom: #269abc 2px solid;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+
+.form-control:focus {
+    border-color: #0a64af;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.navbar li,
+.navbar a.navbar-brand {
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    transition: .2s;
+}
+
+.navbar li:hover a {
+    background-color: #269abc !important;
+    color: #fff;
+}
+
+.navbar li a:focus {
+    color: #777 !important;
+}
+
+.navbar a.navbar-brand:hover {
+    color: #0088CC !important;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: #269abc !important;
+    border: none;
+}
+
+.navbar-toggle {
+    border-color: #269abc !important;
+}
+
+.navbar-toggle:hover,
+.navbar-toggle:focus {
+    background-color: #269abc !important;
+}
+
+.navbar-toggle:hover .icon-bar,
+.navbar-toggle:focus .icon-bar {
+    background-color: #fff !important;
+}
+
+.navbar-collapse {
+    border-color: #269abc !important;
+}
+
+.form-control {
+    box-shadow: none;
+}
+
+.navbar-nav .active a {
+    background-color: #6abbdf !important;
+}
+
+/** Fix broken in menu styles for Firefox (firefox marks clicked elements as focused which causes some css fails) */
+
+.navbar-inverse .navbar-brand:focus {
+    color: #777 !important;
+}
+
+.navbar-inverse .navbar-nav li a:focus {
+    color: #777 !important;
+    background-color: #fff;
+}
+
+.navbar-inverse .navbar-nav li a:active {
+    color: #fff !important;
+}
+
+.navbar-inverse .navbar-nav li:hover a {
+    color: #fff !important;
+}
+
+.navbar-inverse .navbar-nav li.active a:focus {
+    color: #fff !important;
+}
+
+/** End */
+
+.form-additional-element {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}

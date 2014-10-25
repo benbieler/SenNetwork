@@ -1,0 +1,28 @@
+# Symfony 2
+/api/app/cache/*
+/api/app/logs/*
+!api/app/cache/.gitkeep
+!api/app/logs/.gitkeep
+/api/app/SymfonyRequirements.php
+/api/app/check.php
+/api/app/config/parameters.yml
+/api/app/bootstrap.php.cache
+/api/build/
+/api/web/bundles/
+/api/web/uploads/
+
+# Composer
+/api/bin/
+/api/vendor/
+
+# Vagrant
+/vagrant/
+/devstack.yaml
+
+# IDEs
+/.idea/
+/nbproject/
+/.metadata/
+
+# Bower
+/app/bower_components/
