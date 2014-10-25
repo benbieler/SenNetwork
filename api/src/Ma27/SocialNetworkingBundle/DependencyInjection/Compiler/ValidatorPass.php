@@ -23,4 +23,3 @@ class ValidatorPass implements CompilerPassInterface
         $validatorBuilder->addMethodCall('addXmlMappings', array($validatorFiles));
     }
 }
- 
