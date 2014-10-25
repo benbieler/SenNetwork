@@ -15,4 +15,5 @@ before_script:
   - php api/app/check.php
 
 script:
-  - api/bin/phpspec run
+  - cd api
+  - bbin/phpspec run
