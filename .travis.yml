@@ -17,4 +17,3 @@ before_script:
 script:
   - cd api
   - bin/phpspec run
-d
