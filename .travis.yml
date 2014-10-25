@@ -10,9 +10,9 @@ matrix:
     - php: hhvm
 
 before_script:
-  - php api/app/check.php
   - composer self-update
   - composer update -d api
+  - php api/app/check.php
 
 script:
   - api/bin/phpspec run
