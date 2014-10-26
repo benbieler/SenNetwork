@@ -18,25 +18,23 @@
     <body>
         <!-- Menu -->
         <nav class="navbar navbar-default navbar-inverse" role="navigation">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationbar">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <a class="navbar-brand" href="#!" style="font-size: 20px;">Sententiaregum</a>
-                        </div>
-                        <div class="collapse navbar-collapse" id="navigationbar">
-                            <ul class="navbar-nav nav navbar-right">
-                                <li ng-repeat="item in page.getMenuItems()" ng-class="{active: item.active}">
-                                    <a href="{{item.target}}">{{item.label}}</a>
-                                </li>
-                            </ul>
-                        </div>
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#!" style="font-size: 20px;">Sententiaregum</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navigationbar">
+                        <ul class="navbar-nav nav navbar-right">
+                            <li ng-repeat="item in page.getMenuItems()" ng-class="{active: item.active}">
+                                <a href="{{item.target}}">{{item.label}}</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>

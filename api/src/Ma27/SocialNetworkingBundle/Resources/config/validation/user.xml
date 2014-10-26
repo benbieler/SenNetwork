@@ -5,7 +5,54 @@
                     xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
 
     <class name="Ma27\SocialNetworkingBundle\Entity\User\User">
-
+        <property name="username">
+            <constraint name="NotBlank">
+                <option name="message">Username must contain a minimum of three characters</option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">3</option>
+                <option name="max">32</option>
+                <option name="minMessage">Username must contain a minimum of three characters</option>
+                <option name="maxMessage">Username can contain a maximum of 32 characters only</option>
+            </constraint>
+            <constraint name="Regex">
+                <option name="pattern">/^[A-z0-9_\-\.]+$/i</option>
+                <option name="message">Username can contain alphanumeric characters and the chars "_, ., -" only</option>
+            </constraint>
+        </property>
+        <property name="password">
+            <constraint name="NotBlank">
+                <option name="message">Password should have at least six characters</option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">6</option>
+                <option name="max">4096</option>
+                <option name="minMessage">Password should have at least six characters</option>
+                <option name="maxMessage">Password can have a maximum of 4096 characters only</option>
+            </constraint>
+        </property>
+        <property name="email">
+            <constraint name="NotBlank">
+                <option name="message">Email cannot be empty</option>
+            </constraint>
+            <constraint name="Email">
+                <option name="message">Email contains invalid characters</option>
+            </constraint>
+        </property>
+        <property name="realName">
+            <constraint name="Length">
+                <option name="min">3</option>
+                <option name="max">128</option>
+                <option name="minMessage">Your name should have at least three characters</option>
+                <option name="maxMessage">Your name can have a maximum of 128 characters only</option>
+            </constraint>
+            <constraint name="NotBlank">
+                <option name="message">Your name should have at least three characters</option>
+            </constraint>
+            <constraint name="Regex">
+                <option name="pattern">/^[A-zäöüß ]+$/i</option>
+            </constraint>
+        </property>
     </class>
 
 </constraint-mapping>
