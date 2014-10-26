@@ -22,6 +22,12 @@ Load Bower dependencies
 
     npm install -g bower
     bower install
+    
+Note: If you don't have npm installed yet, please install it by the following commands
+    
+    sudo apt-get update
+    sudo apt-get install nodejs
+    sudo apt-get install npm
 
 Load Composer dependencies (without dev)
 
