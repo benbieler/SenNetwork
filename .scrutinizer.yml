@@ -6,3 +6,19 @@ filter:
     excluded_paths:
         - api/spec/
         - api/app/
+
+tools:
+    php_code_sniffer:
+        config:
+            standard: PSR2
+        filter:
+            paths: ['api/src']
+    php_loc:
+        enabled: true
+        excluded_dirs: [api/vendor, api/app]
+    php_cpd:
+        enabled: true
+        excluded_dirs: [api/vendor, api/app]
+    php_mess_detector: true
+    php_analyzer: true
+    php_pdepend: true
