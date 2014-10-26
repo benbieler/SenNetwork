@@ -7,11 +7,12 @@ class PasswordHasher implements PasswordHasherInterface
 {
     /**
      * @param string $raw
+     * @param integer $cost
      * @return string
      */
-    public function create($raw)
+    public function create($raw, $cost = 8)
     {
-        $options = ['cost' => 15];
+        $options = ['cost' => (integer) $cost];
         return password_hash($raw, PASSWORD_BCRYPT, $options);
     }
 

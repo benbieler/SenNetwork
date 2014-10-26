@@ -118,3 +118,16 @@ li {
     margin-top: 10px;
     margin-bottom: 20px;
 }
+
+.has-error label.control-label {
+    color: #761112;
+}
+
+.has-error .form-control {
+    border-color: #ebaac0;
+}
+
+.has-error .form-control:focus {
+    border-color: #761112;
+    box-shadow: none;
+}

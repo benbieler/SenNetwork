@@ -2,10 +2,12 @@
 
 namespace spec\Ma27\SocialNetworkingBundle\Controller;
 
+use Ma27\SocialNetworkingBundle\Controller\AccountController;
+use Ma27\SocialNetworkingBundle\Entity\User\Api\UserRepositoryInterface;
 use Ma27\SocialNetworkingBundle\Entity\User\User;
 use Ma27\SocialNetworkingBundle\Security\UserProvider;
-use Ma27\SocialNetworkingBundle\Service\Api\TokenInterface;
-use Ma27\SocialNetworkingBundle\Util\Api\PasswordHasherInterface;
+use Ma27\SocialNetworkingBundle\Service\Token;
+use Ma27\SocialNetworkingBundle\Util\PasswordHasher;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -13,14 +15,14 @@ use Symfony\Component\HttpFoundation\Request;
 
 class AccountControllerSpec extends ObjectBehavior
 {
-    function it_returns_unauthorized_if_the_credentials_cannot_be_loaded(
-        TokenInterface $token, UserProvider $provider, PasswordHasherInterface $hasher
-    ) {
-        $provider->loadUserByUsername('Ma27')->willReturn(null);
-        $this->beConstructedWith($token, $provider, $hasher);
+    function it_returns_unauthorized_if_the_credentials_cannot_be_loaded(UserRepositoryInterface $userRepository, Token $token)
+    {
+        $hasher = new PasswordHasher();
+        $userRepository->findByName('undefined')->shouldBeCalled();
+        $this->beConstructedWith($token, new UserProvider($userRepository->getWrappedObject()), $hasher);
 
         $request = Request::create('/');
-        $request->attributes->set('username', 'Ma27');
+        $request->attributes->set('username', 'undefined');
         $result = $this->requestTokenAction($request);
 
         $result->shouldBeAnInstanceOf(JsonResponse::class);
@@ -28,15 +30,18 @@ class AccountControllerSpec extends ObjectBehavior
         $result->getContent()->shouldHasCredentialsError();
     }
 
-    function it_creates_valid_token(
-        TokenInterface $token, UserProvider $provider, PasswordHasherInterface $hasher
-    ) {
-        $provider->loadUserByUsername('Ma27')->willReturn((new User())->setId(1)->setUsername('Ma27')->setPassword('123456'));
-        $hasher->verify('123456', '123456')->willReturn(true);
-        $token->generateToken()->willReturn($this->getApiKeyFixture());
-        $token->storeToken($this->getApiKeyFixture(), 1)->shouldBeCalled();
+    function it_creates_and_returns_valid_token(UserRepositoryInterface $userRepository, Token $token)
+    {
+        $hasher = new PasswordHasher();
 
-        $this->beConstructedWith($token, $provider, $hasher);
+        $userRepository->findByName('Ma27')->willReturn($this->getMockUser());
+
+        $token->storeToken(Argument::any(), Argument::any())->willReturn(true);
+        $token->generateToken()->willReturn($this->getRandomToken());
+
+        $userProvider = new UserProvider($userRepository->getWrappedObject());
+
+        $this->beConstructedWith($token, $userProvider, $hasher);
 
         $request = Request::create('/');
         $request->attributes->set('username', 'Ma27');
@@ -66,13 +71,25 @@ class AccountControllerSpec extends ObjectBehavior
         ];
     }
 
-    private function getApiKeyFixture()
+    private function getMockUser()
     {
-        $str = (string) '';
+        return (new User())
+            ->setId(1)
+            ->setUsername('Ma27')
+            ->setPassword((new PasswordHasher())->create('123456'));
+    }
+
+    private function getRandomToken()
+    {
+        $pool = 'abcdefghijklmnopqrstuvwxyz123456789';
+        $string = (string) '';
+        $split = str_split($pool);
+        $availableChars = count($split) - 1;
+
         for ($i = 0; $i < 255; $i++) {
-            $str .= '1';
+            $string .= $split[mt_rand(0, $availableChars)];
         }
 
-        return $str;
+        return $string;
     }
 }
