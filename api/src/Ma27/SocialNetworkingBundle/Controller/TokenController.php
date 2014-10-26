@@ -8,7 +8,7 @@ use Ma27\SocialNetworkingBundle\Util\Api\PasswordHasherInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-class AccountController
+class TokenController
 {
     /**
      * @var TokenInterface

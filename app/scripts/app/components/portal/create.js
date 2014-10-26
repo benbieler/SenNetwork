@@ -17,6 +17,7 @@ angular.module('sen.component.portal.create-account', [])
             $scope.createAccount = function () {
                 function handleFailure(result) {
 
+                    // inject errors into scope
                     $scope.errorList = result;
                 }
 

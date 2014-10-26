@@ -6,7 +6,7 @@
 
     <services>
 
-        <service id="ma27.account.controller" class="Ma27\SocialNetworkingBundle\Controller\AccountController">
+        <service id="ma27.token.controller" class="Ma27\SocialNetworkingBundle\Controller\TokenController">
             <argument type="service" id="ma27.security.token" />
             <argument type="service" id="ma27.security.user_provider" />
             <argument type="service" id="ma27.util.hasher" />

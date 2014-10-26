@@ -13,7 +13,7 @@ use Prophecy\Argument;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-class AccountControllerSpec extends ObjectBehavior
+class TokenControllerSpec extends ObjectBehavior
 {
     function it_returns_unauthorized_if_the_credentials_cannot_be_loaded(UserRepositoryInterface $userRepository, Token $token)
     {
