@@ -133,3 +133,8 @@ li {
     border-color: #761112;
     box-shadow: none;
 }
+
+.form-info-plugin {
+    margin-top: 25px;
+    line-height: 34px;
+}

@@ -52,11 +52,15 @@ Please check at first the Symfony 2 requirements
     php api/app/check.php
 
 
-Now check out the following criterions:
+Now check out the following criteria:
 
   - PHP 5.5.0 or higher
   - WebSocket support
   - Bower (for frontend stuff)
+  
+See also:
+
+[Browsers supporting WebSockets](http://caniuse.com/#feat=websockets)
 
 3) Test application
 -------------------

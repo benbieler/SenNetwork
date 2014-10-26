@@ -23,13 +23,17 @@
     </div>
     <div class="row">
         <div class="col-md-8">
-            <div class="form-group">
+            <div class="form-group" ng-class="{'has-error': errorList.passwordConfirmation}">
                 <label for="password-confirm" class="control-label">Confirm password</label>
                 <input type="password" ng-model="data.passwordConfirm" class="form-control" name="password-confirm" />
             </div>
         </div>
         <div class="col-md-4">
-
+            <div class="form-info-plugin" ng-show="errorList.passwordConfirmation">
+                <p ng-repeat="message in errorList.passwordConfirmation">
+                    <span class="text-danger"><span class="glyphicon glyphicon-remove"></span> {{message}}</span>
+                </p>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -45,13 +49,17 @@
     </div>
     <div class="row">
         <div class="col-md-8">
-            <div class="form-group">
+            <div class="form-group" ng-class="{'has-error': errorList.emailConfirmation}">
                 <label for="email-confirm" class="control-label">Confirm email address</label>
                 <input type="text" ng-model="data.emailConfirm" class="form-control" name="email-confirm" />
             </div>
         </div>
         <div class="col-md-4">
-
+            <div class="form-info-plugin" ng-show="errorList.emailConfirmation">
+                <p ng-repeat="message in errorList.emailConfirmation">
+                    <span class="text-danger"><span class="glyphicon glyphicon-remove"></span> {{message}}</span>
+                </p>
+            </div>
         </div>
     </div>
     <div class="row">
