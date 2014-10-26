@@ -10,7 +10,11 @@ angular.module('sen.component.portal.create-account', [])
             page.setMenuItems(activeMenuItem.markItemAsActive(menuTemplates.portal, 1));
 
             $scope.createAccount = function () {
+                var validationErrors = {};
 
+                function handleError(errorList) {
+
+                }
             };
         }
     ]);

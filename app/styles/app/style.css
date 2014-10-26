@@ -4,6 +4,7 @@
  * This css file contains some customizations for twitter bootstrap
  * from the sententiaregum application
  */
+
 * {
     font-family: Tahoma, Verdana, "Helvetica", "Helvetica Neue", sans-serif;
 }
@@ -14,6 +15,7 @@
 
 body {
     background-color: #f8f8f8;
+    padding-top: 70px;
 }
 
 li {

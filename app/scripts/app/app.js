@@ -20,7 +20,7 @@ angular.module(
                 controller: 'sen-cmp-microblogging'
             })
             .when('/landing', {
-                templateUrl: '/views/sententiaregum/login.html',
+                templateUrl: '/views/sententiaregum/landing.html',
                 controller: 'sen-cmp-login'
             })
             .when('/create-account', {
