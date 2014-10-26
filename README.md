@@ -4,18 +4,18 @@ Sententiaregum
 [![Build Status](https://travis-ci.org/Ma27/SenNetwork.svg?branch=master)](https://travis-ci.org/Ma27/SenNetwork)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Ma27/SenNetwork/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Ma27/SenNetwork/?branch=master)
 
-Sententiaregum is free social network based on an angularjs one-page application. In the background runs a RESTful 
+Sententiaregum is free social network based on an AngularJS SPA (Single Page Application). In the background runs a RESTful 
 webservice based on Symfony 2.
 
 
 1) Install
 ----------
 
-Please install the software by the following commands
+Please install the software by the following shell commands
 
 Clone repository
 
-    git clone -b master https://github.com/Ma27/Sententiaregum.git /path/to/webroot
+    git clone -b master https://github.com/Ma27/SenNetwork.git /path/to/webroot
     cd /path/to/webroot
 
 Load Bower dependencies
