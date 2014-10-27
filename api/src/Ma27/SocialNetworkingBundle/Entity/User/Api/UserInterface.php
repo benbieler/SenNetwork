@@ -31,6 +31,11 @@ interface UserInterface extends AdvancedUserInterface
     public function getRegistrationDate();
 
     /**
+     * @return string
+     */
+    public function getRealName();
+
+    /**
      * @return \DateTime
      */
     public function getLastAction();

@@ -38,6 +38,15 @@ class UserRepository implements UserRepositoryInterface
     }
 
     /**
+     * @param string $email
+     * @return UserInterface
+     */
+    public function findByEmail($email)
+    {
+        return $this->findBy(['email' => (string) $email]);
+    }
+
+    /**
      * @param string $token
      * @return UserInterface
      */
@@ -127,6 +136,24 @@ class UserRepository implements UserRepositoryInterface
     }
 
     /**
+     * @param UserInterface $model
+     * @return mixed[]
+     */
+    protected function convertModelToRow(UserInterface $model)
+    {
+        return [
+            'user_id' => $model->getId(),
+            'username' => $model->getUsername(),
+            'password' => $model->getPassword(),
+            'realname' => $model->getRealName(),
+            'email' => $model->getEmail(),
+            'locked' => !$model->isAccountNonLocked(),
+            'registrationDate' => $model->getRegistrationDate()->format('Y-m-d H:i:s'),
+            'lastAction' => $model->getLastAction()->format('Y-m-d H:i:s')
+        ];
+    }
+
+    /**
      * @param string $token
      * @param integer $userId
      * @return boolean
@@ -140,5 +167,42 @@ class UserRepository implements UserRepositoryInterface
         } catch (\Exception $exception) {
             return false;
         }
+    }
+
+    /**
+     * @param string $username
+     * @param string $password
+     * @param string $email
+     * @param DateTime $registrationDate
+     * @param DateTime $lastAction
+     * @return UserInterface
+     */
+    public function create($username, $password, $email, DateTime $registrationDate, DateTime $lastAction = null)
+    {
+        $user = new User();
+        $user
+            ->setUsername($username)
+            ->setPassword($password)
+            ->setEmail($email)
+            ->setRegistrationDate($registrationDate);
+
+        if (null === $lastAction) {
+            $lastAction = new DateTime();
+        }
+        $user->setLastAction($lastAction);
+
+        $statement = $this->connection->prepare("SELECT MAX(user_id) FROM `se_users`");
+        $user->setId($statement->execute()->fetchColumn(PDO::FETCH_ASSOC));
+
+        return $user;
+    }
+
+    /**
+     * @param UserInterface $user
+     * @return integer
+     */
+    public function add(UserInterface $user)
+    {
+        return $this->connection->insert('se_users', $this->convertModelToRow($user));
     }
 }

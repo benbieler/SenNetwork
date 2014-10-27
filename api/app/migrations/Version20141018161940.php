@@ -22,7 +22,8 @@ class Version20141018161940 extends AbstractMigration
         $userTable->addColumn('registrationDate', Type::DATETIME);
         $userTable->addColumn('lastAction', Type::DATETIME);
         $userTable->setPrimaryKey(['user_id']);
-        $userTable->addUniqueIndex(['username', 'email']);
+        $userTable->addUniqueIndex(['username']);
+        $userTable->addUniqueIndex(['email']);
 
         $followerTable = $schema->createTable('se_followers');
         $followerTable->addColumn('user_id', Type::INTEGER);

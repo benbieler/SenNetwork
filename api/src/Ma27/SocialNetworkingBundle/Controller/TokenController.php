@@ -13,17 +13,17 @@ class TokenController
     /**
      * @var TokenInterface
      */
-    protected $tokenService;
+    private $tokenService;
 
     /**
      * @var UserProvider
      */
-    protected $userProvider;
+    private $userProvider;
 
     /**
      * @var PasswordHasherInterface
      */
-    protected $hasher;
+    private $hasher;
 
     /**
      * @param TokenInterface $token

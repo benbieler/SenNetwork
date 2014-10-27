@@ -1,6 +1,8 @@
 <?php
 namespace Ma27\SocialNetworkingBundle\Entity\User\Api;
 
+use DateTime;
+
 interface UserRepositoryInterface
 {
     /**
@@ -8,6 +10,12 @@ interface UserRepositoryInterface
      * @return UserInterface
      */
     public function findByName($name);
+
+    /**
+     * @param string $email
+     * @return UserInterface
+     */
+    public function findByEmail($email);
 
     /**
      * @param integer $userId
@@ -33,4 +41,20 @@ interface UserRepositoryInterface
      * @return boolean
      */
     public function storeToken($token, $userId);
+
+    /**
+     * @param string $username
+     * @param string $password
+     * @param string $email
+     * @param DateTime $registrationDate
+     * @param DateTime $lastAction
+     * @return UserInterface
+     */
+    public function create($username, $password, $email, DateTime $registrationDate, DateTime $lastAction = null);
+
+    /**
+     * @param UserInterface $user
+     * @return integer
+     */
+    public function add(UserInterface $user);
 }
