@@ -21,7 +21,7 @@ webservice based on Symfony 2.
 ### Current ToDo
 
    - Test registration controller action with PHPSpec
-   - Create registration route
+   - ~~Create registration route~~
    - Finish Angular registration code
    - Implement "create admin account" command
 

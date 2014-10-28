@@ -4,7 +4,11 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
-    <route id="ma27_social_networking_homepage" path="/request-token" methods="POST">
+    <route id="ma27_social_networking_request-token" path="/request-token" methods="POST">
         <default key="_controller">ma27.token.controller:requestTokenAction</default>
+    </route>
+
+    <route id="ma27_social_networking_create-account" path="/create-account" methods="POST">
+        <default key="_controller">ma27.account.controller:createAccountAction</default>
     </route>
 </routes>
