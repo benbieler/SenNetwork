@@ -23,6 +23,7 @@ webservice based on Symfony 2.
    - Test registration controller action with PHPSpec
    - Create registration route
    - Finish Angular registration code
+   - Implement "create admin account" command
 
 2) Install
 ----------
@@ -78,7 +79,16 @@ See also:
 
 [Browsers supporting WebSockets](http://caniuse.com/#feat=websockets)
 
-4) Run tests
+
+4) LICENSE
+----------
+
+This software is published under the GPL LICENSE
+
+Check out the [LICENSE](https://github.com/Ma27/SenNetwork/blob/master/LICENSE) file in the document root
+
+
+5) Run tests
 ------------
 
 In order to run the behavior tests of this application, you have to install the dev dependencies during the composer 
