@@ -9,6 +9,11 @@
     font-family: Tahoma, Verdana, "Helvetica", "Helvetica Neue", sans-serif;
 }
 
+/** col-md-offset-* does not work on twitter bootstrap properly */
+html {
+    overflow-x: hidden;
+}
+
 *:focus {
     outline: none;
 }
