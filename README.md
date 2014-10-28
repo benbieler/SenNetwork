@@ -83,7 +83,7 @@ See also:
 4) LICENSE
 ----------
 
-This software is published under the GPL LICENSE
+This software is published under the GPL license
 
 Check out the [LICENSE](https://github.com/Ma27/SenNetwork/blob/master/LICENSE) file in the document root
 

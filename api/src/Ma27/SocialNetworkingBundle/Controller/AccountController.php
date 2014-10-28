@@ -52,7 +52,7 @@ class AccountController
                 $request->attributes->get('password')
             ),
             $request->attributes->get('email'),
-            $request->attributes->get('registrationDate')
+            new \DateTime()
         );
 
         $errors = [];
