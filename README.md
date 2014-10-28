@@ -20,6 +20,9 @@ webservice based on Symfony 2.
 
 ### Current ToDo
 
+   - According to [First experiences with BDD](http://www.youtube.com/watch?v=TrlQ7oWsXnk) the test suites should be refactored:
+      - Create a project-wide suite with Behat, which is kernel and container aware
+      - Create an object-wide suite with PHPSPec to test the behavior of the services, controllers and maybe domain logic (if the domain logic is complex enough)
    - Test registration controller action with PHPSpec
    - ~~Create registration route~~
    - Finish Angular registration code
