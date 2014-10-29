@@ -23,7 +23,7 @@ script:
   - bin/behat
 
 after_script:
-  - php app/console doctrine:migrations:version 20141018161940 --delete
+  - php app/console doctrine:migrations:version 20141018161940 --delete --no-interaction
 
 matrix:
   allow_failures:
