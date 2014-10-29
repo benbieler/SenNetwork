@@ -3,7 +3,6 @@ namespace Ma27\SocialNetworkingBundle\Service;
 
 use Ma27\SocialNetworkingBundle\Entity\User\Api\UserRepositoryInterface;
 use Ma27\SocialNetworkingBundle\Service\Api\TokenInterface;
-use Symfony\Component\Security\Core\Util\SecureRandom;
 
 class Token implements TokenInterface
 {
@@ -25,30 +24,30 @@ class Token implements TokenInterface
      */
     public function generateToken()
     {
-        $generator = new SecureRandom();
-        return $generator->nextBytes(255);
+        // use sensio distribution bundle implementation
+        return hash('sha1', uniqid(mt_rand(), true));
     }
 
     /**
-     * @param string $token
      * @param integer $id
-     * @return boolean
+     * @return string
      * @throws \OverflowException
      */
-    public function storeToken($token, $id)
+    public function storeToken($id)
     {
         $count = 0;
-        $max = 20;
+        $max = 25;
 
         do {
             if ($count === $max) {
                 throw new \OverflowException('Too many loops!');
             }
 
+            $token = $this->generateToken();
             $result = $this->userRepository->storeToken($token, $id);
             $count++;
         } while (!$result);
 
-        return true;
+        return $token;
     }
 }

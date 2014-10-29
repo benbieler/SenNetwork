@@ -56,10 +56,9 @@ class TokenController
             return $this->createLockedAccountException();
         }
 
-        $apiToken = $this->tokenService->generateToken();
-        $this->tokenService->storeToken($apiToken, $username->getId());
+        $token = $this->tokenService->storeToken($username->getId());
 
-        return new JsonResponse(['token' => $apiToken]);
+        return new JsonResponse(['token' => $token]);
     }
 
     /**

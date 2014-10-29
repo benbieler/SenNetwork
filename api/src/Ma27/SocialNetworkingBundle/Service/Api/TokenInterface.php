@@ -9,10 +9,8 @@ interface TokenInterface
     public function generateToken();
 
     /**
-     * @param $token
      * @param $id
-     * @return boolean
+     * @return string
      */
-    public function storeToken($token, $id);
+    public function storeToken($id);
 }
- 

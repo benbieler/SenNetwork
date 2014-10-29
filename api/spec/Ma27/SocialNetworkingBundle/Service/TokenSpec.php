@@ -8,34 +8,32 @@ use Prophecy\Argument;
 
 class TokenSpec extends ObjectBehavior
 {
-    function it_is_initializable(UserRepositoryInterface $userRepository)
+    function let(UserRepositoryInterface $userRepository)
     {
         $this->beConstructedWith($userRepository);
+    }
+
+    function it_is_initializable()
+    {
         $this->shouldHaveType('Ma27\SocialNetworkingBundle\Service\Token');
     }
 
-    function it_generates_an_secure_token(
-        UserRepositoryInterface $userRepositoryInterface
-    ) {
-        $this->beConstructedWith($userRepositoryInterface);
+    function it_generates_an_secure_api_token()
+    {
         $this->generateToken()->shouldBeString();
     }
 
-    function it_does_not_store_token_in_case_of_repository_failure(
-        UserRepositoryInterface $userRepositoryInterface
-    ) {
-        $userRepositoryInterface->storeToken('s3cr3t token', 1)->willReturn(false);
+    function it_throws_an_exception_if_the_token_cannot_be_stored(UserRepositoryInterface $userRepo)
+    {
+        $userRepo->storeToken(Argument::any(), 1)->willReturn(false);
 
-        $this->beConstructedWith($userRepositoryInterface);
-        $this->shouldThrow(\OverflowException::class)->duringStoreToken('s3cr3t token', 1);
+        $this->shouldThrow(new \OverflowException('Too many loops!'))->duringStoreToken(1);
     }
 
-    function it_stores_token_in_the_repository(
-        UserRepositoryInterface $userRepositoryInterface
-    ) {
-        $userRepositoryInterface->storeToken('s3cr3t token', 1)->willReturn(true);
+    function it_stores_to_the_token_in_the_database(UserRepositoryInterface $userRepository)
+    {
+        $userRepository->storeToken(Argument::any(), 1)->willReturn(true);
 
-        $this->beConstructedWith($userRepositoryInterface);
-        $this->storeToken('s3cr3t token', 1)->shouldBe(true);
+        $this->storeToken(1)->shouldBeString();
     }
 }

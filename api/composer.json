@@ -4,7 +4,7 @@
     "type": "project",
     "description": "The webservice api of sententiaregum",
     "autoload": {
-        "psr-0": { "": "src/" }
+        "psr-0": { "": ["src/", "features/bootstrap/"] }
     },
     "authors": [
         {
@@ -29,7 +29,9 @@
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
-        "phpspec/phpspec": "~2.0"
+        "phpspec/phpspec": "~2.0",
+        "behat/behat": "~3.0",
+        "phpunit/phpunit": "~4.3"
     },
     "scripts": {
         "post-install-cmd": [

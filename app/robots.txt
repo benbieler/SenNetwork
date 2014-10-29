@@ -1,2 +1,3 @@
 User-agent: *
-# sitemap: http://sententiaregum.dev/sitemap.xml
+Disallow: /api
+# Sitemap: http://sententiaregum.dev/sitemap.xml

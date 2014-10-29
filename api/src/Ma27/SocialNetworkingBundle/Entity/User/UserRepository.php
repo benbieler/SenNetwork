@@ -103,7 +103,7 @@ class UserRepository implements UserRepositoryInterface
     {
         $qB = $this->connection->createQueryBuilder()
             ->select('r.role_alias')
-            ->from('se_user_role', 'u')
+            ->from('se_user_role', 'r')
             ->where('user_id = :id')
             ->setParameter(':id', $userId);
 
@@ -161,7 +161,7 @@ class UserRepository implements UserRepositoryInterface
     public function storeToken($token, $userId)
     {
         try {
-            $this->connection->insert('se_user_token', ['user_id' => $token, 'token' => $token]);
+            $this->connection->insert('se_user_token', ['user_id' => $userId, 'token' => $token]);
 
             return true;
         } catch (\Exception $exception) {
@@ -191,8 +191,8 @@ class UserRepository implements UserRepositoryInterface
         }
         $user->setLastAction($lastAction);
 
-        $statement = $this->connection->prepare("SELECT MAX(user_id) FROM `se_users`");
-        $user->setId($statement->execute()->fetchColumn(PDO::FETCH_ASSOC));
+        // set an empty string as realname to avoid problems with the database
+        $user->setRealName('');
 
         return $user;
     }
@@ -204,5 +204,30 @@ class UserRepository implements UserRepositoryInterface
     public function add(UserInterface $user)
     {
         return $this->connection->insert('se_users', $this->convertModelToRow($user));
+    }
+
+    /**
+     * @return void
+     */
+    public function flush()
+    {
+        foreach (['se_user_token', 'se_user_role', 'se_users'] as $table) {
+            $this->connection->exec("DELETE FROM `" . $table . "`");
+        }
+    }
+
+    /**
+     * @param integer $userId
+     * @return string
+     */
+    public function findApiTokenByUserId($userId)
+    {
+        $qB = $this->connection->createQueryBuilder()
+            ->select('t.token')
+            ->from('se_user_token', 't')
+            ->where('user_id = :id')
+            ->setParameter(':id', $userId);
+
+        return $qB->execute()->fetchColumn();
     }
 }

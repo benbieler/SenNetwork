@@ -16,16 +16,17 @@ webservice based on Symfony 2.
    - An Angular SPA application with a RESTful webservice
    - Extended bootstrap layout
    - Login and Registration interface
-   - Features tested with PHPSpec
+   - Features tests suites with PHPSpec and Behat
 
 ### Current ToDo
 
-   - According to [First experiences with BDD](http://www.youtube.com/watch?v=TrlQ7oWsXnk) the test suites should be refactored _(in progress)_:
-      - Create a project-wide suite with Behat, which is kernel and container aware
-      - Create an object-wide suite with PHPSPec to test the behavior of the services, controllers and maybe domain logic (if the domain logic is complex enough)
+   - ~~According to [First experiences with BDD](http://www.youtube.com/watch?v=TrlQ7oWsXnk) the test suites should be refactored:~~
+      - ~~Create a project-wide suite with Behat, which is kernel and container aware~~
+      - ~~Create an object-wide suite with PHPSPec to test the behavior of the services, controllers and maybe domain logic (if the domain logic is complex enough)~~
    - Test registration controller action with PHPSpec
    - ~~Create registration route~~
    - Finish Angular registration code
+   - "Captcha" for the registration rest api
    - Implement "create admin account" command
 
 2) Install
@@ -86,7 +87,7 @@ See also:
 4) LICENSE
 ----------
 
-This software is published under the GPL license
+This software is published under GPL license
 
 Check out the [LICENSE](https://github.com/Ma27/SenNetwork/blob/master/LICENSE) file in the document root
 
@@ -99,7 +100,8 @@ install. This works like this:
 
     composer install -d api
     
-Now you can run the PHPSpec test suite:
+Now you can run the PHPSpec and Behat test suite:
 
     cd api
     bin/phpspec run
+    bin/behat

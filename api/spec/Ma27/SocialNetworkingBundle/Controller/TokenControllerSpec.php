@@ -2,12 +2,10 @@
 
 namespace spec\Ma27\SocialNetworkingBundle\Controller;
 
-use Ma27\SocialNetworkingBundle\Controller\AccountController;
-use Ma27\SocialNetworkingBundle\Entity\User\Api\UserRepositoryInterface;
 use Ma27\SocialNetworkingBundle\Entity\User\User;
 use Ma27\SocialNetworkingBundle\Security\UserProvider;
-use Ma27\SocialNetworkingBundle\Service\Token;
-use Ma27\SocialNetworkingBundle\Util\PasswordHasher;
+use Ma27\SocialNetworkingBundle\Service\Api\TokenInterface;
+use Ma27\SocialNetworkingBundle\Util\Api\PasswordHasherInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -15,33 +13,19 @@ use Symfony\Component\HttpFoundation\Request;
 
 class TokenControllerSpec extends ObjectBehavior
 {
-    function it_returns_unauthorized_if_the_credentials_cannot_be_loaded(UserRepositoryInterface $userRepository, Token $token)
+    function let(TokenInterface $token, UserProvider $userProvider, PasswordHasherInterface $hasher)
     {
-        $hasher = new PasswordHasher();
-        $userRepository->findByName('undefined')->shouldBeCalled();
-        $this->beConstructedWith($token, new UserProvider($userRepository->getWrappedObject()), $hasher);
-
-        $request = Request::create('/');
-        $request->attributes->set('username', 'undefined');
-        $result = $this->requestTokenAction($request);
-
-        $result->shouldBeAnInstanceOf(JsonResponse::class);
-        $result->getStatusCode()->shouldBe(401);
-        $result->getContent()->shouldHasCredentialsError();
+        $this->beConstructedWith($token, $userProvider, $hasher);
     }
 
-    function it_creates_and_returns_valid_token(UserRepositoryInterface $userRepository, Token $token)
+    function it_is_initializable()
     {
-        $hasher = new PasswordHasher();
+        $this->shouldHaveType('Ma27\SocialNetworkingBundle\Controller\TokenController');
+    }
 
-        $userRepository->findByName('Ma27')->willReturn($this->getMockUser());
-
-        $token->storeToken(Argument::any(), Argument::any())->willReturn(true);
-        $token->generateToken()->willReturn($this->getRandomToken());
-
-        $userProvider = new UserProvider($userRepository->getWrappedObject());
-
-        $this->beConstructedWith($token, $userProvider, $hasher);
+    function it_validates_the_credentials_and_can_return_errors(UserProvider $userProvider)
+    {
+        $userProvider->loadUserByUsername('Ma27')->shouldBeCalled();
 
         $request = Request::create('/');
         $request->attributes->set('username', 'Ma27');
@@ -49,47 +33,84 @@ class TokenControllerSpec extends ObjectBehavior
         $result = $this->requestTokenAction($request);
 
         $result->shouldBeAnInstanceOf(JsonResponse::class);
-        $result->getStatusCode()->shouldBe(200);
-        $result->getContent()->shouldHaveValidToken();
+        $result->shouldHasCredentialFailure();
+    }
+
+    function it_refuses_locked_accounts(UserProvider $userProvider, PasswordHasherInterface $hasher)
+    {
+        $userProvider->loadUserByUsername('Ma27')->willReturn($this->createLockedDummyUser());
+        $hasher->verify('123456', '123456')->willReturn(true);
+
+        $request = Request::create('/');
+        $request->attributes->set('username', 'Ma27');
+        $request->attributes->set('password', '123456');
+        $result = $this->requestTokenAction($request);
+
+        $result->shouldBeAnInstanceOf(JsonResponse::class);
+        $result->shouldBeLocked();
+    }
+
+    function it_generates_an_api_token_for_verified_credentials(UserProvider $userProvider, PasswordHasherInterface $hasher, TokenInterface $token)
+    {
+        $userProvider->loadUserByUsername('Ma27')->willReturn($this->createDummyUser());
+        $hasher->verify('123456', '123456')->willReturn(true);
+        $token->storeToken(1)->willReturn(true);
+
+        $request = Request::create('/');
+        $request->attributes->set('username', 'Ma27');
+        $request->attributes->set('password', '123456');
+        $result = $this->requestTokenAction($request);
+
+        $result->shouldBeAnInstanceOf(JsonResponse::class);
+        $result->shouldContainApiToken();
     }
 
     public function getMatchers()
     {
         return [
-            'hasCredentialsError' => function ($subject) {
-                $data = json_decode($subject, true);
-                if (!isset($data['errors'])) {
+            'hasCredentialFailure' => function ($result) {
+                $content = $result->getContent();
+                $subject = json_decode($content, true);
+
+                if (!isset($subject['errors'])) {
                     return false;
                 }
 
-                return $data['errors'] === array('Invalid credentials');
+                return in_array('Invalid credentials', $subject['errors']);
             },
-            'haveValidToken' => function ($subject) {
-                $token = json_decode($subject, true)['token'];
-                return strlen($token) === 255;
+            'beLocked' => function ($result) {
+                $content = $result->getContent();
+                $subject = json_decode($content, true);
+
+                if (!isset($subject['errors'])) {
+                    return false;
+                }
+
+                return in_array('This account is locked', $subject['errors']);
+            },
+            'containApiToken' => function ($result) {
+                $content = $result->getContent();
+                $subject = json_decode($content, true);
+
+                return array_key_exists('token', $subject);
             }
         ];
     }
 
-    private function getMockUser()
+    private function createLockedDummyUser()
     {
         return (new User())
             ->setId(1)
             ->setUsername('Ma27')
-            ->setPassword((new PasswordHasher())->create('123456'));
+            ->setPassword('123456')
+            ->setLocked(true);
     }
 
-    private function getRandomToken()
+    private function createDummyUser()
     {
-        $pool = 'abcdefghijklmnopqrstuvwxyz123456789';
-        $string = (string) '';
-        $split = str_split($pool);
-        $availableChars = count($split) - 1;
-
-        for ($i = 0; $i < 255; $i++) {
-            $string .= $split[mt_rand(0, $availableChars)];
-        }
-
-        return $string;
+        return (new User())
+            ->setId(1)
+            ->setUsername('Ma27')
+            ->setPassword('123456');
     }
 }

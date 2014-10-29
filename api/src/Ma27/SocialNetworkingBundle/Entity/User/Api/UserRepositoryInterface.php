@@ -57,4 +57,15 @@ interface UserRepositoryInterface
      * @return integer
      */
     public function add(UserInterface $user);
+
+    /**
+     * @return void
+     */
+    public function flush();
+
+    /**
+     * @param integer $userId
+     * @return string
+     */
+    public function findApiTokenByUserId($userId);
 }
