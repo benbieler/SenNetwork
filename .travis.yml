@@ -11,6 +11,7 @@ before_script:
   - php api/app/check.php
   - mysql -e "CREATE DATABASE IF NOT EXISTS symfony;" -u root
   - echo "use mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user = 'root';\nFLUSH PRIVILEGES;\n" | mysql -u root
+  - cd api
   - php app/console doctrine:migrations:migrate --no-interaction
 
 services:
