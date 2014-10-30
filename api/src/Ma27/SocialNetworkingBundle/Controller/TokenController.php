@@ -3,7 +3,7 @@
 namespace Ma27\SocialNetworkingBundle\Controller;
 
 use Ma27\SocialNetworkingBundle\Security\UserProvider;
-use Ma27\SocialNetworkingBundle\Service\Api\TokenInterface;
+use Ma27\SocialNetworkingBundle\Security\Api\TokenInterface;
 use Ma27\SocialNetworkingBundle\Util\Api\PasswordHasherInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

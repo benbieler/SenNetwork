@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Ma27\SocialNetworkingBundle\Service;
+namespace spec\Ma27\SocialNetworkingBundle\Security;
 
 use Ma27\SocialNetworkingBundle\Entity\User\Api\UserRepositoryInterface;
 use PhpSpec\ObjectBehavior;
@@ -15,7 +15,7 @@ class TokenSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Ma27\SocialNetworkingBundle\Service\Token');
+        $this->shouldHaveType('Ma27\SocialNetworkingBundle\Security\Token');
     }
 
     function it_generates_an_secure_api_token()

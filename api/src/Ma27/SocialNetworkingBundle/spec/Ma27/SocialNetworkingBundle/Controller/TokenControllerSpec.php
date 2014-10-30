@@ -4,7 +4,7 @@ namespace spec\Ma27\SocialNetworkingBundle\Controller;
 
 use Ma27\SocialNetworkingBundle\Entity\User\User;
 use Ma27\SocialNetworkingBundle\Security\UserProvider;
-use Ma27\SocialNetworkingBundle\Service\Api\TokenInterface;
+use Ma27\SocialNetworkingBundle\Security\Api\TokenInterface;
 use Ma27\SocialNetworkingBundle\Util\Api\PasswordHasherInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;

@@ -1,5 +1,5 @@
 <?php
-namespace Ma27\SocialNetworkingBundle\Service\Api;
+namespace Ma27\SocialNetworkingBundle\Security\Api;
 
 interface TokenInterface
 {

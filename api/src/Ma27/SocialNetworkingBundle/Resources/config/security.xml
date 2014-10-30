@@ -30,7 +30,7 @@
             <argument type="service" id="ma27.security.user_provider" />
         </service>
 
-        <service id="ma27.security.token" class="Ma27\SocialNetworkingBundle\Service\Token">
+        <service id="ma27.security.token" class="Ma27\SocialNetworkingBundle\Security\Token">
             <argument type="service" id="ma27.user.repository" />
         </service>
 

@@ -1,8 +1,8 @@
 <?php
-namespace Ma27\SocialNetworkingBundle\Service;
+namespace Ma27\SocialNetworkingBundle\Security;
 
 use Ma27\SocialNetworkingBundle\Entity\User\Api\UserRepositoryInterface;
-use Ma27\SocialNetworkingBundle\Service\Api\TokenInterface;
+use Ma27\SocialNetworkingBundle\Security\Api\TokenInterface;
 
 class Token implements TokenInterface
 {
