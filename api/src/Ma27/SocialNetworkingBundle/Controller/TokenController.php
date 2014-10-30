@@ -45,15 +45,15 @@ class TokenController
     {
         $username = $this->userProvider->loadUserByUsername($request->attributes->get('username'));
         if (null === $username) {
-            return $this->createInvalidCredentialsException();
+            return $this->createInvalidCredentialsResponse();
         }
 
         if (!$this->hasher->verify($request->attributes->get('password'), $username->getPassword())) {
-            return $this->createInvalidCredentialsException();
+            return $this->createInvalidCredentialsResponse();
         }
 
         if (false === $username->isAccountNonLocked()) {
-            return $this->createLockedAccountException();
+            return $this->createLockedAccountResponse();
         }
 
         $token = $this->tokenService->storeToken($username->getId());
@@ -64,7 +64,7 @@ class TokenController
     /**
      * @return JsonResponse
      */
-    private function createInvalidCredentialsException()
+    private function createInvalidCredentialsResponse()
     {
         return new JsonResponse(['errors' => ['Invalid credentials']], 401);
     }
@@ -72,7 +72,7 @@ class TokenController
     /**
      * @return JsonResponse
      */
-    private function createLockedAccountException()
+    private function createLockedAccountResponse()
     {
         return new JsonResponse(['errors' => ['This account is locked']], 401);
     }

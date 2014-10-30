@@ -6,6 +6,7 @@ use Behat\Behat\Context\Context as BehatContext;
 use Behat\Behat\Context\SnippetAcceptingContext;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
+use Ma27\SocialNetworkingBundle\FeatureContext\Exception\IllegalDatabaseConnectionException;
 
 require_once __DIR__ . '/../../../../../app/AppKernel.php';
 
@@ -22,7 +23,7 @@ abstract class Context implements BehatContext, SnippetAcceptingContext
 
         $dbConnection = $this->container->get('database_connection');
         if (!$dbConnection instanceof Connection) {
-            throw new \RuntimeException('Service database_connection must be an instance of ' . Connection::class);
+            throw new IllegalDatabaseConnectionException;
         }
 
         $params = $dbConnection->getParams();
