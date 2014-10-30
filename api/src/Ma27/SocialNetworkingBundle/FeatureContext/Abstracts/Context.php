@@ -2,12 +2,14 @@
 namespace Ma27\SocialNetworkingBundle\FeatureContext\Abstracts;
 
 use AppKernel;
+use Behat\Behat\Context\Context as BehatContext;
+use Behat\Behat\Context\SnippetAcceptingContext;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
 
-require_once __DIR__ . '/../../../../../../app/AppKernel.php';
+require_once __DIR__ . '/../../../../../app/AppKernel.php';
 
-abstract class Context
+abstract class Context implements BehatContext, SnippetAcceptingContext
 {
     protected $container;
 

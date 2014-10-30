@@ -2,8 +2,6 @@
 
 namespace Ma27\SocialNetworkingBundle\FeatureContext;
 
-use Behat\Behat\Context\Context;
-use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Gherkin\Node\TableNode;
 use Ma27\SocialNetworkingBundle\FeatureContext\Abstracts\Context as AbstractContext;
 use Ma27\SocialNetworkingBundle\FeatureContext\Helper\TokenHelper;
@@ -12,7 +10,7 @@ use PHPUnit_Framework_Assert as Test;
 /**
  * Defines application features from the specific context.
  */
-class TokenContext extends AbstractContext implements Context, SnippetAcceptingContext
+class TokenContext extends AbstractContext
 {
     /**
      * @var TokenHelper

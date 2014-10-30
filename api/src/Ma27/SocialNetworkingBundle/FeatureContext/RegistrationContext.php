@@ -2,15 +2,14 @@
 
 namespace Ma27\SocialNetworkingBundle\FeatureContext;
 
-use Behat\Behat\Context\Context;
-use Behat\Behat\Context\SnippetAcceptingContext;
+use Ma27\SocialNetworkingBundle\FeatureContext\Abstracts\Context;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 
 /**
  * Defines application features from the specific context.
  */
-class RegistrationContext implements Context, SnippetAcceptingContext
+class RegistrationContext extends Context
 {
     /**
      * Initializes context.
