@@ -1,13 +1,12 @@
-main () {
+#!/bin/sh
+
+main() {
     echo "In order to run setup, please check out, that you have the following programms installed:" && \
     echo " - Composer" && \
     echo " - PHP executable" && \
     echo " - Bower" && \
 
-    if [[ $# =~ "--no-interruption" ]]
-        then
-        read -p "After checking out, please press any key to continue... "
-    fi
+    read -p "After checking out, please press any key to continue... "
 
     setup
 }
