@@ -4,7 +4,11 @@ main () {
     echo " - PHP executable" && \
     echo " - Bower" && \
 
-    read -p "After checking out, please press any key to continue... "
+    if [[ $# =~ "--no-interruption" ]]
+        then
+        read -p "After checking out, please press any key to continue... "
+    fi
+
     setup
 }
 
