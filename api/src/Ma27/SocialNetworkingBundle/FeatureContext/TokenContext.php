@@ -58,6 +58,7 @@ class TokenContext extends AbstractContext
     public function setUpScenario()
     {
         $this->dummyUser = $this->tokenHelper->createDummyUser();
+        $this->tokenHelper->createLockedDummyAccount();
     }
 
     /** @AfterScenario */

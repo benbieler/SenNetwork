@@ -48,9 +48,10 @@ interface UserRepositoryInterface
      * @param string $email
      * @param DateTime $registrationDate
      * @param DateTime $lastAction
+     * @param boolean $locked
      * @return UserInterface
      */
-    public function create($username, $password, $email, DateTime $registrationDate, DateTime $lastAction = null);
+    public function create($username, $password, $email, DateTime $registrationDate, DateTime $lastAction = null, $locked = false);
 
     /**
      * @param UserInterface $user

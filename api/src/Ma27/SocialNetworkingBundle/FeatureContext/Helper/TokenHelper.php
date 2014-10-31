@@ -43,6 +43,21 @@ class TokenHelper
         return $this->userRepo->findByName('Ma27');
     }
 
+    public function createLockedDummyAccount()
+    {
+        $user = $this->userRepo->create(
+            'locked',
+            $this->hasher->create('123456'),
+            'locked@example.org',
+            new \DateTime(),
+            new \DateTime(),
+            true
+        );
+
+        $this->userRepo->add($user);
+        return $this->userRepo->findByName('locked');
+    }
+
     public function flush()
     {
         $this->userRepo->flush();

@@ -14,3 +14,9 @@ Feature: request api token
       | Ma27     | foobar   |
     Then I should have an api token
     And the token should be stored in the database
+
+  Scenario: login with locked credentials
+    When I send a token request with the following credentials:
+      | username | password |
+      | locked   | 123456   |
+    Then I should see "This account is locked"
