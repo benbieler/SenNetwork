@@ -4,9 +4,9 @@ before_commands:
 
 filter:
     excluded_paths:
-        - api/src/Ma27/SocialNetworkingBundle/spec/
+        - api/src/Sententiaregum/Bundle/UserBundle/spec/
         - api/app/
-        - api/src/Ma27/SocialNetworkingBundle/FeatureContext/
+        - api/src/Sententiaregum/Bundle/UserBundle/FeatureContext/
 
 tools:
     php_code_sniffer:
