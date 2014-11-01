@@ -81,16 +81,7 @@ class AccountController
             $messages['email'] = ['Email already in use'];
         }
 
-        return $this->finishRegistration(array_merge_recursive($messages, $errors), $user);
-    }
-
-    /**
-     * @param string[] $errors
-     * @param UserInterface $user
-     * @return JsonResponse
-     */
-    private function finishRegistration(array $errors, UserInterface $user)
-    {
+        $errors = array_merge_recursive($messages, $errors);
         if (count($errors) > 0) {
             return new JsonResponse(['errors' => $errors]);
         }
