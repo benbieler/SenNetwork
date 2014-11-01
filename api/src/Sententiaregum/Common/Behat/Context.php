@@ -7,7 +7,7 @@ use Behat\Behat\Context\Context as BehatContext;
 use Behat\Behat\Context\SnippetAcceptingContext;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
-use Sententiaregum\Bundle\UserBundle\FeatureContext\Exception\IllegalDatabaseConnectionException;
+use Sententiaregum\Common\Exception\IllegalDatabaseConnectionException;
 
 require_once __DIR__ . '/../../../../app/AppKernel.php';
 

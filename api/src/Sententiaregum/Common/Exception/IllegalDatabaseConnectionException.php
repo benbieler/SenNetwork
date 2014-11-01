@@ -1,6 +1,6 @@
 <?php
 
-namespace Sententiaregum\Bundle\UserBundle\FeatureContext\Exception;
+namespace Sententiaregum\Common\Exception;
 
 class IllegalDatabaseConnectionException extends \LogicException
 {
