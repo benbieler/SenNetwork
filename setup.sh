@@ -6,7 +6,7 @@ main() {
     echo " - PHP executable" && \
     echo " - Bower" && \
 
-    read -p "After checking out, please press any key to continue... "
+    read -p "After checking out, please press enter to continue... "
 
     setup
 }
