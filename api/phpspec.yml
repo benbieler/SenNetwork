@@ -1,7 +1,7 @@
 formatter.name: pretty
 
 suites:
-    sententiaregum:
-        namespace: Ma27
+    sententiaregum_user:
+        namespace: Sententiaregum
         spec_prefix: spec
-        spec_path: src/Ma27/SocialNetworkingBundle/
+        spec_path: src/Sententiaregum/Bundle/UserBundle

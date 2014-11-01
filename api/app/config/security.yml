@@ -8,7 +8,7 @@ security:
             pattern: ^/api/network
             stateless: true
             simple_preauth:
-                authenticator: ma27.security.api_key_auth
+                authenticator: sen.security.api_key_auth
 
     access_control:
         - { path: ^/api/network, roles: ROLE_USER }

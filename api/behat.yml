@@ -4,11 +4,11 @@ default:
     suites:
         default:
             contexts:
-                - Ma27\SocialNetworkingBundle\FeatureContext\RegistrationContext:
+                - Sententiaregum\Bundle\UserBundle\FeatureContext\RegistrationContext:
                     databaseName: symfony
                     databaseUser: root
                     databasePassword: root
-                - Ma27\SocialNetworkingBundle\FeatureContext\TokenContext:
+                - Sententiaregum\Bundle\UserBundle\FeatureContext\TokenContext:
                     databaseName: symfony
                     databaseUser: root
                     databasePassword: root

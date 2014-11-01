@@ -1,5 +1,7 @@
-ma27_social_networking:
-    resource: "@Ma27SocialNetworkingBundle/Resources/config/routing/routing.xml"
+sententiaregum_microblogging:
+    resource: "@SententiaregumMicrobloggingBundle/Resources/config/routing.xml"
+    prefix:   /api/network
+
+sententiaregum_user:
+    resource: "@SententiaregumUserBundle/Resources/config/routing/routing.xml"
     prefix:   /api
-
-

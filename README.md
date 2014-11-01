@@ -73,6 +73,12 @@ Flush redis cache
 
     php app/console redis:flush
 
+### Shortcut
+
+You could ran the install commands by executing the following command after cloning of this repository
+
+    ./setup.sh
+
 
 3) Check requirements:
 ----------------------

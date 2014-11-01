@@ -25,4 +25,4 @@
 /.metadata/
 
 # Bower
-/app/bower_components/
+/app/vendor/
