@@ -2,13 +2,20 @@ default:
     formatters:
         pretty: true
     suites:
-        default:
+        createAccount:
             contexts:
                 - Sententiaregum\Bundle\UserBundle\FeatureContext\RegistrationContext:
                     databaseName: symfony
                     databaseUser: root
                     databasePassword: root
+            filters:
+                tags: "@createAccount"
+
+        requestToken:
+            contexts:
                 - Sententiaregum\Bundle\UserBundle\FeatureContext\TokenContext:
                     databaseName: symfony
                     databaseUser: root
                     databasePassword: root
+            filters:
+                tags: "@requestToken"

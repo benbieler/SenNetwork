@@ -3,6 +3,7 @@
 namespace Sententiaregum\Bundle\UserBundle\Entity\Api;
 
 use DateTime;
+use Sententiaregum\Bundle\UserBundle\Entity\User;
 
 interface UserRepositoryInterface
 {
@@ -50,7 +51,7 @@ interface UserRepositoryInterface
      * @param DateTime $registrationDate
      * @param DateTime $lastAction
      * @param boolean $locked
-     * @return UserInterface
+     * @return User
      */
     public function create($username, $password, $email, DateTime $registrationDate, DateTime $lastAction = null, $locked = false);
 

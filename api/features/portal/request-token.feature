@@ -1,3 +1,4 @@
+@requestToken
 Feature: request api token
   In order to access the api, an api token is required, which should be
   requestable on the server

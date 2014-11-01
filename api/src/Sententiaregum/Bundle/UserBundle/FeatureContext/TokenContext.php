@@ -3,7 +3,7 @@
 namespace Sententiaregum\Bundle\UserBundle\FeatureContext;
 
 use Behat\Gherkin\Node\TableNode;
-use Sententiaregum\Bundle\UserBundle\FeatureContext\Abstracts\Context;
+use Sententiaregum\Common\Behat\Context;
 use Sententiaregum\Bundle\UserBundle\FeatureContext\Helper\TokenHelper;
 use PHPUnit_Framework_Assert as Test;
 

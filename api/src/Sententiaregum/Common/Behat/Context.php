@@ -1,15 +1,15 @@
 <?php
 
-namespace Sententiaregum\Bundle\UserBundle\FeatureContext\Abstracts;
+namespace Sententiaregum\Common\Behat;
 
 use AppKernel;
 use Behat\Behat\Context\Context as BehatContext;
 use Behat\Behat\Context\SnippetAcceptingContext;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
-use Ma27\SocialNetworkingBundle\FeatureContext\Exception\IllegalDatabaseConnectionException;
+use Sententiaregum\Bundle\UserBundle\FeatureContext\Exception\IllegalDatabaseConnectionException;
 
-require_once __DIR__ . '/../../../../../../app/AppKernel.php';
+require_once __DIR__ . '/../../../../app/AppKernel.php';
 
 abstract class Context implements BehatContext, SnippetAcceptingContext
 {

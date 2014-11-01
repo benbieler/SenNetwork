@@ -4,7 +4,7 @@
                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                     xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
 
-    <class name="Ma27\SocialNetworkingBundle\Entity\User\User">
+    <class name="Sententiaregum\Bundle\UserBundle\Entity\User">
         <property name="username">
             <constraint name="NotBlank">
                 <option name="message">Username must contain a minimum of three characters</option>
@@ -16,13 +16,13 @@
                 <option name="maxMessage">Username can contain a maximum of 32 characters only</option>
             </constraint>
             <constraint name="Regex">
-                <option name="pattern">/^[A-z0-9_\-\.]+$/i</option>
-                <option name="message">Username can contain alphanumeric characters and the chars "_, ., -" only</option>
+                <option name="pattern">/^[A-zäöüÄÖÜß0-9_\-\.]+$/i</option>
+                <option name="message">Username can contain alphanumeric characters and the chars _, . and - only</option>
             </constraint>
         </property>
         <property name="password">
             <constraint name="NotBlank">
-                <option name="message">Password should have at least six characters</option>
+                <option name="message">Password should not be empty</option>
             </constraint>
             <constraint name="Length">
                 <option name="min">6</option>
@@ -50,7 +50,8 @@
                 <option name="message">Your name should have at least three characters</option>
             </constraint>
             <constraint name="Regex">
-                <option name="pattern">/^[A-zäöüß ]+$/i</option>
+                <option name="pattern">/^[A-zäöüÄÖÜß0-9 ]+$/i</option>
+                <option name="message">Real name contains invalid characters</option>
             </constraint>
         </property>
     </class>

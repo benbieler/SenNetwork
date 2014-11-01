@@ -49,12 +49,11 @@ class AccountController
     {
         $user = $this->userRepository->create(
             $request->attributes->get('username'),
-            $this->passwordHasher->create(
-                $request->attributes->get('password')
-            ),
+            $request->attributes->get('password'),
             $request->attributes->get('email'),
             new \DateTime()
         );
+        $user->setRealName($request->attributes->get('realname'));
 
         $errors = [];
         $violations = $this->validator->validate($user);
@@ -69,6 +68,7 @@ class AccountController
                 $errors[$propertyPath][] = $constraint->getMessage();
             }
         }
+        $user->setPassword($this->passwordHasher->create($user->getPassword()));
 
         $isNotUniqueName  = null !== $this->userRepository->findByName($user->getUsername());
         $isNotUniqueEmail = null !== $this->userRepository->findByEmail($user->getEmail());
