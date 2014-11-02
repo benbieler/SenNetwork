@@ -55,7 +55,7 @@ class UserProvider implements UserProviderInterface
 
     /**
      * @param string $apiKey
-     * @return \Sententiaregum\Bndle\UserBundle\Entity\User
+     * @return \Sententiaregum\Bundle\UserBundle\Entity\User
      */
     public function findUserByApiToken($apiKey)
     {
@@ -65,5 +65,14 @@ class UserProvider implements UserProviderInterface
         }
 
         return $this->userRepository->findById($id);
+    }
+
+    /**
+     * @param integer $userId
+     * @return string
+     */
+    public function findApiKeyByUserId($userId)
+    {
+        return $this->userRepository->findApiTokenByUserId($userId);
     }
 }

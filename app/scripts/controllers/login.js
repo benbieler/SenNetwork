@@ -22,7 +22,9 @@ angular.module('sen.login', [])
                 { username: $scope.credentials.username, password: $scope.credentials.password }
             )
                 .success(function (data) {
-                    $cookieStore.set(initial.tokenCookie, data.token);
+                    console.log(data);
+                    console.log($cookieStore);
+                    $cookieStore.put(initial.tokenCookie, data.token);
                     $scope.progress = false;
                     $location.path('/');
                 })

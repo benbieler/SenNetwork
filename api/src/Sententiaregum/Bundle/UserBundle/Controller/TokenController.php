@@ -2,6 +2,7 @@
 
 namespace Sententiaregum\Bundle\UserBundle\Controller;
 
+use Sententiaregum\Bundle\UserBundle\Entity\User;
 use Sententiaregum\Bundle\UserBundle\Security\UserProvider;
 use Sententiaregum\Bundle\UserBundle\Security\Api\TokenInterface;
 use Sententiaregum\Bundle\UserBundle\Util\Api\PasswordHasherInterface;
@@ -47,20 +48,26 @@ class TokenController
         $username = \igorw\get_in($data, ['username']);
         $password = \igorw\get_in($data, ['password']);
 
-        $username = $this->userProvider->loadUserByUsername($username);
-        if (null === $username) {
+        /** @var User $user */
+        $user = $this->userProvider->loadUserByUsername($username);
+        if (null === $user) {
             return $this->createInvalidCredentialsResponse();
         }
 
-        if (!$this->hasher->verify($password, $username->getPassword())) {
+        if (!$this->hasher->verify($password, $user->getPassword())) {
             return $this->createInvalidCredentialsResponse();
         }
 
-        if (false === $username->isAccountNonLocked()) {
+        if (false === $user->isAccountNonLocked()) {
             return $this->createLockedAccountResponse();
         }
 
-        $token = $this->tokenService->storeToken($username->getId());
+        $token = $this->userProvider->findApiKeyByUserId($user->getId());
+        if (null !== $token) {
+            $token = $this->tokenService->storeToken($user->getId());
+
+            return new JsonResponse(['token' => $token]);
+        }
 
         return new JsonResponse(['token' => $token]);
     }

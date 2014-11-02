@@ -52,6 +52,8 @@ class TokenControllerSpec extends ObjectBehavior
         $hasher->verify('123456', '123456')->willReturn(true);
         $token->storeToken(1)->willReturn(true);
 
+        $userProvider->findApiKeyByUserId(Argument::any())->shouldBeCalled();
+
         $request = $this->mockCredentialRequest($request, ['username' => 'Ma27', 'password' => '123456']);
         $result = $this->requestTokenAction($request);
 
