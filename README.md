@@ -34,7 +34,7 @@ The API is tested by the BDD approach with PHPSpec and Behat
    - ~~Split this large SocialNetworkingBundle into smaller bundles~~
      - ~~move user stuff to Sententiaregum\Bundle\User~~
      - ~~rename namespaces (Ma27\SocialNetworkingBundle -> Sententiaregum\Bundle)~~
-   - Finish Angular registration code
+   - ~~Finish Angular registration code~~
    - "Captcha" for the registration rest api
    - Implement "create admin account" command
 

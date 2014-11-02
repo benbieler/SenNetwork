@@ -9,6 +9,6 @@
     </route>
 
     <route id="ma27_social_networking_create-account" path="/create-account" methods="POST">
-        <default key="_controller">sen.account.controller:createAccountAction</default>
+        <default key="_controller">sen.account.controller:createAction</default>
     </route>
 </routes>

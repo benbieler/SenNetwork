@@ -46,9 +46,6 @@
                 <option name="minMessage">Your name should have at least three characters</option>
                 <option name="maxMessage">Your name can have a maximum of 128 characters only</option>
             </constraint>
-            <constraint name="NotBlank">
-                <option name="message">Your name should have at least three characters</option>
-            </constraint>
             <constraint name="Regex">
                 <option name="pattern">/^[A-zäöüÄÖÜß0-9 ]+$/i</option>
                 <option name="message">Real name contains invalid characters</option>

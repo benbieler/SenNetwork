@@ -25,7 +25,8 @@
         "doctrine/migrations": "~1.0@dev",
         "cboden/ratchet": "~0.3",
         "snc/redis-bundle": "~2.0@dev",
-        "predis/predis": "~0.8"
+        "predis/predis": "~0.8",
+        "igorw/get-in": "~1.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",

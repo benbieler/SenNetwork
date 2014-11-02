@@ -26,6 +26,9 @@ angular.module(
                 templateUrl: '/partials/pages/portal/create-account.html',
                 controller: 'create-account'
             })
+            .when('/registration/success', {
+                templateUrl: '/partials/pages/portal/registration-success.html'
+            })
             .when('/not-found', {
                 templateUrl: '/partials/pages/sites/not-found.html'
             })

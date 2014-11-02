@@ -2,7 +2,6 @@
 
 namespace Sententiaregum\Bundle\UserBundle\Controller;
 
-use Sententiaregum\Bundle\UserBundle\Entity\Api\UserInterface;
 use Sententiaregum\Bundle\UserBundle\Entity\Api\UserRepositoryInterface;
 use Sententiaregum\Bundle\UserBundle\Util\Api\PasswordHasherInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -27,18 +26,26 @@ class AccountController
     private $passwordHasher;
 
     /**
+     * @var string[]
+     */
+    private $defaultRoles;
+
+    /**
      * @param ValidatorInterface $validator
      * @param UserRepositoryInterface $userRepository
      * @param PasswordHasherInterface $passwordHasher
+     * @param string[] $defaultRoles
      */
     public function __construct(
         ValidatorInterface $validator,
         UserRepositoryInterface $userRepository,
-        PasswordHasherInterface $passwordHasher
+        PasswordHasherInterface $passwordHasher,
+        array $defaultRoles
     ) {
         $this->validator = $validator;
         $this->userRepository = $userRepository;
         $this->passwordHasher = $passwordHasher;
+        $this->defaultRoles = $defaultRoles;
     }
 
     /**
@@ -47,13 +54,14 @@ class AccountController
      */
     public function createAction(Request $request)
     {
+        $content = json_decode($request->getContent(), true);
         $user = $this->userRepository->create(
-            $request->attributes->get('username'),
-            $request->attributes->get('password'),
-            $request->attributes->get('email'),
+            \igorw\get_in($content, ['username']),
+            \igorw\get_in($content, ['password']),
+            \igorw\get_in($content, ['email']),
             new \DateTime()
         );
-        $user->setRealName($request->attributes->get('realname'));
+        $user->setRealName(\igorw\get_in($content, ['realname']));
 
         $errors = [];
         $violations = $this->validator->validate($user);
@@ -87,6 +95,12 @@ class AccountController
         }
 
         $this->userRepository->add($user);
+
+        $completeUser = $this->userRepository->findByName($user->getUsername());
+        if (count($this->defaultRoles) > 0) {
+            $this->userRepository->attachRolesOnUser($this->defaultRoles, $completeUser->getId());
+        }
+
         return new JsonResponse(['username' => $user->getUsername()]);
     }
 }

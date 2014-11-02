@@ -87,7 +87,8 @@ class RegistrationContext extends Context
      */
     public function theAccountShouldBeStoredInDatabase()
     {
-        Test::assertInstanceOf(UserInterface::class, $this->userRepository->findByName($this->result['username']));
+        Test::assertInstanceOf(UserInterface::class, $user = $this->userRepository->findByName($this->result['username']));
+        Test::assertContains('ROLE_USER', $user->getRoles());
     }
 
     /**

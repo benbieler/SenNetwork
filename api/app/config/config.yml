@@ -41,3 +41,8 @@ doctrine_migrations:
     namespace: Ma27\Sententiaregum\DoctrineMigrations
     table_name: se_doctrine_migration
     name: Sententiaregum Migrations
+
+# User bundle configuration
+sententiaregum_user:
+    registration:
+        defaultRoles: ['ROLE_USER']

@@ -16,6 +16,7 @@
             <argument type="service" id="validator" />
             <argument type="service" id="sen.user.repository" />
             <argument type="service" id="sen.util.hasher" />
+            <argument>%registration.defaultRoles%</argument>
         </service>
         
         <service id="sen.user.repository" class="Sententiaregum\Bundle\UserBundle\Entity\UserRepository">

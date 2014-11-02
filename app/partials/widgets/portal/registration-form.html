@@ -3,24 +3,32 @@
         <form ng-submit="createAccount()" novalidate="novalidate">
             <div class="row">
                 <div class="col-md-7">
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{'has-error': errorList.username}">
                         <label for="username" class="control-label">Username</label>
                         <input type="text" ng-model="data.name" class="form-control" name="username" />
                     </div>
                 </div>
                 <div class="col-md-5">
-
+                    <div class="form-info-plugin" ng-show="errorList.username">
+                        <p ng-repeat="message in errorList.username">
+                            <span style="color: #888">{{message}}</span>
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-7">
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{'has-error': errorList.password}">
                         <label for="password" class="control-label">Password</label>
                         <input type="password" ng-model="data.password" class="form-control" name="password" />
                     </div>
                 </div>
                 <div class="col-md-5">
-
+                    <div class="form-info-plugin" ng-show="errorList.password">
+                        <p ng-repeat="message in errorList.password">
+                            <span style="color: #888">{{message}}</span>
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -40,13 +48,17 @@
             </div>
             <div class="row">
                 <div class="col-md-7">
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{'has-error': errorList.email}">
                         <label for="email" class="control-label">Email address</label>
                         <input type="text" ng-model="data.email" class="form-control" name="email" />
                     </div>
                 </div>
                 <div class="col-md-5">
-
+                    <div class="form-info-plugin" ng-show="errorList.email">
+                        <p ng-repeat="message in errorList.email">
+                            <span style="color: #888">{{message}}</span>
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -59,20 +71,24 @@
                 <div class="col-md-5">
                     <div class="form-info-plugin" ng-show="errorList.emailConfirmation">
                         <p ng-repeat="message in errorList.emailConfirmation">
-                            <span class="text-danger"><span class="glyphicon glyphicon-remove"></span> {{message}}</span>
+                            <span style="color: #888;">{{message}}</span>
                         </p>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-7">
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{'has-error': errorList.realName}">
                         <label for="real-name" class="control-label">Actual name</label>
                         <input type="text" ng-model="data.realName" class="form-control" name="real-name" />
                     </div>
                 </div>
                 <div class="col-md-5">
-
+                    <div class="form-info-plugin" ng-show="errorList.realName">
+                        <p ng-repeat="message in errorList.realName">
+                            <span style="color: #888">{{message}}</span>
+                        </p>
+                    </div>
                 </div>
             </div>
             <button type="submit" class="btn btn-success">Create account</button>

@@ -71,4 +71,11 @@ interface UserRepositoryInterface
      * @return string
      */
     public function findApiTokenByUserId($userId);
+
+    /**
+     * @param string[] $roles
+     * @param integer $userId
+     * @return mixed
+     */
+    public function attachRolesOnUser(array $roles, $userId);
 }

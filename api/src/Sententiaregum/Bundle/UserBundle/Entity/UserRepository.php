@@ -233,4 +233,24 @@ class UserRepository implements UserRepositoryInterface
 
         return $qB->execute()->fetchColumn();
     }
+
+    /**
+     * @param string[] $roles
+     * @param integer $userId
+     * @return mixed
+     */
+    public function attachRolesOnUser(array $roles, $userId)
+    {
+        $max = 10;
+        $count = 0;
+        foreach ($roles as $role) {
+            if ($count === $max) {
+                throw new \OverflowException('Too many roles!');
+            }
+
+            $this->connection->insert('se_user_role', ['user_id' => $userId, 'role_alias' => $role]);
+
+            $count++;
+        }
+    }
 }

@@ -21,7 +21,7 @@ class AccountControllerSpec extends ObjectBehavior
         PasswordHasherInterface $passwordHasherInterface)
     {
         $passwordHasherInterface->create(Argument::any())->willReturnArgument(0);
-        $this->beConstructedWith($validator, $userRepositoryInterface, $passwordHasherInterface);
+        $this->beConstructedWith($validator, $userRepositoryInterface, $passwordHasherInterface, []);
     }
 
     function it_is_initializable()
@@ -31,7 +31,8 @@ class AccountControllerSpec extends ObjectBehavior
 
     function it_validates_account_input(
         ValidatorInterface $validator,
-        UserRepositoryInterface $userRepositoryInterface)
+        UserRepositoryInterface $userRepositoryInterface,
+        Request $request)
     {
         // setup fixtures
         $violationFixture = new ConstraintViolationList();
@@ -47,10 +48,7 @@ class AccountControllerSpec extends ObjectBehavior
             ->willReturn((new User())->setUsername('Ma27')->setPassword('123456')->setEmail('Ma27@example.org'));
 
         // example code
-        $request = Request::create('/');
-        $request->attributes->set('username', 'Ma27');
-        $request->attributes->set('password', '123456');
-        $request->attributes->set('email', 'Ma27@example.org');
+        $request = $this->getRequestMock($request, 'Ma27', '123456', 'Ma27@example.org', null);
 
         $response = $this->createAction($request);
         $response->shouldBeAnInstanceOf(JsonResponse::class);
@@ -60,7 +58,8 @@ class AccountControllerSpec extends ObjectBehavior
 
     function it_validates_unique_username_and_email(
         ValidatorInterface $validator,
-        UserRepositoryInterface $userRepositoryInterface)
+        UserRepositoryInterface $userRepositoryInterface,
+        Request $request)
     {
         $validator->validate(Argument::any())->willReturn(new ConstraintViolationList());
         $userRepositoryInterface
@@ -71,10 +70,7 @@ class AccountControllerSpec extends ObjectBehavior
         $userRepositoryInterface->findByEmail(Argument::any())->shouldBeCalled();
 
         // example
-        $request = Request::create('/');
-        $request->attributes->set('username', 'Ma27');
-        $request->attributes->set('password', '123456');
-        $request->attributes->set('email', 'Ma27@example.org');
+        $request = $this->getRequestMock($request, 'Ma27', '123456', 'Ma27@example.org', null);
 
         $response = $this->createAction($request);
         $response->shouldBeAnInstanceOf(JsonResponse::class);
@@ -84,7 +80,8 @@ class AccountControllerSpec extends ObjectBehavior
 
     function it_stores_accounts_with_valid_credentials(
         ValidatorInterface $validator,
-        UserRepositoryInterface $userRepositoryInterface)
+        UserRepositoryInterface $userRepositoryInterface,
+        Request $request)
     {
         $validator->validate(Argument::any())->willReturn(new ConstraintViolationList());
         $userRepositoryInterface
@@ -96,10 +93,7 @@ class AccountControllerSpec extends ObjectBehavior
         $userRepositoryInterface->add(Argument::any())->shouldBeCalled();
 
         // example
-        $request = Request::create('/');
-        $request->attributes->set('username', 'Ma27');
-        $request->attributes->set('password', '123456');
-        $request->attributes->set('email', 'Ma27@example.org');
+        $request = $this->getRequestMock($request, 'Ma27', '123456', 'Ma27@example.org', null);
 
         $response = $this->createAction($request);
         $response->shouldBeAnInstanceOf(JsonResponse::class);
@@ -123,5 +117,11 @@ class AccountControllerSpec extends ObjectBehavior
                 return isset($data['username']) && $data['username'] === $name;
             }
         ];
+    }
+
+    private function getRequestMock($prophecyDummy, $username, $password, $email, $realname)
+    {
+        $prophecyDummy->getContent()->willReturn(json_encode(['username' => $username, 'password' => $password, 'email' => $email, 'realname' => $realname]));
+        return $prophecyDummy;
     }
 }

@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('sen.registration', [])
-    .controller('create-account', ['$scope', 'page', 'activeMenuItem',
-        function ($scope, page, activeMenuItem) {
+    .controller('create-account', ['$scope', '$location', '$http', 'page', 'activeMenuItem',
+        function ($scope, $location, $http, page, activeMenuItem) {
 
             $scope.progress = false;
 
@@ -19,6 +19,10 @@ angular.module('sen.registration', [])
 
                     // inject errors into scope
                     $scope.errorList = result;
+
+                    // clear password and password confirm fields for security reason
+                    $scope.data.password = '';
+                    $scope.data.passwordConfirm = '';
                 }
 
                 $scope.progress = true;
@@ -39,6 +43,9 @@ angular.module('sen.registration', [])
 
                 if (hasConfirmationErrors(confirmationErrors)) {
                     handleFailure(confirmationErrors);
+                    $scope.progress = false;
+
+                    return;
                 } else {
 
                     // clear error list, if it's already filled
@@ -46,9 +53,33 @@ angular.module('sen.registration', [])
                 }
 
                 // send account and validation request to server
-                // @ToDo: send account creation request to the server
+                $http({
+                    url: '/api/create-account',
+                    data: {
+                        username: $scope.data.name,
+                        password: $scope.data.password,
+                        email: $scope.data.email,
+                        realname: $scope.data.realname
+                    },
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                })
+                    .success(function (data) {
 
-                $scope.progress = false;
+                        if (typeof data.username !== 'undefined') {
+                            handleSuccess();
+                            $scope.progress = false;
+                            return;
+                        }
+
+                        $scope.progress = false;
+                        handleFailure(data.errors);
+
+                    });
+
+                function handleSuccess() {
+                    $location.path('/registration/success');
+                }
             };
         }
     ]);

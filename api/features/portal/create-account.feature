@@ -24,6 +24,7 @@ Feature: create account
     | Ma27                              | 12345    | Ma27@example.org | Ma27     | Password should have at least six characters                               | password |
     | Ma27                              | 123456   |                  | Ma27     | Email cannot be empty                                                      | email    |
     | Ma27                              | 123456   | invalid_mail     | Ma27     | Email contains invalid characters                                          | email    |
+    | Ma27                              | 123456   | Ma27@example.org | Ma       | Your name should have at least three characters                            | realName |
     | Ma27                              | 123456   | Ma27@example.org | &%$      | Real name contains invalid characters                                      | realName |
 
   Scenario Outline: create account with non-unique username or email
