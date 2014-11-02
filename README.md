@@ -35,6 +35,7 @@ The API is tested by the BDD approach with PHPSpec and Behat
            - follow users to receive their posts
    - "Captcha" for the registration rest api
    - Implement "create admin account" command
+   - Logout
 
 2) Install
 ----------
