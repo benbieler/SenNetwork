@@ -43,12 +43,16 @@ class TokenController
      */
     public function requestTokenAction(Request $request)
     {
-        $username = $this->userProvider->loadUserByUsername($request->attributes->get('username'));
+        $data = json_decode($request->getContent(), true);
+        $username = \igorw\get_in($data, ['username']);
+        $password = \igorw\get_in($data, ['password']);
+
+        $username = $this->userProvider->loadUserByUsername($username);
         if (null === $username) {
             return $this->createInvalidCredentialsResponse();
         }
 
-        if (!$this->hasher->verify($request->attributes->get('password'), $username->getPassword())) {
+        if (!$this->hasher->verify($password, $username->getPassword())) {
             return $this->createInvalidCredentialsResponse();
         }
 

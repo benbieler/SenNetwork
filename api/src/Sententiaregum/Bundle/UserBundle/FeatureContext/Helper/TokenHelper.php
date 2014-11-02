@@ -2,6 +2,7 @@
 
 namespace Sententiaregum\Bundle\UserBundle\FeatureContext\Helper;
 
+use Prophecy\Prophet;
 use Sententiaregum\Bundle\UserBundle\Controller\TokenController;
 use Sententiaregum\Bundle\UserBundle\Entity\Api\UserRepositoryInterface;
 use Sententiaregum\Bundle\UserBundle\Util\Api\PasswordHasherInterface;
@@ -13,6 +14,7 @@ class TokenHelper
     protected $tokenController;
     protected $userRepo;
     protected $hasher;
+    protected $mocker;
 
     public function __construct(
         TokenController $tokenController,
@@ -22,6 +24,7 @@ class TokenHelper
         $this->tokenController = $tokenController;
         $this->userRepo = $userRepository;
         $this->hasher = $hasher;
+        $this->mocker = new Prophet();
     }
 
     /**
@@ -30,10 +33,10 @@ class TokenHelper
      */
     public function requestToken(array $credentials)
     {
-        $request = Request::create('/');
-        $request->attributes->add($credentials);
+        $request = $this->mocker->prophesize(Request::class);
+        $request->getContent()->willReturn(json_encode($credentials));
 
-        return $this->generateResult($this->tokenController->requestTokenAction($request));
+        return $this->generateResult($this->tokenController->requestTokenAction($request->reveal()));
     }
 
     public function createDummyUser()

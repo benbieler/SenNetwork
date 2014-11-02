@@ -23,42 +23,36 @@ class TokenControllerSpec extends ObjectBehavior
         $this->shouldHaveType('Sententiaregum\Bundle\UserBundle\Controller\TokenController');
     }
 
-    function it_validates_the_credentials_and_can_return_errors(UserProvider $userProvider)
+    function it_validates_the_credentials_and_can_return_errors(UserProvider $userProvider, Request $request)
     {
         $userProvider->loadUserByUsername('Ma27')->shouldBeCalled();
 
-        $request = Request::create('/');
-        $request->attributes->set('username', 'Ma27');
-        $request->attributes->set('password', '123456');
+        $request = $this->mockCredentialRequest($request, ['username' => 'Ma27']);
         $result = $this->requestTokenAction($request);
 
         $result->shouldBeAnInstanceOf(JsonResponse::class);
         $result->shouldHasCredentialFailure();
     }
 
-    function it_refuses_locked_accounts(UserProvider $userProvider, PasswordHasherInterface $hasher)
+    function it_refuses_locked_accounts(UserProvider $userProvider, PasswordHasherInterface $hasher, Request $request)
     {
         $userProvider->loadUserByUsername('Ma27')->willReturn($this->createLockedDummyUser());
         $hasher->verify('123456', '123456')->willReturn(true);
 
-        $request = Request::create('/');
-        $request->attributes->set('username', 'Ma27');
-        $request->attributes->set('password', '123456');
+        $request = $this->mockCredentialRequest($request, ['username' => 'Ma27', 'password' => '123456']);
         $result = $this->requestTokenAction($request);
 
         $result->shouldBeAnInstanceOf(JsonResponse::class);
         $result->shouldBeLocked();
     }
 
-    function it_generates_an_api_token_for_verified_credentials(UserProvider $userProvider, PasswordHasherInterface $hasher, TokenInterface $token)
+    function it_generates_an_api_token_for_verified_credentials(UserProvider $userProvider, PasswordHasherInterface $hasher, TokenInterface $token, Request $request)
     {
         $userProvider->loadUserByUsername('Ma27')->willReturn($this->createDummyUser());
         $hasher->verify('123456', '123456')->willReturn(true);
         $token->storeToken(1)->willReturn(true);
 
-        $request = Request::create('/');
-        $request->attributes->set('username', 'Ma27');
-        $request->attributes->set('password', '123456');
+        $request = $this->mockCredentialRequest($request, ['username' => 'Ma27', 'password' => '123456']);
         $result = $this->requestTokenAction($request);
 
         $result->shouldBeAnInstanceOf(JsonResponse::class);
@@ -112,5 +106,11 @@ class TokenControllerSpec extends ObjectBehavior
             ->setId(1)
             ->setUsername('Ma27')
             ->setPassword('123456');
+    }
+
+    public function mockCredentialRequest($dummy, array $credentials)
+    {
+        $dummy->getContent()->willReturn(json_encode($credentials));
+        return $dummy;
     }
 }
