@@ -6,9 +6,11 @@
 
     <route id="ma27_social_networking_request-token" path="/request-token" methods="POST">
         <default key="_controller">sen.token.controller:requestTokenAction</default>
+        <requirement key="_format">json</requirement>
     </route>
 
     <route id="ma27_social_networking_create-account" path="/create-account" methods="POST">
         <default key="_controller">sen.account.controller:createAction</default>
+        <requirement key="_format">json</requirement>
     </route>
 </routes>

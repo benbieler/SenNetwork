@@ -7,7 +7,7 @@ angular.module('sen.microblog', [])
             var token = $cookieStore.get(initial.tokenCookie);
             console.log(token);
             if (null === token || typeof token === 'undefined') {
-                //$location.path('/landing');
+                $location.path('/landing');
             }
 
     }]);
