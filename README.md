@@ -34,7 +34,7 @@ The API is tested by the BDD approach with PHPSpec and Behat
            - share posts
            - follow users to receive their posts
    - "Captcha" for the registration rest api
-   - Implement "create admin account" command
+   - ~~Implement "create admin account" command~~
    - Logout
 
 2) Install
@@ -71,6 +71,10 @@ Process doctrine migrations
 Flush redis cache
 
     php app/console redis:flush
+
+Create admin user
+
+    php app/console sententiaregum:user:create-admin --name={admin name} --password={password}
 
 ### Shortcut
 
