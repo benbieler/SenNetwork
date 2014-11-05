@@ -1,9 +1,5 @@
 'use strict';
 
-if (typeof initial === 'undefined') {
-    throw new Error('Initial config object (initial) cannot be found!');
-}
-
 angular.module(
     'sententiaregum',
     ['ngRoute', 'ngCookies', 'sen.registration', 'sen.login', 'sen.microblog', 'sen.page']
