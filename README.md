@@ -72,16 +72,15 @@ Flush redis cache
 
     php app/console redis:flush
 
-Create admin user
-
-    php app/console sententiaregum:user:create-admin --name={admin name} --password={password}
-
 ### Shortcut
 
 You could ran the install commands by executing the following command after cloning of this repository
 
     ./setup.sh
 
+### Create admin user
+
+    php app/console sententiaregum:user:create-admin --name={admin name} --password={password}
 
 3) Check requirements:
 ----------------------
