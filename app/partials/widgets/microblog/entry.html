@@ -1,0 +1,84 @@
+<li class="list-group-item post-item" ng-repeat="post in posts | orderBy:sortPosts">
+    <div class="post-top" ng-show="post.head">
+        <i style="color: #888">{{post.head}}</i>
+    </div>
+    <div class="post-top">
+        <img class="avatar" src="{{post.avatarUrl}}" />
+        <span>
+            <a ng-href="/#!/user/{{post.username}}">{{post.realname}}</a> -
+            <i style="color: #888">@{{post.username}}</i> -
+            <i style="color: #888;">{{buildDate(post.creationDate)}}</i>
+        </span>
+    </div>
+    <p class="post-content-paragraph">{{post.content}}</p>
+    <p class="post-content-paragraph" ng-show="post.appendedImage"><img src="{{post.appendedImage}}" /></p>
+    <p class="post-content-paragraph">
+        <div class="row" style="color: #888">
+            <div class="col-md-6" ng-click="">
+                <span class="text-hover-success">
+                    <span class="glyphicon glyphicon-thumbs-up"></span> Share
+                </span>
+                <span class="text-hover-success" ng-click="showCommentForm = showCommentForm !== true">
+                    <span class="glyphicon glyphicon-pencil"></span> Comment
+                </span>
+            </div>
+            <div class="col-md-6" style="text-align: right">
+                <span class="text-hover-success" data-toggle="modal" data-target="#shares-{{post.id}}">
+                    <span class="glyphicon glyphicon-thumbs-up"></span> {{post.shares.length}}
+                </span>
+
+                <span class="text-hover-success" ng-click="showComments = showComments !== true">
+                    <span class="glyphicon glyphicon-pencil"></span> {{post.comments.length}}
+                </span>
+            </div>
+
+            <script type="text/javascript">
+                $('.modal-body').perfectScrollbar({ suppressScrollX: true, scrollYMarginOffset: 300 });
+            </script>
+
+            <!-- popup containing the shares of the current post -->
+            <div class="modal fade in" id="shares-{{post.id}}" tabindex="-1" role="dialog" aria-labelledby="{{post.id}}" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title" id="{{post.id}}" style="color: #333;">Shares</h4>
+                        </div>
+                        <div class="modal-body" id="share-list-{{post.id}}">
+                            <ul>
+                                <li ng-repeat="user in post.shares">
+                                    <a ng-href="/#!/user/{{user}}" target="_blank">{{user}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end -->
+        </div>
+        <div class="row comment-wrapper" ng-show="post.tags">
+            <p>Post is tagged:</p>
+            <a ng-repeat="tag in post.tags" class="btn btn-info btn-sm" style="margin-right: 10px" ng-href="/#!/tag/{{tag}}">{{tag}}</a>
+        </div>
+        <div class="row comment-wrapper" ng-init="showCommentForm=false" ng-show="showCommentForm">
+            <form>
+                <div class="row">
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" placeholder="Enter comment..." />
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-primary btn-block comment-btn">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row comment-wrapper" ng-show="showComments">
+            <div ng-show="post.comments.length === 0">
+                <i style="color: #888">Nobody has commented this post yet</i>
+            </div>
+            <div ng-hide="post.comments.length === 0">
+                foo
+            </div>
+        </div>
+    </p>
+</li>

@@ -2,7 +2,7 @@
 
 angular.module(
     'sententiaregum',
-    ['ngRoute', 'ngCookies', 'sen.registration', 'sen.login', 'sen.microblog', 'sen.page']
+    ['ngRoute', 'ngCookies', 'sen.registration', 'sen.login', 'sen.microblog', 'sen.page', 'sen.image-upload', 'ngSanitize']
 )
     .config(['$routeProvider', '$httpProvider', '$locationProvider',
         function ($routeProvider, $httpProvider, $locationProvider) {
@@ -37,5 +37,4 @@ angular.module(
     }])
     .run(function ($rootScope, page, activeMenuItem) {
         $rootScope.page = page;
-        $rootScope.activeMenu = activeMenuItem;
     });

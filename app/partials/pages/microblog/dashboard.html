@@ -1,1 +1,45 @@
-hello world
+<div class="container">
+    <div class="row" ng-init="sortPosts='creationDate'">
+        <div class="col-md-3">
+            <div ng-include="'/partials/widgets/microblog/hashtags.html'" />
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <span>Sort posts</span>
+                </div>
+                <div class="panel-body">
+                    <p><button class="btn btn-success btn-sm" ng-click="sortPosts='creationDate'">Sort by date</button></p>
+                    <p><button class="btn btn-success btn-sm" ng-click="sortPosts='username'">Sort by author</button></p>
+                    <p><button class="btn btn-success btn-sm" ng-click="sortPosts='shares'">Sort by sharing number</button></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h4>Write post</h4>
+                    <form name="post">
+                        <div class="form-group">
+                            <textarea placeholder="Type your post here..." name="content" class="form-control" ng-model="postContent" ng-trim="false" maxlength="100" ng-maxlength="100"></textarea>
+                            <p>
+                                <span class="text-danger" ng-show="post.content.$error.maxlength">Post content too long!</span>
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <span style="color: #888; line-height: 34px;">{{100 - postContent.length}} {{postContent.length === 1 ? 'Character' : 'Characters'}} left   </span>
+                            </div>
+                            <div class="col-md-6" style="text-align: right">
+                                <image-upload-button class="btn btn-info" uploadFieldId="imageUpload"></image-upload-button>
+                                <button class="btn btn-primary">Post!</button>
+                            </div>
+                            <input type="file" style="display: none" id="imageUpload" />
+                        </div>
+                    </form>
+                </li>
+
+                <div ng-include="'/partials/widgets/microblog/entry.html'" />
+            </ul>
+        </div>
+    </div>
+</div>

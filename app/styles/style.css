@@ -2,7 +2,7 @@
  * custom-ui.css
  *
  * This css file contains some customizations for twitter bootstrap
- * from the sententiaregum application
+ * for the sententiaregum application
  */
 
 * {
@@ -29,9 +29,6 @@ li {
 
 .navbar-default {
     border-radius: 0px;
-}
-
-.navbar-default {
     background-color: rgba(255, 255, 255, 1);
     border-bottom: #269abc 2px solid;
     border-left: none;
@@ -142,4 +139,74 @@ li {
 .form-info-plugin {
     margin-top: 25px;
     line-height: 34px;
+}
+
+.list-no-bullets {
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.list-no-bullets li {
+    list-style: none !important;
+}
+
+textarea {
+    resize: none;
+    height: 80px !important;
+}
+
+.list-group li,
+.list-group {
+    border-color: #bce8f1;
+}
+
+.post-item:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.text-hover-success:hover {
+    color: #3c763d;
+    cursor: pointer;
+}
+
+.text-hover-success {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.avatar {
+    height: 34px;
+    width: 34px;
+}
+
+.post-content-paragraph {
+    margin-top: 10px;
+}
+
+.modal .modal-dialog .modal-body {
+    overflow-y: hidden !important;
+    max-height: 300px;
+}
+
+.post-item:first-child {
+    border-radius: 0px;
+}
+
+@media screen and (max-width: 991px) {
+    .comment-btn {
+        margin-top: 10px;
+    }
+}
+
+.comment-wrapper {
+    padding: 15px 15px 0px;
+}
+
+.post-top {
+    height: 34px;
+    line-height: 34px;
+}
+
+.modal-body .ps-scrollbar-y-rail {
+    margin-top: 15px;
 }

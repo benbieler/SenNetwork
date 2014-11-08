@@ -76,5 +76,31 @@ var menuTemplates = {
             label: 'Terms & Conditions',
             target: '/#!/terms-and-conditions'
         }
+    ],
+    application: [
+        {
+            label: 'Dashboard',
+            target: '/#!/'
+        },
+        {
+            label: 'Messenger',
+            target: '/#!/chat'
+        },
+        {
+            label: 'Find a user',
+            target: '/#!/search-members'
+        },
+        {
+            label: 'Imprint',
+            target: '/#!/imprint'
+        },
+        {
+            label: 'Terms & Conditions',
+            target: '/#!/terms-and-conditions'
+        },
+        {
+            label: 'Logout',
+            target: '/#!/logout'
+        }
     ]
 };
