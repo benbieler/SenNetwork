@@ -17,8 +17,10 @@
 
 # Wasted .gitignore
 /vagrant/.vagrant/
-/vagrant/modules/
-/vagrant/graphs/
+/vagrant/modules/*
+/vagrant/graphs/*
+!vagrant/modules/.gitkeep
+!vagrant/graphs/.gitkeep
 /vagrant/vendor/
 
 # IDEs
@@ -27,4 +29,4 @@
 /.metadata/
 
 # Bower
-/app/vendor/
+/app/scripts/vendor/
