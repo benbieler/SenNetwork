@@ -15,6 +15,12 @@
 /api/bin/
 /api/vendor/
 
+# Wasted .gitignore
+/vagrant/.vagrant/
+/vagrant/modules/
+/vagrant/graphs/
+/vagrant/vendor/
+
 # IDEs
 /.idea/
 /nbproject/
