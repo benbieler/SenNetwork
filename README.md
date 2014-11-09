@@ -125,6 +125,7 @@ Now you can run the PHPSpec and Behat test suite:
 
 
 6) Local
+--------
 
 You can use this application local with the on-package vagrant box
 
