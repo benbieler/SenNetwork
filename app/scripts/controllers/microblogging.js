@@ -27,8 +27,13 @@ angular.module('sen.microblog', [])
                     comments: [],
                     creationDate: '2014/12/24 11:11:11',
                     head: 'Ma27 has commented'
-                },
-                {
+                }
+            ];
+
+            $scope.posts = posts;
+
+            $scope.addItems = function () {
+                $scope.posts.push({
                     id: 2,
                     avatarUrl: '/images/avatar.jpg',
                     content: 'another post <script type="text/javascript">alert("XSS");</script> <h1>foo</h1> < #bar',
@@ -45,10 +50,8 @@ angular.module('sen.microblog', [])
                         }
                     ],
                     creationDate: '2014/11/20 11:11:11'
-                }
-            ];
-
-            $scope.posts = posts;
+                });
+            };
 
             $scope.buildDate = function (dateTimeStr) {
 
