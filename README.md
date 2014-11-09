@@ -133,4 +133,4 @@ You can use this application local with the on-package vagrant box
     cd vagrant
     vagrant up
 
-More information under [Wasted](https://github.com/Mayflower/wasted.git)
+More information about [Wasted](https://github.com/Mayflower/wasted.git)
