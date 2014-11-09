@@ -15,10 +15,6 @@
 /api/bin/
 /api/vendor/
 
-# Vagrant
-/vagrant/
-/devstack.yaml
-
 # IDEs
 /.idea/
 /nbproject/

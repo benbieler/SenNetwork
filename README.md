@@ -122,3 +122,12 @@ Now you can run the PHPSpec and Behat test suite:
     cd api
     bin/phpspec run
     bin/behat
+
+
+6) Local
+
+You can use this application local with the on-package vagrant box
+
+    vagrant up
+
+More information under [Wasted](https://github.com/Mayflower/wasted.git)

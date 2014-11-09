@@ -5,6 +5,7 @@ use Sensio\Bundle\DistributionBundle\SensioDistributionBundle;
 use Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle;
 use Sententiaregum\Bundle\MicrobloggingBundle\SententiaregumMicrobloggingBundle;
 use Sententiaregum\Bundle\UserBundle\SententiaregumUserBundle;
+use Snc\RedisBundle\SncRedisBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\SecurityBundle\SecurityBundle;
 use Symfony\Bundle\MonologBundle\MonologBundle;
@@ -29,6 +30,9 @@ abstract class Kernel extends SymfonyKernel
             // doctrine bundles
             new DoctrineBundle(),
             new DoctrineMigrationsBundle(),
+
+            // redis
+            new SncRedisBundle(),
 
             // application bundles
             new SententiaregumUserBundle(),

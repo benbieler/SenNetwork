@@ -11,4 +11,3 @@ class DashboardController
         return new JsonResponse();
     }
 }
- 
