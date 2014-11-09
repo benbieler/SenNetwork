@@ -5,3 +5,11 @@ suites:
         namespace: Sententiaregum
         spec_prefix: spec
         spec_path: src/Sententiaregum/Bundle/UserBundle
+    sententiaregum_redis_queue:
+        namespace: Sententiaregum
+        spec_prefix: spec
+        spec_path: src/Sententiaregum/Bundle/RedisQueueBundle
+    common:
+        namespace: Sententiaregum
+        spec_prefix: spec
+        spec_path: src/Sententiaregum/Common
