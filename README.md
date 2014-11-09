@@ -125,9 +125,10 @@ Now you can run the PHPSpec and Behat test suite:
     bin/behat
 
 
-6) Local
---------
+6) Develop
+----------
 
+I'm using a vagrant box called wasted to develop this application: 
 You can use this application local with the on-package vagrant box
 
     cd vagrant
