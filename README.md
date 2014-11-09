@@ -23,6 +23,7 @@ The API is tested by the BDD approach with PHPSpec and Behat
    - Extended bootstrap layout
    - Login and Registration interface
    - BDD approach with PHPSpec and Behat test suites
+   - pre-configured vagrant box (see more about it: [Wasted Vagrant box](https://github.com/Mayflower/wasted.git))
 
 ### Current ToDo
 
