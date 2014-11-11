@@ -14,7 +14,7 @@ class ToJsonConverter implements ToJsonInterface
         foreach ($props as $property) {
             $prop = $r->getProperty($property);
 
-            // mark all props as accessible to get their values with a reflection
+            // mark all properties as accessible to get their values with a reflection
             $prop->setAccessible(true);
 
             $data[$property] = $prop->getValue($object);
