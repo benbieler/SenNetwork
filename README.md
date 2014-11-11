@@ -82,7 +82,7 @@ You could ran the install commands by executing the following command after clon
 ### Start redis queue
 
     crontab -e -u <username>
-    * * * * * /usr/bin/php /path/to/application/app/console sententiaregum:redis:queue-job
+    * * * * * /usr/bin/php /path/to/application/api/app/console sententiaregum:redis:queue-job
 
 ### Create admin user
 
