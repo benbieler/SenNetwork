@@ -6,6 +6,8 @@ use Sententiaregum\Bundle\RedisQueueBundle\Entity\CachedSqlResult;
 
 interface CacheableRepository
 {
+    const CACHE_NAMESPACE_PREFIX = 'sql::stmt::';
+
     /**
      * @param QueryBuilder $query
      * @return string

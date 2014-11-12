@@ -12,12 +12,7 @@ class RedisAwareRepository implements CacheableRepository
     /**
      * @var Client
      */
-    protected $client;
-
-    /**
-     * @var string
-     */
-    protected $redisNamespace = 'sql::stmt::';
+    private $client;
 
     /**
      * @param Client $client
@@ -25,16 +20,6 @@ class RedisAwareRepository implements CacheableRepository
     public function __construct(Client $client)
     {
         $this->client = $client;
-    }
-
-    /**
-     * @param string $redisNamespace
-     * @return $this
-     */
-    public function setRedisNamespace($redisNamespace)
-    {
-        $this->redisNamespace = (string) $redisNamespace;
-        return $this;
     }
 
     /**
@@ -88,6 +73,6 @@ class RedisAwareRepository implements CacheableRepository
      */
     private function createRedisQuery($hash)
     {
-        return $this->redisNamespace . $hash;
+        return self::CACHE_NAMESPACE_PREFIX . $hash;
     }
 }

@@ -35,7 +35,7 @@ class RedisQueue implements RedisQueueInterface
      */
     public function attach(CachedSqlResult $entity)
     {
-        if ($this->has($entity->getQuery())) {
+        if ($this->has($entity->getQuery(), $entity->getParameters())) {
             throw new \InvalidArgumentException(
                 sprintf('Entity with sql query (%s) already enqueued!', $entity->getQuery())
             );
@@ -57,13 +57,14 @@ class RedisQueue implements RedisQueueInterface
 
     /**
      * @param string $query
+     * @param mixed[] $parameters
      * @return boolean
      */
-    public function has($query)
+    public function has($query, array $parameters = [])
     {
         /** @var CachedSqlResult $cachedItem */
         foreach (iterator_to_array($this->entityStorage) as $cachedItem) {
-            if ($query === $cachedItem->getQuery()) {
+            if ($query === $cachedItem->getQuery() && $parameters === $cachedItem->getParameters()) {
                 return true;
             }
         }

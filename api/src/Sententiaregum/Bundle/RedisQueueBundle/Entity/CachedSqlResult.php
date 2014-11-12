@@ -8,13 +8,26 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CachedSqlResult implements FromJsonInterface
 {
+    /**
+     * @var string
+     */
     private $query;
+
+    /**
+     * @var mixed
+     */
     private $result;
 
-    public function __construct($sqlQuery, $result)
+    /**
+     * @var mixed[]
+     */
+    private $parameters;
+
+    public function __construct($sqlQuery, $result, array $sqlParams = [])
     {
         $this->query = (string) $sqlQuery;
         $this->result = $result;
+        $this->parameters = $sqlParams;
     }
 
     /**
@@ -34,24 +47,32 @@ class CachedSqlResult implements FromJsonInterface
     }
 
     /**
+     * @return \mixed[]
+     */
+    public function getParameters()
+    {
+        return $this->parameters;
+    }
+
+    /**
      * @return string
      */
     final public function __toString()
     {
-        return (new ToJsonConverter())->toJson($this, ['query', 'result']);
+        return (new ToJsonConverter())->toJson($this, ['query', 'result', 'parameters']);
     }
 
     /**
      * @param string $jsonString
      * @return mixed
      */
-    public static function createFromJson($jsonString)
+    final public static function createFromJson($jsonString)
     {
         $optionResolver = new OptionsResolver();
         $optionResolver->setRequired(['query', 'result']);
-        $optionResolver->setAllowedTypes([
-            'query' => 'string'
-        ]);
+        $optionResolver->setOptional(['parameters']);
+        $optionResolver->setDefaults(['parameters' => array()]);
+        $optionResolver->setAllowedTypes(['query' => 'string']);
 
         $result = json_decode($jsonString, true);
         if (JSON_ERROR_NONE !== json_last_error()) {
@@ -59,6 +80,6 @@ class CachedSqlResult implements FromJsonInterface
         }
         $result = $optionResolver->resolve($result);
 
-        return new static($result['query'], $result['result']);
+        return new static($result['query'], $result['result'], $result['parameters']);
     }
 }

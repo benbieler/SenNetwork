@@ -8,6 +8,6 @@ interface RedisQueueInterface
 {
     public function attach(CachedSqlResult $entity);
     public function add(array $entityStack);
-    public function has($query);
+    public function has($query, array $params = array());
     public function progress();
 }
