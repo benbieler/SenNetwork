@@ -1,6 +1,6 @@
 {
     "name": "ma27/sententiaregum",
-    "license": "MIT",
+    "license": "GPL",
     "type": "project",
     "description": "The webservice api of sententiaregum",
     "autoload": {
