@@ -81,7 +81,7 @@ You could ran the install commands by executing the following command after clon
 
 ### Create admin user
 
-    php app/console sententiaregum:user:create-admin --name={admin name} --password={password}
+    php app/console sententiaregum:user:create-admin --name={admin name} --password={password} --email={email}
 
 3) Check requirements:
 ----------------------

@@ -13,9 +13,8 @@
         </service>
 
         <service id="sen.account.controller" class="Sententiaregum\Bundle\UserBundle\Controller\AccountController">
-            <argument type="service" id="validator" />
+            <argument type="service" id="sen.service.create_account" />
             <argument type="service" id="sen.user.repository" />
-            <argument type="service" id="sen.util.hasher" />
             <argument>%registration.defaultRoles%</argument>
         </service>
         
@@ -33,6 +32,12 @@
 
         <service id="sen.security.token" class="Sententiaregum\Bundle\UserBundle\Security\Token">
             <argument type="service" id="sen.user.repository" />
+        </service>
+
+        <service id="sen.service.create_account" class="Sententiaregum\Bundle\UserBundle\Service\CreateAccount">
+            <argument type="service" id="sen.util.hasher" />
+            <argument type="service" id="sen.user.repository" />
+            <argument type="service" id="validator" />
         </service>
 
         <service id="sen.util.hasher" class="Sententiaregum\Bundle\UserBundle\Util\PasswordHasher" />
