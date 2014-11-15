@@ -21,6 +21,7 @@ script:
   - bin/phpspec run
   - bin/behat --suite=requestToken
   - bin/behat --suite=createAccount
+  - bin/behat --suite=redisQueue
 
 after_script:
   - php app/console doctrine:migrations:version 20141018161940 --delete --no-interaction
