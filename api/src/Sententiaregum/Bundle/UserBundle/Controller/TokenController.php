@@ -2,7 +2,6 @@
 
 namespace Sententiaregum\Bundle\UserBundle\Controller;
 
-use Sententiaregum\Bundle\UserBundle\Entity\User;
 use Sententiaregum\Bundle\UserBundle\Security\UserProvider;
 use Sententiaregum\Bundle\UserBundle\Security\Api\TokenInterface;
 use Sententiaregum\Bundle\UserBundle\Util\Api\PasswordHasherInterface;
@@ -48,7 +47,7 @@ class TokenController
         $username = \igorw\get_in($data, ['username']);
         $password = \igorw\get_in($data, ['password']);
 
-        /** @var User $user */
+        /** @var \Sententiaregum\Bundle\UserBundle\Entity\Api\UserInterface $user */
         $user = $this->userProvider->loadUserByUsername($username);
         if (null === $user) {
             return $this->createInvalidCredentialsResponse();

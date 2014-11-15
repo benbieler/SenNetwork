@@ -2,7 +2,7 @@
 
 namespace Sententiaregum\Bundle\UserBundle\Service;
 
-use Sententiaregum\Bundle\UserBundle\Entity\User;
+use Sententiaregum\Bundle\UserBundle\Entity\Api\UserInterface;
 use Sententiaregum\Bundle\UserBundle\Entity\Api\UserRepositoryInterface;
 use Sententiaregum\Bundle\UserBundle\Util\Api\PasswordHasherInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -33,10 +33,10 @@ class CreateAccount implements CreateAccountInterface
     }
 
     /**
-     * @param User $user
+     * @param UserInterface $user
      * @return void
      */
-    public function persist(User $user)
+    public function persist(UserInterface $user)
     {
         $user->setPassword(
             $this->passwordHasher->create($user->getPassword())
@@ -48,10 +48,10 @@ class CreateAccount implements CreateAccountInterface
     }
 
     /**
-     * @param User $user
+     * @param UserInterface $user
      * @return string[]
      */
-    public function validateInput(User $user)
+    public function validateInput(UserInterface $user)
     {
         $violations = [];
         /** @var \Symfony\Component\Validator\ConstraintViolationInterface $constraintViolation */

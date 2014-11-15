@@ -177,7 +177,7 @@ class UserRepository implements UserRepositoryInterface
      * @param DateTime $registrationDate
      * @param DateTime $lastAction
      * @param boolean $locked
-     * @return User
+     * @return UserInterface
      */
     public function create($username, $password, $email, DateTime $registrationDate, DateTime $lastAction = null, $locked = false)
     {

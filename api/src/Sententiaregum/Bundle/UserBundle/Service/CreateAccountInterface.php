@@ -2,20 +2,19 @@
 
 namespace Sententiaregum\Bundle\UserBundle\Service;
 
-use Sententiaregum\Bundle\UserBundle\Entity\User;
+use Sententiaregum\Bundle\UserBundle\Entity\Api\UserInterface;
 
 interface CreateAccountInterface
 {
     /**
-     * @param User $user
+     * @param UserInterface $user
      * @return void
      */
-    public function persist(User $user);
+    public function persist(UserInterface $user);
 
     /**
-     * @param User $user
+     * @param UserInterface $user
      * @return string[]
      */
-    public function validateInput(User $user);
+    public function validateInput(UserInterface $user);
 }
- 

@@ -2,14 +2,27 @@
 
 namespace Sententiaregum\Bundle\UserBundle\Entity\Api;
 
+use DateTime;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 
 interface UserInterface extends AdvancedUserInterface
 {
     /**
+     * @param int $id
+     * @return $this
+     */
+    public function setId($id);
+
+    /**
      * @return integer
      */
     public function getId();
+
+    /**
+     * @param string $email
+     * @return $this
+     */
+    public function setEmail($email);
 
     /**
      * @return string
@@ -17,9 +30,21 @@ interface UserInterface extends AdvancedUserInterface
     public function getEmail();
 
     /**
+     * @param string $password
+     * @return $this
+     */
+    public function setPassword($password);
+
+    /**
      * @return string
      */
     public function getPassword();
+
+    /**
+     * @param string $apiToken
+     * @return $this
+     */
+    public function setApiToken($apiToken = null);
 
     /**
      * @return string
@@ -27,14 +52,32 @@ interface UserInterface extends AdvancedUserInterface
     public function getApiToken();
 
     /**
+     * @param \DateTime $registrationDate
+     * @return $this
+     */
+    public function setRegistrationDate(DateTime $registrationDate);
+
+    /**
      * @return \DateTime
      */
     public function getRegistrationDate();
 
     /**
+     * @param string $realName
+     * @return $this
+     */
+    public function setRealName($realName);
+
+    /**
      * @return string
      */
     public function getRealName();
+
+    /**
+     * @param \DateTime $lastAction
+     * @return $this
+     */
+    public function setLastAction(DateTime $lastAction);
 
     /**
      * @return \DateTime
@@ -45,4 +88,22 @@ interface UserInterface extends AdvancedUserInterface
      * @return boolean
      */
     public function isOnline();
+
+    /**
+     * @param boolean $locked
+     * @return $this
+     */
+    public function setLocked($locked);
+
+    /**
+     * @param string $salt
+     * @return $this
+     */
+    public function setSalt($salt = null);
+
+    /**
+     * @param \Symfony\Component\Security\Core\Role\Role[] $roles
+     * @return $this
+     */
+    public function setRoles(array $roles);
 }
