@@ -1,9 +1,11 @@
 <?php
+
 namespace Sententiaregum\Common\Kernel;
 
 use Sensio\Bundle\DistributionBundle\SensioDistributionBundle;
 use Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle;
 use Sententiaregum\Bundle\MicrobloggingBundle\SententiaregumMicrobloggingBundle;
+use Sententiaregum\Bundle\RedisMQBundle\SententiaregumRedisMQBundle;
 use Sententiaregum\Bundle\UserBundle\SententiaregumUserBundle;
 use Snc\RedisBundle\SncRedisBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
@@ -15,7 +17,7 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel as SymfonyKernel;
 
 /**
- * Default kernel implementation of the application
+ * Default kernel implementation of this application
  */
 abstract class Kernel extends SymfonyKernel
 {
@@ -33,6 +35,7 @@ abstract class Kernel extends SymfonyKernel
 
             // redis
             new SncRedisBundle(),
+            new SententiaregumRedisMQBundle(),
 
             // application bundles
             new SententiaregumUserBundle(),

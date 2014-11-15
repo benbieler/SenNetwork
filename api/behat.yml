@@ -19,3 +19,12 @@ default:
                     databasePassword: root
             filters:
                 tags: "@requestToken"
+
+        redisQueue:
+            contexts:
+                - Sententiaregum\Bundle\RedisMQBundle\FeatureContext\RedisContext:
+                    databaseName: symfony
+                    databaseUser: root
+                    databasePassword: root
+            filters:
+                tags: "@redisQueue"
