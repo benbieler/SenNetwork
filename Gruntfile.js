@@ -67,6 +67,18 @@ module.exports = function (grunt) {
                 }]
             }
         },
+        uglify: {
+            options: {
+                mangle: false
+            },
+            dist: {
+                files: {
+                    'dist/all.js': [
+                        'dist/all.js'
+                    ]
+                }
+            }
+        },
         copy: {
             main: {
                 files: [
@@ -94,6 +106,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
     grunt.registerTask('build-production', [
         'mkdir',
@@ -101,7 +114,8 @@ module.exports = function (grunt) {
         'concat',
         'cssmin',
         'imagemin',
-        'copy'
+        'copy',
+        'uglify'
     ]);
 
     grunt.registerTask('default', ['build-production']);
