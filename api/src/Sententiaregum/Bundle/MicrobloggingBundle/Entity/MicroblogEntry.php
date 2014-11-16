@@ -3,9 +3,10 @@
 namespace Sententiaregum\Bundle\MicrobloggingBundle\Entity;
 
 use Sententiaregum\Bundle\CommentBundle\Entity\Comment;
+use Sententiaregum\Bundle\RedisMQBundle\Entity\QueueEntity;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-class MicroblogEntry
+class MicroblogEntry implements \JsonSerializable
 {
     /**
      * @var integer
@@ -172,5 +173,35 @@ class MicroblogEntry
     {
         $this->uploadedImage = $uploadedImage;
         return $this;
+    }
+
+    /**
+     * @return mixed[]
+     */
+    public function jsonSerialize()
+    {
+        $comments = [];
+        foreach ($this->comments as $comment) {
+            $comments[] = [
+                'id' => $comment->getId(),
+                'authorId' => $comment->getAuthorId(),
+                'content' => $comment->getContent(),
+                'date' => $comment->getCreationDate()
+            ];
+        }
+
+        return [
+            'id' => $this->id,
+            'content' => $this->content,
+            'appendedImagePath' => $this->getImagePath(),
+            'authorId' => $this->authorId,
+            'comments' => $comments,
+            'creationDate' => $this->creationDate
+        ];
+    }
+
+    public function toMessageQueue()
+    {
+        return (new QueueEntity($this->jsonSerialize()));
     }
 }
