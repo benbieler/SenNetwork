@@ -11,6 +11,7 @@ before_script:
   - npm install
   - bower install
   - grunt
+  - printf "\n" | pecl install imagick
   - composer self-update
   - composer update -d api
   - php api/app/check.php
@@ -18,7 +19,6 @@ before_script:
   - echo "use mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user = 'root';\nFLUSH PRIVILEGES;\n" | mysql -u root
   - cd api
   - php app/console doctrine:migrations:migrate --no-interaction
-  - printf "\n" | pecl install imagick
 
 services:
   - redis-server
