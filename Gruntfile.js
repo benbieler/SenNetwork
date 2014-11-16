@@ -57,16 +57,6 @@ module.exports = function (grunt) {
                 }
             }
         },
-        imagemin: {
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: 'app/images',
-                    src: ['**/*.{png,jpg,gif,jpeg}'],
-                    dest: 'dist/images'
-                }]
-            }
-        },
         uglify: {
             options: {
                 mangle: false
@@ -93,6 +83,12 @@ module.exports = function (grunt) {
                         cwd: 'app/',
                         src: 'sitemap.xml',
                         dest: 'dist/'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'app/images/',
+                        src: '*',
+                        dest: 'dist/images/'
                     }
                 ]
             }
@@ -104,7 +100,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-mkdir');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
@@ -113,7 +108,6 @@ module.exports = function (grunt) {
         'htmlmin',
         'concat',
         'cssmin',
-        'imagemin',
         'copy',
         'uglify'
     ]);
