@@ -80,6 +80,7 @@ php::extensions:
       - 'set .anon/apc.stat 1'
       - 'set .anon/apc.stat_ctime 1'
       - 'set .anon/apc.enabled 1'
+  imagick: {}
   #xdebug:
   #  config:
   #    - 'set .anon/xdebug.max_nesting_level 1000'

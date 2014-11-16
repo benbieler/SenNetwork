@@ -202,6 +202,6 @@ class MicroblogEntry implements \JsonSerializable
 
     public function toMessageQueue()
     {
-        return (new QueueEntity($this->jsonSerialize()));
+        return new QueueEntity($this->jsonSerialize());
     }
 }
