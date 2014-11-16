@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sen.microblog', [])
+angular.module('sen.microblog', ['infinite-scroll'])
     .controller('dashboard', ['$scope', '$cookieStore', '$location', 'authManager', 'page', 'activeMenuItem',
         function ($scope, $cookieStore, $location, authManager, page, activeMenuItem) {
 
@@ -12,8 +12,7 @@ angular.module('sen.microblog', [])
                 $location.path('/landing');
             }
 
-            // mock values
-            var posts = [
+            $scope.posts = [
                 {
                     id: 1,
                     avatarUrl: '/images/avatar.jpg',
@@ -29,8 +28,6 @@ angular.module('sen.microblog', [])
                     head: 'Ma27 has commented'
                 }
             ];
-
-            $scope.posts = posts;
 
             $scope.addItems = function () {
                 $scope.posts.push({

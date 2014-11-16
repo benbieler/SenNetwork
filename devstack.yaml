@@ -62,7 +62,7 @@ component::mysql::databases:
 
 # component::standalone_app::port: 5000
 # component::standalone_app::prefix: api  # results in proxy from $vhost/api to localhost:$port
-component::standalone_app::path: /var/www/sententiaregum/app
+component::standalone_app::path: /var/www/sententiaregum/dist
 component::symfony2::vhost_port: 5000
 component::symfony2::path: /var/www/sententiaregum/api
 

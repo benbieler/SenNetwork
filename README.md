@@ -48,10 +48,19 @@ Clone repository
     git clone -b master https://github.com/Ma27/SenNetwork.git /path/to/webroot
     cd /path/to/webroot
 
-Load Bower dependencies
+Install bower and grunt
 
+    npm install -g grunt-cli
     npm install -g bower
+
+Load Bower any node.js dependencies
+
     bower install
+    npm install
+
+Build production environment
+
+    grunt
     
 Note: If you don't have npm installed yet, you could install it by the following commands
     

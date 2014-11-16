@@ -8,10 +8,8 @@
         <meta name="fragement" content="!" />
         <title ng-bind-template="Sententiaregum: {{page.getPageTitle() || 'Page not found'}}">Sententiaregum</title>
 
-        <!-- Bootstrap Theme -->
-        <link rel="stylesheet" media="all" type="text/css" href="scripts/vendor/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" media="all" type="text/css" href="styles/style.css" />
-        <link rel="stylesheet" media="all" type="text/css" href="scripts/vendor/perfect-scrollbar/src/perfect-scrollbar.css" />
+        <!-- styles -->
+        <link rel="stylesheet" type="text/css" media="all" href="all.css" />
 
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
@@ -42,28 +40,9 @@
         </nav>
 
         <!-- Page -->
-        <div class="container-fluid" ng-view />
+        <div class="container-fluid" ng-view></div>
 
-        <!-- jQuery and Bootstrap -->
-        <script type="text/javascript" src="scripts/vendor/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="scripts/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-
-        <!-- improved scrollbar -->
-        <script type="text/javascript" src="scripts/vendor/perfect-scrollbar/src/perfect-scrollbar.js"></script>
-
-        <!-- Angular -->
-        <script type="text/javascript" src="scripts/vendor/angular/angular.min.js"></script>
-        <script type="text/javascript" src="scripts/vendor/angular-route/angular-route.min.js"></script>
-        <script type="text/javascript" src="scripts/vendor/angular-cookies/angular-cookies.min.js"></script>
-        <script type="text/javascript" src="scripts/vendor/angular-sanitize/angular-sanitize.min.js"></script>
-        <script type="text/javascript" src="scripts/vendor/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>
-
-        <!-- Application -->
-        <script type="text/javascript" src="scripts/app.js"></script>
-        <script type="text/javascript" src="scripts/services/page-management.js"></script>
-        <script type="text/javascript" src="scripts/controllers/microblogging.js"></script>
-        <script type="text/javascript" src="scripts/controllers/login.js"></script>
-        <script type="text/javascript" src="scripts/controllers/create-account.js"></script>
-        <script type="text/javascript" src="scripts/directives/image-upload.js"></script>
+        <!-- javascript -->
+        <script type="text/javascript" src="all.js"></script>
     </body>
 </html>

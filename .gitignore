@@ -30,3 +30,10 @@
 
 # Bower
 /app/scripts/vendor/
+
+# node.js
+/node_modules/
+/npm-debug.log
+
+# production environment
+/dist/

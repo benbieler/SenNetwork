@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row" ng-init="sortPosts='creationDate'">
         <div class="col-md-3">
-            <div ng-include="'/partials/widgets/microblog/hashtags.html'" />
+            <div ng-include="'/partials/widgets/microblog/hashtags.html'"></div>
 
             <div class="panel panel-info">
                 <div class="panel-heading">
@@ -31,14 +31,14 @@
                             </div>
                             <div class="col-md-6" style="text-align: right">
                                 <image-upload-button class="btn btn-info" uploadFieldId="imageUpload"></image-upload-button>
-                                <button class="btn btn-primary">Post!</button>
+                                <button class="btn btn-primary" style="margin-left: 10px;">Post!</button>
                             </div>
                             <input type="file" style="display: none" id="imageUpload" />
                         </div>
                     </form>
                 </li>
 
-                <div ng-include="'/partials/widgets/microblog/entry.html'" />
+                <div ng-include="'/partials/widgets/microblog/entry.html'"></div>
             </ul>
         </div>
     </div>
