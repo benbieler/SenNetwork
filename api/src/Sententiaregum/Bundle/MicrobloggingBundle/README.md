@@ -1,5 +1,5 @@
-Social Networking Bundle
-========================
+Microblogging Symfony Bundle
+============================
 
 RESTful API for Sententiaregum based on Symfony2.
 
