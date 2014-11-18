@@ -4,7 +4,7 @@ namespace Sententiaregum\Bundle\MicrobloggingBundle\Controller;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-class DashboardController
+class PostsController
 {
     public function indexAction()
     {

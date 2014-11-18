@@ -5,6 +5,7 @@
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
     <route id="sententiaregum_microblogging_dashboard" path="/dashboard">
-        <default key="_controller">SententiaregumMicrobloggingBundle:Dashboard:index</default>
+        <default key="_controller">SententiaregumMicrobloggingBundle:Posts:index</default>
+        <default key="_type">dashboard</default>
     </route>
 </routes>
