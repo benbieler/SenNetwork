@@ -45,6 +45,10 @@ class WriteEntryController
         $this->validator = $validator;
     }
 
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function createAction(Request $request)
     {
         $inputData = json_decode($request->getContent(), true);
@@ -58,7 +62,7 @@ class WriteEntryController
         /** @var \Symfony\Component\HttpFoundation\File\UploadedFile $image */
         $image = $request->files->get('appended-image');
 
-        $entity = $this->microblogRepo->create($entryContent, $user->getId(), $image, new \DateTime());
+        $entity = $this->microblogRepo->create($entryContent, $user->getId(), new \DateTime(), $image);
         $violations = $this->validator->validate($entity);
         if (count($violations) > 0) {
             $errors = [];

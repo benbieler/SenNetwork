@@ -5,3 +5,8 @@ suites:
         namespace: Sententiaregum
         spec_prefix: spec
         spec_path: src/Sententiaregum/Bundle/UserBundle
+
+    sententiaregum_microblog:
+        namespace: Sententiaregum
+        spac_prefix: spec
+        spec_path: src/Sententiaregum/Bundle/MicrobloggingBundle

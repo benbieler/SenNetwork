@@ -9,11 +9,11 @@ interface MicroblogRepositoryInterface
     /**
      * @param $content
      * @param $userId
-     * @param UploadedFile $uploadedFile
      * @param \DateTime $creationDate
+     * @param UploadedFile $uploadedFile
      * @return MicroblogEntry
      */
-    public function create($content, $userId, UploadedFile $uploadedFile, \DateTime $creationDate);
+    public function create($content, $userId,  \DateTime $creationDate, UploadedFile $uploadedFile = null);
 
     /**
      * @param MicroblogEntry $microblogEntry
