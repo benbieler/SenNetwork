@@ -43,7 +43,7 @@ class Comment
      */
     public function setArticleId($articleId)
     {
-        $this->articleId = (string) $articleId;
+        $this->articleId = (integer) $articleId;
         return $this;
     }
 
