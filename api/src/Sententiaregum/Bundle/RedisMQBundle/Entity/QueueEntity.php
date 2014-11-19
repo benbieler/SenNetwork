@@ -38,8 +38,12 @@ class QueueEntity implements \JsonSerializable, FromJsonInterface
         }
         else if ($this->value instanceof \Traversable) {
             $result = iterator_to_array($this->value);
-        } else {
-            $result = [];
+        }
+        else if($this->value instanceof \JsonSerializable) {
+            $result = $this->value->jsonSerialize();
+        }
+        else {
+            $result = (array) $this->value;
         }
 
         return ['value' => $result];

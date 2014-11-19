@@ -23,7 +23,7 @@ class RedisContext extends Context
     {
         parent::__construct($databaseName, $databaseUser, $databasePassword);
 
-        $this->service = $this->container->get('sen.redis_queue.context');
+        $this->service = $this->container->get('sen.redis_queue.context.default');
     }
 
     /** @BeforeScenario */

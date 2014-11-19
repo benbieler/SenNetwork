@@ -5,11 +5,11 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-
-        <service id="sen.redis_queue.context" class="Sententiaregum\Bundle\RedisMQBundle\Service\QueueContext">
-            <argument type="service" id="snc_redis.default" />
+        <service id="sen_parser.entry_parser" class="Sententiaregum\Bundle\EntryParsingBundle\Parser\EntryParser">
+            <argument>%tag_delimiter%</argument>
+            <argument>%name_delimiter%</argument>
+            <argument>%strip_delimiter%</argument>
         </service>
-
     </services>
 
 </container>

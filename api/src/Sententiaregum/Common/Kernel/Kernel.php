@@ -5,6 +5,7 @@ namespace Sententiaregum\Common\Kernel;
 use Sensio\Bundle\DistributionBundle\SensioDistributionBundle;
 use Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle;
 use Sententiaregum\Bundle\CommentBundle\SententiaregumCommentBundle;
+use Sententiaregum\Bundle\EntryParsingBundle\SententiaregumEntryParsingBundle;
 use Sententiaregum\Bundle\MicrobloggingBundle\SententiaregumMicrobloggingBundle;
 use Sententiaregum\Bundle\RedisMQBundle\SententiaregumRedisMQBundle;
 use Sententiaregum\Bundle\UserBundle\SententiaregumUserBundle;
@@ -41,7 +42,8 @@ abstract class Kernel extends SymfonyKernel
             // application bundles
             new SententiaregumUserBundle(),
             new SententiaregumMicrobloggingBundle(),
-            new SententiaregumCommentBundle()
+            new SententiaregumCommentBundle(),
+            new SententiaregumEntryParsingBundle()
         ];
 
         if (in_array($this->environment, ['dev', 'test'])) {

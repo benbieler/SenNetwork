@@ -8,5 +8,10 @@ suites:
 
     sententiaregum_microblog:
         namespace: Sententiaregum
-        spac_prefix: spec
+        spec_prefix: spec
         spec_path: src/Sententiaregum/Bundle/MicrobloggingBundle
+
+    sententiaregum_entry_parser:
+        namespace: Sententiaregum
+        spec_prefix: spec
+        spec_path: src/Sententiaregum/Bundle/EntryParsingBundle

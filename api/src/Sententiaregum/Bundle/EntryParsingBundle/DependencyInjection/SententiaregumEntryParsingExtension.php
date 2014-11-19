@@ -1,10 +1,9 @@
 <?php
 
-namespace Sententiaregum\Bundle\RedisMQBundle\DependencyInjection;
+namespace Sententiaregum\Bundle\EntryParsingBundle\DependencyInjection;
 
-use Sententiaregum\Bundle\RedisMQBundle\Service\QueueContext;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Reference;
+use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 
@@ -13,7 +12,7 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class SententiaregumRedisMQExtension extends Extension
+class SententiaregumEntryParsingExtension extends Extension
 {
     /**
      * {@inheritdoc}
@@ -23,11 +22,11 @@ class SententiaregumRedisMQExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        foreach ($config['queues'] as $alias => $namespace) {
-            $container
-                ->register('sen.redis_queue.context.' . $alias, QueueContext::class)
-                ->addArgument(new Reference('snc_redis.default'))
-                ->addMethodCall('setQueueNamespace', [$namespace]);
+        foreach (['tag_delimiter', 'name_delimiter', 'strip_delimiter'] as $value) {
+            $container->setParameter($value, $config[$value]);
         }
+
+        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('services.xml');
     }
 }

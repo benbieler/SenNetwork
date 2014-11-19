@@ -2,15 +2,20 @@
 
 use Sententiaregum\Common\Kernel\Kernel;
 
+/**
+ * Sententiaregum application kernel
+ */
 class AppKernel extends Kernel
 {
+    /**
+     * {@inheritdoc}
+     */
     public function registerBundles()
     {
-        return array_merge(
-            parent::registerBundles(),
-            [
-                // put your additional bundles here
-            ]
-        );
+        $bundles = [
+            // put your custom bundles here!
+        ];
+
+        return array_merge(parent::registerBundles(), $bundles);
     }
 }
