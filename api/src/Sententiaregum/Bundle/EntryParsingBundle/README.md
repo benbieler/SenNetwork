@@ -6,7 +6,7 @@ RESTful API for Sententiaregum based on Symfony2.
 Docs
 ----
 
-The docs of this bundle can be found [here](https://github.com/Ma27/SenNetwork/blob/master/api/src/Sententiaregum/Bundle/MicrobloggingBundle/Resources/doc/index.md)
+The docs of this bundle can be found [here](https://github.com/Ma27/SenNetwork/blob/master/api/src/Sententiaregum/Bundle/EntryParsingBundle/Resources/doc/index.md)
 
 
 License
@@ -14,7 +14,7 @@ License
 
 The bundle is published under GPL license.
 
-Check out the license file in [Resources/meta/LICENSE](https://github.com/Ma27/SenNetwork/blob/master/api/src/Sententiaregum/Bundle/MicrobloggingBundle/Resources/meta/LICENSE)
+Check out the license file in [Resources/meta/LICENSE](https://github.com/Ma27/SenNetwork/blob/master/api/src/Sententiaregum/Bundle/EntryParsingBundle/Resources/meta/LICENSE)
 
 
 Contributors

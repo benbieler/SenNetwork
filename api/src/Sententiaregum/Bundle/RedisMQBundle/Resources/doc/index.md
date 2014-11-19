@@ -59,6 +59,7 @@ If you'd like to have multiple queues, just switch the prefixes:
 You can use this bundle with Symfony 2.
 
 *app/config.yml*
+
     sententiaregum_redis_mq:
       queues:
         default: your::redis::namespace::
