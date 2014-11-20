@@ -80,7 +80,7 @@ class WriteEntry implements WriteEntryInterface
 
     /**
      * @param MicroblogEntry $microblogEntry
-     * @return boolean
+     * @return MicroblogEntry
      */
     public function persist(MicroblogEntry $microblogEntry)
     {
