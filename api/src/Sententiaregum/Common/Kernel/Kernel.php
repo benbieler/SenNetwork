@@ -2,10 +2,13 @@
 
 namespace Sententiaregum\Common\Kernel;
 
+use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
+use Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle;
 use Sensio\Bundle\DistributionBundle\SensioDistributionBundle;
 use Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle;
 use Sententiaregum\Bundle\CommentBundle\SententiaregumCommentBundle;
 use Sententiaregum\Bundle\EntryParsingBundle\SententiaregumEntryParsingBundle;
+use Sententiaregum\Bundle\HashtagsBundle\SententiaregumHashtagsBundle;
 use Sententiaregum\Bundle\MicrobloggingBundle\SententiaregumMicrobloggingBundle;
 use Sententiaregum\Bundle\RedisMQBundle\SententiaregumRedisMQBundle;
 use Sententiaregum\Bundle\UserBundle\SententiaregumUserBundle;
@@ -13,8 +16,6 @@ use Snc\RedisBundle\SncRedisBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\SecurityBundle\SecurityBundle;
 use Symfony\Bundle\MonologBundle\MonologBundle;
-use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
-use Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel as SymfonyKernel;
 
@@ -43,7 +44,8 @@ abstract class Kernel extends SymfonyKernel
             new SententiaregumUserBundle(),
             new SententiaregumMicrobloggingBundle(),
             new SententiaregumCommentBundle(),
-            new SententiaregumEntryParsingBundle()
+            new SententiaregumEntryParsingBundle(),
+            new SententiaregumHashtagsBundle()
         ];
 
         if (in_array($this->environment, ['dev', 'test'])) {

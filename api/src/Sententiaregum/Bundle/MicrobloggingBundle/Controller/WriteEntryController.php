@@ -2,6 +2,9 @@
 
 namespace Sententiaregum\Bundle\MicrobloggingBundle\Controller;
 
+use Sententiaregum\Bundle\EntryParsingBundle\Parser\Api\EntryPostParserInterface;
+use Sententiaregum\Bundle\HashtagsBundle\Entity\Api\TagRepositoryInterface;
+use Sententiaregum\Bundle\HashtagsBundle\Entity\Tag;
 use Sententiaregum\Bundle\MicrobloggingBundle\Entity\Api\MicroblogRepositoryInterface;
 use Sententiaregum\Bundle\RedisMQBundle\Api\QueueInputInterface;
 use Sententiaregum\Bundle\UserBundle\Entity\Api\UserInterface;
@@ -33,16 +36,30 @@ class WriteEntryController
      */
     private $validator;
 
+    /**
+     * @var EntryPostParserInterface
+     */
+    private $entryParser;
+
+    /**
+     * @var TagRepositoryInterface
+     */
+    private $tagRepository;
+
     public function __construct(
         SecurityContextInterface $securityContext,
         MicroblogRepositoryInterface $microblogRepo,
         QueueInputInterface $queueInput,
-        ValidatorInterface $validator
+        ValidatorInterface $validator,
+        EntryPostParserInterface $entryParser,
+        TagRepositoryInterface $tagRepository
     ) {
         $this->securityContext = $securityContext;
-        $this->microblogRepo = $microblogRepo;
-        $this->queueInput = $queueInput;
-        $this->validator = $validator;
+        $this->microblogRepo   = $microblogRepo;
+        $this->queueInput      = $queueInput;
+        $this->validator       = $validator;
+        $this->entryParser     = $entryParser;
+        $this->tagRepository   = $tagRepository;
     }
 
     /**
@@ -73,6 +90,21 @@ class WriteEntryController
 
             return new JsonResponse(['errors' => $errors]);
         }
+
+        $tagRepository = $this->tagRepository;
+        $tags = $this->entryParser->extractTagsFromPost($entity->getContent());
+        array_walk($tags, function (&$value) use ($tagRepository) {
+            $tag = new Tag();
+            $tag->setName($value);
+
+            $value = $tag;
+
+            $tagRepository->add($value);
+        });
+        $names = $this->entryParser->extractNamesFromPost($entity->getContent());
+
+        $entity->setMarked($names);
+        $entity->setTags($tags);
 
         $this->microblogRepo->add($entity);
         $this->queueInput->push($entity->toMessageQueue());

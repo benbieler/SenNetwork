@@ -4,6 +4,8 @@ namespace spec\Sententiaregum\Bundle\MicrobloggingBundle\Controller;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use Sententiaregum\Bundle\EntryParsingBundle\Parser\Api\EntryPostParserInterface;
+use Sententiaregum\Bundle\HashtagsBundle\Entity\Api\TagRepositoryInterface;
 use Sententiaregum\Bundle\MicrobloggingBundle\Entity\Api\MicroblogRepositoryInterface;
 use Sententiaregum\Bundle\MicrobloggingBundle\Entity\MicroblogEntry;
 use Sententiaregum\Bundle\RedisMQBundle\Api\QueueInputInterface;
@@ -23,9 +25,11 @@ class WriteEntryControllerSpec extends ObjectBehavior
         SecurityContextInterface $securityContextInterface,
         MicroblogRepositoryInterface $microblogRepositoryInterface,
         QueueInputInterface $queueInputInterface,
-        ValidatorInterface $validatorInterface)
+        ValidatorInterface $validatorInterface,
+        EntryPostParserInterface $entryPostParserInterface,
+        TagRepositoryInterface $tagRepositoryInterface)
     {
-        $this->beConstructedWith($securityContextInterface, $microblogRepositoryInterface, $queueInputInterface, $validatorInterface);
+        $this->beConstructedWith($securityContextInterface, $microblogRepositoryInterface, $queueInputInterface, $validatorInterface, $entryPostParserInterface, $tagRepositoryInterface);
     }
 
     function it_is_initializable()
@@ -63,8 +67,12 @@ class WriteEntryControllerSpec extends ObjectBehavior
         SecurityContextInterface $securityContextInterface,
         Request $request,
         FileBag $fileBag,
-        MicroblogRepositoryInterface $microblogRepositoryInterface)
+        MicroblogRepositoryInterface $microblogRepositoryInterface,
+        EntryPostParserInterface $entryPostParserInterface)
     {
+        $entryPostParserInterface->extractTagsFromPost(Argument::any())->willReturn(['foo']);
+        $entryPostParserInterface->extractNamesFromPost(Argument::any())->willReturn([]);
+
         $tokenInterface->getUser()->willReturn($userInterface);
         $securityContextInterface->getToken()->willReturn($tokenInterface);
 

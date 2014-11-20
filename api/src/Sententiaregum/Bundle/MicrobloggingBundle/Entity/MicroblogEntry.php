@@ -3,6 +3,7 @@
 namespace Sententiaregum\Bundle\MicrobloggingBundle\Entity;
 
 use Sententiaregum\Bundle\CommentBundle\Entity\Comment;
+use Sententiaregum\Bundle\HashtagsBundle\Entity\Tag;
 use Sententiaregum\Bundle\RedisMQBundle\Entity\QueueEntity;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -42,6 +43,16 @@ class MicroblogEntry implements \JsonSerializable
      * @var Comment[]
      */
     private $comments = [];
+
+    /**
+     * @var string[]
+     */
+    private $marked = [];
+
+    /**
+     * @var \Sententiaregum\Bundle\HashtagsBundle\Entity\Tag[]
+     */
+    private $tags = [];
 
     /**
      * @return integer
@@ -154,6 +165,46 @@ class MicroblogEntry implements \JsonSerializable
     public function setImagePath($imagePath)
     {
         $this->imagePath = $imagePath;
+        return $this;
+    }
+
+    /**
+     * @return \string[]
+     */
+    public function getMarked()
+    {
+        return $this->marked;
+    }
+
+    /**
+     * @param \string[] $marked
+     * @return $this
+     */
+    public function setMarked(array $marked)
+    {
+        $this->marked = $marked;
+        return $this;
+    }
+
+    /**
+     * @return \Sententiaregum\Bundle\HashtagsBundle\Entity\Tag[]
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param \Sententiaregum\Bundle\HashtagsBundle\Entity\Tag[] $tags
+     * @return $this
+     */
+    public function setTags(array $tags)
+    {
+        array_map(function ($tag) {
+            return $tag instanceof Tag;
+        }, $tags);
+
+        $this->tags = $tags;
         return $this;
     }
 
