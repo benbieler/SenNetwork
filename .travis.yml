@@ -6,11 +6,14 @@ php:
   - hhvm
 
 before_script:
+  # just to test if the build of the frontend passes
   - npm install -g bower
   - npm install -g grunt-cli
   - npm install
   - bower install
   - grunt
+
+  # prepare php test suite
   - printf "\n" | pecl install imagick
   - composer self-update
   - composer update -d api
@@ -24,7 +27,7 @@ services:
   - redis-server
 
 script:
-  - bin/phpspec run
+  - bin/phpspec run -f dot
   - bin/behat --suite=requestToken
   - bin/behat --suite=createAccount
   - bin/behat --suite=redisQueue

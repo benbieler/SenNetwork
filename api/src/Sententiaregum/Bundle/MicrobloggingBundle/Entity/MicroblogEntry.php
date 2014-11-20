@@ -169,7 +169,7 @@ class MicroblogEntry implements \JsonSerializable
     }
 
     /**
-     * @return \string[]
+     * @return string[]
      */
     public function getMarked()
     {
@@ -177,7 +177,7 @@ class MicroblogEntry implements \JsonSerializable
     }
 
     /**
-     * @param \string[] $marked
+     * @param string[] $marked
      * @return $this
      */
     public function setMarked(array $marked)
