@@ -13,7 +13,7 @@ The entry parser extracts the tags and names from a content
 -------------------------------
 
     $post = <<<POST
-        some very lon post #tag @name
+        some very long post #tag @name
     POST;
     
     $extractor = new \Sententiaregum\Bundle\EntryParsingBundle\Parser\EntryParser;
@@ -26,13 +26,13 @@ The entry parser extracts the tags and names from a content
 The output will be:
 
     array(1) {
-      [0]=>
-      string(4) "name"
-    }
-    
-    array(1) {
       [0)=>
       string(3) "tag"
+    }
+
+    array(1) {
+      [0]=>
+      string(4) "name"
     }
 
 
