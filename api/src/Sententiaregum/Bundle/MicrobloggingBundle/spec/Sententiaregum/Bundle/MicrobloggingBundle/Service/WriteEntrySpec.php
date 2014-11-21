@@ -50,8 +50,9 @@ class WriteEntrySpec extends ObjectBehavior
         $result->shouldHaveCount(2);
     }
 
-    function it_persists_microblog_entities(MicroblogRepositoryInterface $microblogRepositoryInterface, MicroblogEntry $entity, EntryPostParserInterface $entryPostParserInterface)
+    function it_persists_microblog_entities(MicroblogRepositoryInterface $microblogRepositoryInterface, MicroblogEntry $entity, EntryPostParserInterface $entryPostParserInterface, TagRepositoryInterface $tagRepositoryInterface)
     {
+        $tagRepositoryInterface->add(Argument::any())->shouldBeCalled();
         $entryPostParserInterface->extractTagsFromPost(Argument::any())->willReturn(['foo', 'bar']);
         $entryPostParserInterface->extractNamesFromPost(Argument::any())->willReturn([]);
         $microblogRepositoryInterface->add($entity)->shouldBeCalled();
