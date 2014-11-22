@@ -2,6 +2,7 @@
 
 namespace Sententiaregum\Bundle\MicrobloggingBundle\Service;
 
+use Sententiaregum\Bundle\MicrobloggingBundle\Entity\MicroblogEntry;
 use Sententiaregum\Bundle\MicrobloggingBundle\Service\Api\EntryListLoaderInterface;
 
 class ProfileListLoader implements EntryListLoaderInterface
@@ -16,5 +17,14 @@ class ProfileListLoader implements EntryListLoaderInterface
     {
 
     }
+
+    /**
+     * @param MicroblogEntry $entry
+     * @param integer $userId
+     * @return boolean
+     */
+    public function checkUserShouldReceivePost(MicroblogEntry $entry, $userId)
+    {
+        # TODO: Implement checkUserShouldReceivePost() method.
+    }
 }
- 
