@@ -65,4 +65,18 @@ abstract class Kernel extends SymfonyKernel
     {
         return $loader->load($this->getRootDir() . '/config/config_' . $this->environment . '.yml');
     }
+
+    public function getCacheDir()
+    {
+        if ($this->isVagrantBox()) {
+            return '/dev/shm/sen/cache';
+        }
+
+        return parent::getCacheDir();
+    }
+
+    private function isVagrantBox()
+    {
+        return getenv('VAGRANT') === 'VAGRANT' && is_dir('/dev/shm');
+    }
 }
