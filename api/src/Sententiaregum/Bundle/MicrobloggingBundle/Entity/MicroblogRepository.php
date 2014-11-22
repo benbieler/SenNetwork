@@ -63,7 +63,10 @@ class MicroblogRepository implements MicroblogRepositoryInterface
                 $maxIdStmt->execute();
                 $uniqueId = $maxIdStmt->fetchColumn() + 1;
                 $microblogEntry->setId($uniqueId);
-                $microblogEntry->setImagePath($this->generateImageName($uniqueId));
+
+                if (null !== $file = $microblogEntry->getUploadedImage()) {
+                    $microblogEntry->setImagePath($this->generateImageName($uniqueId) . '.' . $file->getExtension());
+                }
 
                 $connection->insert('se_microblogs', $this->entity2Row($microblogEntry));
 
