@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 main() {
     echo "In order to run setup, please check out, that you have the following programms installed:" && \
