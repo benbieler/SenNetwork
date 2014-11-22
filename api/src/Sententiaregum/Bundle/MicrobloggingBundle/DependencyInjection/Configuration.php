@@ -20,10 +20,22 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('sententiaregum_microblogging');
 
-        /*$rootNode
+        $rootNode
             ->children()
+                ->scalarNode('image_upload_dir')
+                    ->isRequired()
+                    ->validate()
+                    ->always(
+                        function ($value) {
+                            if (!file_exists($value)) {
+                                throw new \InvalidArgumentException('Invalid upload path (' . $value . ') specified');
+                            }
 
-            ->end();*/
+                            return $value;
+                        }
+                    )
+                ->end()
+            ->end();
 
         return $treeBuilder;
     }

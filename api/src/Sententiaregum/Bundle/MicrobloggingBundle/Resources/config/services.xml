@@ -4,13 +4,23 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
     <services>
-        <service id="sententiaregum_microblogging.example" class="Sententiaregum\Bundle\MicrobloggingBundle\Example">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="sen.microblog.posts.controller" class="Sententiaregum\Bundle\MicrobloggingBundle\Controller\PostsController">
+            <argument type="service" id="sen.microblog.repository" />
+            <argument type="service" id="sen.microblog.write_entry" />
+            <argument type="service" id="security.context" />
+        </service>
+        <service id="sen.microblog.repository" class="Sententiaregum\Bundle\MicrobloggingBundle\Entity\MicroblogRepository">
+            <argument type="service" id="database_connection" />
+            <argument>%image_upload_path%</argument>
+        </service>
+        <service id="sen.microblog.write_entry" class="Sententiaregum\Bundle\MicrobloggingBundle\Service\WriteEntry">
+            <argument type="service" id="sen.microblog.repository" />
+            <argument type="service" id="sen.redis_queue.context.default" />
+            <argument type="service" id="validator" />
+            <argument type="service" id="sen_parser.entry_parser" />
+            <argument type="service" id="sen.hashtags.repository" />
         </service>
     </services>
-    -->
+
 </container>

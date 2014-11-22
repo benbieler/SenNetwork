@@ -9,12 +9,18 @@
             <constraint name="length">
                 <option name="min">0</option>
                 <option name="max">100</option>
-                <option name="minMessage"></option>
+                <option name="minMessage">Post content too short!</option>
                 <option name="maxMessage">Post content too long!</option>
+            </constraint>
+            <constraint name="notBlank">
+                <option name="message">Post content too short!</option>
             </constraint>
         </property>
         <property name="uploadedImage">
-            <constraint name="image" />
+            <constraint name="image">
+                <option name="maxSize">1M</option>
+                <option name="maxSizeMessage">The largest possible size of an image is 1MB</option>
+            </constraint>
         </property>
     </class>
 

@@ -9,6 +9,7 @@ filter:
         - api/src/Sententiaregum/Bundle/UserBundle/FeatureContext/
         - api/src/Sententiaregum/Bundle/RedisMQBundle/FeatureContext/
         - api/src/Sententiaregum/Bundle/MicrobloggingBundle/spec/
+        - api/src/Sententiaregum/Bundle/MicrobloggingBundle/FeatureContext/
         - api/src/Sententiaregum/Bundle/EntryParsingBundle/spec/
 
 tools:

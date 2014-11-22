@@ -7,3 +7,7 @@ framework:
         storage_id: session.storage.mock_file
     profiler:
         collect: false
+
+# Change image upload directory for Behat
+sententiaregum_microblogging:
+    image_upload_dir: %kernel.root_dir%/../src/Sententiaregum/Bundle/MicrobloggingBundle/FeatureContext/Fixtures/uploads

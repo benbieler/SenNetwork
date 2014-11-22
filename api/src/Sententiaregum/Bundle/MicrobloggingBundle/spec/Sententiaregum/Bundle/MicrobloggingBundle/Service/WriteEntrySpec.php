@@ -55,7 +55,7 @@ class WriteEntrySpec extends ObjectBehavior
         $tagRepositoryInterface->add(Argument::any())->shouldBeCalled();
         $entryPostParserInterface->extractTagsFromPost(Argument::any())->willReturn(['foo', 'bar']);
         $entryPostParserInterface->extractNamesFromPost(Argument::any())->willReturn([]);
-        $microblogRepositoryInterface->add($entity)->shouldBeCalled();
+        $microblogRepositoryInterface->add($entity)->willReturnArgument(0);
         $this->persist($entity)->shouldHaveType(MicroblogEntry::class);
     }
 }

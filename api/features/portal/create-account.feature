@@ -4,11 +4,11 @@ Feature: create account
 
   Scenario: create account
     Given there's no account in the database with name "Ma27"
-    When I send an account creation request with following credentials:
+     When I send an account creation request with following credentials:
       | username | password | email            | realname |
       | Ma27     | 123456   | ma27@example.org | Ma27     |
-    Then I should get get an success message
-    And the account should be stored in database
+     Then I should get get an success message
+      And the account should be stored in database
 
   Scenario Outline: create account with illegal credentials
     When I send an account creation request with following credentials:
@@ -29,10 +29,10 @@ Feature: create account
 
   Scenario Outline: create account with non-unique username or email
     Given there's an account with name "Ma27" and email "ma27@example.org"
-    When I send an account creation request with following credentials:
+     When I send an account creation request with following credentials:
       | username | password   | email  | realname   |
       | <name>   | <password> | <mail> | <realName> |
-    Then I should get message "<property> already in use"
+     Then I should get message "<property> already in use"
   Examples:
     | name | password | mail             | realName | property |
     | Ma27 | 123456   | ma27@foobar.org  | Ma27     | Username |

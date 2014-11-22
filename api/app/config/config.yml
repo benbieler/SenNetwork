@@ -57,6 +57,10 @@ sententiaregum_entry_parsing:
     tag_delimiter: "#"
     name_delimiter: "@"
 
+# Microblog configuration
+sententiaregum_microblogging:
+    image_upload_dir: "%kernel.root_dir%/../web/uploads"
+
 # Redis configuration
 snc_redis:
     clients:

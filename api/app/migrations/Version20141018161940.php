@@ -76,11 +76,11 @@ class Version20141018161940 extends AbstractMigration
         $hashTagTable->addUniqueIndex(['name'], 'tag_name');
 
         $tagInPostTable = $schema->createTable('se_tags_in_post');
-        $tagInPostTable->addColumn('tag_id', Type::INTEGER);
+        $tagInPostTable->addColumn('tag_name', Type::STRING);
         $tagInPostTable->addColumn('post_id', Type::INTEGER);
         $tagInPostTable->addIndex(['post_id'], 'post_tag_post_id');
-        $tagInPostTable->addIndex(['tag_id'], 'post_tag_tag_id');
-        $tagInPostTable->addForeignKeyConstraint($hashTagTable, ['tag_id'], ['hashtag_id'], [], 'r_tag_post_tag_id');
+        $tagInPostTable->addIndex(['tag_name'], 'post_tag_tag_id');
+        $tagInPostTable->addForeignKeyConstraint($hashTagTable, ['tag_name'], ['name'], [], 'r_tag_post_tag_id');
         $tagInPostTable->addForeignKeyConstraint($blogEntryListTable, ['post_id'], ['entry_id'], [], 'r_tag_post_post_id');
 
         $tagInCommentsTable = $schema->createTable('se_tag_in_comment');

@@ -13,6 +13,9 @@ require_once __DIR__ . '/../../../../app/AppKernel.php';
 
 abstract class Context implements BehatContext, SnippetAcceptingContext
 {
+    /**
+     * @var \Symfony\Component\DependencyInjection\Container
+     */
     protected $container;
 
     public function __construct($databaseName, $databaseUser, $databasePassword)

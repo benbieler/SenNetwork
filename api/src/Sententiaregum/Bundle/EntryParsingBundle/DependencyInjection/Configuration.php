@@ -24,7 +24,7 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->scalarNode('tag_delimiter')->isRequired()->end()
                 ->scalarNode('name_delimiter')->isRequired()->end()
-                ->booleanNode('strip_delimiter')->defaultValue(false)->end()
+                ->booleanNode('strip_delimiter')->defaultValue(true)->end()
             ->end();
 
         return $treeBuilder;

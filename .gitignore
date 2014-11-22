@@ -9,7 +9,6 @@
 /api/app/bootstrap.php.cache
 /api/build/
 /api/web/bundles/
-/api/web/uploads/
 
 # Composer
 /api/bin/
@@ -35,5 +34,9 @@
 /node_modules/
 /npm-debug.log
 
-# production environment
+# Production environment
 /dist/
+
+# Upload directory
+/api/web/uploads/
+!api/web/uploads/.gitkeep

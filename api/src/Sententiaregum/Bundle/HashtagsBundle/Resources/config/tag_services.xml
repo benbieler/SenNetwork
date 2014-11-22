@@ -4,13 +4,10 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
     <services>
-        <service id="sententiaregum_hashtags.example" class="Sententiaregum\Bundle\HashtagsBundle\Example">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="sen.hashtags.repository" class="Sententiaregum\Bundle\HashtagsBundle\Entity\TagRepository">
+            <argument type="service" id="database_connection" />
         </service>
     </services>
-    -->
+
 </container>

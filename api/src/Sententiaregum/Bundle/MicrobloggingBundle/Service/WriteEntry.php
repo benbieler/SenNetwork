@@ -99,10 +99,10 @@ class WriteEntry implements WriteEntryInterface
         $microblogEntry->setTags($tags);
         $microblogEntry->setMarked($marked);
 
-        $this->microblogRepositoryInterface->add($microblogEntry);
+        $storedEntry = $this->microblogRepositoryInterface->add($microblogEntry);
         $this->queueInput->push(new QueueEntity($microblogEntry));
         $this->queueInput->enqueue();
 
-        return $microblogEntry;
+        return $storedEntry;
     }
 }

@@ -73,7 +73,12 @@ class PostsController
             return new JsonResponse(['errors' => $errors]);
         }
 
-        $this->writePostService->persist($entity);
+        try {
+            $this->writePostService->persist($entity);
+        } catch (\Exception $ex) {
+            return new JsonResponse(['failure' => $ex->getMessage()], 500);
+        }
+
         return new JsonResponse($entity->jsonSerialize());
     }
 }

@@ -5,7 +5,7 @@ namespace Sententiaregum\Bundle\MicrobloggingBundle\Entity;
 use Sententiaregum\Bundle\CommentBundle\Entity\Comment;
 use Sententiaregum\Bundle\HashtagsBundle\Entity\Tag;
 use Sententiaregum\Bundle\RedisMQBundle\Entity\QueueEntity;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\File;
 
 class MicroblogEntry implements \JsonSerializable
 {
@@ -30,7 +30,7 @@ class MicroblogEntry implements \JsonSerializable
     private $creationDate;
 
     /**
-     * @var \Symfony\Component\HttpFoundation\File\UploadedFile
+     * @var \Symfony\Component\HttpFoundation\File\File
      */
     private $uploadedImage;
 
@@ -209,7 +209,7 @@ class MicroblogEntry implements \JsonSerializable
     }
 
     /**
-     * @return \Symfony\Component\HttpFoundation\File\UploadedFile
+     * @return \Symfony\Component\HttpFoundation\File\File
      */
     public function getUploadedImage()
     {
@@ -217,10 +217,10 @@ class MicroblogEntry implements \JsonSerializable
     }
 
     /**
-     * @param \Symfony\Component\HttpFoundation\File\UploadedFile $uploadedImage
+     * @param \Symfony\Component\HttpFoundation\File\File $uploadedImage
      * @return $this
      */
-    public function setUploadedImage(UploadedFile $uploadedImage)
+    public function setUploadedImage(File $uploadedImage)
     {
         $this->uploadedImage = $uploadedImage;
         return $this;

@@ -28,3 +28,12 @@ default:
                     databasePassword: root
             filters:
                 tags: "@redisQueue"
+
+        addTimelineEntry:
+            contexts:
+                - Sententiaregum\Bundle\MicrobloggingBundle\FeatureContext\WriteEntryContext:
+                    databaseName: symfony
+                    databaseUser: root
+                    databasePassword: root
+            filters:
+                tags: "@addTimelineEntry"
