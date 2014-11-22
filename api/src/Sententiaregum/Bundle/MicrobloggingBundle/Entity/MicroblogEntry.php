@@ -164,7 +164,7 @@ class MicroblogEntry implements \JsonSerializable
      */
     public function setImagePath($imagePath)
     {
-        $this->imagePath = $imagePath;
+        $this->imagePath = (string) $imagePath;
         return $this;
     }
 
@@ -220,7 +220,7 @@ class MicroblogEntry implements \JsonSerializable
      * @param \Symfony\Component\HttpFoundation\File\File $uploadedImage
      * @return $this
      */
-    public function setUploadedImage(File $uploadedImage)
+    public function setUploadedImage(File $uploadedImage = null)
     {
         $this->uploadedImage = $uploadedImage;
         return $this;
@@ -242,7 +242,7 @@ class MicroblogEntry implements \JsonSerializable
         }
 
         return [
-            'id' => $this->id,
+            'entry_id' => $this->id,
             'content' => $this->content,
             'appendedImagePath' => $this->getImagePath(),
             'authorId' => $this->authorId,

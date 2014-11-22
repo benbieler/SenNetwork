@@ -144,8 +144,8 @@ class WriteEntryContext extends Context
         $response = $this->result;
         $data = json_decode($response->getContent(), true);
 
-        Test::assertArrayHasKey('id', $data);
-        Test::assertTrue($this->microblogRepository->existsById($data['id']));
+        Test::assertArrayHasKey('entry_id', $data);
+        Test::assertTrue($this->microblogRepository->existsById($data['entry_id']));
     }
 
     /**
@@ -154,7 +154,7 @@ class WriteEntryContext extends Context
     public function theFollowingTagsShouldBeRecognized(TableNode $table)
     {
         $data = $this->result->getContent();
-        $postId = json_decode($data, true)['id'];
+        $postId = json_decode($data, true)['entry_id'];
 
         foreach ($table->getHash() as $row) {
             $tagName = $row['name'];
@@ -174,7 +174,7 @@ class WriteEntryContext extends Context
     public function theFollowingUsersShouldBeMarked(TableNode $table)
     {
         $data = $this->result->getContent();
-        $postId = json_decode($data, true)['id'];
+        $postId = json_decode($data, true)['entry_id'];
 
         foreach ($table->getHash() as $row) {
             $tagName = $row['name'];

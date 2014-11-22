@@ -37,7 +37,7 @@ class TagRepository implements TagRepositoryInterface
      */
     public function findByName($name)
     {
-        if ((boolean) preg_match('/^#().*$/', $name)) {
+        if ((boolean) preg_match('/^#.*$/', $name)) {
             $name = substr($name, 1);
         }
 
