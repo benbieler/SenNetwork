@@ -15,6 +15,8 @@ class RestExceptionHandler
         $exception = $event->getException();
         if ($exception instanceof \JsonSerializable) {
             $data = $exception->jsonSerialize();
+        } else if ($exception instanceof \Traversable) {
+            $data = iterator_to_array($exception);
         } else {
             $data = $this->convertPhpExceptionToJson($exception);
         }
