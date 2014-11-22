@@ -93,12 +93,16 @@ class MicroblogRepository implements MicroblogRepositoryInterface
             }
         );
 
+        // if the image is a new one (this happens if the image is type of UploadedFile
+        // then the image will be moved to the specified upload directory
+        // if the image does not exist there already.
         if (null !== $entry->getUploadedImage() && $entry->getUploadedImage() instanceof UploadedFile) {
             $imageName = $this->generateImageName($entry->getId());
             $uploadedImage = $entry->getUploadedImage();
 
-            if (!file_exists($imageTarget . $imageName . '.' . $uploadedImage->getExtension())) {
-                $uploadedImage->move($imageTarget . $imageName . '.' . $uploadedImage->getExtension());
+            $imgDestination = $imageTarget . $imageName . '.' . $uploadedImage->getExtension();
+            if (!file_exists($imgDestination)) {
+                $uploadedImage->move($imgDestination);
             }
         }
 

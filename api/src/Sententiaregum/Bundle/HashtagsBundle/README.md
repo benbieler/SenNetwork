@@ -1,5 +1,5 @@
-Microblogging Symfony Bundle
-============================
+Hashtags Symfony Bundle
+=======================
 
 RESTful API for Sententiaregum based on Symfony2.
 
