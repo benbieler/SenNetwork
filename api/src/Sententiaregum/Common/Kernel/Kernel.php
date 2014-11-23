@@ -75,6 +75,15 @@ abstract class Kernel extends SymfonyKernel
         return parent::getCacheDir();
     }
 
+    public function getLogDir()
+    {
+        if ($this->isVagrantBox()) {
+            return '/dev/shm/sen/logs';
+        }
+
+        return parent::getLogDir();
+    }
+
     private function isVagrantBox()
     {
         return getenv('VAGRANT') === 'VAGRANT' && is_dir('/dev/shm');
