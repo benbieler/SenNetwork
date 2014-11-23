@@ -38,3 +38,6 @@ after_script:
 matrix:
   allow_failures:
     - php: hhvm
+
+notifications:
+  email: ma27.travis@gmail.com
