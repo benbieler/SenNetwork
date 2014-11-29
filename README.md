@@ -144,3 +144,10 @@ You can use this application local with the on-package vagrant box
     vagrant up
 
 More information about [Wasted](https://github.com/Mayflower/wasted.git)
+
+
+7) IDE
+------
+
+I recommend using [PHPStorm 8](https://www.jetbrains.com/phpstorm/) with the [Symfony2 Plugin](https://www.jetbrains.com/phpstorm/)
+so you have full AngularJS and Symfony2 support and completion in your IDE.

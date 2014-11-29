@@ -40,3 +40,6 @@
 # Upload directory
 /api/web/uploads/
 !api/web/uploads/.gitkeep
+
+# SCSS
+/app/styles/style.css

@@ -11,6 +11,8 @@ filter:
         - api/src/Sententiaregum/Bundle/MicrobloggingBundle/spec/
         - api/src/Sententiaregum/Bundle/MicrobloggingBundle/FeatureContext/
         - api/src/Sententiaregum/Bundle/EntryParsingBundle/spec/
+        - api/src/Sententiaregum/Bundle/FollowerBundle/spec/
+        - api/src/Sententiaregum/Bundle/FollowerBundle/FeatureContext
 
 tools:
     php_code_sniffer:

@@ -18,12 +18,23 @@ module.exports = function (grunt) {
                 }]
             }
         },
+        sass: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: 'app/styles',
+                    src: ['*.scss'],
+                    dest: 'dist/styles',
+                    ext: '.css'
+                }]
+            }
+        },
         concat: {
             css: {
                 src: [
                     'app/scripts/vendor/bootstrap/dist/css/bootstrap.min.css',
                     'app/scripts/vendor/perfect-scrollbar/src/perfect-scrollbar.css',
-                    'app/styles/*.css'
+                    'dist/styles/*.css'
                 ],
                 dest: 'dist/all.css'
             },
@@ -102,8 +113,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-sass');
 
     grunt.registerTask('build-production', [
+        'sass',
         'mkdir',
         'htmlmin',
         'concat',
