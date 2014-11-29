@@ -31,6 +31,7 @@ script:
   - bin/behat --suite=createAccount
   - bin/behat --suite=redisQueue
   - bin/behat --suite=addTimelineEntry
+  - bin/behat --suite=followers
 
 after_script:
   - php app/console doctrine:migrations:version 20141018161940 --delete --no-interaction

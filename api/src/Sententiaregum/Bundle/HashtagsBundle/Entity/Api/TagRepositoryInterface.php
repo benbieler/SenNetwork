@@ -9,4 +9,5 @@ interface TagRepositoryInterface
     public function add(Tag $tag);
     public function findByName($name);
     public function flush();
+    public function generatePopularTagsList();
 }

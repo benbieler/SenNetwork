@@ -13,11 +13,19 @@ class UserRepository implements UserRepositoryInterface
     /**
      * @var Connection
      */
-    protected $connection;
+    private $connection;
 
     public function __construct(Connection $connection)
     {
         $this->connection = $connection;
+    }
+
+    /**
+     * @return Connection
+     */
+    protected function getConnection()
+    {
+        return $this->connection;
     }
 
     /**
@@ -252,5 +260,34 @@ class UserRepository implements UserRepositoryInterface
 
             $count++;
         }
+    }
+
+    /**
+     * @param integer $rounds
+     * @return UserInterface[]
+     */
+    public function createRandomUserList($rounds = 10)
+    {
+        $uniqIdStmt = $this->connection->prepare("SELECT `user_id` FROM `se_users`");
+        $uniqIdStmt->execute();
+        $idList = $uniqIdStmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $count = count($idList);
+        if ($rounds > $count) {
+            $rounds = $count;
+        }
+
+        shuffle($idList);
+        $randomIds = array_slice($idList, 0, $rounds);
+
+        $userList = [];
+
+        for ($i = 0; $i < $rounds; $i++) {
+            $id = $randomIds[$i];
+
+            $userList[] = $this->findById($id);
+        }
+
+        return $userList;
     }
 }

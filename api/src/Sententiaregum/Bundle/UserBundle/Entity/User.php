@@ -12,57 +12,57 @@ class User implements UserInterface, EquatableInterface
     /**
      * @var integer
      */
-    protected $id;
+    private $id;
 
     /**
      * @var string
      */
-    protected $username;
+    private $username;
 
     /**
      * @var string
      */
-    protected $password;
+    private $password;
 
     /**
      * @var string
      */
-    protected $realName;
+    private $realName;
 
     /**
      * @var string
      */
-    protected $email;
+    private $email;
 
     /**
      * @var \DateTime
      */
-    protected $lastAction;
+    private $lastAction;
 
     /**
      * @var \DateTime
      */
-    protected $registrationDate;
+    private $registrationDate;
 
     /**
      * @var string
      */
-    protected $salt;
+    private $salt;
 
     /**
      * @var string
      */
-    protected $apiToken;
+    private $apiToken;
 
     /**
      * @var boolean
      */
-    protected $locked;
+    private $locked;
 
     /**
      * @var Role[]
      */
-    protected $roles;
+    private $roles = [];
 
     /**
      * @param string $apiToken
@@ -315,4 +315,3 @@ class User implements UserInterface, EquatableInterface
             && $user->getSalt() === $this->getSalt();
     }
 }
- 

@@ -11,7 +11,7 @@ class TagRepository implements TagRepositoryInterface
     /**
      * @var Connection
      */
-    protected $connection;
+    private $connection;
 
     /**
      * @param Connection $connection
@@ -19,6 +19,14 @@ class TagRepository implements TagRepositoryInterface
     public function __construct(Connection $connection)
     {
         $this->connection = $connection;
+    }
+
+    /**
+     * @return Connection
+     */
+    protected function getConnection()
+    {
+        return $this->connection;
     }
 
     /**
@@ -59,6 +67,11 @@ class TagRepository implements TagRepositoryInterface
     public function flush()
     {
         $this->connection->exec("DELETE FROM `se_hashtags`;");
+    }
+
+    public function generatePopularTagsList()
+    {
+        # TODO: Implement generatePopularTagsList() method.
     }
 
     /**

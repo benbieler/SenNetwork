@@ -10,7 +10,7 @@ class Token implements TokenInterface
     /**
      * @var UserRepositoryInterface
      */
-    protected $userRepository;
+    private $userRepository;
 
     /**
      * @param UserRepositoryInterface $userRepository
@@ -18,6 +18,14 @@ class Token implements TokenInterface
     public function __construct(UserRepositoryInterface $userRepository)
     {
         $this->userRepository = $userRepository;
+    }
+
+    /**
+     * @return UserRepositoryInterface
+     */
+    protected function getUserRepository()
+    {
+        return $this->userRepository;
     }
 
     /**

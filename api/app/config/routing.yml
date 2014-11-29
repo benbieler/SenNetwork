@@ -5,3 +5,7 @@ sententiaregum_microblogging:
 sententiaregum_user:
     resource: "@SententiaregumUserBundle/Resources/config/routing/routing.xml"
     prefix:   /api
+
+sententiaregum_follower:
+    resource: "@SententiaregumFollowerBundle/Resources/config/routing/routing.xml"
+    prefix:   /api

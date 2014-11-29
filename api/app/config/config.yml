@@ -38,10 +38,10 @@ doctrine:
 
 # Doctrine Migrations Configuration
 doctrine_migrations:
-    dir_name: %kernel.root_dir%/migrations
-    namespace: Ma27\Sententiaregum\DoctrineMigrations
+    dir_name:   %kernel.root_dir%/migrations
+    namespace:  Ma27\Sententiaregum\DoctrineMigrations
     table_name: se_doctrine_migration
-    name: Sententiaregum Migrations
+    name:       Sententiaregum Migrations
 
 # User bundle configuration
 sententiaregum_user:
@@ -55,7 +55,7 @@ sententiaregum_redis_mq:
 
 # Entry parser configuration
 sententiaregum_entry_parsing:
-    tag_delimiter: "#"
+    tag_delimiter:  "#"
     name_delimiter: "@"
 
 # Microblog configuration
@@ -66,7 +66,7 @@ sententiaregum_microblogging:
 snc_redis:
     clients:
         default:
-            type: predis
-            alias: default
+            type:    predis
+            alias:   default
             logging: %kernel.debug%
-            dsn: %redis_dsn%
+            dsn:     %redis_dsn%

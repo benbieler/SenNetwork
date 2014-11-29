@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="sen.follower.repository" class="Sententiaregum\Bundle\FollowerBundle\Entity\FollowerRepository">
+            <argument type="service" id="database_connection" />
+        </service>
+        <service id="sen.follower.advice" class="Sententiaregum\Bundle\FollowerBundle\Service\FollowerAdvice">
+            <argument type="service" id="sen.follower.repository" />
+            <argument type="service" id="sen.user.repository" />
+        </service>
+        <service id="sen.follower.controller" class="Sententiaregum\Bundle\FollowerBundle\Controller\FollowerController">
+            <argument type="service" id="sen.follower.repository" />
+            <argument type="service" id="sen.follower.advice" />
+        </service>
+    </services>
+
+</container>

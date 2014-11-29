@@ -12,12 +12,12 @@ class MicroblogRepository implements MicroblogRepositoryInterface
     /**
      * @var Connection
      */
-    protected $connection;
+    private $connection;
 
     /**
      * @var string
      */
-    protected $imageUploadPath;
+    private $imageUploadPath;
 
     /**
      * @param Connection $connection
@@ -27,6 +27,22 @@ class MicroblogRepository implements MicroblogRepositoryInterface
     {
         $this->connection      = $connection;
         $this->imageUploadPath = (string) $imageUploadPath;
+    }
+
+    /**
+     * @return Connection
+     */
+    protected function getConnection()
+    {
+        return $this->connection;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getImageUploadPath()
+    {
+        return $this->imageUploadPath;
     }
 
     /**

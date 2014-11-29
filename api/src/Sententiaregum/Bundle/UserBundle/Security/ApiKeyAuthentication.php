@@ -17,7 +17,7 @@ class ApiKeyAuthentication implements SimplePreAuthenticatorInterface, Authentic
     /**
      * @var UserProvider
      */
-    protected $userProvider;
+    private $userProvider;
 
     /**
      * @param UserProvider $userProvider
@@ -25,6 +25,14 @@ class ApiKeyAuthentication implements SimplePreAuthenticatorInterface, Authentic
     public function __construct(UserProvider $userProvider)
     {
         $this->userProvider = $userProvider;
+    }
+
+    /**
+     * @return UserProvider
+     */
+    protected function getUserProvider()
+    {
+        return $this->userProvider;
     }
 
     /**

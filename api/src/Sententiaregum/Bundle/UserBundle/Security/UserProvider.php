@@ -12,7 +12,7 @@ class UserProvider implements UserProviderInterface
     /**
      * @var UserRepositoryInterface
      */
-    protected $userRepository;
+    private $userRepository;
 
     /**
      * @param UserRepositoryInterface $userRepository
@@ -23,8 +23,16 @@ class UserProvider implements UserProviderInterface
     }
 
     /**
+     * @return UserRepositoryInterface
+     */
+    protected function getUserRepository()
+    {
+        return $this->userRepository;
+    }
+
+    /**
      * @param string $username
-     * @return \Ma27\SocialNetworkingBundle\Entity\User\Api\UserInterface
+     * @return \Sententiaregum\Bundle\UserBundle\Entity\User\Api\UserInterface
      */
     public function loadUserByUsername($username)
     {
@@ -33,7 +41,7 @@ class UserProvider implements UserProviderInterface
 
     /**
      * @param UserInterface $user
-     * @return \Ma27\SocialNetworkingBundle\Entity\User\Api\UserInterface
+     * @return \Sententiaregum\Bundle\UserBundle\Entity\User\Api\UserInterface
      */
     public function refreshUser(UserInterface $user)
     {

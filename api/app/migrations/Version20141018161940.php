@@ -29,6 +29,8 @@ class Version20141018161940 extends AbstractMigration
         $followerTable->addColumn('user_id', Type::INTEGER);
         $followerTable->addColumn('follower_id', Type::INTEGER);
         $followerTable->setPrimaryKey(['user_id', 'follower_id']);
+        $followerTable->addIndex(['user_id']);
+        $followerTable->addIndex(['follower_id']);
         $followerTable->addForeignKeyConstraint($userTable, ['user_id'], ['user_id'], [], 'r_follower_user_id');
         $followerTable->addForeignKeyConstraint($userTable, ['follower_id'], ['user_id'], [], 'r_follower_id');
 

@@ -37,3 +37,12 @@ default:
                     databasePassword: root
             filters:
                 tags: "@addTimelineEntry"
+
+        followers:
+            contexts:
+                - Sententiaregum\Bundle\FollowerBundle\FeatureContext\FollowerCrudContext:
+                    databaseName: symfony
+                    databaseUser: root
+                    databasePassword: root
+            filters:
+                tags: "@follower"

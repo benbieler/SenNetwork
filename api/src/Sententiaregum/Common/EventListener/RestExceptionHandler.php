@@ -35,7 +35,7 @@ class RestExceptionHandler
         $r = new \ReflectionObject($exception);
         foreach ($r->getProperties() as $property) {
             $property->setAccessible(true);
-            $buffer[$property->getName()] = $property->getValue();
+            $buffer[$property->getName()] = $property->getValue($exception);
         }
 
         return $buffer;

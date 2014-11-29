@@ -9,17 +9,17 @@ class EntryParser implements EntryPostParserInterface
     /**
      * @var string
      */
-    protected $tagDelimiter;
+    private $tagDelimiter;
 
     /**
      * @var string
      */
-    protected $nameDelimiter;
+    private $nameDelimiter;
 
     /**
      * @var boolean
      */
-    protected $filterFirstChar;
+    private $filterFirstChar;
 
     /**
      * @param $tagDelimiter
@@ -31,6 +31,30 @@ class EntryParser implements EntryPostParserInterface
         $this->setHashtagDelimiter($tagDelimiter);
         $this->setNameDelimiter($nameDelimiter);
         $this->filterFirstChar = (boolean) $filterFirstChar;
+    }
+
+    /**
+     * @return boolean
+     */
+    protected function isFilterFirstChar()
+    {
+        return $this->filterFirstChar;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getNameDelimiter()
+    {
+        return $this->nameDelimiter;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getTagDelimiter()
+    {
+        return $this->tagDelimiter;
     }
 
     /**

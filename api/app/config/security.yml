@@ -5,7 +5,7 @@ security:
 
     firewalls:
         network_api:
-            pattern: ^/api/network
+            pattern:   ^/api/network
             stateless: true
             simple_preauth:
                 authenticator: sen.security.api_key_auth

@@ -11,10 +11,10 @@ use Symfony\Component\HttpFoundation\Request;
 
 class TokenHelper
 {
-    protected $tokenController;
-    protected $userRepo;
-    protected $hasher;
-    protected $mocker;
+    private $tokenController;
+    private $userRepo;
+    private $hasher;
+    private $mocker;
 
     public function __construct(
         TokenController $tokenController,

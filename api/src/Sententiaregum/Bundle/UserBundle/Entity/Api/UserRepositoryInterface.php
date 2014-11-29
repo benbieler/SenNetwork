@@ -77,4 +77,10 @@ interface UserRepositoryInterface
      * @return mixed
      */
     public function attachRolesOnUser(array $roles, $userId);
+
+    /**
+     * @param integer $rounds
+     * @return UserInterface[]
+     */
+    public function createRandomUserList($rounds = 10);
 }
