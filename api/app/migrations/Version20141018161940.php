@@ -1,5 +1,6 @@
 <?php
-namespace Ma27\Sententiaregum\DoctrineMigrations;
+
+namespace Sententiaregum\DoctrineMigrations;
 
 use Doctrine\DBAL\Migrations\AbstractMigration;
 use Doctrine\DBAL\Schema\Schema;

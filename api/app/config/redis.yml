@@ -1,0 +1,8 @@
+# Redis configuration
+snc_redis:
+    clients:
+        default:
+            type:    predis
+            alias:   default
+            logging: %kernel.debug%
+            dsn:     %redis_dsn%

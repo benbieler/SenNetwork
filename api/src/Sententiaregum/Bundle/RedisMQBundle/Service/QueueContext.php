@@ -8,7 +8,7 @@ use Sententiaregum\Bundle\RedisMQBundle\Api\QueueInputInterface;
 use Sententiaregum\Bundle\RedisMQBundle\Api\QueueOutputInterface;
 use Sententiaregum\Bundle\RedisMQBundle\Entity\QueueEntity;
 
-class QueueContext implements QueueInputInterface, QueueOutputInterface, IteratorAggregate
+class QueueContext implements QueueInputInterface, QueueOutputInterface
 {
     /**
      * @var string
@@ -49,20 +49,18 @@ class QueueContext implements QueueInputInterface, QueueOutputInterface, Iterato
     }
 
     /**
-     * @return \Traversable
+     * @return void
      */
-    public function getIterator()
+    public function getGenerator()
     {
-        $list = [];
         foreach ($this->client->keys($this->redisNamespace . '*') as $key) {
             $serializedString = $this->client->get($key);
-            $list[] = QueueEntity::createFromJson($serializedString);
 
             // dequeue item
             $this->client->del($key);
-        }
 
-        return new \ArrayIterator($list);
+            yield QueueEntity::createFromJson($serializedString);
+        }
     }
 
     /**

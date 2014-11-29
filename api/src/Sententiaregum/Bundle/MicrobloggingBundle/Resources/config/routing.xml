@@ -7,5 +7,6 @@
     <route id="sententiaregum_microblogging_dashboard" path="/dashboard">
         <default key="_controller">SententiaregumMicrobloggingBundle:Posts:index</default>
         <default key="_type">dashboard</default>
+        <requirement key="_format">json</requirement>
     </route>
 </routes>

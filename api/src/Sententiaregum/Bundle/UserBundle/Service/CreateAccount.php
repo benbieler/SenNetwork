@@ -55,7 +55,7 @@ class CreateAccount implements CreateAccountInterface
     {
         $violations = [];
         /** @var \Symfony\Component\Validator\ConstraintViolationInterface $constraintViolation */
-        foreach (iterator_to_array($this->validator->validate($user)) as $constraintViolation) {
+        foreach ($this->validator->validate($user) as $constraintViolation) {
             if (!isset($violations[$constraintViolation->getPropertyPath()])) {
                 $violations[$constraintViolation->getPropertyPath()] = [];
             }

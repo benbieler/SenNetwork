@@ -106,12 +106,12 @@ Please check at first the Symfony 2 requirements
 ### Additional criteria
 
   - PHP 5.5.0 or higher
+  - MySQL 5 database
   - WebSocket support
   - Bower (for frontend stuff)
-  
-See also:
-
-[Browsers supporting WebSockets](http://caniuse.com/#feat=websockets)
+  - node.js (used for grunt tasks)
+  - SASS (style sheets are written in scss)
+  - Composer (autoloader and package manager for symfony)
 
 
 4) LICENSE

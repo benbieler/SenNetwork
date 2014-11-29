@@ -67,10 +67,9 @@ class RedisContext extends Context
     {
         foreach ($this->entities as $entity) {
             Test::assertInstanceOf(QueueEntity::class, $entity);
-            $list = iterator_to_array($this->service->getIterator());
 
             $contains = false;
-            foreach ($list as $queueEntity) {
+            foreach ($this->service->getGenerator() as $queueEntity) {
                 Test::assertInstanceOf(QueueEntity::class, $queueEntity);
 
                 if ($queueEntity->getValue() === $entity->getValue()) {
@@ -110,7 +109,12 @@ class RedisContext extends Context
      */
     public function theQueueShouldContainNoEntities()
     {
-        Test::assertCount(0, $this->service->getIterator());
+        $check = false;
+        foreach ($this->service->getGenerator() as $element) {
+            $check = true;
+            break;
+        }
+        Test::assertFalse($check);
     }
 }
  

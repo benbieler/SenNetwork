@@ -4,19 +4,27 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
-    <route id="sententiaregum_follower_relations" path="/follower-list" methods="GET">
+    <!-- follower list -->
+    <route id="sententiaregum_follower_relations" path="/followers" methods="GET">
         <default key="_controller">sen.follower.controller:indexAction</default>
+        <requirement key="_format">json</requirement>
     </route>
 
-    <route id="sententiaregum_follower_add_relation" path="/add-follower" methods="POST">
+    <!-- add follower relation -->
+    <route id="sententiaregum_follower_add_relation" path="/follower" methods="POST">
         <default key="_controller">sen.follower.controller:createAction</default>
+        <requirement key="_format">json</requirement>
     </route>
 
-    <route id="sententiaregum_follower_drop_relation" path="/drop-relation" methods="DELETE">
+    <!-- remove follower relation -->
+    <route id="sententiaregum_follower_drop_relation" path="/follower" methods="DELETE">
         <default key="_controller">sen.follower.controller:removeAction</default>
+        <requirement key="_format">json</requirement>
     </route>
 
+    <!-- create follower advice list -->
     <route id="sententiaregum_follower_create_advices" path="/follower-advices" methods="GET">
         <default key="_controller">sen.follower.controller:generateAdviceAction</default>
+        <requirement key="_format">json</requirement>
     </route>
 </routes>
