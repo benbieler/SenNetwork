@@ -7,7 +7,7 @@ main() {
     echo " - Node package manager (npm)" && \
     echo " - Grunt CLI" && \
     echo " - Bower" && \
-    echo " - Ruby gem" && \
+    echo " - Sass/scss (install it via 'gem install sass')" && \
 
     read -p "After checking out, please press enter to continue... "
 
@@ -21,8 +21,6 @@ setup() {
         composer install -d api --no-dev
     echo "[setup] Check Symfony2 requirements" && \
         php api/app/check.php
-    echo "[setup] Install sass" && \
-        gem install sass
     echo "[setup] Install bower dependencies" && \
         bower install
     echo "[setup] Load npm dependencies" && \
