@@ -2,7 +2,6 @@
 
 namespace Sententiaregum\Bundle\RedisMQBundle\Service;
 
-use IteratorAggregate;
 use Predis\Client;
 use Sententiaregum\Bundle\RedisMQBundle\Api\QueueInputInterface;
 use Sententiaregum\Bundle\RedisMQBundle\Api\QueueOutputInterface;
