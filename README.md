@@ -35,7 +35,6 @@ The API is tested by the BDD approach with PHPSpec and Behat
            - share posts
            - follow users to receive their posts
    - "Captcha" for the registration rest api
-   - ~~Implement "create admin account" command~~
    - Logout
 
 2) Install
@@ -47,6 +46,10 @@ Clone repository
 
     git clone -b master https://github.com/Ma27/SenNetwork.git /path/to/webroot
     cd /path/to/webroot
+
+Add sass
+
+    gem install sass
 
 Install bower and grunt
 
