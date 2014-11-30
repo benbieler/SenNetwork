@@ -24,13 +24,9 @@ class CreateAccountSpec extends ObjectBehavior
     }
 
     function it_validates_the_user_input(
-        ValidatorInterface $validatorInterface,
-        UserRepositoryInterface $userRepositoryInterface)
+        ValidatorInterface $validatorInterface)
     {
         $validatorInterface->validate(Argument::any())->willReturn(new ConstraintViolationList());
-
-        $userRepositoryInterface->findByName(Argument::any())->willReturn(null);
-        $userRepositoryInterface->findByEmail(Argument::any())->willReturn(null);
 
         $user = new User();
         $this->validateInput($user)->shouldHaveCount(0);

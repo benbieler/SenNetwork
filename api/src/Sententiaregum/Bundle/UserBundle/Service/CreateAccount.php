@@ -24,6 +24,11 @@ class CreateAccount implements CreateAccountInterface
      */
     private $validator;
 
+    /**
+     * @param PasswordHasherInterface $passwordHasher
+     * @param UserRepositoryInterface $userRepository
+     * @param ValidatorInterface $validator
+     */
     public function __construct(
         PasswordHasherInterface $passwordHasher, UserRepositoryInterface $userRepository, ValidatorInterface $validator
     ) {
@@ -38,10 +43,7 @@ class CreateAccount implements CreateAccountInterface
      */
     public function persist(UserInterface $user)
     {
-        $user->setPassword(
-            $this->passwordHasher->create($user->getPassword())
-        );
-
+        $user->setPassword($this->passwordHasher->create($user->getPassword()));
         $this->userRepository->add($user);
         $storedUser = $this->userRepository->findByName($user->getUsername());
         $this->userRepository->attachRolesOnUser($user->getRoles(), $storedUser->getId());
@@ -63,14 +65,6 @@ class CreateAccount implements CreateAccountInterface
             $violations[$constraintViolation->getPropertyPath()][] = $constraintViolation->getMessage();
         }
 
-        $uniqueDataErrors = [];
-        if (null !== $this->userRepository->findByName($user->getUsername())) {
-            $uniqueDataErrors['username'] = ['Username already in use'];
-        }
-        if (null !== $this->userRepository->findByEmail($user->getEmail())) {
-            $uniqueDataErrors['email'] = ['Email already in use'];
-        }
-
-        return array_merge_recursive($violations, $uniqueDataErrors);
+        return $violations;
     }
 }
