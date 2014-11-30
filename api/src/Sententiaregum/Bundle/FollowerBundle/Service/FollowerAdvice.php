@@ -38,14 +38,28 @@ class FollowerAdvice implements FollowerAdviceInterface
     public function createAdviceList($userId, $length = 5)
     {
         if (!$this->followerRepository->hasFollowers($userId)) {
-            return $this->userRepository->createRandomUserList($length);
+            return $this->filterResult($this->userRepository->createRandomUserList($length), $userId);
         }
 
         $result = [];
-        foreach ($this->followerRepository->findFollowingByFollowingOfUser($userId, $length) as $userId) {
-            $result[] = $this->userRepository->findById($userId);
+        foreach ($this->followerRepository->findFollowingByFollowingOfUser($userId, $length) as $resultItem) {
+            $result[] = $this->userRepository->findById($resultItem['follower_id']);
+        }
+        if (count($result) <= 0) {
+            $result = $this->userRepository->createRandomUserList($length);
         }
 
-        return $result;
+        return $this->filterResult($result, $userId);
+    }
+
+    /**
+     * @param \Sententiaregum\Bundle\UserBundle\Entity\Api\UserInterface[] $users
+     * @return \Sententiaregum\Bundle\UserBundle\Entity\Api\UserInterface[]
+     */
+    private function filterResult(array $users, $userId)
+    {
+        return array_filter($users, function ($value) use ($userId) {
+            return $value->getId() !== $userId;
+        });
     }
 }

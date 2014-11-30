@@ -33,7 +33,7 @@ script:
   - bin/behat --suite=redisQueue
   - bin/behat --suite=addTimelineEntry
   - bin/behat --suite=follower
-  - bin/behat --suite=follower-advice
+  - bin/behat --suite=followerAdvice
 
 after_script:
   - php app/console doctrine:migrations:version 20141018161940 --delete --no-interaction

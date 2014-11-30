@@ -93,7 +93,7 @@ class FollowerRepository implements AdvancedFollowerRepositoryInterface
         $stmt->bindParam(':id', $userId);
         $stmt->execute();
 
-        return (boolean) $stmt->fetchColumn();
+        return $stmt->fetchColumn();
     }
 
     /**
@@ -103,22 +103,18 @@ class FollowerRepository implements AdvancedFollowerRepositoryInterface
      */
     public function findFollowingByFollowingOfUser($userId, $limit = null)
     {
-        $stmt = $this->connection->prepare(
-            "SELECT DISTINCT s.`follower_id` FROM `se_followers` s "
-          . "LEFT JOIN `se_followers` r "
-          . "ON r.`user_id` = :user_id "
-          . "WHERE r.`follower_id` = s.`user_id`"
-          .  $limit !== null ? " LIMIT " . (integer) $limit : ""
-          . ";"
-        );
+        $query = "
+SELECT DISTINCT s.`follower_id` FROM `se_followers` s
+JOIN `se_followers` r ON r.`user_id` = :user_id
+WHERE s.`user_id` = r.`follower_id` AND NOT EXISTS (
+  SELECT 1 FROM `se_followers` r2 WHERE r2.`user_id` = :user_id AND r2.`follower_id` = s.`follower_id`
+) LIMIT " . $limit ?: 100 . ";
+";
+
+        $stmt = $this->connection->prepare($query);
         $stmt->execute([':user_id' => $userId]);
 
-        return array_filter(
-            $stmt->fetchAll(\PDO::FETCH_ASSOC),
-            function ($element) use ($userId) {
-                return $element !== $userId;
-            }
-        );
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     /**

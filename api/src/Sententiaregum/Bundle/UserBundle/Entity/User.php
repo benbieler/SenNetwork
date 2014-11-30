@@ -310,8 +310,8 @@ class User implements UserInterface, EquatableInterface
         }
 
         return $user->getUsername() === $this->getUsername()
-            && $user->getId() === $this->getId()
+            && $user->getId()       === $this->getId()
             && $user->getPassword() === $this->getPassword()
-            && $user->getSalt() === $this->getSalt();
+            && $user->getSalt()     === $this->getSalt();
     }
 }

@@ -92,10 +92,10 @@ class FollowerController
         /** @var integer $userId */
         $userId = \igorw\get_in($input, ['user_id']);
         $list = $this->followerAdviceService->createAdviceList($userId);
+
         array_walk($list, function (&$value) {  // transform result to readable format
             $name = $value->getUsername();
             $id = $value->getId();
-
             $value = ['username' => $name, 'id' => $id];
         });
 

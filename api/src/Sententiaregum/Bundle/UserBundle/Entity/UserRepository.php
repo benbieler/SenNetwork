@@ -283,7 +283,7 @@ class UserRepository implements UserRepositoryInterface
         $userList = [];
 
         for ($i = 0; $i < $rounds; $i++) {
-            $id = $randomIds[$i];
+            $id = $randomIds[$i]['user_id'];
 
             $userList[] = $this->findById($id);
         }

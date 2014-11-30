@@ -38,7 +38,7 @@ default:
             filters:
                 tags: "@addTimelineEntry"
 
-        followers:
+        follower:
             contexts:
                 - Sententiaregum\Bundle\FollowerBundle\FeatureContext\FollowerCrudContext:
                     databaseName: symfony
@@ -46,3 +46,12 @@ default:
                     databasePassword: root
             filters:
                 tags: "@follower"
+
+        followerAdvice:
+            contexts:
+                - Sententiaregum\Bundle\FollowerBundle\FeatureContext\FollowerAdviceContext:
+                    databaseName: symfony
+                    databaseUser: root
+                    databasePassword: root
+            filters:
+                tags: "@follower-advice"
