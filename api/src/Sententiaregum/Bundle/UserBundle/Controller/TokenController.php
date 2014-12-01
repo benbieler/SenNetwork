@@ -62,7 +62,7 @@ class TokenController
         }
 
         $token = $this->userProvider->findApiKeyByUserId($user->getId());
-        if (null === $token) {
+        if (!$token) {
             $token = $this->tokenService->storeToken($user->getId());
         }
 

@@ -3,19 +3,22 @@
 angular.module('sen.service.token', [])
     .factory('tokenModel', function ($resource, token) {
 
+        var cookieAuthInterceptor = {
+            response: function (response) {
+                var data = response.data;
+                var result = token.requestInterceptor(data);
+                if (null !== result && typeof result !== 'undefined') {
+                    return result;
+                }
+            }
+        };
+
         return $resource(
             '/api/token', {},
             {
                 'auth': {
                     method: 'POST',
-                    interceptor: {
-                        response: function (data) {
-                            var result = token.requestInterceptor(data);
-                            if (null !== result && typeof result !== 'undefined') {
-                                return result;
-                            }
-                        }
-                    }
+                    interceptor: cookieAuthInterceptor
                 }
                 // @ToDo: add logout resource
             }

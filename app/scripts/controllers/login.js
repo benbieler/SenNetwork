@@ -41,6 +41,7 @@ angular.module('sen.login', [])
                             // the occurred errors will be shown
                             case 401:
                                 $scope.errors = data.errors;
+                                $scope.hasError = true;
 
                                 break;
                             // any unknown error
