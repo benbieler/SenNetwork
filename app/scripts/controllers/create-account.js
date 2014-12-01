@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('sen.registration', [])
-    .controller('create-account', ['$scope', '$location', '$http', 'page', 'activeMenuItem',
-        function ($scope, $location, $http, page, activeMenuItem) {
+    .controller('create-account', ['$scope', '$http', '$location', 'page', 'activeMenuItem',
+        function ($scope, $http, $location, page, activeMenuItem) {
 
             $scope.progress = false;
 

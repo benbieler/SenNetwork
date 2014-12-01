@@ -47,6 +47,7 @@ module.exports = function (grunt) {
                     'app/scripts/vendor/angular-route/angular-route.min.js',
                     'app/scripts/vendor/angular-cookies/angular-cookies.min.js',
                     'app/scripts/vendor/angular-sanitize/angular-sanitize.min.js',
+                    'app/scripts/vendor/angular-resource/angular-resource.min.js',
                     'app/scripts/vendor/ngInfiniteScroll/build/ng-infinite-scroll.min.js',
                     'app/scripts/app.js',
                     'app/scripts/*/*.js'

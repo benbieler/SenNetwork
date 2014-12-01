@@ -11,6 +11,7 @@
     "ngUpload": "0.5.11",
     "perfect-scrollbar": "0.5.7",
     "angular-sanitize": "~1.2",
-    "ngInfiniteScroll": "1.1.2"
+    "ngInfiniteScroll": "1.1.2",
+    "angular-resource": "~1.2.6"
   }
 }

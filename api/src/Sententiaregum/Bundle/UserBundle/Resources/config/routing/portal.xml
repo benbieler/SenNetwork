@@ -4,7 +4,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
-    <route id="ma27_social_networking_request-token" path="/request-token" methods="POST">
+    <route id="ma27_social_networking_request-token" path="/token" methods="POST">
         <default key="_controller">sen.token.controller:requestTokenAction</default>
         <requirement key="_format">json</requirement>
     </route>
