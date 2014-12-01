@@ -17,6 +17,10 @@ $activeMenu: #6abbdf;
     transition: .2s;
   }
 
+  li.active a:focus {
+    color: #fff !important;
+  }
+
   li:hover a {
     background-color: $menuFront !important;
     color: #fff;
@@ -58,12 +62,6 @@ $activeMenu: #6abbdf;
   background-color: #6abbdf !important;
 }
 
-/** Fix broken in menu styles for Firefox (firefox marks clicked elements as focused which causes some css fails) */
-
-@mixin fixFirefoxMenu() {
-  color: #fff !important;
-}
-
 .navbar-inverse {
   .navbar-brand:focus {
     color: #777 !important;
@@ -72,17 +70,17 @@ $activeMenu: #6abbdf;
   .navbar-nav {
     li {
       a:focus {
-        color: #777 !important;
+        color: #fff !important;
         background-color: #fff;
       }
 
       a:active {
-        @include fixFirefoxMenu()
+        color: #fff;
       }
 
       &:hover, &:focus {
         a {
-          @include fixFirefoxMenu()
+          color: #fff;
         }
       }
     }

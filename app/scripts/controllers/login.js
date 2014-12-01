@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('sen.login', [])
-    .controller('login', ['$scope', '$http', 'page', 'activeMenuItem', '$cookieStore', '$location', 'authManager', 'tokenModel',
-        function ($scope, $http, page, activeMenuItem, $cookieStore, $location, authManager, tokenModel) {
+    .controller('login', ['$scope', '$http', 'page', 'activeMenuItem', '$cookieStore', '$location', 'token', 'tokenModel',
+        function ($scope, $http, page, activeMenuItem, $cookieStore, $location, token, tokenModel) {
 
-            var token = $cookieStore.get(authManager.tokenCookieKey);
+            var token = $cookieStore.get(token.tokenCookieKey);
             if (typeof token !== 'undefined') {
                 $location.path('/');
             }

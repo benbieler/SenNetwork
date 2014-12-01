@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('sen.microblog', ['infinite-scroll'])
-    .controller('dashboard', ['$scope', '$cookieStore', '$location', 'authManager', 'page', 'activeMenuItem',
-        function ($scope, $cookieStore, $location, authManager, page, activeMenuItem) {
+    .controller('dashboard', ['$scope', '$cookieStore', '$location', 'token', 'page', 'activeMenuItem',
+        function ($scope, $cookieStore, $location, token, page, activeMenuItem) {
 
             page.setPageTitle('Dashboard');
             activeMenuItem.purgeActiveAttributes(menuTemplates.application);
             page.setMenuItems(activeMenuItem.markItemAsActive(menuTemplates.application, 0));
-            var token = $cookieStore.get(authManager.tokenCookieKey);
+            var token = $cookieStore.get(token.tokenCookieKey);
             if (typeof token === 'undefined') {
                 $location.path('/landing');
             }
