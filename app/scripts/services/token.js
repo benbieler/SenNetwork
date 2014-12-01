@@ -14,7 +14,7 @@ angular.module('sen.service.token', [])
         };
 
         return $resource(
-            '/api/token', {},
+            '/api/token/:token', {'token': '@tokenId'},
             {
                 'auth': {
                     method: 'POST',
