@@ -36,6 +36,6 @@ angular.module(
         $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
     }])
-    .run(function ($rootScope, page) {
-        $rootScope.page = page;
+    .run(function ($rootScope, Page) {
+        $rootScope.page = Page;
     });

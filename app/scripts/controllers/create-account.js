@@ -1,15 +1,15 @@
 'use strict';
 
 angular.module('sen.registration', [])
-    .controller('create-account', ['$scope', '$http', '$location', 'page', 'activeMenuItem',
-        function ($scope, $http, $location, page, activeMenuItem) {
+    .controller('create-account', ['$scope', '$http', '$location', 'Page', 'ActiveMenuItem',
+        function ($scope, $http, $location, Page, ActiveMenuItem) {
 
             $scope.progress = false;
 
             // setup page
-            page.setPageTitle('Create account');
-            activeMenuItem.purgeActiveAttributes(menuTemplates.portal);
-            page.setMenuItems(activeMenuItem.markItemAsActive(menuTemplates.portal, 1));
+            Page.setPageTitle('Create account');
+            ActiveMenuItem.purgeActiveAttributes(menuTemplates.portal);
+            Page.setMenuItems(ActiveMenuItem.markItemAsActive(menuTemplates.portal, 1));
 
             // initialize model wrapper
             $scope.data = {};

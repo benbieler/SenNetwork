@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('sen.page', [])
-    .factory('page', function () {
+    .factory('Page', function () {
         var viewModel = [];
 
         return {
@@ -21,7 +21,7 @@ angular.module('sen.page', [])
             }
         };
     })
-    .factory('activeMenuItem', function () {
+    .factory('ActiveMenuItem', function () {
         return {
             recentElements: [],
             markItemAsActive: function (elements, index) {

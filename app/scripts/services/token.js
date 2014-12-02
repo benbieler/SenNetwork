@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('sen.service.token', [])
-    .factory('tokenModel', function ($resource, token) {
+    .factory('TokenModel', function ($resource, Token) {
 
         var cookieAuthInterceptor = {
             response: function (response) {
                 var data = response.data;
-                var result = token.requestInterceptor(data);
+                var result = Token.requestInterceptor(data);
                 if (null !== result && typeof result !== 'undefined') {
                     return result;
                 }
@@ -25,7 +25,7 @@ angular.module('sen.service.token', [])
         );
 
     })
-    .factory('token', function ($cookieStore, $location) {
+    .factory('Token', function ($cookieStore, $location) {
 
         return {
 

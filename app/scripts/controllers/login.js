@@ -1,18 +1,18 @@
 'use strict';
 
 angular.module('sen.login', [])
-    .controller('login', ['$scope', '$http', 'page', 'activeMenuItem', '$cookieStore', '$location', 'token', 'tokenModel',
-        function ($scope, $http, page, activeMenuItem, $cookieStore, $location, token, tokenModel) {
+    .controller('login', ['$scope', '$http', 'Page', 'ActiveMenuItem', '$cookieStore', '$location', 'Token', 'TokenModel',
+        function ($scope, $http, Page, ActiveMenuItem, $cookieStore, $location, Token, TokenModel) {
 
-            var token = $cookieStore.get(token.tokenCookieKey);
+            var token = $cookieStore.get(Token.tokenCookieKey);
             if (typeof token !== 'undefined') {
                 $location.path('/');
             }
 
-            page.setPageTitle('Landing');
-            activeMenuItem.purgeActiveAttributes(menuTemplates.portal);
-            page.setMenuItems(
-                activeMenuItem.markItemAsActive(menuTemplates.portal, 0)
+            Page.setPageTitle('Landing');
+            ActiveMenuItem.purgeActiveAttributes(menuTemplates.portal);
+            Page.setMenuItems(
+                ActiveMenuItem.markItemAsActive(menuTemplates.portal, 0)
             );
 
             $scope.credentials = {};
@@ -27,34 +27,35 @@ angular.module('sen.login', [])
                     password: $scope.credentials.password
                 };
 
-                tokenModel.auth({}, credentials)
-                    .$promise.then(function () {
-                        $location.path('/');
-                    },
-                    function (response) {
-                        $scope.progress = false;
-                        var data = response.data;
-                        var status = parseInt(response.status);
+                TokenModel.auth({}, credentials)
+                    .$promise.then(
+                        function () {
+                            $location.path('/');
+                        },
+                        function (response) {
+                            $scope.progress = false;
+                            var data = response.data;
+                            var status = parseInt(response.status);
 
-                        switch (status) {
-                            // token request has been refused by the server.
-                            // the occurred errors will be shown
-                            case 401:
-                                $scope.errors = data.errors;
-                                $scope.hasError = true;
+                            switch (status) {
+                                // token request has been refused by the server.
+                                // the occurred errors will be shown
+                                case 401:
+                                    $scope.errors = data.errors;
+                                    $scope.hasError = true;
 
-                                break;
-                            // any unknown error
-                            // unknown error message will be shown
-                            default:
-                                $scope.errors = ['Internal server error occurred. Please try again'];
+                                    break;
+                                // any unknown error
+                                // unknown error message will be shown
+                                default:
+                                    $scope.errors = ['Internal server error occurred. Please try again'];
 
-                                break;
+                                    break;
+                            }
+
+                            $scope.credentials.password = '';
                         }
-
-                        $scope.credentials.password = '';
-                    }
-                );
+                    );
             };
         }]
     );
