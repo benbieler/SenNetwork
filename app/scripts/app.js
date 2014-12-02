@@ -3,7 +3,7 @@
 angular.module(
     'sententiaregum',
     ['ngRoute', 'ngCookies', 'sen.registration', 'sen.login', 'sen.microblog', 'sen.page', 'sen.image-upload',
-        'ngSanitize', 'infinite-scroll', 'ngResource', 'sen.service.token']
+        'ngSanitize', 'infinite-scroll', 'ngResource', 'sen.service.token', 'sen.service.account']
 )
     .config(['$routeProvider', '$httpProvider', '$locationProvider',
         function ($routeProvider, $httpProvider, $locationProvider) {

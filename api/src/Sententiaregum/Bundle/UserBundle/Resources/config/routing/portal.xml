@@ -9,7 +9,7 @@
         <requirement key="_format">json</requirement>
     </route>
 
-    <route id="ma27_social_networking_create-account" path="/create-account" methods="POST">
+    <route id="ma27_social_networking_create-account" path="/account" methods="POST">
         <default key="_controller">sen.account.controller:createAction</default>
         <requirement key="_format">json</requirement>
     </route>

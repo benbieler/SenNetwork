@@ -27,35 +27,35 @@ angular.module('sen.login', [])
                     password: $scope.credentials.password
                 };
 
-                TokenModel.auth({}, credentials)
-                    .$promise.then(
-                        function () {
-                            $location.path('/');
-                        },
-                        function (response) {
-                            $scope.progress = false;
-                            var data = response.data;
-                            var status = parseInt(response.status);
+                TokenModel.auth(
+                    {}, credentials,
+                    function () {
+                        $location.path('/');
+                    },
+                    function (response) {
+                        $scope.progress = false;
+                        var data = response.data;
+                        var status = parseInt(response.status);
 
-                            switch (status) {
-                                // token request has been refused by the server.
-                                // the occurred errors will be shown
-                                case 401:
-                                    $scope.errors = data.errors;
-                                    $scope.hasError = true;
+                        switch (status) {
+                            // token request has been refused by the server.
+                            // the occurred errors will be shown
+                            case 401:
+                                $scope.errors = data.errors;
+                                $scope.hasError = true;
 
-                                    break;
-                                // any unknown error
-                                // unknown error message will be shown
-                                default:
-                                    $scope.errors = ['Internal server error occurred. Please try again'];
+                                break;
+                            // any unknown error
+                            // unknown error message will be shown
+                            default:
+                                $scope.errors = ['Internal server error occurred. Please try again'];
 
-                                    break;
-                            }
-
-                            $scope.credentials.password = '';
+                                break;
                         }
-                    );
+
+                        $scope.credentials.password = '';
+                    }
+                );
             };
         }]
     );
