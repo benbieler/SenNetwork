@@ -116,15 +116,16 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-sass');
 
-    grunt.registerTask('build-production', [
+    grunt.registerTask('build', [
         'sass',
         'mkdir',
         'htmlmin',
         'concat',
         'cssmin',
-        'copy',
-        'uglify'
+        'copy'
     ]);
+
+    grunt.registerTask('build-production', ['build', 'uglify']);
 
     grunt.registerTask('default', ['build-production']);
 
