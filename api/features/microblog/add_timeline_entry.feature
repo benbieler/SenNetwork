@@ -11,8 +11,8 @@ Feature: add timeline entry
 
   Scenario: add entry
     When I add an entry with following input:
-      | content           | image     |
-      | entry #foo @admin | valid.png |
+      | content                            | image     |
+      | entry #foo @admin @inexistent_user | valid.png |
     Then the entry should be stored in the database
      And the following tags should be recognized:
       | name |

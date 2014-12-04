@@ -10,6 +10,7 @@ use Sententiaregum\Bundle\MicrobloggingBundle\Entity\MicroblogEntry;
 use Sententiaregum\Bundle\MicrobloggingBundle\Service\Api\WriteEntryInterface;
 use Sententiaregum\Bundle\RedisMQBundle\Api\QueueInputInterface;
 use Sententiaregum\Bundle\RedisMQBundle\Entity\QueueEntity;
+use Sententiaregum\Bundle\UserBundle\Entity\Api\UserRepositoryInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class WriteEntry implements WriteEntryInterface
@@ -40,24 +41,32 @@ class WriteEntry implements WriteEntryInterface
     private $tagRepository;
 
     /**
+     * @var UserRepositoryInterface
+     */
+    private $userRepository;
+
+    /**
      * @param MicroblogRepositoryInterface $microblogRepo
      * @param QueueInputInterface $queueInput
      * @param ValidatorInterface $validator
      * @param EntryPostParserInterface $entryPostParser
      * @param TagRepositoryInterface $tagRepository
+     * @param UserRepositoryInterface $userRepository
      */
     public function __construct(
         MicroblogRepositoryInterface $microblogRepo,
         QueueInputInterface $queueInput,
         ValidatorInterface $validator,
         EntryPostParserInterface $entryPostParser,
-        TagRepositoryInterface $tagRepository)
+        TagRepositoryInterface $tagRepository,
+        UserRepositoryInterface $userRepository)
     {
         $this->microblogRepositoryInterface = $microblogRepo;
         $this->queueInput = $queueInput;
         $this->validator = $validator;
         $this->entryParser = $entryPostParser;
         $this->tagRepository = $tagRepository;
+        $this->userRepository = $userRepository;
     }
 
     /**
@@ -97,7 +106,11 @@ class WriteEntry implements WriteEntryInterface
         });
 
         $microblogEntry->setTags($tags);
-        $microblogEntry->setMarked($marked);
+
+        $userRepository = $this->userRepository;
+        $microblogEntry->setMarked(array_filter($marked, function ($value) use ($userRepository) {
+            return $userRepository->findByName($value) !== null;
+        }));
 
         $storedEntry = $this->microblogRepositoryInterface->add($microblogEntry);
         $this->queueInput->push(new QueueEntity($microblogEntry));

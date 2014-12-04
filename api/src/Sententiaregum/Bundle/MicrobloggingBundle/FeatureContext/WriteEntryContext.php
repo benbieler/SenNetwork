@@ -186,6 +186,10 @@ class WriteEntryContext extends Context
 
             Test::assertNotFalse($stmt->fetch());
         }
+
+        $stmt = $this->dbConnection->prepare("SELECT COUNT(user_name) FROM `se_user_in_post` WHERE `post_id` = :id");
+        $stmt->execute(['id' => $postId]);
+        Test::assertCount((integer) $stmt->fetchColumn(), $table->getHash());
     }
 
     /**

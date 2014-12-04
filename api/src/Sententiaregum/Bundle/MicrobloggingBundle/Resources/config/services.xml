@@ -20,6 +20,7 @@
             <argument type="service" id="validator" />
             <argument type="service" id="sen_parser.entry_parser" />
             <argument type="service" id="sen.hashtags.repository" />
+            <argument type="service" id="sen.user.repository" />
         </service>
     </services>
 
