@@ -51,7 +51,7 @@ The smartes way to deploy is using rake.
 
 __Note__: this commands creates an test admin user with name "root" and password "sen-unsafe-password222" 
 
-Here are all required commands listed
+###Here are all required commands listed
 
 Please install the software by the following shell commands
 
