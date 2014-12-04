@@ -16,7 +16,7 @@ task :installBackend do
     puts "Creating Doctrine Schema"
     `php app/console doctrine:migrations:migrate --no-interaction`
     puts "Creating admin user"
-    `php app/console sententiaregum:user:create-admin --name=root --password=sen-unsage-password --email=root@example.org`
+    `php app/console sententiaregum:user:create-admin --name=root --password=sen-unsafe-password222 --email=root@example.org`
     puts "Flush redis"
     `php app/console redis:flush`
     `cd ..`

@@ -40,12 +40,20 @@ The API is tested by the BDD approach with PHPSpec and Behat
 2) Install
 ----------
 
-Please install the software by the following shell commands
-
 Clone repository
 
     git clone -b master https://github.com/Ma27/SenNetwork.git /path/to/webroot
     cd /path/to/webroot
+
+The smartes way to deploy is using rake.
+    
+    rake
+
+__Note__: this commands creates an test admin user with name "root" and password "sen-unsafe-password222" 
+
+Here are all required commands listed
+
+Please install the software by the following shell commands
 
 Add sass
 
