@@ -9,6 +9,7 @@ use Sententiaregum\Bundle\HashtagsBundle\Entity\Api\TagRepositoryInterface;
 use Sententiaregum\Bundle\MicrobloggingBundle\Entity\Api\MicroblogRepositoryInterface;
 use Sententiaregum\Bundle\MicrobloggingBundle\Entity\MicroblogEntry;
 use Sententiaregum\Bundle\RedisMQBundle\Api\QueueInputInterface;
+use Sententiaregum\Bundle\UserBundle\Entity\Api\UserRepositoryInterface;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\ConstraintViolationList;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -20,14 +21,16 @@ class WriteEntrySpec extends ObjectBehavior
         QueueInputInterface $queueInputInterface,
         ValidatorInterface $validatorInterface,
         EntryPostParserInterface $entryPostParserInterface,
-        TagRepositoryInterface $tagRepositoryInterface
+        TagRepositoryInterface $tagRepositoryInterface,
+        UserRepositoryInterface $userRepositoryInterface
     ) {
         $this->beConstructedWith(
             $microblogRepositoryInterface,
             $queueInputInterface,
             $validatorInterface,
             $entryPostParserInterface,
-            $tagRepositoryInterface
+            $tagRepositoryInterface,
+            $userRepositoryInterface
         );
     }
 
