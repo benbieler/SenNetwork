@@ -41,6 +41,9 @@ task :prepareTravisCI do
     `printf "\n" | pecl install imagick`
     `mysql -e "CREATE DATABASE IF NOT EXISTS symfony;" -u root`
     `echo "use mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user = 'root';\nFLUSH PRIVILEGES;\n" | mysql -u root`
+    `gem install sass`
+    `npm install -g bower`
+    `npm install -g grunt-cli`
 end
 
 task :test => [:testPHPSpecs, :testBehat]
