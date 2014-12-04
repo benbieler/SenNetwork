@@ -8,32 +8,32 @@ task :installFrontend do
 end
 
 task :installBackend do
-    `cd api`
-    puts "Installing Composer packages and running symfony deploy tasks"
-    `composer install`
-    puts "Checking Symfony 2 requirements"
-    `php app/check.php`
-    puts "Creating Doctrine Schema"
-    `php app/console doctrine:migrations:migrate --no-interaction`
-    puts "Creating admin user"
-    `php app/console sententiaregum:user:create-admin --name=root --password=sen-unsafe-password222 --email=root@example.org`
-    puts "Flush redis"
-    `php app/console redis:flush`
-    `cd ..`
+    Dir.chdir('api') do
+        puts "Installing Composer packages and running symfony deploy tasks"
+        `composer install`
+        puts "Checking Symfony 2 requirements"
+        `php app/check.php`
+        puts "Creating Doctrine Schema"
+        `php app/console doctrine:migrations:migrate --no-interaction`
+        puts "Creating admin user"
+        `php app/console sententiaregum:user:create-admin --name=root --password=sen-unsafe-password222 --email=root@example.org`
+        puts "Flush redis"
+        `php app/console redis:flush`
+    end
 end
 
 task :testBehat do
     puts "Processing behat tests"
-    `cd api`
-    `bin/behat`
-    `cd ..`
+    Dir.chdir('api') do
+        `bin/behat`
+    end
 end
 
 task :testPHPSpecs do
     puts "Processing specs"
-    `cd api`
-    `bin/phpspec run`
-    `cd ..`
+    Dir.chdir('api') do
+        `bin/phpspec run`
+    end
 end
 
 task :prepareTravisCI do
