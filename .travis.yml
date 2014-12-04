@@ -6,34 +6,13 @@ php:
   - hhvm
 
 before_script:
-  # just to test if the build of the frontend passes
-  - gem install sass
-  - npm install -g bower
-  - npm install -g grunt-cli
-  - npm install
-  - bower install
-  - grunt
-
-  # prepare php test suite
-  - printf "\n" | pecl install imagick
-  - composer self-update
-  - composer update -d api
-  - mysql -e "CREATE DATABASE IF NOT EXISTS symfony;" -u root
-  - echo "use mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user = 'root';\nFLUSH PRIVILEGES;\n" | mysql -u root
-  - cd api
-  - php app/console doctrine:migrations:migrate --no-interaction
+  - rake travis
 
 services:
   - redis-server
 
 script:
-  - bin/phpspec run -f dot
-  - bin/behat --suite=requestToken
-  - bin/behat --suite=createAccount
-  - bin/behat --suite=redisQueue
-  - bin/behat --suite=addTimelineEntry
-  - bin/behat --suite=follower
-  - bin/behat --suite=followerAdvice
+  - rake test
 
 after_script:
   - php app/console doctrine:migrations:version 20141018161940 --delete --no-interaction
