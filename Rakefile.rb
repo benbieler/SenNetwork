@@ -28,7 +28,7 @@ task :installBackend do
         puts "Creating admin user"
         sh %{php app/console sententiaregum:user:create-admin --name=root --password=sen-unsafe-password222 --email=root@example.org}
         puts "Flush redis"
-        sh %{php app/console redis:flushdb}
+        sh %{php app/console redis:flushdb --no-interaction}
     end
 end
 
