@@ -12,7 +12,9 @@ services:
 
 script: rake test
 
-after_script: php app/console doctrine:migrations:version 20141018161940 --delete --no-interaction
+after_script:
+  - cd api
+  - php app/console doctrine:migrations:version 20141018161940 --delete --no-interaction
 
 matrix:
   allow_failures:
