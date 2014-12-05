@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sen.page', [])
+angular.module('sen.shared.page.page-management', [])
     .factory('Page', function () {
         var viewModel = [];
 
@@ -52,55 +52,3 @@ angular.module('sen.page', [])
             }
         };
     });
-
-/**
- * Object containing the menu items
- *
- * @type {{portal: {label: string, target: string}[]}}
- */
-var menuTemplates = {
-    portal: [
-        {
-            label: 'Landing',
-            target: '/#!/landing'
-        },
-        {
-            label: 'Registration',
-            target: '/#!/create-account'
-        },
-        {
-            label: 'Imprint',
-            target: '/#!/imprint'
-        },
-        {
-            label: 'Terms & Conditions',
-            target: '/#!/terms-and-conditions'
-        }
-    ],
-    application: [
-        {
-            label: 'Dashboard',
-            target: '/#!/'
-        },
-        {
-            label: 'Messenger',
-            target: '/#!/chat'
-        },
-        {
-            label: 'Find a user',
-            target: '/#!/search-members'
-        },
-        {
-            label: 'Imprint',
-            target: '/#!/imprint'
-        },
-        {
-            label: 'Terms & Conditions',
-            target: '/#!/terms-and-conditions'
-        },
-        {
-            label: 'Logout',
-            target: '/#!/logout'
-        }
-    ]
-};

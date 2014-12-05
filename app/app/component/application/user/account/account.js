@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sen.service.account', [])
+angular.module('sen.app.user.account.account', [])
     .factory('Account', function ($resource) {
 
         return $resource(

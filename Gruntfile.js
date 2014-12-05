@@ -13,7 +13,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: 'app/',
-                    src: ['*.html', 'partials/*/*/*.html'],
+                    src: ['index.html', 'app/component/application/*/*/*.html'],
                     dest: 'dist/'
                 }]
             }
@@ -32,25 +32,27 @@ module.exports = function (grunt) {
         concat: {
             css: {
                 src: [
-                    'app/scripts/vendor/bootstrap/dist/css/bootstrap.min.css',
-                    'app/scripts/vendor/perfect-scrollbar/src/perfect-scrollbar.css',
+                    'app/app/vendor/bootstrap/dist/css/bootstrap.min.css',
+                    'app/app/vendor/perfect-scrollbar/src/perfect-scrollbar.css',
                     'dist/styles/*.css'
                 ],
                 dest: 'dist/all.css'
             },
             js: {
                 src: [
-                    'app/scripts/vendor/jquery/jquery.min.js',
-                    'app/scripts/vendor/bootstrap/dist/js/bootstrap.min.js',
-                    'app/scripts/vendor/perfect-scrollbar/min/perfect-scrollbar.min.js',
-                    'app/scripts/vendor/angular/angular.min.js',
-                    'app/scripts/vendor/angular-route/angular-route.min.js',
-                    'app/scripts/vendor/angular-cookies/angular-cookies.min.js',
-                    'app/scripts/vendor/angular-sanitize/angular-sanitize.min.js',
-                    'app/scripts/vendor/angular-resource/angular-resource.min.js',
-                    'app/scripts/vendor/ngInfiniteScroll/build/ng-infinite-scroll.min.js',
-                    'app/scripts/app.js',
-                    'app/scripts/*/*.js'
+                    'app/app/vendor/jquery/jquery.min.js',
+                    'app/app/vendor/bootstrap/dist/js/bootstrap.min.js',
+                    'app/app/vendor/perfect-scrollbar/min/perfect-scrollbar.min.js',
+                    'app/app/vendor/angular/angular.min.js',
+                    'app/app/vendor/angular-route/angular-route.min.js',
+                    'app/app/vendor/angular-cookies/angular-cookies.min.js',
+                    'app/app/vendor/angular-sanitize/angular-sanitize.min.js',
+                    'app/app/vendor/angular-resource/angular-resource.min.js',
+                    'app/app/vendor/ngInfiniteScroll/build/ng-infinite-scroll.min.js',
+                    'app/app/app.js',
+                    'app/app/component/shared/*/*.js',
+                    'app/app/component/application/*/*.js',
+                    'app/app/component/application/*/*/*.js'
                 ],
                 dest: 'dist/all.js'
             }

@@ -1,13 +1,16 @@
 'use strict';
 
-angular.module('sen.registration', [])
-    .controller('create-account', ['$scope', '$location', 'Page', 'ActiveMenuItem', 'Account',
-        function ($scope, $location, Page, ActiveMenuItem, Account) {
+angular.module('sen.app.user.account.create-account', [])
+    .controller('create-account', ['$scope', '$location', 'Page', 'ActiveMenuItem', 'Account', 'MenuTemplates',
+        function ($scope, $location, Page, ActiveMenuItem, Account, MenuTemplates) {
 
             $scope.progress = false;
 
             // setup page
             Page.setPageTitle('Create account');
+
+            // create new menu template object
+            var menuTemplates = MenuTemplates;
             ActiveMenuItem.purgeActiveAttributes(menuTemplates.portal);
             Page.setMenuItems(ActiveMenuItem.markItemAsActive(menuTemplates.portal, 1));
 

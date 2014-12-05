@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('sen.login', [])
-    .controller('login', ['$scope', '$http', 'Page', 'ActiveMenuItem', '$cookieStore', '$location', 'Token', 'TokenModel',
-        function ($scope, $http, Page, ActiveMenuItem, $cookieStore, $location, Token, TokenModel) {
+angular.module('sen.app.user.token.login', [])
+    .controller('login', ['$scope', '$http', 'Page', 'ActiveMenuItem', '$cookieStore', '$location', 'Token', 'TokenModel', 'MenuTemplates',
+        function ($scope, $http, Page, ActiveMenuItem, $cookieStore, $location, Token, TokenModel, MenuTemplates) {
 
             var token = $cookieStore.get(Token.tokenCookieKey);
             if (typeof token !== 'undefined') {
@@ -10,6 +10,7 @@ angular.module('sen.login', [])
             }
 
             Page.setPageTitle('Landing');
+            var menuTemplates = MenuTemplates;
             ActiveMenuItem.purgeActiveAttributes(menuTemplates.portal);
             Page.setMenuItems(
                 ActiveMenuItem.markItemAsActive(menuTemplates.portal, 0)

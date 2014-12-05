@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sen.service.token', [])
+angular.module('sen.app.user.token.token', [])
     .factory('TokenModel', function ($resource, Token) {
 
         var cookieAuthInterceptor = {

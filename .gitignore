@@ -28,7 +28,7 @@
 /.metadata/
 
 # Bower
-/app/scripts/vendor/
+/app/app/vendor/
 
 # node.js
 /node_modules/

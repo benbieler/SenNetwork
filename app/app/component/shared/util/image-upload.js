@@ -1,5 +1,9 @@
 'use strict';
 
+if (typeof window.jQuery === 'undefined') {
+    throw new Error('This directive requires jQuery');
+}
+
 (function ($) {
 
     $.uploadButton = function (element, fileUploadId) {
@@ -12,7 +16,7 @@
 
 })(jQuery);
 
-angular.module('sen.image-upload', [])
+angular.module('sen.shared.util.image-upload', [])
     .directive('imageUploadButton', function () {
 
         return {
