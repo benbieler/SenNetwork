@@ -5,17 +5,14 @@ php:
   - 5.6
   - hhvm
 
-before_script:
-  - rake travis
+before_script: rake travis
 
 services:
   - redis-server
 
-script:
-  - rake test
+script: rake test
 
-after_script:
-  - php app/console doctrine:migrations:version 20141018161940 --delete --no-interaction
+after_script: php app/console doctrine:migrations:version 20141018161940 --delete --no-interaction
 
 matrix:
   allow_failures:

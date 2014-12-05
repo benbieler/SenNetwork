@@ -45,11 +45,14 @@ Clone repository
     git clone -b master https://github.com/Ma27/SenNetwork.git /path/to/webroot
     cd /path/to/webroot
 
-The smartes way to deploy is using rake.
+The smartest way to deploy is using rake.
     
     rake
 
 __Note__: this commands creates an test admin user with name "root" and password "sen-unsafe-password222" 
+__Note__: if you use the vagrant, please use this command:
+
+    rake vagrant
 
 ###Here are all required commands listed
 
