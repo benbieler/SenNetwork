@@ -90,6 +90,6 @@ task :travis => [:prepareTravisCI, :default]
 task :vagrant => [:installFrontendOnVagrant, :installBackend]
 
 namespace :setup do
-    task :mac => [:fetchCoreOnMcOSX, :fetchDependencies]
+    task :mac => [:fetchCoreOnMacOSX, :fetchDependencies]
     task :ubuntu => [:fetchCoreOnUbuntu, :fetchDependencies]
 end
