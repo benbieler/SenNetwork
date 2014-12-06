@@ -1,3 +1,4 @@
+desc "Task which installs all the frontend stuff"
 task :installFrontend do
     puts "Installing node.js dependencies"
     sh %{npm install}
@@ -8,6 +9,7 @@ task :installFrontend do
 end
 
 # on my vagrant box "npm install" fails and this command has the fixes
+desc "Task which installs all the frontend stuff on a vagrant box"
 task :installFrontendForVagrant do
     puts "Installing node.js dependencies"
     sh %{sudo npm install --no-bin-links}
@@ -17,6 +19,7 @@ task :installFrontendForVagrant do
     sh %{grunt build-production}
 end
 
+desc "Task which installs the backend"
 task :installBackend do
     Dir.chdir('api') do
         puts "Installing Composer packages and running symfony deploy tasks"
@@ -32,6 +35,7 @@ task :installBackend do
     end
 end
 
+desc "Task which tests the features"
 task :testBehat do
     puts "Processing behat tests"
     Dir.chdir('api') do
@@ -39,6 +43,7 @@ task :testBehat do
     end
 end
 
+desc "Task which tests the specs"
 task :testPHPSpecs do
     puts "Processing specs"
     Dir.chdir('api') do
@@ -46,6 +51,7 @@ task :testPHPSpecs do
     end
 end
 
+desc "Custom tasks which prepares Travis CI for a test"
 task :prepareTravisCI do
     puts "Run commands to prepare travis ci"
     sh %{printf "\n" | pecl install imagick}
@@ -54,6 +60,31 @@ task :prepareTravisCI do
     sh %{gem install sass}
     sh %{npm install -g bower}
     sh %{npm install -g grunt-cli}
+end
+
+desc "Task which installs the core dependencies on ubuntu"
+task :fetchCoreOnUbuntu do
+    sh %{sudo apt-get update}
+    sh %{sudo apt-get install php5}
+    sh %{sudo apt-get install nodejs}
+    sh %{sudo apt-get install npm}
+    sh %{sudo apt-get install rubygems-integration}
+end
+
+desc "Task which installs the core dependencies on OS X"
+task :fetchCoreOnMacOSX do
+    sh %{brew update}
+    sh %{brew install php55}
+    sh %{brew install node}
+    puts "On brew ruby gems is already installed"
+end
+
+desc "Task which installs the core dependencies of this application"
+task :fetchDependencies do
+    sh %{npm install -g bower}
+    sh %{npm install -g grunt-cli}
+    sh %{gem install rake}
+    sh %{gem install sass}
 end
 
 task :test => [:testPHPSpecs, :testBehat]
