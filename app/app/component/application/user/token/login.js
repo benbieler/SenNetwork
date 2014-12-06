@@ -48,8 +48,7 @@ angular.module('sen.app.user.token.login', [])
                             // any unknown error
                             // unknown error message will be shown
                             default:
-                                $scope.errors = ['Internal server error occurred. Please try again'];
-
+                                $scope.errors = ['Internal server error occurred. Please try again later'];
                                 break;
                         }
 
