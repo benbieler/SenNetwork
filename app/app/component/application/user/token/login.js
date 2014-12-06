@@ -10,10 +10,9 @@ angular.module('sen.app.user.token.login', [])
             }
 
             Page.setPageTitle('Landing');
-            var menuTemplates = MenuTemplates;
-            ActiveMenuItem.purgeActiveAttributes(menuTemplates.portal);
+            ActiveMenuItem.purgeActiveAttributes(MenuTemplates.portal);
             Page.setMenuItems(
-                ActiveMenuItem.markItemAsActive(menuTemplates.portal, 0)
+                ActiveMenuItem.markItemAsActive(MenuTemplates.portal, 0)
             );
 
             $scope.credentials = {};

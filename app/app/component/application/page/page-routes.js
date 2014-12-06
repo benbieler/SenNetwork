@@ -5,7 +5,8 @@ angular.module('sen.app.page.routes', [])
 
         $routeProvider
             .when('/not-found', {
-                templateUrl: '/app/component/application/page/view/not-found.html'
+                templateUrl: '/app/component/application/page/view/not-found.html',
+                controller: 'notFound'
             })
             .otherwise({
                 redirectTo: '/not-found'

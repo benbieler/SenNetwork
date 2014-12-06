@@ -9,10 +9,8 @@ angular.module('sen.app.user.account.create-account', [])
             // setup page
             Page.setPageTitle('Create account');
 
-            // create new menu template object
-            var menuTemplates = MenuTemplates;
-            ActiveMenuItem.purgeActiveAttributes(menuTemplates.portal);
-            Page.setMenuItems(ActiveMenuItem.markItemAsActive(menuTemplates.portal, 1));
+            ActiveMenuItem.purgeActiveAttributes(MenuTemplates.portal);
+            Page.setMenuItems(ActiveMenuItem.markItemAsActive(MenuTemplates.portal, 1));
 
             // initialize model wrapper
             $scope.data = {};

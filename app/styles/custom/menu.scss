@@ -69,19 +69,21 @@ $activeMenu: #6abbdf;
 
   .navbar-nav {
     li {
-      a:focus {
-        color: #fff !important;
-        background-color: #fff;
-      }
-
       a:active {
-        color: #fff;
+        color: #fff !important;
       }
 
       &:hover, &:focus {
         a {
-          color: #fff;
+          color: #fff !important;
         }
+      }
+    }
+
+    li.active {
+      a:focus {
+        color: #fff !important;
+        background-color: #fff;
       }
     }
   }

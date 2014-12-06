@@ -6,9 +6,8 @@ angular.module('sen.app.microblogging.dashboard.microblog', ['infinite-scroll'])
 
             Page.setPageTitle('Dashboard');
 
-            var menuTemplates = MenuTemplates;
-            ActiveMenuItem.purgeActiveAttributes(menuTemplates.application);
-            Page.setMenuItems(ActiveMenuItem.markItemAsActive(menuTemplates.application, 0));
+            ActiveMenuItem.purgeActiveAttributes(MenuTemplates.application);
+            Page.setMenuItems(ActiveMenuItem.markItemAsActive(MenuTemplates.application, 0));
             var token = $cookieStore.get(Token.tokenCookieKey);
             if (typeof token === 'undefined') {
                 $location.path('/landing');

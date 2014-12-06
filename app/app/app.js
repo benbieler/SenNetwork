@@ -7,7 +7,7 @@ angular.module(
         'sen.app.page.routes', 'sen.app.microblogging.routes', 'sen.app.user.account.account', 'sen.app.user.account.create-account',
         'sen.app.user.token.login', 'sen.app.user.token.token', 'sen.app.user.routes', 'sen.shared.page.menu-templates',
         'sen.shared.page.page-management', 'sen.shared.security.html-sanitize', 'sen.shared.util.shared-container',
-        'sen.shared.util.image-upload']
+        'sen.shared.util.image-upload', 'sen.app.page.not-found']
 )
     .config(['$httpProvider', '$locationProvider',
         function ($httpProvider, $locationProvider) {
