@@ -42,7 +42,7 @@ end
 task :testPHPSpecs do
     puts "Processing specs"
     Dir.chdir('api') do
-        sh %{bin/phpspec run}
+        sh %{bin/phpspec run --format=dot}
     end
 end
 

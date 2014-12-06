@@ -141,6 +141,10 @@ install. This works like this:
 
     composer install -d api
     
+You can run all the tests quickliy with the following command:
+
+    rake test
+ 
 Now you can run the PHPSpec and Behat test suite:
 
     cd api
