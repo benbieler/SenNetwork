@@ -15,6 +15,7 @@ filter:
         - api/src/Sententiaregum/Bundle/FollowerBundle/FeatureContext/
 
 tools:
+    js_hint: true
     php_code_sniffer:
         config:
             standard: PSR2
