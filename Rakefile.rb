@@ -68,7 +68,6 @@ task :fetchCoreOnUbuntu do
     sh %{sudo apt-get install php5}
     sh %{sudo apt-get install nodejs}
     sh %{sudo apt-get install npm}
-    sh %{sudo apt-get install rubygems-integration}
 end
 
 desc "Task which installs the core dependencies on OS X"
@@ -76,14 +75,12 @@ task :fetchCoreOnMacOSX do
     sh %{brew update}
     sh %{brew install php55}
     sh %{brew install node}
-    puts "On brew ruby gems is already installed"
 end
 
 desc "Task which installs the core dependencies of this application"
 task :fetchDependencies do
     sh %{npm install -g bower}
     sh %{npm install -g grunt-cli}
-    sh %{gem install rake}
     sh %{gem install sass}
 end
 
@@ -91,3 +88,8 @@ task :test => [:testPHPSpecs, :testBehat]
 task :default => [:installFrontend, :installBackend]
 task :travis => [:prepareTravisCI, :default]
 task :vagrant => [:installFrontendOnVagrant, :installBackend]
+
+namespace :setup do
+    task :mac => [:fetchCoreOnMcOSX, :fetchDependencies]
+    task :ubuntu => [:fetchCoreOnUbuntu, :fetchDependencies]
+end

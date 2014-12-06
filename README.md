@@ -54,6 +54,17 @@ __Note__: if you use the vagrant, please use this command:
 
     rake vagrant
 
+###Install all dependencies
+
+Ths application has lots of dependencies like PHP5.5, node.js or SASS.
+You can automate installing these on Ubuntu and Mac OS X.
+
+    # ubuntu
+    rake setup:ubuntu
+    
+    # mac
+    rake setup:mac
+
 ###Here are all required commands listed
 
 Please install the software by the following shell commands
