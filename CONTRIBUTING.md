@@ -20,3 +20,5 @@ The php/scss/js files to commit should have the following doc header (on the top
      */
 
 The PHP and JS functions/methods should give information about their return type, parameters and thrown exceptions/errors
+
+Please check out also [this](https://github.com/Ma27/SenNetwork/issues/20) for more informations about the structure and architecture.
