@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the sententiaregum application.
+ *
+ * Sententiaregum is a social network based on Symfony2 and AngularJS
+ *
+ * @copyright (c) 2014 Sententiaregum
+ * Please check out the license file in the document root of this application
+ */
+
 namespace Sententiaregum\Bundle\UserBundle\Command;
 
 use Sententiaregum\Bundle\UserBundle\Exception\ExistingUserException;
@@ -10,6 +19,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class CreateAdminUserCommand extends ContainerAwareCommand
 {
+    /**
+     * @return void
+     */
     protected function configure()
     {
         $this
@@ -20,6 +32,11 @@ class CreateAdminUserCommand extends ContainerAwareCommand
             ->addOption('email', 'm', InputOption::VALUE_REQUIRED, 'Email of the administrator');
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return integer
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $name     = $input->getOption('name');
@@ -42,5 +59,7 @@ class CreateAdminUserCommand extends ContainerAwareCommand
         $createAccountService->persist($entity);
 
         $output->writeln('<fg=green>New admin user with name "<fg=cyan>' . $name . '</fg=cyan>" added</fg=green>');
+
+        return 0;
     }
 }

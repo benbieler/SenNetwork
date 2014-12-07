@@ -1,9 +1,13 @@
-/**
- * Custom UI
+/*
+ * This file is part of the sententiaregum application.
  *
- * This SCSS file contains an extended and customized bootstrap theme
+ * Sententiaregum is a social network based on Symfony2 and AngularJS
+ *
+ * @copyright (c) 2014 Sententiaregum
+ * Please check out the license file in the document root of this application
  */
 
+/** main file which contains a custom bootstrap layout for sententiaregum */
 @import 'custom/main';
 @import 'custom/menu';
 @import 'custom/forms';

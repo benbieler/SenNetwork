@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the sententiaregum application.
+ *
+ * Sententiaregum is a social network based on Symfony2 and AngularJS
+ *
+ * @copyright (c) 2014 Sententiaregum
+ * Please check out the license file in the document root of this application
+ */
+
 namespace Sententiaregum\Bundle\HashtagsBundle\Entity;
 
 use Doctrine\DBAL\Connection;
@@ -64,11 +73,17 @@ class TagRepository implements TagRepositoryInterface
         return $this->row2Entity($data);
     }
 
+    /**
+     * @return void
+     */
     public function flush()
     {
         $this->connection->exec("DELETE FROM `se_hashtags`;");
     }
 
+    /**
+     * @return Tag[]
+     */
     public function generatePopularTagsList()
     {
         # TODO: Implement generatePopularTagsList() method.
