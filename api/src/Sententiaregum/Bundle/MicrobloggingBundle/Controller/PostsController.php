@@ -62,6 +62,7 @@ class PostsController
     /**
      * @param Request $request
      * @return JsonResponse
+     * @throws UnsupportedUserException
      */
     public function createAction(Request $request)
     {

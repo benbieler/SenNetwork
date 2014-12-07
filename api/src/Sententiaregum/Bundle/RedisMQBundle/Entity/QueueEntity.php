@@ -64,6 +64,7 @@ class QueueEntity implements \JsonSerializable, FromJsonInterface
     /**
      * @param string $jsonString
      * @return mixed
+     * @throws \RuntimeException
      */
     public static function createFromJson($jsonString)
     {

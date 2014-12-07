@@ -51,6 +51,7 @@ class UserProvider implements UserProviderInterface
     /**
      * @param UserInterface $user
      * @return \Sententiaregum\Bundle\UserBundle\Entity\User\Api\UserInterface
+     * @throws UnsupportedUserException
      */
     public function refreshUser(UserInterface $user)
     {

@@ -49,6 +49,7 @@ class ApiKeyAuthentication implements SimplePreAuthenticatorInterface, Authentic
      * @param UserProviderInterface $userProvider
      * @param string $providerKey
      * @return PreAuthenticatedToken
+     * @throws AuthenticationException
      */
     public function authenticateToken(TokenInterface $token, UserProviderInterface $userProvider, $providerKey)
     {
@@ -81,6 +82,7 @@ class ApiKeyAuthentication implements SimplePreAuthenticatorInterface, Authentic
      * @param Request $request
      * @param string $providerKey
      * @return PreAuthenticatedToken
+     * @throws BadCredentialsException
      */
     public function createToken(Request $request, $providerKey)
     {

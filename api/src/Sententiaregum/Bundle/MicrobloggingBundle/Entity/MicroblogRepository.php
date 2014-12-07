@@ -76,6 +76,7 @@ class MicroblogRepository implements MicroblogRepositoryInterface
     /**
      * @param MicroblogEntry $microblogEntry
      * @return MicroblogEntry
+     * @throws \OverflowException
      */
     public function add(MicroblogEntry $microblogEntry)
     {

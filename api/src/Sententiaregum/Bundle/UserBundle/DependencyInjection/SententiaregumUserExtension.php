@@ -26,6 +26,7 @@ class SententiaregumUserExtension extends Extension
 {
     /**
      * {@inheritdoc}
+     * @throws \UnexpectedValueException
      */
     public function load(array $configs, ContainerBuilder $container)
     {

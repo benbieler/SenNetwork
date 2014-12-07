@@ -37,6 +37,8 @@ class UniqueEmailConstraintValidator extends ConstraintValidator
      * @param mixed $value The value that should be validated
      * @param Constraint $constraint The constraint for the validation
      *
+     * @throws UnexpectedTypeException
+     *
      * @api
      */
     public function validate($value, Constraint $constraint)

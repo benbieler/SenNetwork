@@ -92,6 +92,7 @@ class MicroblogEntry implements \JsonSerializable
     /**
      * @param Comment[] $comments
      * @return $this
+     * @throws \InvalidArgumentException
      */
     public function setComments(array $comments)
     {

@@ -33,6 +33,9 @@ class QueueContext implements QueueInputInterface, QueueOutputInterface
      */
     private $queueStack;
 
+    /**
+     * @param Client $client
+     */
     public function __construct(Client $client)
     {
         $this->client = $client;

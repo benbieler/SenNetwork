@@ -258,6 +258,7 @@ class UserRepository implements UserRepositoryInterface
      * @param string[] $roles
      * @param integer $userId
      * @return mixed
+     * @throws \OverFlowException
      */
     public function attachRolesOnUser(array $roles, $userId)
     {
