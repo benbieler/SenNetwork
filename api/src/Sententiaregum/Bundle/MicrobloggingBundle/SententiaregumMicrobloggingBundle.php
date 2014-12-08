@@ -11,7 +11,7 @@
 
 namespace Sententiaregum\Bundle\MicrobloggingBundle;
 
-use Sententiaregum\Common\Compiler\ValidatorPass;
+use Sententiaregum\Bundle\CommonBundle\Compiler\ValidatorPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

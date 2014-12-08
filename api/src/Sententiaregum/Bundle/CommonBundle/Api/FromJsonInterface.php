@@ -9,15 +9,13 @@
  * Please check out the license file in the document root of this application
  */
 
-namespace Sententiaregum\Common\Image;
+namespace Sententiaregum\Bundle\CommonBundle\Api;
 
-interface ImageRewriterInterface
+interface FromJsonInterface
 {
     /**
-     * @param string $path
-     * @return boolean
-     * @throws \InvalidArgumentException
+     * @param string $jsonString
+     * @return $this
      */
-    public function rewriteImage($path);
+    public static function createFromJson($jsonString);
 }
- 

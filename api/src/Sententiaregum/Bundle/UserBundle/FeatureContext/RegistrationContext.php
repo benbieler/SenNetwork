@@ -12,7 +12,7 @@
 namespace Sententiaregum\Bundle\UserBundle\FeatureContext;
 
 use PHPUnit_Framework_Assert as Test;
-use Sententiaregum\Common\Behat\Context;
+use Sententiaregum\Bundle\CommonBundle\Behat\Context;
 use Behat\Gherkin\Node\TableNode;
 use Sententiaregum\Bundle\UserBundle\FeatureContext\Helper\RegistrationHelper;
 use Sententiaregum\Bundle\UserBundle\Entity\Api\UserInterface;

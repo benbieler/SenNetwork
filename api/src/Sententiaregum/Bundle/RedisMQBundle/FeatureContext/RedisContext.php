@@ -11,10 +11,9 @@
 
 namespace Sententiaregum\Bundle\RedisMQBundle\FeatureContext;
 
-use Behat\Behat\Tester\Exception\PendingException;
 use PHPUnit_Framework_Assert as Test;
 use Sententiaregum\Bundle\RedisMQBundle\Entity\QueueEntity;
-use Sententiaregum\Common\Behat\Context;
+use Sententiaregum\Bundle\CommonBundle\Behat\Context;
 
 class RedisContext extends Context
 {

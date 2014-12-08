@@ -9,7 +9,7 @@
  * Please check out the license file in the document root of this application
  */
 
-namespace Sententiaregum\Common\Exception;
+namespace Sententiaregum\Bundle\CommonBundle\Exception;
 
 use LogicException;
 

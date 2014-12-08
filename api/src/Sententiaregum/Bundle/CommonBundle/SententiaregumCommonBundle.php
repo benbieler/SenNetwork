@@ -9,9 +9,10 @@
  * Please check out the license file in the document root of this application
  */
 
-namespace Sententiaregum\Common\Exception;
+namespace Sententiaregum\Bundle\CommonBundle;
 
-class InvalidConfigPathException extends \LogicException
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+class SententiaregumCommonBundle extends Bundle
 {
 }
- 

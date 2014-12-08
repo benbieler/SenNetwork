@@ -9,16 +9,16 @@
  * Please check out the license file in the document root of this application
  */
 
-namespace Sententiaregum\Common\Behat;
+namespace Sententiaregum\Bundle\CommonBundle\Behat;
 
 use AppKernel;
 use Behat\Behat\Context\Context as BehatContext;
 use Behat\Behat\Context\SnippetAcceptingContext;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
-use Sententiaregum\Common\Exception\IllegalDatabaseConnectionException;
+use Sententiaregum\Bundle\CommonBundle\Exception\IllegalDatabaseConnectionException;
 
-require_once __DIR__ . '/../../../../app/AppKernel.php';
+require_once __DIR__ . '/../../../../../app/AppKernel.php';
 
 abstract class Context implements BehatContext, SnippetAcceptingContext
 {

@@ -1,7 +1,6 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: listeners.yml }
     - { resource: framework.yml }
     - { resource: doctrine.yml }
     - { resource: redis.yml }

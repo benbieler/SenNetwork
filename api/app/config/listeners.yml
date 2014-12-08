@@ -1,5 +1,0 @@
-services:
-    sen.common.rest_exception_handler:
-        class: Sententiaregum\Common\EventListener\RestExceptionHandler
-        tags:
-            - { name: kernel.event_listener, event: kernel.exception, method: onException }

@@ -15,7 +15,7 @@ use Behat\Gherkin\Node\TableNode;
 use PHPUnit_Framework_Assert as Test;
 use Prophecy\Prophet;
 use Sententiaregum\Bundle\FollowerBundle\Entity\Follower;
-use Sententiaregum\Common\Behat\Context;
+use Sententiaregum\Bundle\CommonBundle\Behat\Context;
 use Symfony\Component\HttpFoundation\Request;
 
 class FollowerAdviceContext extends Context

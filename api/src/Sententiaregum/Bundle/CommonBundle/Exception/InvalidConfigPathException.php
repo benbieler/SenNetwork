@@ -9,13 +9,9 @@
  * Please check out the license file in the document root of this application
  */
 
-namespace Sententiaregum\Common\Api;
+namespace Sententiaregum\Bundle\CommonBundle\Exception;
 
-interface FromJsonInterface
+class InvalidConfigPathException extends \LogicException
 {
-    /**
-     * @param string $jsonString
-     * @return $this
-     */
-    public static function createFromJson($jsonString);
 }
+ 

@@ -11,14 +11,11 @@
 
 namespace Sententiaregum\Bundle\MicrobloggingBundle\FeatureContext;
 
-use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Gherkin\Node\TableNode;
 use PHPUnit_Framework_Assert as Test;
 use Prophecy\Prophet;
-use Sententiaregum\Common\Behat\Context;
-use Sententiaregum\Bundle\MicrobloggingBundle\Entity\MicroblogEntry;
+use Sententiaregum\Bundle\CommonBundle\Behat\Context;
 use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\FileBag;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;

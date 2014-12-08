@@ -9,7 +9,7 @@
  * Please check out the license file in the document root of this application
  */
 
-namespace Sententiaregum\Common\Image;
+namespace Sententiaregum\Bundle\CommonBundle\Image;
 
 class ImageRewriter implements ImageRewriterInterface
 {

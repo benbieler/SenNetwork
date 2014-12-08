@@ -9,7 +9,7 @@
  * Please check out the license file in the document root of this application
  */
 
-namespace Sententiaregum\Common\EventListener;
+namespace Sententiaregum\Bundle\CommonBundle\EventListener;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;

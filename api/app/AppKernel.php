@@ -14,9 +14,11 @@ use Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle;
 use Sensio\Bundle\DistributionBundle\SensioDistributionBundle;
 use Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle;
 use Sententiaregum\Bundle\CommentBundle\SententiaregumCommentBundle;
+use Sententiaregum\Bundle\CommonBundle\SententiaregumCommonBundle;
 use Sententiaregum\Bundle\EntryParsingBundle\SententiaregumEntryParsingBundle;
 use Sententiaregum\Bundle\FollowerBundle\SententiaregumFollowerBundle;
 use Sententiaregum\Bundle\HashtagsBundle\SententiaregumHashtagsBundle;
+use Sententiaregum\Bundle\InfrastructureBundle\SententiaregumInfrastructureBundle;
 use Sententiaregum\Bundle\MicrobloggingBundle\SententiaregumMicrobloggingBundle;
 use Sententiaregum\Bundle\RedisMQBundle\SententiaregumRedisMQBundle;
 use Sententiaregum\Bundle\UserBundle\SententiaregumUserBundle;
@@ -51,6 +53,10 @@ class AppKernel extends Kernel
             new SncRedisBundle(),
             new SententiaregumRedisMQBundle(),
 
+            // infrastructure
+            new SententiaregumInfrastructureBundle(),
+            new SententiaregumCommonBundle(),
+
             // application bundles
             new SententiaregumUserBundle(),
             new SententiaregumMicrobloggingBundle(),
@@ -73,11 +79,17 @@ class AppKernel extends Kernel
         return $bundles;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         return $loader->load($this->getRootDir() . '/config/config_' . $this->environment . '.yml');
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getCacheDir()
     {
         if ($this->isVagrantBox()) {
@@ -87,6 +99,9 @@ class AppKernel extends Kernel
         return parent::getCacheDir();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getLogDir()
     {
         if ($this->isVagrantBox()) {
@@ -96,6 +111,9 @@ class AppKernel extends Kernel
         return parent::getLogDir();
     }
 
+    /**
+     * @return boolean
+     */
     private function isVagrantBox()
     {
         return getenv('VAGRANT') === 'VAGRANT' && is_dir('/dev/shm');

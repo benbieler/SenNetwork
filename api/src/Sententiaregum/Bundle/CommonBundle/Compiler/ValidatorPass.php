@@ -9,9 +9,9 @@
  * Please check out the license file in the document root of this application
  */
 
-namespace Sententiaregum\Common\Compiler;
+namespace Sententiaregum\Bundle\CommonBundle\Compiler;
 
-use Sententiaregum\Common\Exception\InvalidConfigPathException;
+use Sententiaregum\Bundle\CommonBundle\Exception\InvalidConfigPathException;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Finder\Finder;
