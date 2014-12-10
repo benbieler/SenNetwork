@@ -18,9 +18,9 @@ use Sententiaregum\Bundle\CommonBundle\SententiaregumCommonBundle;
 use Sententiaregum\Bundle\EntryParsingBundle\SententiaregumEntryParsingBundle;
 use Sententiaregum\Bundle\FollowerBundle\SententiaregumFollowerBundle;
 use Sententiaregum\Bundle\HashtagsBundle\SententiaregumHashtagsBundle;
-use Sententiaregum\Bundle\InfrastructureBundle\SententiaregumInfrastructureBundle;
 use Sententiaregum\Bundle\MicrobloggingBundle\SententiaregumMicrobloggingBundle;
 use Sententiaregum\Bundle\RedisMQBundle\SententiaregumRedisMQBundle;
+use Sententiaregum\Bundle\UseCaseBundle\SententiaregumUseCaseBundle;
 use Sententiaregum\Bundle\UserBundle\SententiaregumUserBundle;
 use Snc\RedisBundle\SncRedisBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
@@ -54,8 +54,8 @@ class AppKernel extends Kernel
             new SententiaregumRedisMQBundle(),
 
             // infrastructure
-            new SententiaregumInfrastructureBundle(),
             new SententiaregumCommonBundle(),
+            new SententiaregumUseCaseBundle(),
 
             // application bundles
             new SententiaregumUserBundle(),
