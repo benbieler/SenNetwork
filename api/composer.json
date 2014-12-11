@@ -33,7 +33,6 @@
         "sensio/generator-bundle": "~2.3",
         "phpspec/phpspec": "~2.0",
         "behat/behat": "~3.0",
-        "phpunit/phpunit": "~4.3",
         "squizlabs/php_codesniffer": "~2.0@dev",
         "phpunit/phpunit": "~4.3"
     },
