@@ -1,5 +1,5 @@
 # Main tasks
-task :test => ["test:phpspec", "test:behat", "test:phpunit"]
+task :test => ["test:phpspec", "test:behat"]
 task :default => ["install:backend", "install:npm", "install:frontend", :test]
 task :travis => ["setup:travis", "setup:general", :default]
 task :vagrant => ["install:npmVagrant", "install:frontend", "install:backend"]
@@ -95,7 +95,7 @@ namespace :test do
     desc "Task which executes the phpunit test suites"
     task :phpunit do
         Dir.chdir('api') do
-            sh %{bin/phpunit -c app}
+            sh %{bin/phpunit -c app/phpunit.xml.dist}
         end
     end
 end

@@ -13,6 +13,8 @@ filter:
         - api/src/Sententiaregum/Bundle/EntryParsingBundle/spec/
         - api/src/Sententiaregum/Bundle/FollowerBundle/spec/
         - api/src/Sententiaregum/Bundle/FollowerBundle/FeatureContext/
+        - api/src/Sententiaregum/Bundle/UseCaseBundle/Tests/
+        - api/src/Sententiaregum/Bundle/UseCaseBundle/spec/
 
 tools:
     php_code_sniffer:
