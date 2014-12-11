@@ -1,5 +1,5 @@
-Redis Message Queue Symfony Bundle
-==================================
+Use Case Context Bundle
+=======================
 
 RESTful API for Sententiaregum based on Symfony2.
 
