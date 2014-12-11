@@ -12,7 +12,7 @@
 namespace Sententiaregum\Bundle\UseCaseBundle\Value;
 
 use Sententiaregum\Bundle\UseCaseBundle\Context\ContextInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class UseCase
 {
@@ -27,16 +27,16 @@ class UseCase
     private $context;
 
     /**
-     * @var OptionsResolverInterface
+     * @var OptionsResolver
      */
     private $definition;
 
     /**
      * @param string $alias
      * @param ContextInterface $context
-     * @param OptionsResolverInterface $optionsResolver
+     * @param OptionsResolver $optionsResolver
      */
-    public function __construct($alias, ContextInterface $context, OptionsResolverInterface $optionsResolver)
+    public function __construct($alias, ContextInterface $context, OptionsResolver $optionsResolver)
     {
         $this->alias = (string) $alias;
         $this->context = $context;
@@ -60,7 +60,7 @@ class UseCase
     }
 
     /**
-     * @return OptionsResolverInterface
+     * @return OptionsResolver
      */
     public function getDefinition()
     {

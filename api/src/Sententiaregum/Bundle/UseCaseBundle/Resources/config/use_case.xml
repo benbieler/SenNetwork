@@ -4,13 +4,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
+
     <services>
-        <service id="sententiaregum_use_case.example" class="Sententiaregum\Bundle\UseCaseBundle\Example">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="sen.use_case.contexts" class="Sententiaregum\Bundle\UseCaseBundle\Container\ContextContainer" />
+
+        <service id="sen.use_case.container" class="Sententiaregum\Bundle\UseCaseBundle\Context\Container\Container">
+            <argument type="service" id="sen.use_case.contexts" />
         </service>
     </services>
-    -->
+
 </container>

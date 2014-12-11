@@ -11,8 +11,18 @@
 
 namespace Sententiaregum\Bundle\UseCaseBundle;
 
+use Sententiaregum\Bundle\UseCaseBundle\DependencyInjection\Compiler\ContextPass;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class SententiaregumUseCaseBundle extends Bundle
 {
+    /**
+     * @param ContainerBuilder $container
+     */
+    public function build(ContainerBuilder $container)
+    {
+        $container->addCompilerPass(new ContextPass());
+        parent::build($container);
+    }
 }
