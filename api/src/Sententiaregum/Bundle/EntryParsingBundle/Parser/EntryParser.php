@@ -112,9 +112,12 @@ class EntryParser implements EntryPostParserInterface
         $matches = $matchList[0];
 
         if ($this->filterFirstChar) {
-            array_walk($matches, function (&$value) use ($delimiter) {
-                $value = substr($value, strlen($delimiter));
-            });
+            array_walk(
+                $matches,
+                function (&$value) use ($delimiter) {
+                    $value = substr($value, strlen($delimiter));
+                }
+            );
         }
         return $matches;
     }

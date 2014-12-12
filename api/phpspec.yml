@@ -1,4 +1,4 @@
-formatter.name: pretty
+formatter.name: dot
 
 suites:
     sententiaregum_user:
@@ -15,3 +15,8 @@ suites:
         namespace: Sententiaregum
         spec_prefix: spec
         spec_path: src/Sententiaregum/Bundle/EntryParsingBundle
+
+    sententiaregum_use_case:
+        namespace: Sententiaregum
+        spec_prefix: spec
+        spec_path: src/Sententiaregum/Bundle/UseCaseBundle

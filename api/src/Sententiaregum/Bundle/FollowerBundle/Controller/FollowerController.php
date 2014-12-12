@@ -58,10 +58,13 @@ class FollowerController
 
         // convert follower entity list to simple list of following users
         /** @var Follower $value */
-        array_walk($followers, function (&$value) {
-            $following = $value->getFollowing();
-            $value = $following;
-        });
+        array_walk(
+            $followers,
+            function (&$value) {
+                $following = $value->getFollowing();
+                $value = $following;
+            }
+        );
 
         return new JsonResponse(['followers' => $followers]);
     }
@@ -102,11 +105,14 @@ class FollowerController
         $userId = \igorw\get_in($input, ['user_id']);
         $list = $this->followerAdviceService->createAdviceList($userId);
 
-        array_walk($list, function (&$value) {  // transform result to readable format
-            $name = $value->getUsername();
-            $id = $value->getId();
-            $value = ['username' => $name, 'id' => $id];
-        });
+        array_walk(
+            $list,
+            function (&$value) {  // transform result to readable format
+                $name = $value->getUsername();
+                $id = $value->getId();
+                $value = ['username' => $name, 'id' => $id];
+            }
+        );
 
         return new JsonResponse(['advices' => $list]);
     }

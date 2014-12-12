@@ -106,20 +106,28 @@ class WriteEntry implements WriteEntryInterface
         $tags = $this->entryParser->extractTagsFromPost($microblogEntry->getContent());
 
         $tagRepository = $this->tagRepository;
-        array_walk($tags, function (&$tag) use ($tagRepository) {
-            $entity = new Tag();
-            $entity->setName($tag);
+        array_walk(
+            $tags,
+            function (&$tag) use ($tagRepository) {
+                $entity = new Tag();
+                $entity->setName($tag);
 
-            $tagRepository->add($entity);
-            $tag = $entity;
-        });
+                $tagRepository->add($entity);
+                $tag = $entity;
+            }
+        );
 
         $microblogEntry->setTags($tags);
 
         $userRepository = $this->userRepository;
-        $microblogEntry->setMarked(array_filter($marked, function ($value) use ($userRepository) {
-            return $userRepository->findByName($value) !== null;
-        }));
+        $microblogEntry->setMarked(
+            array_filter(
+                $marked,
+                function ($value) use ($userRepository) {
+                    return $userRepository->findByName($value) !== null;
+                }
+            )
+        );
 
         $storedEntry = $this->microblogRepositoryInterface->add($microblogEntry);
         $this->queueInput->push(new QueueEntity($microblogEntry));

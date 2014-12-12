@@ -67,8 +67,11 @@ class FollowerAdvice implements FollowerAdviceInterface
      */
     private function filterResult(array $users, $userId)
     {
-        return array_filter($users, function ($value) use ($userId) {
-            return $value->getId() !== $userId;
-        });
+        return array_filter(
+            $users,
+            function ($value) use ($userId) {
+                return $value->getId() !== $userId;
+            }
+        );
     }
 }

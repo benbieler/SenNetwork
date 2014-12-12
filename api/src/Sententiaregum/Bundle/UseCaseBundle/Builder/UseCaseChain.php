@@ -46,7 +46,13 @@ class UseCaseChain implements UseCaseChainInterface
      */
     public function end()
     {
-        array_map([$this->runner, 'pushTask'], $this->taskStack);
+        $runner = &$this->runner;
+        array_map(
+            function ($value) use ($runner) {
+                $runner->pushTask($value[0], $value[1]);
+            },
+            $this->taskStack
+        );
         return $this->runner;
     }
 

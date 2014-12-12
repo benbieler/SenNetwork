@@ -56,9 +56,12 @@ class Container implements ContainerInterface
         if (!class_exists($input)) {
             throw new DTOException(sprintf('DTO input class %s does not exist', $input));
         }
-        if (!$input instanceof DTOInterface) {
+
+        $stub = new $input;
+        if (!$stub instanceof DTOInterface) {
             throw new DTOException(sprintf('DTO class %s must implement interface %s', $input, DTOInterface::class));
         }
+        unset($stub);
 
         $this->taskStack[] = [
             'valueObject' => $useCase,
@@ -72,7 +75,7 @@ class Container implements ContainerInterface
      * @param mixed[] $parameters
      * @return mixed[]
      */
-    public function run(array $parameters)
+    public function run(array $parameters = [])
     {
         $result = [];
         foreach ($this->taskStack as $task) {

@@ -96,11 +96,14 @@ class MicroblogEntry implements \JsonSerializable
      */
     public function setComments(array $comments)
     {
-        array_map(function ($element) {
-            if (!$element instanceof Comment) {
-                throw new \InvalidArgumentException(sprintf('All comments must be type of %s!', Comment::class));
-            }
-        }, $comments);
+        array_map(
+            function ($element) {
+                if (!$element instanceof Comment) {
+                    throw new \InvalidArgumentException(sprintf('All comments must be type of %s!', Comment::class));
+                }
+            },
+            $comments
+        );
 
         $this->comments = $comments;
         return $this;
@@ -210,9 +213,12 @@ class MicroblogEntry implements \JsonSerializable
      */
     public function setTags(array $tags)
     {
-        array_map(function ($tag) {
-            return $tag instanceof Tag;
-        }, $tags);
+        array_map(
+            function ($tag) {
+                return $tag instanceof Tag;
+            },
+            $tags
+        );
 
         $this->tags = $tags;
         return $this;
