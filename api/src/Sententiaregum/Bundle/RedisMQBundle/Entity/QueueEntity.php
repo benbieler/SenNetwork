@@ -11,10 +11,9 @@
 
 namespace Sententiaregum\Bundle\RedisMQBundle\Entity;
 
-use Sententiaregum\Bundle\CommonBundle\Api\FromJsonInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class QueueEntity implements \JsonSerializable, FromJsonInterface
+class QueueEntity implements \JsonSerializable
 {
     /**
      * @var mixed
