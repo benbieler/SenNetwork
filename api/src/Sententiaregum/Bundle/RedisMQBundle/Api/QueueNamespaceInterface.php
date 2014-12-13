@@ -24,4 +24,3 @@ interface QueueNamespaceInterface
      */
     public function getQueueNamespace();
 }
- 

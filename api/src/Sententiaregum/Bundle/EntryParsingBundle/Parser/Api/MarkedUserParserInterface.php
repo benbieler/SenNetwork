@@ -25,4 +25,3 @@ interface MarkedUserParserInterface
      */
     public function extractNamesFromPost($content);
 }
- 

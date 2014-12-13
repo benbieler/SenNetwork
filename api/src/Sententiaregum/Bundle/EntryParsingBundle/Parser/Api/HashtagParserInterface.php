@@ -25,4 +25,3 @@ interface HashtagParserInterface
      */
     public function extractTagsFromPost($postContent);
 }
- 

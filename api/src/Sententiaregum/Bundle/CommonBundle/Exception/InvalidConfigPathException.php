@@ -14,4 +14,3 @@ namespace Sententiaregum\Bundle\CommonBundle\Exception;
 class InvalidConfigPathException extends \LogicException
 {
 }
- 

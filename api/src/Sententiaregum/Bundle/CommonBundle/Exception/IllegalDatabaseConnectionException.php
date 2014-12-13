@@ -16,4 +16,3 @@ use LogicException;
 class IllegalDatabaseConnectionException extends LogicException
 {
 }
- 
