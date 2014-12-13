@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f71c01dd77523e40e81e5e5ec3474448",
+    "hash": "33c2ed11a36e76a558ac58859255b2f5",
     "packages": [
         {
             "name": "cboden/ratchet",
@@ -2275,30 +2275,33 @@
         },
         {
             "name": "phpspec/phpspec",
-            "version": "2.0.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "61712147412cb647b6cb68b19833a60bfda759a1"
+                "reference": "3db2020ea22cfd4bc65a68e2b34ebfd6bb1cbf16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/61712147412cb647b6cb68b19833a60bfda759a1",
-                "reference": "61712147412cb647b6cb68b19833a60bfda759a1",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/3db2020ea22cfd4bc65a68e2b34ebfd6bb1cbf16",
+                "reference": "3db2020ea22cfd4bc65a68e2b34ebfd6bb1cbf16",
                 "shasum": ""
             },
             "require": {
+                "doctrine/instantiator": "~1.0,>=1.0.1",
                 "php": ">=5.3.3",
                 "phpspec/php-diff": "~1.0.0",
                 "phpspec/prophecy": "~1.1",
-                "symfony/console": "~2.1",
+                "sebastian/exporter": "~1.0",
+                "symfony/console": "~2.3",
                 "symfony/event-dispatcher": "~2.1",
                 "symfony/finder": "~2.1",
+                "symfony/process": "~2.1",
                 "symfony/yaml": "~2.1"
             },
             "require-dev": {
-                "behat/behat": "~2.5",
-                "bossa/phpspec2-expect": "dev-master",
+                "behat/behat": "~3.0",
+                "bossa/phpspec2-expect": "~1.0",
                 "symfony/filesystem": "~2.1"
             },
             "suggest": {
@@ -2310,7 +2313,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "2.1.x-dev"
                 }
             },
             "autoload": {
@@ -2344,7 +2347,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2014-07-01 14:09:19"
+            "time": "2014-12-04 09:06:11"
         },
         {
             "name": "phpspec/prophecy",
@@ -3223,6 +3226,7 @@
         "doctrine/doctrine-migrations-bundle": 20,
         "doctrine/migrations": 20,
         "snc/redis-bundle": 20,
+        "phpspec/phpspec": 20,
         "squizlabs/php_codesniffer": 20
     },
     "prefer-stable": false,

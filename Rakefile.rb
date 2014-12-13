@@ -1,5 +1,5 @@
 # Main tasks
-task :test => ["test:phpspec", "test:behat"]
+task :test => ["test:phpspec", "test:behat", "test:phpunit"]
 task :default => ["install:backend", "install:npm", "install:frontend", :test]
 task :travis => ["setup:travis", "setup:general", :default]
 task :vagrant => ["install:npmVagrant", "install:frontend", "install:backend"]

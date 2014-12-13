@@ -13,6 +13,7 @@ namespace Sententiaregum\Bundle\UseCaseBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -27,7 +28,13 @@ class ContextPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        $contextStorage = $container->getDefinition('sen.use_case.contexts');
+        try {
+            $contextStorage = $container->getDefinition('sen.use_case.contexts');
+        } catch (InvalidArgumentException $ex) {
+            // if no context is defined
+            // the use case bundle cannot be used
+            return;
+        }
 
         foreach ($container->findTaggedServiceIds('sen.use_case') as $serviceId => $attributes) {
             foreach ($attributes as $tagAttributes) {
