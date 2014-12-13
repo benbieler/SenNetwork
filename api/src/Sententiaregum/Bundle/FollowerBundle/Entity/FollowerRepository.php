@@ -117,7 +117,7 @@ SELECT DISTINCT s.`follower_id` FROM `se_followers` s
 JOIN `se_followers` r ON r.`user_id` = :user_id
 WHERE s.`user_id` = r.`follower_id` AND NOT EXISTS (
   SELECT 1 FROM `se_followers` r2 WHERE r2.`user_id` = :user_id AND r2.`follower_id` = s.`follower_id`
-) LIMIT " . $limit ?: 100 . ";
+) LIMIT " . (integer) $limit ?: 100 . ";
 ";
 
         $stmt = $this->connection->prepare($query);
