@@ -1,0 +1,9 @@
+global_exlude_dirs:
+    - api/vendor
+    - api/app
+    - api/web
+
+exclude_patterns:
+    - api/src/Sententiaregum/Bundle/*Bundle/spec/*
+    - api/src/Sententiaregum/Bundle/*Bundle/FeatureContext
+    - api/src/Sententiaregum/Bundle/*Bundle/Tests
