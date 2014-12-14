@@ -20,6 +20,10 @@
         <testsuite name="Entry Parser Test Suite">
             <directory>../src/Sententiaregum/Bundle/EntryParsingBundle/Tests</directory>
         </testsuite>
+
+        <testsuite name="User Test Suite">
+            <directory>../src/Sententiaregum/Bundle/UserBundle/Tests</directory>
+        </testsuite>
     </testsuites>
 
 </phpunit>

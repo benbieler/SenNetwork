@@ -55,7 +55,8 @@ class UniqueEmailConstraintValidator extends ConstraintValidator
         }
 
         if (null !== $this->userRepository->findByEmail($value)) {
-            $this->buildViolation($constraint->message, ['{{ address }}' => $value])
+            $this
+                ->buildViolation($constraint->message, ['{{ address }}' => $value])
                 ->addViolation();
         }
     }
