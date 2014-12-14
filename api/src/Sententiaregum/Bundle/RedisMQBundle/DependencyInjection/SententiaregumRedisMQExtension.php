@@ -31,11 +31,14 @@ class SententiaregumRedisMQExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        foreach ($config['queues'] as $alias => $namespace) {
+        $container->setParameter('sen.redis_queue.context.class', QueueContext::class);
+
+        foreach (array_unique($config['queues']) as $alias => $namespace) {
             $container
-                ->register('sen.redis_queue.context.' . $alias, QueueContext::class)
+                ->register('sen.redis_queue.context.' . $alias, $container->getParameter('sen.redis_queue.context.class'))
                 ->addArgument(new Reference('snc_redis.default'))
-                ->addMethodCall('setQueueNamespace', [$namespace]);
+                ->addMethodCall('setQueueNamespace', [$namespace])
+            ;
         }
     }
 }

@@ -6,7 +6,7 @@
          backupGlobals="false"
          colors="true"
          bootstrap="bootstrap.php.cache"
-        >
+>
 
     <testsuites>
         <testsuite name="UseCase Test Suite">
@@ -23,6 +23,22 @@
 
         <testsuite name="User Test Suite">
             <directory>../src/Sententiaregum/Bundle/UserBundle/Tests</directory>
+        </testsuite>
+
+        <testsuite name="Follower Test Suite">
+            <directory>../src/Sententiaregum/Bundle/FollowerBundle/Tests</directory>
+        </testsuite>
+
+        <testsuite name="Hashtags Test Suite">
+            <directory>../src/Sententiaregum/Bundle/HashtagsBundle/Tests</directory>
+        </testsuite>
+
+        <testsuite name="Microblogging Test Suite">
+            <directory>../src/Sententiaregum/Bundle/MicrobloggingBundle/Tests</directory>
+        </testsuite>
+
+        <testsuite name="Redis MQ Test Suite">
+            <directory>../src/Sententiaregum/Bundle/RedisMQBundle/Tests</directory>
         </testsuite>
     </testsuites>
 

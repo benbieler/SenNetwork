@@ -41,7 +41,7 @@ class SententiaregumUserExtension extends Extension
         $loader->load('account.xml');
         $loader->load('constraints.xml');
 
-        // compile security classes which will be used at every request to the firewall
+        // compile security classes which will be used at every request on the firewall
         foreach ([ApiKeyAuthentication::class, Token::class, UserProvider::class] as $class) {
             if (!class_exists($class)) {
                 throw new \UnexpectedValueException(sprintf('Class %s cannot be found!', $class));

@@ -6,7 +6,7 @@ RESTful API for Sententiaregum based on Symfony2.
 Docs
 ----
 
-The docs of this bundle can be found [here](https://github.com/Ma27/SenNetwork/blob/master/api/src/Sententiaregum/Bundle/UseCaseundle/Resources/doc/index.md)
+The docs of this bundle can be found [here](https://github.com/Ma27/SenNetwork/blob/master/api/src/Sententiaregum/Bundle/UseCaseBundle/Resources/doc/index.md)
 
 
 License

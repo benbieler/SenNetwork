@@ -4,27 +4,35 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
+    <parameters>
+        <parameter key="sen.token.controller.class">Sententiaregum\Bundle\UserBundle\Controller\TokenController</parameter>
+        <parameter key="sen.security.user_provider.class">Sententiaregum\Bundle\UserBundle\Security\UserProvider</parameter>
+        <parameter key="sen.security.api_key_auth.class">Sententiaregum\Bundle\UserBundle\Security\ApiKeyAuthentication</parameter>
+        <parameter key="sen.security.token.class">Sententiaregum\Bundle\UserBundle\Security\Token</parameter>
+        <parameter key="sen.user.util.hasher.class">Sententiaregum\Bundle\UserBundle\Util\PasswordHasher</parameter>
+    </parameters>
+
     <services>
 
-        <service id="sen.token.controller" class="Sententiaregum\Bundle\UserBundle\Controller\TokenController">
+        <service id="sen.token.controller" class="%sen.token.controller.class%">
             <argument type="service" id="sen.security.token" />
             <argument type="service" id="sen.security.user_provider" />
-            <argument type="service" id="sen.util.hasher" />
+            <argument type="service" id="sen.user.util.hasher" />
         </service>
 
-        <service id="sen.security.user_provider" class="Sententiaregum\Bundle\UserBundle\Security\UserProvider">
+        <service id="sen.security.user_provider" class="%sen.security.user_provider.class%">
             <argument type="service" id="sen.user.repository" />
         </service>
 
-        <service id="sen.security.api_key_auth" class="Sententiaregum\Bundle\UserBundle\Security\ApiKeyAuthentication">
+        <service id="sen.security.api_key_auth" class="%sen.security.api_key_auth.class%">
             <argument type="service" id="sen.security.user_provider" />
         </service>
 
-        <service id="sen.security.token" class="Sententiaregum\Bundle\UserBundle\Security\Token">
+        <service id="sen.security.token" class="%sen.security.token.class%">
             <argument type="service" id="sen.user.repository" />
         </service>
 
-        <service id="sen.util.hasher" class="Sententiaregum\Bundle\UserBundle\Util\PasswordHasher" />
+        <service id="sen.user.util.hasher" class="%sen.user.util.hasher.class%" />
 
     </services>
 

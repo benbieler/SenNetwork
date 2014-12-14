@@ -19,6 +19,9 @@ use Symfony\Component\Validator\ExecutionContextInterface;
 use Symfony\Component\Validator\MetadataFactoryInterface;
 use Symfony\Component\Validator\MetadataInterface;
 
+/**
+ * This is just a stub to test constraints
+ */
 class ConstraintContextFixture implements ExecutionContextInterface
 {
     private $violations = [];

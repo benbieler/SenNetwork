@@ -68,3 +68,7 @@ You can use this bundle with Symfony 2.
 Now you can access the queue via the container:
 
     $queue = $this->container->get('sen.redis_queue.context.default');
+
+###Note
+
+If there are multiple queues defined with the same alias, the first queue will be used and the other definitions won't be used
