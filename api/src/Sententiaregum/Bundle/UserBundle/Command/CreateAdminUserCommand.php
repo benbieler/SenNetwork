@@ -11,7 +11,6 @@
 
 namespace Sententiaregum\Bundle\UserBundle\Command;
 
-use Sententiaregum\Bundle\UserBundle\Exception\ExistingUserException;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;

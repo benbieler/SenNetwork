@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "33c2ed11a36e76a558ac58859255b2f5",
+    "hash": "b5de8b9cd130c67339afadc168bb1602",
     "packages": [
         {
             "name": "cboden/ratchet",
@@ -1903,12 +1903,12 @@
             "version": "v1.16.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fabpot/Twig.git",
+                "url": "https://github.com/twigphp/Twig.git",
                 "reference": "42f758d9fe2146d1f0470604fc05ee43580873fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/42f758d9fe2146d1f0470604fc05ee43580873fc",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/42f758d9fe2146d1f0470604fc05ee43580873fc",
                 "reference": "42f758d9fe2146d1f0470604fc05ee43580873fc",
                 "shasum": ""
             },
@@ -2279,12 +2279,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "3db2020ea22cfd4bc65a68e2b34ebfd6bb1cbf16"
+                "reference": "0363ae9e79d48048d4aadeacab1ad776b83d1268"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/3db2020ea22cfd4bc65a68e2b34ebfd6bb1cbf16",
-                "reference": "3db2020ea22cfd4bc65a68e2b34ebfd6bb1cbf16",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/0363ae9e79d48048d4aadeacab1ad776b83d1268",
+                "reference": "0363ae9e79d48048d4aadeacab1ad776b83d1268",
                 "shasum": ""
             },
             "require": {
@@ -2347,7 +2347,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2014-12-04 09:06:11"
+            "time": "2014-12-13 23:08:25"
         },
         {
             "name": "phpspec/prophecy",

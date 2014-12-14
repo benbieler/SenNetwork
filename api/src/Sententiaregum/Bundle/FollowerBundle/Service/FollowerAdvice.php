@@ -13,6 +13,7 @@ namespace Sententiaregum\Bundle\FollowerBundle\Service;
 
 use Sententiaregum\Bundle\FollowerBundle\Entity\Api\AdvancedFollowerRepositoryInterface;
 use Sententiaregum\Bundle\FollowerBundle\Service\Api\FollowerAdviceInterface;
+use Sententiaregum\Bundle\UserBundle\Entity\Api\UserInterface;
 use Sententiaregum\Bundle\UserBundle\Entity\Api\UserRepositoryInterface;
 
 class FollowerAdvice implements FollowerAdviceInterface
@@ -63,13 +64,14 @@ class FollowerAdvice implements FollowerAdviceInterface
 
     /**
      * @param \Sententiaregum\Bundle\UserBundle\Entity\Api\UserInterface[] $users
+     * @param integer $userId
      * @return \Sententiaregum\Bundle\UserBundle\Entity\Api\UserInterface[]
      */
     private function filterResult(array $users, $userId)
     {
         return array_filter(
             $users,
-            function ($value) use ($userId) {
+            function (UserInterface $value) use ($userId) {
                 return $value->getId() !== $userId;
             }
         );

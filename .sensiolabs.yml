@@ -7,3 +7,5 @@ exclude_patterns:
     - api/src/Sententiaregum/Bundle/*Bundle/spec/*
     - api/src/Sententiaregum/Bundle/*Bundle/FeatureContext
     - api/src/Sententiaregum/Bundle/*Bundle/Tests
+    - devstack.yaml # Exclude vagrant stuff
+    - vagrant       # which should not be inspected

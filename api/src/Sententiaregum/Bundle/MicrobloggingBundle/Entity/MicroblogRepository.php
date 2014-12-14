@@ -84,7 +84,7 @@ class MicroblogRepository implements MicroblogRepositoryInterface
 
         $imageTarget = $this->imageUploadPath;
         $this->connection->transactional(
-            function (Connection $connection) use ($microblogEntry, $imageTarget) {
+            function (Connection $connection) use ($microblogEntry) {
                 $maxIdStmt = $connection->prepare("SELECT MAX(entry_id) FROM `se_microblogs`;");
                 $maxIdStmt->execute();
                 $uniqueId = $maxIdStmt->fetchColumn() + 1;

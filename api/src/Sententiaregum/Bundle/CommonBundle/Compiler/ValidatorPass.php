@@ -14,6 +14,7 @@ namespace Sententiaregum\Bundle\CommonBundle\Compiler;
 use Sententiaregum\Bundle\CommonBundle\Exception\InvalidConfigPathException;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
 use Symfony\Component\Finder\Finder;
 
 class ValidatorPass implements CompilerPassInterface
@@ -33,7 +34,7 @@ class ValidatorPass implements CompilerPassInterface
             throw new InvalidConfigPathException;
         }
 
-        $this->configDir = (string) $confDir;
+        $this->configDir = $confDir;
     }
 
     /**
@@ -41,14 +42,19 @@ class ValidatorPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        $validatorBuilder = $container->getDefinition('validator.builder');
-        $validatorFiles = array();
+        try {
+            $validatorBuilder = $container->getDefinition('validator.builder');
+        } catch (InvalidArgumentException $e) {
+            return;
+        }
+
+        $validatorFiles = [];
         $finder = new Finder();
 
         foreach ($finder->files()->in($this->configDir . '/validation') as $file) {
             $validatorFiles[] = $file->getRealPath();
         }
 
-        $validatorBuilder->addMethodCall('addXmlMappings', array($validatorFiles));
+        $validatorBuilder->addMethodCall('addXmlMappings', [$validatorFiles]);
     }
 }

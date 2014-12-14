@@ -18,8 +18,6 @@ use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
 use Sententiaregum\Bundle\CommonBundle\Exception\IllegalDatabaseConnectionException;
 
-require_once __DIR__ . '/../../../../../app/AppKernel.php';
-
 abstract class Context implements BehatContext, SnippetAcceptingContext
 {
     /**

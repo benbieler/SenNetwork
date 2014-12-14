@@ -12,6 +12,14 @@
         <testsuite name="UseCase Test Suite">
             <directory>../src/Sententiaregum/Bundle/UseCaseBundle/Tests</directory>
         </testsuite>
+
+        <testsuite name="Common Test Suite">
+            <directory>../src/Sententiaregum/Bundle/CommonBundle/Tests</directory>
+        </testsuite>
+
+        <testsuite name="Entry Parser Test Suite">
+            <directory>../src/Sententiaregum/Bundle/EntryParsingBundle/Tests</directory>
+        </testsuite>
     </testsuites>
 
 </phpunit>
