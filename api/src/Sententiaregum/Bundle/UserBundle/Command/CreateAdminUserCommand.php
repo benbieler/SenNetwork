@@ -47,7 +47,7 @@ class CreateAdminUserCommand extends ContainerAwareCommand
         /** @var \Sententiaregum\Bundle\UserBundle\Entity\UserRepository $userRepository */
         $userRepository = $this->getContainer()->get('sen.user.repository');
         /** @var \Sententiaregum\Bundle\UserBundle\Service\CreateAccountInterface $createAccountService */
-        $createAccountService = $this->getContainer()->get('sen.service.create_account');
+        $createAccountService = $this->getContainer()->get('sen.user.create_account');
 
         $entity = $userRepository->create($name, $password, $email, new \DateTime());
         $errors = $createAccountService->validateInput($entity);

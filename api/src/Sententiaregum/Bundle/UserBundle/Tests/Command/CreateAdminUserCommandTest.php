@@ -55,7 +55,7 @@ class CreateAdminUserCommandTest extends \PHPUnit_Framework_TestCase
         $container = new Container();
         $container->setParameter('registration.defaultRoles', ['ROLE_USER']);
         $container->set('sen.user.repository', $stub);
-        $container->set('sen.service.create_account', $service);
+        $container->set('sen.user.create_account', $service);
 
         $cmd = new CreateAdminUserCommand();
         $cmd->setContainer($container);
@@ -95,7 +95,7 @@ class CreateAdminUserCommandTest extends \PHPUnit_Framework_TestCase
         $container = new Container();
         $container->setParameter('registration.defaultRoles', ['ROLE_USER']);
         $container->set('sen.user.repository', $stub);
-        $container->set('sen.service.create_account', $service);
+        $container->set('sen.user.create_account', $service);
 
         $cmd = new CreateAdminUserCommand();
         $cmd->setContainer($container);

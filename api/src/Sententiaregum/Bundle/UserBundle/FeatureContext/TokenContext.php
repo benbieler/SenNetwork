@@ -59,7 +59,7 @@ class TokenContext extends Context
         $this->tokenHelper = new TokenHelper(
             $this->container->get('sen.token.controller'),
             $this->container->get('sen.user.repository'),
-            $this->container->get('sen.util.hasher')
+            $this->container->get('sen.user.util.hasher')
         );
     }
 
