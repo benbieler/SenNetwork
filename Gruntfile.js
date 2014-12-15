@@ -103,6 +103,12 @@ module.exports = function (grunt) {
                         cwd: 'app/images/',
                         src: '*',
                         dest: 'dist/images/'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'app/',
+                        src: 'favicon.ico',
+                        dest: 'dist/'
                     }
                 ]
             }
