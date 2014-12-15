@@ -10,3 +10,9 @@ exclude_patterns:
     - devstack.yaml # Exclude vagrant stuff
     - vagrant       # which should not be inspected
     - web           # exlude web stuff
+
+rules:
+    web.default_favicon:
+        enabled: false
+    web.missing_favicon:
+        enabled: false
