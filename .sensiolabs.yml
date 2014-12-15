@@ -9,3 +9,4 @@ exclude_patterns:
     - api/src/Sententiaregum/Bundle/*Bundle/Tests
     - devstack.yaml # Exclude vagrant stuff
     - vagrant       # which should not be inspected
+    - web           # exlude web stuff

@@ -234,9 +234,9 @@ class UserRepository implements UserRepositoryInterface
      */
     public function flush()
     {
-        foreach (['se_user_token', 'se_user_role', 'se_users'] as $table) {
-            $this->connection->exec("DELETE FROM `" . $table . "`");
-        }
+        $this->connection->exec("DELETE FROM `se_user_token`");
+        $this->connection->exec("DELETE FROM `se_user_role`");
+        $this->connection->exec("DELETE FROM `se_users`");
     }
 
     /**

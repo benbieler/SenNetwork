@@ -143,9 +143,9 @@ class MicroblogRepository implements MicroblogRepositoryInterface
      */
     public function flush()
     {
-        foreach (array('se_tags_in_post', 'se_user_in_post', 'se_microblogs') as $tableToDelete) {
-            $this->connection->exec("DELETE FROM `" . $tableToDelete . "`;");
-        }
+        $this->connection->exec("DELETE FROM `se_tags_in_post`;");
+        $this->connection->exec("DELETE FROM `se_user_in_post`;");
+        $this->connection->exec("DELETE FROM `se_microblogs`;");
     }
 
     /**
