@@ -3,6 +3,7 @@ Sententiaregum
 
 [![Build Status](https://travis-ci.org/Ma27/SenNetwork.svg?branch=master)](https://travis-ci.org/Ma27/SenNetwork)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Ma27/SenNetwork/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Ma27/SenNetwork/?branch=master)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/cbf672e8-94ee-4817-b59b-0723dcbcce37/mini.png)](https://insight.sensiolabs.com/projects/cbf672e8-94ee-4817-b59b-0723dcbcce37)
 
 
 1) About
