@@ -4,86 +4,38 @@
     <option name="ANALYSIS_IN_BACKGROUND" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9547a903-669f-4812-8ca3-5ba5d539462d" name="Default" comment="commit refactoring">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.corrupted.20150120-073130.ids" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/cache/.gitkeep" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/logs/.gitkeep" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/.htaccess" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/.htaccess" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/.htaccess" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sententiaregum/Behat/AbstractContext.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/AppCache.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sententiaregum/CoreDomain/User/Service/Auth.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sententiaregum/CoreDomain/User/DTO/AuthDTO.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sententiaregum/CoreDomain/User/Event/AuthEvent.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sententiaregum/CoreDomain/User/Service/AuthInterface.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sententiaregum/CoreDomain/User/Tests/Service/AuthTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/Maximilian.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sententiaregum/CoreDomain/User/Password.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sententiaregum/CoreDomain/User/Tests/PasswordTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sententiaregum/CoreDomain/User/Role.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sententiaregum/CoreDomain/User/Tests/RoleTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/Sententiaregum.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Sententiaregum_node_modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/SymfonyRequirements.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sententiaregum/CoreDomain/User/Token.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sententiaregum/CoreDomain/User/User.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sententiaregum/CoreDomain/User/UserAggregateRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sententiaregum/CoreDomain/User/Exception/UserDomainException.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sententiaregum/CoreDomain/User/Tests/UserTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/app.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/app_dev.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/autoload.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/check.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/config_dev.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/config_prod.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/config_test.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/console" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/frameworkRootSettings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLinters/jslint.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/parameters.yml.dist" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/parameters_test.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/php.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/phpunit.xml.dist" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/robots.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/routing_dev.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/security.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sensiolabsinsight-analysis-storage.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sensiolabsinsight-settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sensiolabsinsight-violations.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/symfony2-config.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vagrant.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LICENSE" afterPath="$PROJECT_DIR$/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rakefile.rb" afterPath="$PROJECT_DIR$/Rakefile.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/devstack.yaml" afterPath="$PROJECT_DIR$/devstack.yaml" />
+    <list default="true" id="9547a903-669f-4812-8ca3-5ba5d539462d" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\.name" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\Sententiaregum.iml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\codeStyleSettings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\dataSources.corrupted.20150120-073130.ids" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\dataSources.ids" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\dataSources.local.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\dataSources.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\deployment.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\dictionaries\Maximilian.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\frameworkRootSettings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\inspectionProfiles\Project_Default.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\inspectionProfiles\profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\jsLibraryMappings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\jsLinters\jshint.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\jsLinters\jslint.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\libraries\Sententiaregum_node_modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\php.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\scopes\scope_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\sensiolabsinsight-analysis-storage.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\sensiolabsinsight-settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\sensiolabsinsight-violations.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\sqldialects.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\symfony2-config.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\symfony2.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\vagrant.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\watcherTasks.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Sententiaregum\.idea\workspace.xml" afterPath="" />
     </list>
     <list id="35b80c5e-29d6-4cfe-a1c2-d16cf2aed7dc" name="New changelist" comment="New changelist" />
     <ignored path="Sententiaregum.iws" />
@@ -180,8 +132,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.19825073" vertical-offset="0" max-vertical-offset="1029">
-              <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.21477163" vertical-offset="0" max-vertical-offset="1029">
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -916,12 +868,6 @@
       <option name="number" value="Default" />
       <updated>1410239609057</updated>
     </task>
-    <task id="LOCAL-00247" summary="create second build task in grunt which does not uglify java scripts for debugging reasons">
-      <created>1417553169412</created>
-      <option name="number" value="00247" />
-      <option name="project" value="LOCAL" />
-      <updated>1417553169412</updated>
-    </task>
     <task id="LOCAL-00248" summary="fixed #16">
       <created>1417721442511</created>
       <option name="number" value="00248" />
@@ -1210,7 +1156,13 @@
       <option name="project" value="LOCAL" />
       <updated>1418659526203</updated>
     </task>
-    <option name="localTasksCounter" value="296" />
+    <task id="LOCAL-00296" summary="commit refactoring">
+      <created>1421778912515</created>
+      <option name="number" value="00296" />
+      <option name="project" value="LOCAL" />
+      <updated>1421778912516</updated>
+    </task>
+    <option name="localTasksCounter" value="297" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1237,6 +1189,7 @@
     <frame x="-1928" y="-440" width="1936" height="1186" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.50643086" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4886148" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7009646" sideWeight="0.48614073" order="9" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46110058" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1260,7 +1213,6 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5939279" sideWeight="0.6231343" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27987897" sideWeight="0.49839228" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6157556" sideWeight="0.7594554" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.50643086" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39943075" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.52411574" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1282,7 +1234,6 @@
       <TodoPanelSettings />
     </option>
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="false" />
-    <MESSAGE value="add additional note" />
     <MESSAGE value="refactor comments" />
     <MESSAGE value="add @throws tags" />
     <MESSAGE value="move common namespace to custom bundle" />
@@ -1307,7 +1258,8 @@
     <MESSAGE value="remove unnecessary .htaccess files" />
     <MESSAGE value="use new favicon" />
     <MESSAGE value="disable favicon check" />
-    <option name="LAST_COMMIT_MESSAGE" value="disable favicon check" />
+    <MESSAGE value="commit refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1350,6 +1302,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="773" max-vertical-offset="1802">
           <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1371,6 +1324,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18172984" vertical-offset="0" max-vertical-offset="1029">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1395,8 +1349,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19825073" vertical-offset="0" max-vertical-offset="1029">
-          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.21477163" vertical-offset="0" max-vertical-offset="1029">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
