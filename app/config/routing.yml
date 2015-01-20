@@ -1,5 +1,1 @@
-sententiaregum_core:
-    resource: "@SententiaregumCoreBundle/Resources/config/routing.xml"
-    prefix:   /
-
 
