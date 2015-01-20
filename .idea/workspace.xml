@@ -4,7 +4,7 @@
     <option name="ANALYSIS_IN_BACKGROUND" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9547a903-669f-4812-8ca3-5ba5d539462d" name="Default" comment="remove .idea">
+    <list default="true" id="9547a903-669f-4812-8ca3-5ba5d539462d" name="Default" comment="">
       <change type="DELETED" beforePath="C:\Sententiaregum\.idea\.name" afterPath="" />
       <change type="DELETED" beforePath="C:\Sententiaregum\.idea\Sententiaregum.iml" afterPath="" />
       <change type="DELETED" beforePath="C:\Sententiaregum\.idea\codeStyleSettings.xml" afterPath="" />
@@ -869,12 +869,6 @@
       <option name="number" value="Default" />
       <updated>1410239609057</updated>
     </task>
-    <task id="LOCAL-00250" summary="fix write entry spec">
-      <created>1417726555203</created>
-      <option name="number" value="00250" />
-      <option name="project" value="LOCAL" />
-      <updated>1417726555203</updated>
-    </task>
     <task id="LOCAL-00251" summary="fix rakefile">
       <created>1417726645734</created>
       <option name="number" value="00251" />
@@ -1163,7 +1157,13 @@
       <option name="project" value="LOCAL" />
       <updated>1421780730199</updated>
     </task>
-    <option name="localTasksCounter" value="299" />
+    <task id="LOCAL-00299" summary="remove idea">
+      <created>1421781060858</created>
+      <option name="number" value="00299" />
+      <option name="project" value="LOCAL" />
+      <updated>1421781060858</updated>
+    </task>
+    <option name="localTasksCounter" value="300" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1235,7 +1235,6 @@
       <TodoPanelSettings />
     </option>
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="false" />
-    <MESSAGE value="move common namespace to custom bundle" />
     <MESSAGE value="add try of use case implementation" />
     <MESSAGE value="upgrade symfony to 2.6" />
     <MESSAGE value="add compiler pass for tagged contexts" />
@@ -1260,7 +1259,8 @@
     <MESSAGE value="commit refactoring" />
     <MESSAGE value="rm phpstorm stuff" />
     <MESSAGE value="remove .idea" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove .idea" />
+    <MESSAGE value="remove idea" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove idea" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
