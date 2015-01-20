@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Symfony2PluginSettings">
+    <option name="pathToUrlGenerator" value="api/app/cache/dev/appDevUrlGenerator.php" />
+    <option name="pathToTranslation" value="api/app/cache/dev/translations" />
+    <option name="directoryToWeb" value="api/web" />
+    <option name="directoryToApp" value="api/app" />
+    <option name="pluginEnabled" value="true" />
+    <option name="phpHighlightServices" value="true" />
+    <option name="twigNamespaces">
+      <list>
+        <twig_namespace enabled="false" namespace="AcmeDemoBundle" namespaceType="BUNDLE" path="api/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/skeleton/acme-demo-bundle/Acme/DemoBundle/Resources/views" />
+        <twig_namespace custom="true" namespace="Sententiaregum\Bundle\UserBundle" namespaceType="BUNDLE" path="api/src/Sententiaregum/Bundle/UserBundle" />
+      </list>
+    </option>
+    <option name="containerFiles">
+      <list>
+        <container_file path="api/app/cache/dev/appDevDebugProjectContainer.xml" />
+      </list>
+    </option>
+  </component>
+</project>
+

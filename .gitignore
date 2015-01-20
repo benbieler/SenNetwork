@@ -1,46 +1,13 @@
-# Symfony 2
-/api/app/cache/*
-/api/app/logs/*
-!api/app/cache/.gitkeep
-!api/app/logs/.gitkeep
-/api/app/SymfonyRequirements.php
-/api/app/check.php
-/api/app/config/parameters.yml
-/api/app/bootstrap.php.cache
-/api/build/
-/api/web/bundles/
-
-# Composer
-/api/bin/
-/api/vendor/
-
-# Wasted .gitignore
-/vagrant/.vagrant/
-/vagrant/modules/*
-/vagrant/graphs/*
-!vagrant/modules/.gitkeep
-!vagrant/graphs/.gitkeep
-/vagrant/vendor/
-
-# IDEs
+/web/bundles/
+/app/bootstrap.php.cache
+/app/cache/*
+/app/config/parameters.yml
+/app/logs/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
+/app/phpunit.xml
+/build/
+/vendor/
+/bin/
+/composer.phar
 /.idea/
-/nbproject/
-/.metadata/
-
-# Bower
-/app/app/vendor/
-
-# node.js
-/node_modules/
-/npm-debug.log
-
-# Production environment
-/dist/
-
-# Upload directory
-/api/web/uploads/
-!api/web/uploads/.gitkeep
-
-# SCSS
-/app/styles/style.css
-/.sass-cache/

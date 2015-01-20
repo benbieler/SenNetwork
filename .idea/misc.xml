@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/app/bootstrap.php.cache" />
+  </component>
+  <component name="ProjectResources">
+    <resource url="http://schema.phpunit.de/4.3/phpunit.xsd" location="" />
+  </component>
+  <component name="ProjectRootManager" version="2" />
+</project>

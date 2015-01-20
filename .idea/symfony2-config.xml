@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config>
+<!-- Default configuration for "SententiaregumUserBundle" -->
+<!-- Namespace: http://example.org/schema/dic/sententiaregum_user -->
+	<sententiaregum-user>
+	    <registration>
+
+	        <!-- prototype -->
+	        <defaultRoles>scalar value</defaultRoles>
+
+	    </registration>
+
+	</sententiaregum-user>
+
+	<framework
+    secret=""
+    http-method-override="true"
+    ide="null"
+    test=""
+    default-locale="en">
+
+	    <!-- prototype -->
+	    <trusted-proxies>scalar value</trusted-proxies>
+
+	    <!-- prototype -->
+	    <trusted-hosts>scalar value</trusted-hosts>
+
+	    <!-- field-name: Deprecated since 2.4, to be removed in 3.0. Use form.csrf_protection.field_name instead -->
+	    <csrf-protection
+	        enabled="false"
+	        field-name="_token"
+	    />
+
+	    <!-- form configuration -->
+	    <form enabled="false">
+
+	        <csrf-protection
+	            enabled="null"
+	            field-name="null"
+	        />
+
+	    </form>
+
+	    <!-- esi configuration -->
+	    <esi enabled="false" />
+
+	    <!-- fragments configuration -->
+	    <fragments
+	        enabled="false"
+	        path="/_fragment"
+	    />
+
+	    <!-- profiler configuration -->
+	    <profiler
+	        enabled="false"
+	        collect="true"
+	        only-exceptions="false"
+	        only-master-requests="false"
+	        dsn="file:%kernel.cache_dir%/profiler"
+	        username=""
+	        password=""
+	        lifetime="86400"
+	    >
+
+	        <!--
+	            path: use the urldecoded format;
+	                  Example: ^/path to resource/
+	        -->
+	        <matcher
+	            path=""
+	            service=""
+	        >
+
+	            <!-- prototype -->
+	            <ip>scalar value</ip>
+
+	        </matcher>
+
+	    </profiler>
+
+	    <!-- router configuration -->
+	    <!-- resource: Required -->
+	    <!--
+	        strict-requirements: set to true to throw an exception when a parameter does not match the requirements
+	                             set to false to disable exceptions when a parameter does not match the requirements (and return null instead)
+	                             set to null to disable parameter checks against requirements
+	                             'true' is the preferred configuration in development mode, while 'false' or 'null' might be preferred in production
+	    -->
+	    <router
+	        resource=""
+	        type=""
+	        http-port="80"
+	        https-port="443"
+	        strict-requirements="true"
+	    />
+
+	    <!-- session configuration -->
+	    <!-- metadata-update-threshold: seconds to wait between 2 session metadata updates, it will also prevent the session handler to write if the session has not changed -->
+	    <session
+	        storage-id="session.storage.native"
+	        handler-id="session.handler.native_file"
+	        name=""
+	        cookie-lifetime=""
+	        cookie-path=""
+	        cookie-domain=""
+	        cookie-secure=""
+	        cookie-httponly=""
+	        gc-divisor=""
+	        gc-probability="1"
+	        gc-maxlifetime=""
+	        save-path="%kernel.cache_dir%/sessions"
+	        metadata-update-threshold="0"
+	    />
+
+	    <!-- request configuration -->
+	    <request>
+
+	        <!-- prototype -->
+	        <format name="format name" />
+
+	    </request>
+
+	    <!-- templating configuration -->
+	    <templating
+	        assets-version="null"
+	        assets-version-format="%%s?%%s"
+	        hinclude-default-template="null"
+	        cache=""
+	    >
+
+	        <form>
+
+	            <!-- prototype -->
+	            <resource>FrameworkBundle:Form</resource>
+
+	        </form>
+
+	        <assets-base-url>
+
+	            <!-- prototype -->
+	            <http>scalar value</http>
+
+	            <!-- prototype -->
+	            <ssl>scalar value</ssl>
+
+	        </assets-base-url>
+
+	        <!-- prototype -->
+	        <engine>scalar value</engine>
+
+	        <!-- prototype -->
+	        <loader>scalar value</loader>
+
+	        <!-- prototype -->
+	        <package
+	            name="package name"
+	            version="null"
+	            version-format="%%s?%%s"
+	        >
+
+	            <base-url>
+
+	                <!-- prototype -->
+	                <http>scalar value</http>
+
+	                <!-- prototype -->
+	                <ssl>scalar value</ssl>
+
+	            </base-url>
+
+	        </package>
+
+	    </templating>
+
+	    <!-- translator configuration -->
+	    <translator
+	        enabled="false"
+	        fallback="en"
+	    />
+
+	    <!-- validation configuration -->
+	    <!-- api: One of "2.4"; "2.5"; "2.5-bc"; "auto" -->
+	    <validation
+	        enabled="false"
+	        cache=""
+	        enable-annotations="false"
+	        translation-domain="validators"
+	        strict-email="false"
+	        api=""
+	    >
+
+	        <!-- prototype -->
+	        <static-method>scalar value</static-method>
+
+	    </validation>
+
+	    <!-- annotation configuration -->
+	    <annotations
+	        cache="file"
+	        file-cache-dir="%kernel.cache_dir%/annotations"
+	        debug="%kernel.debug%"
+	    />
+
+	    <!-- serializer configuration -->
+	    <serializer enabled="false" />
+
+	</framework>
+
+	<security
+    access-denied-url="null"
+    session-fixation-strategy="migrate"
+    hide-user-not-found="true"
+    always-authenticate-before-granting="false"
+    erase-credentials="true">
+
+	    <access-decision-manager
+	        strategy="affirmative"
+	        allow-if-all-abstain="false"
+	        allow-if-equal-granted-denied="true"
+	    />
+
+	    <!-- connection: any name configured in doctrine.dbal section -->
+	    <acl
+	        connection="null"
+	        provider=""
+	    >
+
+	        <cache
+	            id=""
+	            prefix="sf2_acl_"
+	        />
+
+	        <tables
+	            class="acl_classes"
+	            entry="acl_entries"
+	            object-identity="acl_object_identities"
+	            object-identity-ancestors="acl_object_identity_ancestors"
+	            security-identity="acl_security_identities"
+	        />
+
+	        <voter allow-if-object-identity-unavailable="true" />
+
+	    </acl>
+
+	    <!-- prototype -->
+	    <!-- hash-algorithm: Name of hashing algorithm for PBKDF2 (i.e. sha256, sha512, etc..) See hash_algos() for a list of supported algorithms. -->
+	    <encoder
+	        class="encoder class"
+	        algorithm=""
+	        hash-algorithm="sha512"
+	        key-length="40"
+	        ignore-case="false"
+	        encode-as-base64="true"
+	        iterations="5000"
+	        cost="13"
+	        id=""
+	    />
+
+	    <!-- prototype -->
+	    <provider
+	        name="provider name"
+	        id=""
+	    >
+
+	        <chain>
+
+	            <!-- prototype -->
+	            <provider>scalar value</provider>
+
+	        </chain>
+
+	    </provider>
+
+	    <!-- prototype -->
+	    <firewall
+	        name="firewall name"
+	        pattern=""
+	        host=""
+	        security="true"
+	        request-matcher=""
+	        access-denied-url=""
+	        access-denied-handler=""
+	        entry-point=""
+	        provider=""
+	        stateless="false"
+	        context=""
+	    >
+
+	        <!-- prototype -->
+	        <methods>scalar value</methods>
+
+	        <logout
+	            csrf-parameter="_csrf_token"
+	            csrf-token-generator=""
+	            csrf-token-id="logout"
+	            path="/logout"
+	            target="/"
+	            success-handler=""
+	            invalidate-session="true"
+	        >
+
+	            <!-- prototype -->
+	            <delete-cookie
+	                name="delete cookie name"
+	                path="null"
+	                domain="null"
+	            />
+
+	            <!-- prototype -->
+	            <handler>scalar value</handler>
+
+	        </logout>
+
+	        <anonymous key="54788de0687a8" />
+
+	        <switch-user
+	            provider=""
+	            parameter="_switch_user"
+	            role="ROLE_ALLOWED_TO_SWITCH"
+	        />
+
+	    </firewall>
+
+	    <!-- prototype -->
+	    <!--
+	        path: use the urldecoded format;
+	              Example: ^/path to resource/
+	    -->
+	    <rule
+	        requires-channel="null"
+	        path="null"
+	        host="null"
+	        allow-if="null"
+	    >
+
+	        <!-- prototype -->
+	        <ip>scalar value</ip>
+
+	        <!-- prototype -->
+	        <methods>scalar value</methods>
+
+	        <!-- prototype -->
+	        <role>scalar value</role>
+
+	    </rule>
+
+	    <!-- prototype -->
+	    <role id="role id" />
+
+	</security>
+
+	<monolog>
+
+	    <!-- prototype -->
+	    <channel>scalar value</channel>
+
+	    <!-- prototype -->
+	    <!-- type: Required -->
+	    <handler
+	        name="handler name"
+	        type=""
+	        id=""
+	        priority="0"
+	        level="DEBUG"
+	        bubble="true"
+	        path="%kernel.logs_dir%/%kernel.environment%.log"
+	        ident="false"
+	        logopts="1"
+	        facility="user"
+	        max-files="0"
+	        action-level="WARNING"
+	        activation-strategy="null"
+	        stop-buffering="true"
+	        passthru-level="null"
+	        min-level="DEBUG"
+	        max-level="EMERGENCY"
+	        buffer-size="0"
+	        handler=""
+	        url=""
+	        exchange=""
+	        exchange-name="log"
+	        room=""
+	        notify="false"
+	        nickname="Monolog"
+	        token=""
+	        source=""
+	        use-ssl="true"
+	        user=""
+	        title="null"
+	        host=""
+	        port="514"
+	        from-email=""
+	        subject=""
+	        content-type="null"
+	        mailer="mailer"
+	        connection-string=""
+	        timeout=""
+	        connection-timeout=""
+	        persistent=""
+	        dsn=""
+	        client-id="null"
+	        message-type="0"
+	        formatter=""
+	    >
+
+	        <!-- prototype -->
+	        <excluded-404>scalar value</excluded-404>
+
+	        <!-- prototype -->
+	        <accepted-level>scalar value</accepted-level>
+
+	        <publisher
+	            id=""
+	            hostname=""
+	            port="12201"
+	            chunk-size="1420"
+	        />
+
+	        <mongo
+	            id=""
+	            host=""
+	            port="27017"
+	            user=""
+	            pass=""
+	            database="monolog"
+	            collection="logs"
+	        />
+
+	        <!-- prototype -->
+	        <config>scalar value</config>
+
+	        <!-- prototype -->
+	        <member>scalar value</member>
+
+	        <!-- prototype -->
+	        <to-email>scalar value</to-email>
+
+	        <!-- id: Required -->
+	        <email-prototype
+	            id=""
+	            method="null"
+	        />
+
+	        <!-- prototype -->
+	        <tag>scalar value</tag>
+
+	        <verbosity-levels
+	            VERBOSITY-NORMAL="WARNING"
+	            VERBOSITY-VERBOSE="NOTICE"
+	            VERBOSITY-VERY-VERBOSE="INFO"
+	            VERBOSITY-DEBUG="DEBUG"
+	        />
+
+	        <channels type="">
+
+	            <!-- prototype -->
+	            <channel>scalar value</channel>
+
+	        </channels>
+
+	    </handler>
+
+	</monolog>
+
+	<doctrine >
+
+	    <dbal default-connection="">
+
+	        <!-- prototype -->
+	        <!-- class: Required -->
+	        <type
+	            name="type name"
+	            class=""
+	            commented="true"
+	        />
+
+	        <!-- prototype -->
+	        <!-- unix-socket: The unix socket to use for MySQL -->
+	        <!-- persistent: True to use as persistent connection for the ibm_db2 driver -->
+	        <!-- protocol: The protocol to use for the ibm_db2 driver (default to TCPIP if ommited) -->
+	        <!-- service: True to use dbname as service name instead of SID for Oracle -->
+	        <!-- sessionMode: The session mode to use for the oci8 driver -->
+	        <!-- pooled: True to use a pooled server with the oci8 driver -->
+	        <!-- MultipleActiveResultSets: Configuring MultipleActiveResultSets for the pdo_sqlsrv driver -->
+	        <connection
+	            name="connection name"
+	            dbname=""
+	            host="localhost"
+	            port="null"
+	            user="root"
+	            password="null"
+	            charset=""
+	            path=""
+	            memory=""
+	            unix-socket=""
+	            persistent=""
+	            protocol=""
+	            service=""
+	            sessionMode=""
+	            pooled=""
+	            MultipleActiveResultSets=""
+	            driver="pdo_mysql"
+	            platform-service=""
+	            schema-filter=""
+	            logging="true"
+	            profiling="true"
+	            driver-class=""
+	            wrapper-class=""
+	            keep-slave=""
+	        >
+
+	            <!-- prototype -->
+	            <option key="option key">scalar value</option>
+
+	            <!-- prototype -->
+	            <mapping-type name="mapping type name">scalar value</mapping-type>
+
+	            <!-- prototype -->
+	            <!-- unix-socket: The unix socket to use for MySQL -->
+	            <!-- persistent: True to use as persistent connection for the ibm_db2 driver -->
+	            <!-- protocol: The protocol to use for the ibm_db2 driver (default to TCPIP if ommited) -->
+	            <!-- service: True to use dbname as service name instead of SID for Oracle -->
+	            <!-- sessionMode: The session mode to use for the oci8 driver -->
+	            <!-- pooled: True to use a pooled server with the oci8 driver -->
+	            <!-- MultipleActiveResultSets: Configuring MultipleActiveResultSets for the pdo_sqlsrv driver -->
+	            <slave
+	                name="slave name"
+	                dbname=""
+	                host="localhost"
+	                port="null"
+	                user="root"
+	                password="null"
+	                charset=""
+	                path=""
+	                memory=""
+	                unix-socket=""
+	                persistent=""
+	                protocol=""
+	                service=""
+	                sessionMode=""
+	                pooled=""
+	                MultipleActiveResultSets=""
+	            />
+
+	        </connection>
+
+	    </dbal>
+
+	    <orm
+	        default-entity-manager=""
+	        auto-generate-proxy-classes="false"
+	        proxy-dir="%kernel.cache_dir%/doctrine/orm/Proxies"
+	        proxy-namespace="Proxies"
+	    >
+
+	        <!-- prototype -->
+	        <entity-manager
+	            name="entity manager name"
+	            connection=""
+	            class-metadata-factory-name="Doctrine\ORM\Mapping\ClassMetadataFactory"
+	            default-repository-class="Doctrine\ORM\EntityRepository"
+	            auto-mapping="false"
+	            naming-strategy="doctrine.orm.naming_strategy.default"
+	        >
+
+	            <query-cache-driver
+	                type="array"
+	                host=""
+	                port=""
+	                instance-class=""
+	                class=""
+	                id=""
+	            />
+
+	            <metadata-cache-driver
+	                type="array"
+	                host=""
+	                port=""
+	                instance-class=""
+	                class=""
+	                id=""
+	            />
+
+	            <result-cache-driver
+	                type="array"
+	                host=""
+	                port=""
+	                instance-class=""
+	                class=""
+	                id=""
+	            />
+
+	            <!-- prototype -->
+	            <hydrator name="hydrator name">scalar value</hydrator>
+
+	            <!-- prototype -->
+	            <mapping
+	                name="mapping name"
+	                mapping="true"
+	                type=""
+	                dir=""
+	                alias=""
+	                prefix=""
+	                is-bundle=""
+	            />
+
+	            <dql>
+
+	                <!-- prototype -->
+	                <string-function name="string function name">scalar value</string-function>
+
+	                <!-- prototype -->
+	                <numeric-function name="numeric function name">scalar value</numeric-function>
+
+	                <!-- prototype -->
+	                <datetime-function name="datetime function name">scalar value</datetime-function>
+
+	            </dql>
+
+	            <!-- prototype -->
+	            <!-- Register SQL Filters in the entity manager -->
+	            <!-- class: Required -->
+	            <filter
+	                name="filter name"
+	                class=""
+	                enabled="false"
+	            >
+
+	                <!-- prototype -->
+	                <parameter name="parameter name">value</parameter>
+
+	            </filter>
+
+	        </entity-manager>
+
+	        <!-- prototype -->
+	        <resolve-target-entity interface="resolve target entity interface">scalar value</resolve-target-entity>
+
+	    </orm>
+
+	</doctrine>
+
+	<doctirne-migrations
+    	dir-name="%kernel.root_dir%/DoctrineMigrations"
+    	namespace="Application\Migrations"
+    	table-name="migration_versions"
+    	name="Application Migrations"
+	/>
+
+	<snc-redis>
+
+	    <class
+	        client="Predis\Client"
+	        client-options="Predis\Option\ClientOptions"
+	        connection-parameters="Predis\Connection\ConnectionParameters"
+	        connection-factory="Snc\RedisBundle\Client\Predis\Connection\ConnectionFactory"
+	        connection-wrapper="Snc\RedisBundle\Client\Predis\Connection\ConnectionWrapper"
+	        phpredis-client="Redis"
+	        phpredis-base-connection-wrapper="Snc\RedisBundle\Client\Phpredis\BaseClient"
+	        phpredis-connection-wrapper="Snc\RedisBundle\Client\Phpredis\Client"
+	        logger="Snc\RedisBundle\Logger\RedisLogger"
+	        data-collector="Snc\RedisBundle\DataCollector\RedisDataCollector"
+	        doctrine-cache="Snc\RedisBundle\Doctrine\Cache\RedisCache"
+	        monolog-handler="Monolog\Handler\RedisHandler"
+	        swiftmailer-spool="Snc\RedisBundle\SwiftMailer\RedisSpool"
+	    />
+
+	    <!-- prototype -->
+	    <!-- type: Required -->
+	    <!-- alias: Required -->
+	    <client
+	        alias=""
+	        type=""
+	        logging="true"
+	    >
+
+	        <!-- prototype -->
+	        <dsn>value</dsn>
+
+	        <options
+	            connection-async="false"
+	            connection-persistent="false"
+	            connection-timeout="5"
+	            read-write-timeout="null"
+	            iterable-multibulk="false"
+	            throw-errors="true"
+	            profile="2.4"
+	            cluster="null"
+	            prefix="null"
+	            replication="false"
+	        />
+
+	    </client>
+
+	    <!-- client: Required -->
+	    <session
+	        client=""
+	        prefix="session"
+	        ttl=""
+	        use-as-default="true"
+	        locking="true"
+	        spin-lock-wait="150000"
+	    />
+
+	    <doctrine>
+
+	        <!-- client: Required -->
+	        <metadata-cache
+	            client=""
+	            namespace="null"
+	        >
+
+	            <!-- prototype -->
+	            <entity-manager>scalar value</entity-manager>
+
+	            <!-- prototype -->
+	            <document-manager>scalar value</document-manager>
+
+	        </metadata-cache>
+
+	        <!-- client: Required -->
+	        <result-cache
+	            client=""
+	            namespace="null"
+	        >
+
+	            <!-- prototype -->
+	            <entity-manager>scalar value</entity-manager>
+
+	            <!-- prototype -->
+	            <document-manager>scalar value</document-manager>
+
+	        </result-cache>
+
+	        <!-- client: Required -->
+	        <query-cache
+	            client=""
+	            namespace="null"
+	        >
+
+	            <!-- prototype -->
+	            <entity-manager>scalar value</entity-manager>
+
+	            <!-- prototype -->
+	            <document-manager>scalar value</document-manager>
+
+	        </query-cache>
+
+	    </doctrine>
+
+	    <!-- client: Required -->
+	    <!-- key: Required -->
+	    <monolog
+	        client=""
+	        key=""
+	        formatter=""
+	    />
+
+	    <!-- client: Required -->
+	    <!-- key: Required -->
+	    <swiftmailer
+	        client=""
+	        key=""
+	    />
+
+	</snc-redis>
+
+	<sententiaregum-redis-mq>
+
+    	<!-- prototype -->
+    	<queues>scalar value</queues>
+
+	</sententiaregum-redis-mq>
+
+	<sententiaregum-microblogging image-upload-dir="" />
+
+	<sententiaregum-entry-parsing
+    	tag-delimiter=""
+    	name-delimiter=""
+    	strip-delimiter="true"
+	/>
+
+	<sententiaregum-follower />
+
+</config>

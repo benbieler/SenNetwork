@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysis>
+  <link href="https://insight.sensiolabs.com/api/projects/cbf672e8-94ee-4817-b59b-0723dcbcce37/analyses/15" rel="self" type="application/vnd.com.sensiolabs.insight+xml"/>
+  <link href="https://insight.sensiolabs.com/api/projects/cbf672e8-94ee-4817-b59b-0723dcbcce37/analyses/15/status" rel="status" type="application/vnd.com.sensiolabs.insight+xml"/>
+  <link href="https://insight.sensiolabs.com/api/projects/cbf672e8-94ee-4817-b59b-0723dcbcce37" rel="project" type="application/vnd.com.sensiolabs.insight+xml"/>
+  <link href="https://insight.sensiolabs.com/projects/cbf672e8-94ee-4817-b59b-0723dcbcce37/analyses/15" rel="self" type="text/html"/>
+  <status><![CDATA[finished]]></status>
+  <violations>
+    <violation severity="minor" category="deadcode">
+      <line>30</line>
+      <resource><![CDATA[api/src/Sententiaregum/Bundle/CommentBundle/DependencyInjection/Configuration.php]]></resource>
+      <title>Unused method, property, variable or parameter</title>
+      <message><![CDATA[This rootNode local variable is declared but never used. You should remove it.]]></message>
+      <context start-line="25" end-line="35"><![CDATA[     * {@inheritdoc}
+     */
+    public function getConfigTreeBuilder()
+    {
+        $treeBuilder = new TreeBuilder();
+        $rootNode = $treeBuilder->root('sententiaregum_comment');
+
+        // Here you should define the parameters that are allowed to
+        // configure your bundle. See the documentation linked above for
+        // more information on that topic.
+]]></context>
+      <link href="https://insight.sensiolabs.com/projects/cbf672e8-94ee-4817-b59b-0723dcbcce37/analyses/15?status=new#202344058" rel="self" type="text/html"/>
+    </violation>
+    <violation severity="minor" category="deadcode">
+      <line>32</line>
+      <resource><![CDATA[api/src/Sententiaregum/Bundle/CommentBundle/DependencyInjection/SententiaregumCommentExtension.php]]></resource>
+      <title>Unused method, property, variable or parameter</title>
+      <message><![CDATA[This config local variable is declared but never used. You should remove it.]]></message>
+      <context start-line="27" end-line="37"><![CDATA[     * {@inheritdoc}
+     */
+    public function load(array $configs, ContainerBuilder $container)
+    {
+        $configuration = new Configuration();
+        $config = $this->processConfiguration($configuration, $configs);
+
+        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('services.xml');
+    }
+}]]></context>
+      <link href="https://insight.sensiolabs.com/projects/cbf672e8-94ee-4817-b59b-0723dcbcce37/analyses/15?status=new#202344059" rel="self" type="text/html"/>
+    </violation>
+    <violation severity="minor" category="architecture">
+      <line>57</line>
+      <resource><![CDATA[api/src/Sententiaregum/Bundle/CommonBundle/Test/Stub/ConstraintContextFixture.php]]></resource>
+      <title>Source code should not contain TODO comments</title>
+      <message><![CDATA[TODO comments are left in the code when a feature (or a bug) isn't completely developed (or fixed). You should complete the implementation and remove the comment.]]></message>
+      <context start-line="52" end-line="62"><![CDATA[        array $parameters = array(),
+        $invalidValue = null,
+        $plural = null,
+        $code = null
+    ) {
+        # TODO: Implement addViolationAt() method.
+    }
+
+    /**
+     * @param mixed $value
+     * @param string $subPath]]></context>
+      <link href="https://insight.sensiolabs.com/projects/cbf672e8-94ee-4817-b59b-0723dcbcce37/analyses/15?status=new#202344057" rel="self" type="text/html"/>
+    </violation>
+    <violation severity="minor" category="architecture">
+      <line>89</line>
+      <resource><![CDATA[api/src/Sententiaregum/Bundle/HashtagsBundle/Entity/TagRepository.php]]></resource>
+      <title>Source code should not contain TODO comments</title>
+      <message><![CDATA[TODO comments are left in the code when a feature (or a bug) isn't completely developed (or fixed). You should complete the implementation and remove the comment.]]></message>
+      <context start-line="84" end-line="94"><![CDATA[    /**
+     * @return Tag[]
+     */
+    public function generatePopularTagsList()
+    {
+        # TODO: Implement generatePopularTagsList() method.
+    }
+
+    /**
+     * @param mixed[] $row
+     * @return Tag]]></context>
+      <link href="https://insight.sensiolabs.com/projects/cbf672e8-94ee-4817-b59b-0723dcbcce37/analyses/15?status=new#202344055" rel="self" type="text/html"/>
+    </violation>
+    <violation severity="minor" category="architecture">
+      <line>100</line>
+      <resource><![CDATA[api/src/Sententiaregum/Bundle/MicrobloggingBundle/Entity/MicroblogRepository.php]]></resource>
+      <title>Source code should not contain TODO comments</title>
+      <message><![CDATA[TODO comments are left in the code when a feature (or a bug) isn't completely developed (or fixed). You should complete the implementation and remove the comment.]]></message>
+      <context start-line="95" end-line="105"><![CDATA[                }
+
+                $connection->insert('se_microblogs', $this->entity2Row($microblogEntry));
+
+                // insert marked users
+                # @todo fix code duplication
+                $iterations = 0;
+                foreach ($microblogEntry->getMarked() as $markedUser) {
+                    ++$iterations;
+                    if ($iterations > 75) {
+                        throw new \OverflowException('Too much marked users - unable to insert');]]></context>
+      <link href="https://insight.sensiolabs.com/projects/cbf672e8-94ee-4817-b59b-0723dcbcce37/analyses/15?status=new#202344061" rel="self" type="text/html"/>
+    </violation>
+    <violation severity="minor" category="architecture">
+      <line>37</line>
+      <resource><![CDATA[api/src/Sententiaregum/Bundle/MicrobloggingBundle/Service/DashboardListLoader.php]]></resource>
+      <title>Source code should not contain TODO comments</title>
+      <message><![CDATA[TODO comments are left in the code when a feature (or a bug) isn't completely developed (or fixed). You should complete the implementation and remove the comment.]]></message>
+      <context start-line="32" end-line="40"><![CDATA[     * @param integer $userId
+     * @return boolean
+     */
+    public function checkUserShouldReceivePost(MicroblogEntry $entry, $userId)
+    {
+        # TODO: Implement checkUserShouldReceivePost() method.
+    }
+}
+]]></context>
+      <link href="https://insight.sensiolabs.com/projects/cbf672e8-94ee-4817-b59b-0723dcbcce37/analyses/15?status=new#202344063" rel="self" type="text/html"/>
+    </violation>
+    <violation severity="minor" category="architecture">
+      <line>37</line>
+      <resource><![CDATA[api/src/Sententiaregum/Bundle/MicrobloggingBundle/Service/ProfileListLoader.php]]></resource>
+      <title>Source code should not contain TODO comments</title>
+      <message><![CDATA[TODO comments are left in the code when a feature (or a bug) isn't completely developed (or fixed). You should complete the implementation and remove the comment.]]></message>
+      <context start-line="32" end-line="40"><![CDATA[     * @param integer $userId
+     * @return boolean
+     */
+    public function checkUserShouldReceivePost(MicroblogEntry $entry, $userId)
+    {
+        # TODO: Implement checkUserShouldReceivePost() method.
+    }
+}
+]]></context>
+      <link href="https://insight.sensiolabs.com/projects/cbf672e8-94ee-4817-b59b-0723dcbcce37/analyses/15?status=new#202344062" rel="self" type="text/html"/>
+    </violation>
+    <violation severity="minor" category="architecture">
+      <line>32</line>
+      <resource><![CDATA[app/app/component/application/user/token/token.js]]></resource>
+      <title>Source code should not contain TODO comments</title>
+      <message><![CDATA[TODO comments are left in the code when a feature (or a bug) isn't completely developed (or fixed). You should complete the implementation and remove the comment.]]></message>
+      <context start-line="27" end-line="37"><![CDATA[            {
+                'auth': {
+                    method: 'POST',
+                    interceptor: cookieAuthInterceptor
+                }
+                // @ToDo: add logout resource
+            }
+        );
+
+    })
+    .factory('Token', function ($cookieStore, $location) {]]></context>
+      <link href="https://insight.sensiolabs.com/projects/cbf672e8-94ee-4817-b59b-0723dcbcce37/analyses/15?status=new#202344056" rel="self" type="text/html"/>
+    </violation>
+    <violation severity="minor" category="architecture">
+      <line>76</line>
+      <resource><![CDATA[app/app/component/application/user/token/token.js]]></resource>
+      <title>Source code should not contain TODO comments</title>
+      <message><![CDATA[TODO comments are left in the code when a feature (or a bug) isn't completely developed (or fixed). You should complete the implementation and remove the comment.]]></message>
+      <context start-line="71" end-line="81"><![CDATA[             * Action which flushes the API token
+             *
+             * @param logoutPath
+             */
+            flushToken: function (logoutPath) {
+                // @ToDo: send request deletion request to server (logout route in symfony is required)
+
+                $cookieStore.remove(this.tokenCookieKey);
+                $location.path(logoutPath);
+            }
+]]></context>
+      <link href="https://insight.sensiolabs.com/projects/cbf672e8-94ee-4817-b59b-0723dcbcce37/analyses/15?status=new#202344060" rel="self" type="text/html"/>
+    </violation>
+  </violations>
+  <grades>
+    <entry><![CDATA[none]]></entry>
+    <entry><![CDATA[bronze]]></entry>
+    <entry><![CDATA[silver]]></entry>
+    <entry><![CDATA[gold]]></entry>
+    <entry><![CDATA[platinum]]></entry>
+  </grades>
+  <failed>false</failed>
+  <grade><![CDATA[silver]]></grade>
+  <next-grade><![CDATA[gold]]></next-grade>
+  <begin-at><![CDATA[2014-12-22T20:10:06+0100]]></begin-at>
+  <end-at><![CDATA[2014-12-22T20:10:58+0100]]></end-at>
+  <duration>9</duration>
+  <number>15</number>
+  <altered>false</altered>
+  <remediation-cost>28.5</remediation-cost>
+  <nb-violations>9</nb-violations>
+  <reference><![CDATA[8edafee1034b3d2dadc31d887b8b9b4e911a1302]]></reference>
+  <configuration>
+    <ignored-branches>
+      <branch><![CDATA[gh-pages]]></branch>
+    </ignored-branches>
+    <pre-composer-script/>
+    <post-composer-script/>
+    <php-ini/>
+    <global-excluded-dirs>
+      <dir><![CDATA[vendor]]></dir>
+      <dir><![CDATA[vendors]]></dir>
+      <dir><![CDATA[test]]></dir>
+      <dir><![CDATA[tests]]></dir>
+      <dir><![CDATA[Tests]]></dir>
+      <dir><![CDATA[spec]]></dir>
+      <dir><![CDATA[features]]></dir>
+      <dir><![CDATA[Fixtures]]></dir>
+      <dir><![CDATA[DataFixtures]]></dir>
+      <dir><![CDATA[var]]></dir>
+    </global-excluded-dirs>
+    <excluded-patterns>
+      <pattern><![CDATA[app/check.php]]></pattern>
+      <pattern><![CDATA[app/SymfonyRequirements.php]]></pattern>
+      <pattern><![CDATA[web/config.php]]></pattern>
+      <pattern><![CDATA[web/app_*.php]]></pattern>
+    </excluded-patterns>
+    <patterns>
+      <file>
+        <pattern><![CDATA[*.php]]></pattern>
+        <pattern><![CDATA[*.twig]]></pattern>
+        <pattern><![CDATA[*.xml]]></pattern>
+        <pattern><![CDATA[*.yml]]></pattern>
+        <pattern><![CDATA[*.yaml]]></pattern>
+        <pattern><![CDATA[*.ini]]></pattern>
+        <pattern><![CDATA[*.dist]]></pattern>
+        <pattern><![CDATA[*.sql]]></pattern>
+        <pattern><![CDATA[composer.*]]></pattern>
+        <pattern><![CDATA[.gitignore]]></pattern>
+        <pattern><![CDATA[license]]></pattern>
+        <pattern><![CDATA[LICENSE]]></pattern>
+        <pattern><![CDATA[readme]]></pattern>
+        <pattern><![CDATA[README]]></pattern>
+        <pattern><![CDATA[makefile]]></pattern>
+        <pattern><![CDATA[Makefile]]></pattern>
+        <pattern><![CDATA[.htaccess]]></pattern>
+      </file>
+      <php>
+        <pattern><![CDATA[*.php]]></pattern>
+      </php>
+      <twig>
+        <pattern><![CDATA[*.twig]]></pattern>
+      </twig>
+    </patterns>
+    <rules/>
+    <parameters>
+      <parameter name="project_type">10</parameter>
+    </parameters>
+  </configuration>
+  <previous-analyses-references>
+    <analysis-reference number="15">8edafee1034b3d2dadc31d887b8b9b4e911a1302</analysis-reference>
+    <analysis-reference number="14">8edafee1034b3d2dadc31d887b8b9b4e911a1302</analysis-reference>
+    <analysis-reference number="13">480b6147132524f89cdcba39b8a669c9686d7d25</analysis-reference>
+    <analysis-reference number="12">859a981094c99fc8f85b8b5f10a66ff89a66975e</analysis-reference>
+    <analysis-reference number="11">3b6b04a414dcb300f1fc3a390f47b8bd90eec0e6</analysis-reference>
+    <analysis-reference number="10">ea5d06b650efd85f1a4883cc9168f82270c51ebc</analysis-reference>
+    <analysis-reference number="9">71fb4cc5d963775cd4eedabb0531de58befd0879</analysis-reference>
+    <analysis-reference number="8">cce39f2e78290210a07824f8ac596935699d14e8</analysis-reference>
+    <analysis-reference number="7">f93a15fe7072d7ec1efd60f07ddac6afcb28a736</analysis-reference>
+    <analysis-reference number="6">c2e7a76bab96cf4038b25fc737d68cb0f2a09d6d</analysis-reference>
+    <analysis-reference number="5">7e96a8644ba41cd90bf09257913b21737a7fbabf</analysis-reference>
+    <analysis-reference number="4">2d73b461be95fd53be44fa4c51b4a906c28a18ed</analysis-reference>
+    <analysis-reference number="3">7c175cdf0df8ac663632b00e6999f963dfb74a73</analysis-reference>
+    <analysis-reference number="2">f286d78f42b9c07a5bfd457b75f512fc853e86a0</analysis-reference>
+    <analysis-reference number="1">173a56efd8c4beb9282fd126c464b2d2ba6b8fd7</analysis-reference>
+  </previous-analyses-references>
+  <nb-violations-new>9</nb-violations-new>
+  <nb-violations-existing>0</nb-violations-existing>
+  <nb-violations-fixed>0</nb-violations-fixed>
+  <nb-violations-ignored>0</nb-violations-ignored>
+</analysis>

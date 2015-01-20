@@ -1,0 +1,66 @@
+{
+    "license": "GPL",
+    "type": "project",
+    "description": "A social network based on symfony2 and angularjs",
+    "autoload": {
+        "psr-0": { "": "src/" },
+        "classmap": ["app/AppKernel.php", "app/AppCache.php"]
+    },
+    "require": {
+        "php": ">=5.5.0",
+        "ext-imagick": "*",
+        "symfony/symfony": "2.6.*",
+        "doctrine/orm": "~2.2,>=2.2.3",
+        "doctrine/doctrine-bundle": "~1.2",
+        "twig/extensions": "~1.0",
+        "symfony/assetic-bundle": "~2.3",
+        "symfony/monolog-bundle": "~2.4",
+        "sensio/distribution-bundle": "~3.0,>=3.0.12",
+        "sensio/framework-extra-bundle": "~3.0",
+        "incenteev/composer-parameter-handler": "~2.0",
+        "cboden/ratchet": "~0.3",
+        "snc/redis-bundle": "~2.0@dev",
+        "predis/predis": "~0.8",
+        "nelmio/api-doc-bundle": "~2.7",
+        "jms/serializer-bundle": "~0.13",
+        "friendsofsymfony/rest-bundle": "~1.4"
+    },
+    "require-dev": {
+        "sensio/generator-bundle": "~2.3",
+        "behat/behat": "~3.0",
+        "phpunit/phpunit": "~4.4"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
+            "php app/console assetic:dump --env=prod",
+            "php app/console security:check"
+        ],
+        "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
+            "php app/console assetic:dump --env=prod",
+            "php app/console security:check"
+        ]
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web",
+        "symfony-assets-install": "relative",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        }
+    }
+}
