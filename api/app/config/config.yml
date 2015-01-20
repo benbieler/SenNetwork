@@ -1,8 +1,0 @@
-imports:
-    - { resource: parameters.yml }
-    - { resource: security.yml }
-    - { resource: framework.yml }
-    - { resource: doctrine.yml }
-    - { resource: redis.yml }
-    - { resource: sen-util.yml }
-    - { resource: sen-application.yml }

@@ -1,9 +1,0 @@
-# Message queue configuration
-sententiaregum_redis_mq:
-    queues:
-        default: redis::queue::default::
-
-# Entry parser configuration
-sententiaregum_entry_parsing:
-    tag_delimiter:  "#"
-    name_delimiter: "@"

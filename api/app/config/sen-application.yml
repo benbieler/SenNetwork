@@ -1,8 +1,0 @@
-# User bundle configuration
-sententiaregum_user:
-    registration:
-        defaultRoles: ['ROLE_USER']
-
-# Microblog configuration
-sententiaregum_microblogging:
-    image_upload_dir: "%kernel.root_dir%/../web/uploads"
