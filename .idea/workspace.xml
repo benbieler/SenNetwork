@@ -4,7 +4,7 @@
     <option name="ANALYSIS_IN_BACKGROUND" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9547a903-669f-4812-8ca3-5ba5d539462d" name="Default" comment="">
+    <list default="true" id="9547a903-669f-4812-8ca3-5ba5d539462d" name="Default" comment="remove .idea">
       <change type="DELETED" beforePath="C:\Sententiaregum\.idea\.name" afterPath="" />
       <change type="DELETED" beforePath="C:\Sententiaregum\.idea\Sententiaregum.iml" afterPath="" />
       <change type="DELETED" beforePath="C:\Sententiaregum\.idea\codeStyleSettings.xml" afterPath="" />
@@ -36,12 +36,12 @@
       <change type="DELETED" beforePath="C:\Sententiaregum\.idea\vcs.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Sententiaregum\.idea\watcherTasks.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Sententiaregum\.idea\workspace.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
     </list>
     <list id="35b80c5e-29d6-4cfe-a1c2-d16cf2aed7dc" name="New changelist" comment="New changelist" />
     <ignored path="Sententiaregum.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
+    <ignored path=".idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -446,9 +446,9 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="SearchEverywhereHistory" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.idea" />
     <property name="dynamic.classpath" value="false" />
-    <property name="options.lastSelected" value="reference.settings.php.debug.xdebug.proxy" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Ignored.Files" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -869,12 +869,6 @@
       <option name="number" value="Default" />
       <updated>1410239609057</updated>
     </task>
-    <task id="LOCAL-00249" summary="fixed #17">
-      <created>1417726391950</created>
-      <option name="number" value="00249" />
-      <option name="project" value="LOCAL" />
-      <updated>1417726391950</updated>
-    </task>
     <task id="LOCAL-00250" summary="fix write entry spec">
       <created>1417726555203</created>
       <option name="number" value="00250" />
@@ -1163,7 +1157,13 @@
       <option name="project" value="LOCAL" />
       <updated>1421779041319</updated>
     </task>
-    <option name="localTasksCounter" value="298" />
+    <task id="LOCAL-00298" summary="remove .idea">
+      <created>1421780730199</created>
+      <option name="number" value="00298" />
+      <option name="project" value="LOCAL" />
+      <updated>1421780730199</updated>
+    </task>
+    <option name="localTasksCounter" value="299" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1235,7 +1235,6 @@
       <TodoPanelSettings />
     </option>
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="false" />
-    <MESSAGE value="add @throws tags" />
     <MESSAGE value="move common namespace to custom bundle" />
     <MESSAGE value="add try of use case implementation" />
     <MESSAGE value="upgrade symfony to 2.6" />
@@ -1260,7 +1259,8 @@
     <MESSAGE value="disable favicon check" />
     <MESSAGE value="commit refactoring" />
     <MESSAGE value="rm phpstorm stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="rm phpstorm stuff" />
+    <MESSAGE value="remove .idea" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove .idea" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1346,6 +1346,14 @@
       </provider>
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="22899">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
