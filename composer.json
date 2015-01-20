@@ -1,5 +1,6 @@
 {
-    "license": "GPL",
+    "name": "ma27/sententiaregum",
+    "license": "GPL-2.0",
     "type": "project",
     "description": "A social network based on symfony2 and angularjs",
     "autoload": {
