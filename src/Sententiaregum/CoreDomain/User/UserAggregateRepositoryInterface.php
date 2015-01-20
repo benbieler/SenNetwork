@@ -14,7 +14,7 @@ namespace Sententiaregum\CoreDomain\User;
 /**
  * Repository contract which is a responsible to load object lists of the user aggregate
  */
-interface UserAggregateRepository
+interface UserAggregateRepositoryInterface
 {
     /**
      * Searches a user by its string

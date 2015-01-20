@@ -1,15 +1,13 @@
 global_exlude_dirs:
-    - api/vendor
-    - api/app
-    - api/web
+    - vendor
+    - app
+    - web
+    - vagrant
 
 exclude_patterns:
     - src/Sententiaregum/Bundle/*Bundle/Tests
     - src/Sententiaregum/CoreBundle/*/Tests
     - devstack.yaml # Exclude vagrant stuff
-    - vagrant       # which should not be inspected
-    - web           # exlude web stuff
-    - app           # app directory
 
 rules:
     web.default_favicon:

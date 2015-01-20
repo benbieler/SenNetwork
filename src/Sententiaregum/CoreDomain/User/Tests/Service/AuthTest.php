@@ -15,14 +15,14 @@ use Sententiaregum\CoreDomain\User\DTO\AuthDTO;
 use Sententiaregum\CoreDomain\User\Event\AuthEvent;
 use Sententiaregum\CoreDomain\User\Service\Auth;
 use Sententiaregum\CoreDomain\User\User;
-use Sententiaregum\CoreDomain\User\UserAggregateRepository;
+use Sententiaregum\CoreDomain\User\UserAggregateRepositoryInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class AuthTest extends \PHPUnit_Framework_TestCase
 {
     public function testInvalidUserName()
     {
-        $repository = $this->getMock(UserAggregateRepository::class);
+        $repository = $this->getMock(UserAggregateRepositoryInterface::class);
         $repository
             ->expects($this->any())
             ->method('findOneByName')
@@ -41,7 +41,7 @@ class AuthTest extends \PHPUnit_Framework_TestCase
 
     public function testSuccessfulAuthentication()
     {
-        $repository = $this->getMock(UserAggregateRepository::class);
+        $repository = $this->getMock(UserAggregateRepositoryInterface::class);
         $repository
             ->expects($this->any())
             ->method('findOneByName')

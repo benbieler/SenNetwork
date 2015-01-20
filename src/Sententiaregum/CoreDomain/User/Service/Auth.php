@@ -13,7 +13,7 @@ namespace Sententiaregum\CoreDomain\User\Service;
 
 use Sententiaregum\CoreDomain\User\DTO\AuthDTO;
 use Sententiaregum\CoreDomain\User\Event\AuthEvent;
-use Sententiaregum\CoreDomain\User\UserAggregateRepository;
+use Sententiaregum\CoreDomain\User\UserAggregateRepositoryInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
@@ -22,7 +22,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 class Auth implements AuthInterface
 {
     /**
-     * @var UserAggregateRepository
+     * @var UserAggregateRepositoryInterface
      */
     private $repository;
 
@@ -32,10 +32,10 @@ class Auth implements AuthInterface
     private $eventDispatcher;
 
     /**
-     * @param UserAggregateRepository $repository
+     * @param UserAggregateRepositoryInterface $repository
      * @param EventDispatcherInterface $dispatcher
      */
-    public function __construct(UserAggregateRepository $repository, EventDispatcherInterface $dispatcher)
+    public function __construct(UserAggregateRepositoryInterface $repository, EventDispatcherInterface $dispatcher)
     {
         $this->repository      = $repository;
         $this->eventDispatcher = $dispatcher;
