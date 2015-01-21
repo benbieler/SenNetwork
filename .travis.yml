@@ -5,7 +5,9 @@ php:
   - 5.6
   - hhvm
 
-before_script: rake deploy
+before_script:
+  - printf "\n" | pecl install imagick
+  - rake deploy
 
 services:
   - redis-server
