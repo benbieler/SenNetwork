@@ -13,6 +13,7 @@
             <directory>../src/*/Bundle/*Bundle/Tests</directory>
             <directory>../src/*Bundle/Tests</directory>
             <directory>../src/*/Component/*/Tests</directory>
+            <directory>../src/*/CoreDomain/*/Tests</directory>
         </testsuite>
     </testsuites>
 
