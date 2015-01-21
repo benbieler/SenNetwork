@@ -4,24 +4,8 @@ before_commands:
 
 filter:
     excluded_paths:
-        - api/src/Sententiaregum/Bundle/UserBundle/spec/
-        - api/app/
-        - api/src/Sententiaregum/Bundle/UserBundle/FeatureContext/
-        - api/src/Sententiaregum/Bundle/RedisMQBundle/FeatureContext/
-        - api/src/Sententiaregum/Bundle/MicrobloggingBundle/spec/
-        - api/src/Sententiaregum/Bundle/MicrobloggingBundle/FeatureContext/
-        - api/src/Sententiaregum/Bundle/EntryParsingBundle/spec/
-        - api/src/Sententiaregum/Bundle/FollowerBundle/spec/
-        - api/src/Sententiaregum/Bundle/FollowerBundle/FeatureContext/
-        - api/src/Sententiaregum/Bundle/UseCaseBundle/Tests/
-        - api/src/Sententiaregum/Bundle/UseCaseBundle/spec/
-        - api/src/Sententiaregum/Bundle/CommonBunde/Tests/
-        - api/src/Sententiaregum/Bundle/EntryParsingBundle/Tests/
-        - api/src/Sententiaregum/Bundle/FollowerBundle/Tests/
-        - api/src/Sententiaregum/Bundle/HashtagsBundle/Tests/
-        - api/src/Sententiaregum/Bundle/MicrobloggingBundle/Tests/
-        - api/src/Sententiaregum/Bundle/RedisMQBundle/Tests/
-        - api/src/Sententiaregum/Bundle/UserBundle/Tests
+        - app/
+        - src/Sententiaregum/CoreDomain/Tests/
 
 tools:
     php_code_sniffer:
