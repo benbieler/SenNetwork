@@ -5,20 +5,20 @@ before_commands:
 filter:
     excluded_paths:
         - app/
-        - src/Sententiaregum/CoreDomain/Tests/
+        - src/Sententiaregum/CoreDomain/User/Tests/
 
 tools:
     php_code_sniffer:
         config:
             standard: PSR2
         filter:
-            paths: ['api/src']
+            paths: ['src']
     php_loc:
         enabled: true
-        excluded_dirs: [api/vendor, api/app, api/features]
+        excluded_dirs: [vendor, app, features]
     php_cpd:
         enabled: true
-        excluded_dirs: [api/vendor, api/app, api/features]
+        excluded_dirs: [vendor, app, features]
     php_mess_detector: true
     php_analyzer: true
     php_pdepend: true

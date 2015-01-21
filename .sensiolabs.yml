@@ -11,3 +11,5 @@ rules:
         enabled: false
     web.missing_favicon:
         enabled: false
+    composer.dependencies_not_installable:
+        enabled: false
