@@ -46,11 +46,4 @@ doctrine:
         charset:  UTF8
     orm:
         auto_generate_proxy_classes: false
-        auto_mapping: false
-        mappings:
-            SEN_User:
-                type:      annotation
-                prefix:    Sententiaregum\CoreDomain\User
-                is_bundle: false
-                dir:       %kernel.root_dir%/../src/Sententiaregum/CoreDomain/User
-                alias:     SEN_User
+        auto_mapping: true

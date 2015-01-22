@@ -18,11 +18,6 @@ use Symfony\Component\Security\Core\Role\RoleInterface;
 
 /**
  * Entity which represents a role
- *
- * @ORM\Table(name="SEN_Role", uniqueConstraints={
- *     @ORM\UniqueConstraint(name="sen_role_role", columns={"name"})
- * })
- * @ORM\Entity()
  */
 class Role implements RoleInterface
 {
@@ -38,24 +33,16 @@ class Role implements RoleInterface
 
     /**
      * @var integer
-     *
-     * @ORM\Id()
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $roleId;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
      * @var ArrayCollection
-     *
-     * @ORM\ManyToMany(targetEntity="Sententiaregum\CoreDomain\User\User", mappedBy="roles")
      */
     private $users;
 

@@ -13,7 +13,6 @@ namespace Sententiaregum\CoreDomain\User;
 
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\Mapping as ORM;
 use Sententiaregum\CoreDomain\User\DTO\AuthDTO;
 use Sententiaregum\CoreDomain\User\Event\AuthEvent;
 use Sententiaregum\CoreDomain\User\Exception\UserDomainException;
@@ -22,9 +21,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User entity
- *
- * @ORM\Entity()
- * @ORM\Table(name="SEN_User", indexes={@ORM\Index(name="sen_user_realname", columns={"realName"})})
  */
 class User implements UserInterface
 {
@@ -32,96 +28,61 @@ class User implements UserInterface
 
     /**
      * @var integer
-     *
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $userId;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $username;
 
     /**
      * @var Password
-     *
-     * @ORM\Column(type="string", length=255)
      */
     private $password;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $email;
 
     /**
      * @var string
-     *
-     * @ORM\Column(type="string", length=255)
      */
     private $realName;
 
     /**
      * @var DateTime
-     *
-     * @ORM\Column(type="datetime")
      */
     private $registrationDate;
 
     /**
      * @var DateTime
-     *
-     * @ORM\Column(type="datetime")
      */
     private $lastAction;
 
     /**
      * @var boolean
-     *
-     * @ORM\Column(type="boolean")
      */
     private $locked = false;
 
     /**
      * @var ArrayCollection
-     *
-     * @ORM\ManyToMany(targetEntity="Sententiaregum\CoreDomain\User\Role", inversedBy="users")
-     * @ORM\JoinTable(name="SEN_UserToRole",
-     *     joinColumns={@ORM\JoinColumn(name="userId", referencedColumnName="userId")},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="roleId", referencedColumnName="roleId")}
-     * )
      */
     private $roles;
 
     /**
      * @var Token
-     *
-     * @ORM\OneToOne(targetEntity="Sententiaregum\CoreDomain\User\Token", inversedBy="user")
-     * @ORM\JoinColumn(name="tokenId", referencedColumnName="tokenId")
      */
     private $token;
 
     /**
      * @var ArrayCollection
-     *
-     * @ORM\ManyToMany(targetEntity="Sententiaregum\CoreDomain\User\User", mappedBy="following")
      */
     private $followers;
 
     /**
      * @var ArrayCollection
-     *
-     * @ORM\ManyToMany(targetEntity="Sententiaregum\CoreDomain\User\User", inversedBy="followers")
-     * @ORM\JoinTable(name="SEN_Followers",
-     *      joinColumns={@ORM\JoinColumn(name="userId", referencedColumnName="userId")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="followerId", referencedColumnName="userId")}
-     * )
      */
     private $following;
 
