@@ -11,11 +11,11 @@
 
 namespace Sententiaregum\Bridge\User\Service;
 
-use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
 use Sententiaregum\CoreDomain\User\DTO\AuthDTO;
 use Sententiaregum\CoreDomain\User\Event\AuthEvent;
 use Sententiaregum\CoreDomain\User\Service\AuthInterface;
+use Sententiaregum\CoreDomain\User\UserAggregateRepositoryInterface;
 
 /**
  * Implementation of a authentication workflow
@@ -33,9 +33,9 @@ class ApiAuthenticationWorkflow
     private $logger;
 
     /**
-     * @var EntityManagerInterface
+     * @var UserAggregateRepositoryInterface
      */
-    private $em;
+    private $userRepository;
 
     /**
      * @var string
@@ -45,13 +45,13 @@ class ApiAuthenticationWorkflow
     /**
      * @param AuthInterface $auth
      * @param LoggerInterface $logger
-     * @param EntityManagerInterface $entityManager
+     * @param UserAggregateRepositoryInterface $userRepo
      */
-    public function __construct(AuthInterface $auth, LoggerInterface $logger, EntityManagerInterface $entityManager)
+    public function __construct(AuthInterface $auth, LoggerInterface $logger, UserAggregateRepositoryInterface $userRepo)
     {
-        $this->auth   = $auth;
-        $this->logger = $logger;
-        $this->em     = $entityManager;
+        $this->auth           = $auth;
+        $this->logger         = $logger;
+        $this->userRepository = $userRepo;
     }
 
     /**
@@ -85,9 +85,7 @@ class ApiAuthenticationWorkflow
         }
 
         $event->getUser()->createToken();
-
-        $this->em->persist($event->getUser());
-        $this->em->flush();
+        $this->userRepository->update($event->getUser());
 
         return $event;
     }

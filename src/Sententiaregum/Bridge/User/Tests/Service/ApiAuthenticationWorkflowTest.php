@@ -11,13 +11,13 @@
 
 namespace Sententiaregum\Bridge\User\Tests\Service;
 
-use Doctrine\ORM\EntityManagerInterface;
 use Sententiaregum\Bridge\User\Service\ApiAuthenticationWorkflow;
 use Sententiaregum\Bridge\User\Tests\Fixtures\LoggerFixture;
 use Sententiaregum\CoreDomain\User\DTO\AuthDTO;
 use Sententiaregum\CoreDomain\User\Event\AuthEvent;
 use Sententiaregum\CoreDomain\User\Service\Auth;
 use Sententiaregum\CoreDomain\User\User;
+use Sententiaregum\CoreDomain\User\UserAggregateRepositoryInterface;
 
 class ApiAuthenticationWorkflowTest extends \PHPUnit_Framework_TestCase
 {
@@ -35,7 +35,7 @@ class ApiAuthenticationWorkflowTest extends \PHPUnit_Framework_TestCase
 
         $logger = new LoggerFixture();
 
-        $authWorkFlow = new ApiAuthenticationWorkflow($authDomainService, $logger, $this->getMock(EntityManagerInterface::class));
+        $authWorkFlow = new ApiAuthenticationWorkflow($authDomainService, $logger, $this->getMock(UserAggregateRepositoryInterface::class));
         $authWorkFlow->setRequesterIp('127.0.0.1');
         $event        = $authWorkFlow->authenticate($credentials);
 
@@ -64,7 +64,7 @@ class ApiAuthenticationWorkflowTest extends \PHPUnit_Framework_TestCase
 
         $logger = new LoggerFixture();
 
-        $authWorkFlow = new ApiAuthenticationWorkflow($authDomainService, $logger, $this->getMock(EntityManagerInterface::class));
+        $authWorkFlow = new ApiAuthenticationWorkflow($authDomainService, $logger, $this->getMock(UserAggregateRepositoryInterface::class));
         $authWorkFlow->setRequesterIp('127.0.0.1');
         $event        = $authWorkFlow->authenticate($credentials);
 
