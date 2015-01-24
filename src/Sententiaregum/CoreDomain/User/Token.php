@@ -11,8 +11,6 @@
 
 namespace Sententiaregum\CoreDomain\User;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Entity containing an api token
  */

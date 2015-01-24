@@ -16,7 +16,7 @@ use Behat\Behat\Context\Context;
 use Behat\Behat\Context\SnippetAcceptingContext;
 
 /**
- * Abstract context implementation which creates the kernel
+ * Abstract context implementation which creates the sf2 kernel
  */
 abstract class AbstractContext implements Context, SnippetAcceptingContext
 {
@@ -40,7 +40,7 @@ abstract class AbstractContext implements Context, SnippetAcceptingContext
     {
         $this->purgeDatabase();
 
-        $this->kernel = null;
+        $this->kernel    = null;
         $this->container = null;
     }
 

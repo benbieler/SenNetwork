@@ -41,11 +41,15 @@ class AuthTest extends \PHPUnit_Framework_TestCase
 
     public function testSuccessfulAuthentication()
     {
+        $user = new User();
+        $user->setUsername('admin');
+        $user->setPassword('123456');
+
         $repository = $this->getMock(UserAggregateRepositoryInterface::class);
         $repository
             ->expects($this->any())
             ->method('findOneByName')
-            ->will($this->returnValue(new User()));
+            ->will($this->returnValue($user));
 
         $dispatcher = $this->getMock(EventDispatcherInterface::class);
         $dispatcher

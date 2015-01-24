@@ -488,7 +488,7 @@ class User implements UserInterface
             return $dispatcher->dispatch(static::AUTHENTICATION_SUCCESSFUL_EVENT, $event);
         }
 
-        $event->setFailReason('Invalid credentials!');
+        $event->fail('Invalid credentials!');
         return $event;
     }
 

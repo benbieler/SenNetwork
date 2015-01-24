@@ -17,11 +17,20 @@ namespace Sententiaregum\CoreDomain\User;
 interface UserAggregateRepositoryInterface
 {
     /**
-     * Searches a user by its string
+     * Searches a user by its username
      *
      * @param string $username
      *
      * @return User
      */
     public function findOneByName($username);
+
+    /**
+     * Searches a user by its api key
+     *
+     * @param string $apiKey
+     *
+     * @return User
+     */
+    public function findOneByApiKey($apiKey);
 }

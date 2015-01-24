@@ -64,7 +64,7 @@ class AuthEvent extends Event
      *
      * @return $this
      */
-    public function setFailReason($failReason)
+    public function fail($failReason)
     {
         $this->failReason = (string) $failReason;
 

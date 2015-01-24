@@ -48,7 +48,7 @@ class Auth implements AuthInterface
     {
         $user = $this->repository->findOneByName($credentials->getUsername());
         if (!$user) {
-            return (new AuthEvent())->setFailReason('Invalid credentials!');
+            return (new AuthEvent())->fail('Invalid credentials!');
         }
 
         return $user->authenticate($credentials, $this->eventDispatcher);

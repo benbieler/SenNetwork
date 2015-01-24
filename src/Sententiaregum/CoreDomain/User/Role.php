@@ -12,7 +12,6 @@
 namespace Sententiaregum\CoreDomain\User;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\Mapping as ORM;
 use Sententiaregum\CoreDomain\User\Exception\UserDomainException;
 use Symfony\Component\Security\Core\Role\RoleInterface;
 
