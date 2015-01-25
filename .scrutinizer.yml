@@ -6,6 +6,7 @@ filter:
     excluded_paths:
         - app/
         - src/Sententiaregum/CoreDomain/User/Tests/
+        - src/Sententiaregum/Bridge/User/Tests/
 
 tools:
     php_code_sniffer:
