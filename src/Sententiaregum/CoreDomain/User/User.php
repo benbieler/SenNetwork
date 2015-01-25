@@ -102,20 +102,6 @@ class User implements UserInterface
     }
 
     /**
-     * Set user id
-     *
-     * @param integer $userId
-     *
-     * @return $this
-     */
-    public function setUserId($userId)
-    {
-        $this->userId = (integer) $userId;
-
-        return $this;
-    }
-
-    /**
      * Return username
      *
      * @return string
