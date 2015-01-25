@@ -13,10 +13,7 @@ namespace Sententiaregum\CoreDomain\User;
 
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
-use Sententiaregum\CoreDomain\User\DTO\AuthDTO;
-use Sententiaregum\CoreDomain\User\Event\AuthEvent;
 use Sententiaregum\CoreDomain\User\Exception\UserDomainException;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -24,8 +21,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class User implements UserInterface
 {
-    const AUTHENTICATION_SUCCESSFUL_EVENT = 'sen.domain.user.auth.success';
-
     /**
      * @var integer
      */
@@ -468,28 +463,6 @@ class User implements UserInterface
     public function isOnline()
     {
         return time() - $this->getLastAction()->getTimestamp() <= 300;
-    }
-
-    /**
-     * Authenticates the user by a dto
-     *
-     * @param AuthDTO $authCredentials
-     * @param EventDispatcherInterface $dispatcher
-     *
-     * @return AuthEvent
-     */
-    public function authenticate(AuthDTO $authCredentials, EventDispatcherInterface $dispatcher)
-    {
-        $event = new AuthEvent($this);
-        if (
-            $this->username === $authCredentials->getUsername()
-            && $this->getPassword()->compare($authCredentials->getPassword())
-        ) {
-            return $dispatcher->dispatch(static::AUTHENTICATION_SUCCESSFUL_EVENT, $event);
-        }
-
-        $event->fail('Invalid credentials!');
-        return $event;
     }
 
     /**

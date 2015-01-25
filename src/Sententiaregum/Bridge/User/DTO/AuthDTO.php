@@ -9,7 +9,7 @@
  * Please check out the license file in the document root of this application
  */
 
-namespace Sententiaregum\CoreDomain\User\DTO;
+namespace Sententiaregum\Bridge\User\DTO;
 
 /**
  * DTO containing all the credentials

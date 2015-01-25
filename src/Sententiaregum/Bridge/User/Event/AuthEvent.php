@@ -9,7 +9,7 @@
  * Please check out the license file in the document root of this application
  */
 
-namespace Sententiaregum\CoreDomain\User\Event;
+namespace Sententiaregum\Bridge\User\Event;
 
 use Sententiaregum\CoreDomain\User\User;
 use Symfony\Component\EventDispatcher\Event;
@@ -67,7 +67,6 @@ class AuthEvent extends Event
     public function fail($failReason)
     {
         $this->failReason = (string) $failReason;
-
         return $this;
     }
 

@@ -43,16 +43,6 @@ class UserTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->assertHasRole($roleStub, $user->getRoles()));
     }
 
-    public function testSetTokenForAlreadyAuthenticatedUser()
-    {
-        $user = new User();
-        $token = $user->createToken()->getToken()->getApiKey();
-        $this->assertSame($token, $user->getToken()->getApiKey());
-        $this->assertSame(200, strlen($user->getToken()->getApiKey()));
-        $user->createToken();
-        $this->assertSame($token, $user->getToken()->getApiKey());
-    }
-
     public function testSetStringAsPassword()
     {
         $password = '123456';
@@ -74,39 +64,6 @@ class UserTest extends \PHPUnit_Framework_TestCase
 
         $user->setPassword($password);
         $this->assertTrue($user->getPassword()->isHashed());
-    }
-
-    public function testUserVerify()
-    {
-        $user1 = new User();
-        $user1->setPassword('123456');
-        $user1->setUsername('admin');
-
-        $dto  = new AuthDTO('admin', '123456');
-        $mock = $this->getMock(EventDispatcherInterface::class);
-        $mock
-            ->expects($this->any())
-            ->method('dispatch')
-            ->will($this->returnArgument(1));
-
-        $result = $user1->authenticate($dto, $mock);
-        $this->assertInstanceOf(AuthEvent::class, $result);
-
-        $this->assertNull($result->getFailReason());
-    }
-
-    public function testFailedUserAuth()
-    {
-        $user1 = new User();
-        $user1->setPassword('123456');
-        $user1->setUsername('admin');
-
-        $dto  = new AuthDTO('admin', 'foo');
-        $mock = $this->getMock(EventDispatcherInterface::class);
-
-        $result = $user1->authenticate($dto, $mock);
-        $this->assertInstanceOf(AuthEvent::class, $result);
-        $this->assertSame('Invalid credentials!', $result->getFailReason());
     }
 
     /**

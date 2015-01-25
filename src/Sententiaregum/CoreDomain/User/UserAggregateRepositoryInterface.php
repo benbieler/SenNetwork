@@ -33,13 +33,4 @@ interface UserAggregateRepositoryInterface
      * @return User
      */
     public function findOneByApiKey($apiKey);
-
-    /**
-     * Updates a user entity
-     *
-     * @param User $user
-     *
-     * @return $this
-     */
-    public function update(User $user);
 }
