@@ -12,4 +12,3 @@
 /composer.phar
 /.idea/*
 /src/Sententiaregum/Bundle/WebBundle/Resources/public/vendor/
-!src/Sententiaregum/Bundle/WebBundle/Resources/public/vendor/.gitkeep
