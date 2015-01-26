@@ -1,6 +1,11 @@
+sententiaregum_web:
+    resource: "@SententiaregumWebBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 sententiaregum_user:
     resource: "@SententiaregumUserBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /api/auth
 
 
