@@ -1,1 +1,6 @@
+sententiaregum_user:
+    resource: "@SententiaregumUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 
