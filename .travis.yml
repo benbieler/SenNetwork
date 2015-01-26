@@ -9,6 +9,7 @@ before_script:
   - printf "\n" | pecl install imagick
   - printf "\n" | pecl install apc
   - mysql -e 'CREATE DATABASE IF NOT EXISTS symfony;'
+  - echo "use mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user = 'root';\nFLUSH PRIVILEGES;\n" | mysql -u root
   - npm install -g bower
   - rake showDependencies
   - rake deploy
