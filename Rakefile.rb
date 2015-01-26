@@ -10,7 +10,7 @@ task :test do
 end
 
 desc "This task shows the dependencies of this application"
-task :show-dependencies do
+task :showDependencies do
     puts "PHP 5.5 or higher"
     puts "Composer"
     puts "Bower"

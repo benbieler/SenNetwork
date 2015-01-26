@@ -9,7 +9,7 @@ before_script:
   - printf "\n" | pecl install imagick
   - printf "\n" | pecl install apc
   - mysql -e 'CREATE DATABASE IF NOT EXISTS symfony;'
-  - rake show-dependencies
+  - rake showDependencies
   - rake deploy
 
 services:
