@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                  http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="Sententiaregum\CoreDomain\User\Token" table="SEN_Token">
+        
+        <unique-constraints>
+            <unique-constraint columns="apiKey" />
+        </unique-constraints>
+
+        <id name="tokenId" type="integer" column="tokenId">
+            <generator strategy="AUTO" />
+        </id>
+
+        <field name="apiKey" length="200" type="string" />
+
+        <one-to-one field="user" target-entity="Sententiaregum\CoreDomain\User\User" mapped-by="token" />
+        
+    </entity>
+
+</doctrine-mapping>
