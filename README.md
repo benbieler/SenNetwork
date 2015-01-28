@@ -1,7 +1,15 @@
 Sententiaregum Refactoring
 ==========================
 
+[![Build Status](https://travis-ci.org/Ma27/SenNetwork.svg?branch=refactor)](https://travis-ci.org/Ma27/SenNetwork)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Ma27/SenNetwork/badges/quality-score.png?b=refactor)](https://scrutinizer-ci.com/g/Ma27/SenNetwork/?branch=refactor)
+[![SensioLabs Insight](https://insight.sensiolabs.com/projects/cbf672e8-94ee-4817-b59b-0723dcbcce37/mini.png)](https://insight.sensiolabs.com/projects/cbf672e8-94ee-4817-b59b-0723dcbcce37)
+
+<!-- #ToDo update branches when this version will be moved to master branch -->
+
 Sententiaregum is a project which combines AngularJS and Symfony2 in order to build a social network with a great UX.
 
 The frontend contains an angular Single Page Application (=SPA) and is styled with Foundation 5.
 The backend is built with Symfony2 and is a large REST API using FOSRest.
+
+
