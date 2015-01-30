@@ -7,6 +7,9 @@ filter:
         - app/
         - src/Sententiaregum/CoreDomain/User/Tests/
         - src/Sententiaregum/Bridge/User/Tests/
+        - src/Sententiaregum/Bundle/UserBundle/Tests/
+        - src/Sententiaregum/Bundle/WebBundle/Tests/
+        - src/Sententiaregum/Infrastructure/User/Tests/
 
 tools:
     php_code_sniffer:
