@@ -23,13 +23,23 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         $bundles = [
+            // sf2
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
-            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+
+            // doctrine2
+            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
+
+            // rest interface
+            new FOS\RestBundle\FOSRestBundle(),
+            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+
+            // sententiaregum
             new Sententiaregum\Bundle\UserBundle\SententiaregumUserBundle(),
             new Sententiaregum\Bundle\WebBundle\SententiaregumWebBundle(),
         ];

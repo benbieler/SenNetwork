@@ -55,3 +55,12 @@ doctrine:
                         dir:       %kernel.root_dir%/../src/Sententiaregum/Infrastructure/User/Resources/doctrine
                         alias:     SEN_User
                         prefix:    Sententiaregum\CoreDomain\User
+
+# FOS Rest Configuration
+fos_rest:
+    view:
+        view_response_listener: force
+
+# Sensio Framework Configuration
+sensio_framework_extra:
+    view: { annotations: false }

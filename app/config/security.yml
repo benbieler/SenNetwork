@@ -3,10 +3,9 @@ security:
         in_memory:
             memory: ~
 
-    firewalls:
-        dev:
-            pattern: ^/(_(profiler|wdt|error)|css|images|js)/
-            security: false
-
-        default:
-            anonymous: ~
+    #firewalls:
+    #    network:
+    #        pattern:   ^/api/sententiaregum
+    #        stateless: true
+    #        simple_preauth:
+    #            authenticator: sen.user.security.authentication

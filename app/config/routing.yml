@@ -1,11 +1,14 @@
 sententiaregum_web:
     resource: "@SententiaregumWebBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /api/web
 
 sententiaregum_user:
     resource: "@SententiaregumUserBundle/Controller/"
     type:     annotation
     prefix:   /api/auth
 
-
+# app/config/routing.yml
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/sententiaregum/api-doc

@@ -23,3 +23,7 @@ monolog:
             level: debug
         console:
             type:  console
+
+# Use rest controller in twig in order to prevent awful error pages
+twig:
+    exception_controller: 'FOS\RestBundle\Controller\ExceptionController::showAction'
