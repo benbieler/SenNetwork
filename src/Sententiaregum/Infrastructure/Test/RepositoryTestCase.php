@@ -16,7 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 /**
  * Test case for infrastructure objects
  */
-class RepositoryTestCase extends KernelTestCase
+abstract class RepositoryTestCase extends KernelTestCase
 {
     /**
      * @var \Doctrine\ORM\EntityManagerInterface
