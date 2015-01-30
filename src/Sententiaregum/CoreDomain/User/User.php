@@ -237,9 +237,9 @@ class User implements UserInterface
      *
      * @return $this
      */
-    public function setRegistrationDate(DateTime $registrationDate)
+    public function setRegistrationDate(DateTime $registrationDate = null)
     {
-        $this->registrationDate = $registrationDate;
+        $this->registrationDate = $registrationDate ?: new DateTime();
 
         return $this;
     }
@@ -261,9 +261,9 @@ class User implements UserInterface
      *
      * @return $this
      */
-    public function setLastAction(DateTime $lastAction)
+    public function setLastAction(DateTime $lastAction = null)
     {
-        $this->lastAction = $lastAction;
+        $this->lastAction = $lastAction ?: new DateTime();
 
         return $this;
     }
@@ -449,6 +449,31 @@ class User implements UserInterface
     public function isOnline()
     {
         return time() - $this->getLastAction()->getTimestamp() <= 300;
+    }
+
+    /**
+     * Fills a user entity automatically
+     *
+     * @param string $username
+     * @param string $password
+     * @param string $email
+     * @param string $realName
+     * @param DateTime $registrationDate
+     * @param DateTime $lastAction
+     *
+     * @return $this
+     */
+    public function create(
+        $username, $password, $email, $realName = null, DateTime $registrationDate = null, DateTime $lastAction = null
+    ) {
+        $this->setUsername($username);
+        $this->setPassword($password);
+        $this->setEmail($email);
+        $this->setRealName($realName);
+        $this->setRegistrationDate($registrationDate);
+        $this->setLastAction($lastAction);
+
+        return $this;
     }
 
     /**

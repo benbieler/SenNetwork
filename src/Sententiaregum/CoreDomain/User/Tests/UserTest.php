@@ -102,4 +102,14 @@ class UserTest extends \PHPUnit_Framework_TestCase
 
         return false;
     }
+
+    public function testUserFactory()
+    {
+        $user = new User();
+        $user->create('admin', 'password', 'admin@example.org');
+
+        $this->assertSame($user->getUsername(), 'admin');
+        $this->assertTrue($user->getPassword()->compare('password'));
+        $this->assertSame($user->getEmail(), 'admin@example.org');
+    }
 }

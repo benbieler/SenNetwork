@@ -24,7 +24,7 @@ class User extends EntityRepository implements UserAggregateRepositoryInterface
      */
     public function findOneByName($username)
     {
-        # TODO: Implement findOneByName() method.
+        return $this->findOneBy(['username' => $username]);
     }
 
     /**
@@ -32,6 +32,16 @@ class User extends EntityRepository implements UserAggregateRepositoryInterface
      */
     public function findOneByApiKey($apiKey)
     {
-        # TODO: Implement findOneByApiKey() method.
+        $result = $this->getEntityManager()
+            ->createQueryBuilder()
+            ->select('t')
+            ->from('Sententiaregum\CoreDomain\User\Token', 't')
+            ->where('t.apiKey = :apiKey')
+            ->setParameter('apiKey', $apiKey)
+            ->getQuery()
+            ->getResult();
+
+        /** @var $result \Sententiaregum\CoreDomain\User\Token[] */
+        return $result[0]->getUser();
     }
 }

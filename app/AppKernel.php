@@ -51,36 +51,4 @@ class AppKernel extends Kernel
     {
         $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getCacheDir()
-    {
-        if ($this->isVagrantEnvironment()) {
-            return '/dev/shm/sen/cache/'.$this->environment;
-        }
-
-        return parent::getCacheDir();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getLogDir()
-    {
-        if ($this->isVagrantEnvironment()) {
-            return '/dev/shm/sen/logs';
-        }
-
-        return parent::getLogDir();
-    }
-
-    /**
-     * @return boolean
-     */
-    protected function isVagrantEnvironment()
-    {
-        return (getenv('HOME') === '/home/vagrant' || getenv('VAGRANT') === 'VAGRANT') && is_dir('/dev/shm');
-    }
 }

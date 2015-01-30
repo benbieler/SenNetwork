@@ -109,6 +109,8 @@ class Authentication implements AuthenticationInterface
 
         $userEntity->createToken();
 
+        $this->entityManager->persist($userEntity->getToken());
+
         // since the entity is already persisted the modified entity should be merged only
         $this->entityManager->merge($userEntity);
         $this->entityManager->flush();
