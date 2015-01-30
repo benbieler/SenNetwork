@@ -22,19 +22,19 @@ class UserTest extends \PHPUnit_Framework_TestCase
 {
     public function testIsOnline()
     {
-        $user = new User();
+        $user = new User('username', 'password', 'email@example.org');
 
-        $user->setLastAction(new \DateTime('5 minutes ago'));
+        $user->updateLastAction(new \DateTime('5 minutes ago'));
         $this->assertTrue($user->isOnline());
 
-        $user->setLastAction(new \DateTime('1 hour ago'));
+        $user->updateLastAction(new \DateTime('1 hour ago'));
         $this->assertFalse($user->isOnline());
     }
 
     public function testRemoveRole()
     {
         $roleStub = $this->getMockBuilder(Role::class)->disableOriginalConstructor()->getMock();
-        $user     = new User();
+        $user     = new User('username', 'password', 'email@example.org');
 
         $user->addRole($roleStub);
         $this->assertTrue($this->assertHasRole($roleStub, $user->getRoles()));
@@ -46,9 +46,8 @@ class UserTest extends \PHPUnit_Framework_TestCase
     public function testSetStringAsPassword()
     {
         $password = '123456';
-        $user     = new User();
+        $user     = new User(null, $password, null);
 
-        $user->setPassword($password);
         $result = $user->getPassword();
 
         $this->assertInstanceOf(Password::class, $result);
@@ -58,11 +57,10 @@ class UserTest extends \PHPUnit_Framework_TestCase
     public function testSetPasswordWithValueObject()
     {
         $password = new Password('1234346');
-        $user     = new User();
-
         $this->assertFalse($password->isHashed());
 
-        $user->setPassword($password);
+        $user = new User(null, $password, null);
+
         $this->assertTrue($user->getPassword()->isHashed());
     }
 
@@ -72,7 +70,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetPasswordWithInvalidDataType()
     {
-        (new User())->setPassword(10);
+        new User('username', 10, 'email@example.org');
     }
 
     /**
@@ -81,7 +79,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetPasswordWithNoPassword()
     {
-        (new User())->setPassword(null);
+        new User('username', null, 'email@example.org');
     }
 
     /**
@@ -101,15 +99,5 @@ class UserTest extends \PHPUnit_Framework_TestCase
         }
 
         return false;
-    }
-
-    public function testUserFactory()
-    {
-        $user = new User();
-        $user->create('admin', 'password', 'admin@example.org');
-
-        $this->assertSame($user->getUsername(), 'admin');
-        $this->assertTrue($user->getPassword()->compare('password'));
-        $this->assertSame($user->getEmail(), 'admin@example.org');
     }
 }

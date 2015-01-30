@@ -52,7 +52,7 @@ class AuthenticationTest extends \PHPUnit_Framework_TestCase
         $repo
             ->expects($this->any())
             ->method('findOneByName')
-            ->will($this->returnValue(new User()));
+            ->will($this->returnValue(new User('username', 'password', 'email@example.org')));
 
         $service = new Authentication(
             $repo,
@@ -75,14 +75,14 @@ class AuthenticationTest extends \PHPUnit_Framework_TestCase
         $repo
             ->expects($this->any())
             ->method('findOneByName')
-            ->will($this->returnValue(new User()));
+            ->will($this->returnValue(new User('username', 'password', 'email@example.org')));
 
         $dispatcher = $this->getMock(EventDispatcherInterface::class);
         $dispatcher
             ->expects($this->any())
             ->method('dispatch')
             ->will($this->returnValue(
-                (new AuthEvent(new User()))->fail('Any error')
+                (new AuthEvent(new User('username', 'password', 'email@example.org')))->fail('Any error')
             ));
 
         $service = new Authentication(

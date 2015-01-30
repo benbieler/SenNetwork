@@ -34,7 +34,7 @@ class IsLockedListenerTest extends \PHPUnit_Framework_TestCase
 
     public function testUserIsLocked()
     {
-        $user = new User();
+        $user = new User('username', 'password', 'email@example.org');
         $user->lock();
 
         $event = new AuthEvent($user);

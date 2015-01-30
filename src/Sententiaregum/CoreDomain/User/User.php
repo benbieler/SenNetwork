@@ -82,13 +82,28 @@ class User implements UserInterface
     private $following;
 
     /**
-     * Constructor
+     * @param string $username
+     * @param string|Password $password
+     * @param string $email
+     * @param string $realName
+     * @param DateTime $registrationDate
+     * @param DateTime $lastAction
      */
-    public function __construct()
-    {
+    public function __construct(
+        $username, $password, $email, $realName = null, DateTime $registrationDate = null,  DateTime $lastAction = null
+    ) {
+        $this->username         = (string) $username;
+        $this->password         = $password;
+        $this->email            = (string) $email;
+        $this->realName         = (string) $realName;
+        $this->registrationDate = $registrationDate ?: new DateTime();
+        $this->lastAction       = $lastAction ?: new DateTime();
+
         $this->roles     = new ArrayCollection();
         $this->followers = new ArrayCollection();
         $this->following = new ArrayCollection();
+
+        $this->transformPassword();
     }
 
     /**
@@ -112,20 +127,6 @@ class User implements UserInterface
     }
 
     /**
-     * Set username
-     *
-     * @param string $username
-     *
-     * @return $this
-     */
-    public function setUsername($username)
-    {
-        $this->username = (string) $username;
-
-        return $this;
-    }
-
-    /**
      * Return password
      *
      * @return Password
@@ -134,21 +135,6 @@ class User implements UserInterface
     {
         $this->transformPassword();
         return $this->password;
-    }
-
-    /**
-     * Set password
-     *
-     * @param mixed $password
-     *
-     * @return $this
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-        $this->transformPassword();
-
-        return $this;
     }
 
     /**
@@ -183,20 +169,6 @@ class User implements UserInterface
     }
 
     /**
-     * Set email
-     *
-     * @param string $email
-     *
-     * @return $this
-     */
-    public function setEmail($email)
-    {
-        $this->email = (string) $email;
-
-        return $this;
-    }
-
-    /**
      * Return real name
      *
      * @return string
@@ -204,20 +176,6 @@ class User implements UserInterface
     public function getRealName()
     {
         return $this->realName;
-    }
-
-    /**
-     * Set real name
-     *
-     * @param string $realName
-     *
-     * @return $this
-     */
-    public function setRealName($realName)
-    {
-        $this->realName = (string) $realName;
-
-        return $this;
     }
 
     /**
@@ -231,20 +189,6 @@ class User implements UserInterface
     }
 
     /**
-     * Set registration date
-     *
-     * @param DateTime $registrationDate
-     *
-     * @return $this
-     */
-    public function setRegistrationDate(DateTime $registrationDate = null)
-    {
-        $this->registrationDate = $registrationDate ?: new DateTime();
-
-        return $this;
-    }
-
-    /**
      * Return last action
      *
      * @return DateTime
@@ -252,20 +196,6 @@ class User implements UserInterface
     public function getLastAction()
     {
         return $this->lastAction;
-    }
-
-    /**
-     * Set last action
-     *
-     * @param DateTime $lastAction
-     *
-     * @return $this
-     */
-    public function setLastAction(DateTime $lastAction = null)
-    {
-        $this->lastAction = $lastAction ?: new DateTime();
-
-        return $this;
     }
 
     /**
@@ -442,6 +372,20 @@ class User implements UserInterface
     }
 
     /**
+     * Updates the last action
+     *
+     * @param DateTime $lastActionDate
+     *
+     * @return $this
+     */
+    public function updateLastAction(DateTime $lastActionDate)
+    {
+        $this->lastAction = $lastActionDate;
+
+        return $this;
+    }
+
+    /**
      * Checks if the user is online
      *
      * @return boolean
@@ -449,31 +393,6 @@ class User implements UserInterface
     public function isOnline()
     {
         return time() - $this->getLastAction()->getTimestamp() <= 300;
-    }
-
-    /**
-     * Fills a user entity automatically
-     *
-     * @param string $username
-     * @param string $password
-     * @param string $email
-     * @param string $realName
-     * @param DateTime $registrationDate
-     * @param DateTime $lastAction
-     *
-     * @return $this
-     */
-    public function create(
-        $username, $password, $email, $realName = null, DateTime $registrationDate = null, DateTime $lastAction = null
-    ) {
-        $this->setUsername($username);
-        $this->setPassword($password);
-        $this->setEmail($email);
-        $this->setRealName($realName);
-        $this->setRegistrationDate($registrationDate);
-        $this->setLastAction($lastAction);
-
-        return $this;
     }
 
     /**

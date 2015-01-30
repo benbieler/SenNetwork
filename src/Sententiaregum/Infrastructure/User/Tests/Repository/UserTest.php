@@ -34,8 +34,7 @@ class UserAggregateRespositoryTest extends RepositoryTestCase
 
     public function testFindByName()
     {
-        $user = new User();
-        $user->create('admin', 'password', 'admin@example.org');
+        $user = new User('admin', 'password', 'admin@example.org');
 
         static::$em->persist($user);
         static::$em->flush();
@@ -48,8 +47,7 @@ class UserAggregateRespositoryTest extends RepositoryTestCase
 
     public function testFindByToken()
     {
-        $user = new User();
-        $user->create(null, 'password', null);
+        $user = new User(null, 'password', null);
         $user->createToken();
 
         $token = $user->getToken();

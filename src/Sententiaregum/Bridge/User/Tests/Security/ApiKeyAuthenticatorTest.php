@@ -75,7 +75,7 @@ class ApiKeyAuthenticatorTest extends \PHPUnit_Framework_TestCase
      */
     public function testTokenAuthentication($apiKey, $providerKey)
     {
-        $user = new User();
+        $user = new User('username', 'password', 'email@example.org');
 
         $token = $this->getMock(TokenInterface::class);
         $token

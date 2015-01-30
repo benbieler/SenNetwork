@@ -20,7 +20,7 @@ class UserProviderTest extends \PHPUnit_Framework_TestCase
 {
     public function testLoadByUsername()
     {
-        $userMock = $this->getMock(User::class);
+        $userMock = $this->getMockBuilder(User::class)->disableOriginalConstructor()->getMock();
         $userMock
             ->expects($this->any())
             ->method('getUsername')
@@ -58,7 +58,7 @@ class UserProviderTest extends \PHPUnit_Framework_TestCase
 
     public function testRefreshUser()
     {
-        $stub = new User();
+        $stub = new User('username', 'password', 'email@example.org');
         $repo = $this->getMock(UserAggregateRepositoryInterface::class);
         $repo
             ->expects($this->any())
@@ -76,7 +76,7 @@ class UserProviderTest extends \PHPUnit_Framework_TestCase
      */
     public function testFindByApiKey($key)
     {
-        $stub = new User();
+        $stub = new User('username', 'password', 'email@example.org');
         $repo = $this->getMock(UserAggregateRepositoryInterface::class);
         $repo
             ->expects($this->any())
