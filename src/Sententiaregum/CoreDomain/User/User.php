@@ -382,7 +382,7 @@ class User implements UserInterface
      *
      * @return $this
      */
-    public function unfollow(User $user)
+    public function removeFollower(User $user)
     {
         $this->followers->removeElement($user);
 
@@ -396,7 +396,7 @@ class User implements UserInterface
      *
      * @return $this
      */
-    public function follow(User $user)
+    public function addFollower(User $user)
     {
         $this->followers->add($user);
 
@@ -420,7 +420,7 @@ class User implements UserInterface
      *
      * @return $this
      */
-    public function addFollowing(User $user)
+    public function follow(User $user)
     {
         $this->following->add($user);
 
@@ -434,7 +434,7 @@ class User implements UserInterface
      *
      * @return $this
      */
-    public function removeFollowing(User $user)
+    public function unfollow(User $user)
     {
         $this->following->removeElement($user);
 
