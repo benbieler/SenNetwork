@@ -104,6 +104,19 @@ class User implements UserInterface
         $this->following = new ArrayCollection();
 
         $this->transformPassword();
+        $this->validateEmail();
+    }
+
+    /**
+     * Validates the given email
+     *
+     * @throws UserDomainException If email is invalid
+     */
+    private function validateEmail()
+    {
+        if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+            throw new UserDomainException('Email is invalid!');
+        }
     }
 
     /**

@@ -100,4 +100,13 @@ class UserTest extends \PHPUnit_Framework_TestCase
 
         return false;
     }
+
+    /**
+     * @expectedException \Sententiaregum\CoreDomain\User\Exception\UserDomainException
+     * @expectedExceptionMessage Email is invalid!
+     */
+    public function testInvalidEmail()
+    {
+        new User('admin', 'password', 'invalid email');
+    }
 }
