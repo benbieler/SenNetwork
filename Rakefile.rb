@@ -25,7 +25,6 @@ end
 desc "This task prepares the software for travis CI"
 task :prepareCI do
     sh %{printf "\n" | pecl install imagick}
-    sh %{printf "\n" | pecl install apc}
     sh %{mysql -e 'CREATE DATABASE IF NOT EXISTS symfony;'}
     sh %{echo "use mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user = 'root';\nFLUSH PRIVILEGES;\n" | mysql -u root}
     sh %{npm install -g bower}
