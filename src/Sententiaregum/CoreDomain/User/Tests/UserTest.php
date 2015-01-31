@@ -46,7 +46,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
     public function testSetStringAsPassword()
     {
         $password = '123456';
-        $user     = new User(null, $password, null);
+        $user     = new User(null, $password, 'email@example.org');
 
         $result = $user->getPassword();
 
@@ -59,7 +59,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
         $password = new Password('1234346');
         $this->assertFalse($password->isHashed());
 
-        $user = new User(null, $password, null);
+        $user = new User(null, $password, 'email@example.org');
 
         $this->assertTrue($user->getPassword()->isHashed());
     }
