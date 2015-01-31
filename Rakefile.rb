@@ -19,7 +19,7 @@ end
 
 desc "This task purges if the software should be uninstalled"
 task :uninstallData do
-    sh %{php app/console doctrine:schema:drop}
+    sh %{php app/console doctrine:schema:drop --force}
 end
 
 desc "This task prepares the software for travis CI"

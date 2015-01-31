@@ -8,7 +8,8 @@ framework:
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
         strict_requirements: ~
-    form:            ~
+    form:
+        enabled: true
     csrf_protection: ~
     validation:      { enable_annotations: true }
     templating:
@@ -62,8 +63,8 @@ fos_rest:
     format_listener: true
     view:
         view_response_listener: force
-        failed_validation: HTTP_BAD_REQUEST
-        default_engine: twig
+        failed_validation:      HTTP_BAD_REQUEST
+        default_engine:         twig
         formats:
             json:  true
             jsonp: true
