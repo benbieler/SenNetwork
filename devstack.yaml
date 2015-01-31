@@ -22,8 +22,6 @@ profile::queue::rabbitmq: false
 profile::webserver::php: true
 profile::webserver::hhvm: false
 
-component::symfony2::front_controller: app_dev.php
-
 profile::javascript::nodejs: true
 profile::javascript::less: false
 

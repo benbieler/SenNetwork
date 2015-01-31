@@ -2,6 +2,7 @@
 
 namespace Sententiaregum\Bundle\WebBundle\DependencyInjection;
 
+use Sententiaregum\Bundle\WebBundle\Service\Value\FormReference;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
@@ -23,6 +24,19 @@ class SententiaregumWebExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.xml');
+
+        if ($config['form_templates']['enabled']) {
+            $loader->load('form_templating.xml');
+
+            if ($container->hasDefinition('sen.web.template_service')) {
+                $references = [];
+                foreach ($config['form_templates']['associations'] as $formAlias => $templateName) {
+                    $references[] = new FormReference($formAlias, $templateName);
+                }
+
+                $definition = $container->getDefinition('sen.web.template_service');
+                $definition->addMethodCall('appendFormSet', $references);
+            }
+        }
     }
 }

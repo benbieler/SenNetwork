@@ -75,3 +75,7 @@ fos_rest:
 # Sensio Framework Configuration
 sensio_framework_extra:
     view: { annotations: false }
+
+sententiaregum_web:
+    form_templates:
+        enabled: false

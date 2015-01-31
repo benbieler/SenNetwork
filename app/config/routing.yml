@@ -11,4 +11,4 @@ sententiaregum_user:
 # app/config/routing.yml
 NelmioApiDocBundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
-    prefix:   /api/sententiaregum/api-doc
+    prefix:   /api-doc
