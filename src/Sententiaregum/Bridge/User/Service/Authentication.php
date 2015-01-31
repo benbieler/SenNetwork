@@ -69,9 +69,9 @@ class Authentication implements AuthenticationInterface
     /**
      * {@inheritdoc}
      */
-    public function setRequesterIp($ip)
+    public function setRequesterIp($requesterIp)
     {
-        $this->ip = (string) $ip;
+        $this->ip = (string) $requesterIp;
 
         return $this;
     }

@@ -36,8 +36,8 @@ class UserTest extends RepositoryTestCase
     {
         $user = new User('admin', 'password', 'admin@example.org');
 
-        static::$em->persist($user);
-        static::$em->flush();
+        static::$entityManager->persist($user);
+        static::$entityManager->flush();
 
         $repo   = static::$repository;
         $result = $repo->findOneByName('admin');
@@ -53,7 +53,7 @@ class UserTest extends RepositoryTestCase
         $token = $user->getToken();
         $this->assertInstanceOf(Token::class, $token);
 
-        $em = static::$em;
+        $em = static::$entityManager;
         $em->persist($token);
         $em->persist($user);
         $em->flush();

@@ -21,7 +21,7 @@ abstract class RepositoryTestCase extends KernelTestCase
     /**
      * @var \Doctrine\ORM\EntityManagerInterface
      */
-    protected static $em;
+    protected static $entityManager;
 
     /**
      * @var \Sententiaregum\Infrastructure\User\Repository\User
@@ -33,14 +33,14 @@ abstract class RepositoryTestCase extends KernelTestCase
         static::$kernel = static::createKernel();
         static::$kernel->boot();
 
-        $container          = static::$kernel->getContainer();
-        static::$em         = $container->get('doctrine.orm.default_entity_manager');
-        static::$repository = static::$em->getRepository($entityClass);
+        $container             = static::$kernel->getContainer();
+        static::$entityManager = $container->get('doctrine.orm.default_entity_manager');
+        static::$repository    = static::$entityManager->getRepository($entityClass);
     }
 
     protected function purgeEntities(array $entityClasses)
     {
-        $em = static::$em;
+        $em = static::$entityManager;
         foreach ($entityClasses as $entityClass) {
             $em->createQuery(sprintf("DELETE FROM %s", $entityClass))->execute();
         }

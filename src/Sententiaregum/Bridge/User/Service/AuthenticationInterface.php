@@ -26,11 +26,11 @@ interface AuthenticationInterface
     /**
      * Sets the ip of the requester
      *
-     * @param string $ip
+     * @param string $requesterIp
      *
      * @return $this
      */
-    public function setRequesterIp($ip);
+    public function setRequesterIp($requesterIp);
 
     /**
      * Authenticates the user
