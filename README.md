@@ -4,6 +4,7 @@ Sententiaregum Refactoring
 [![Build Status](https://travis-ci.org/Ma27/SenNetwork.svg?branch=refactor)](https://travis-ci.org/Ma27/SenNetwork)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Ma27/SenNetwork/badges/quality-score.png?b=refactor)](https://scrutinizer-ci.com/g/Ma27/SenNetwork/?branch=refactor)
 [![SensioLabs Insight](https://insight.sensiolabs.com/projects/cbf672e8-94ee-4817-b59b-0723dcbcce37/mini.png)](https://insight.sensiolabs.com/projects/cbf672e8-94ee-4817-b59b-0723dcbcce37)
+[![Codacy Badge](https://www.codacy.com/project/badge/c64875fe25804e8f80f85cfaf1a50fd1)](https://www.codacy.com/public/maximilianbosch27/SenNetwork)
 
 <!-- #ToDo update branches when this version will be moved to master branch -->
 
