@@ -3,6 +3,9 @@ security:
         in_memory:
             memory: ~
 
+    firewalls:
+        default:
+            anonymous: ~
     #firewalls:
     #    network:
     #        pattern:   ^/api/sententiaregum

@@ -15,11 +15,11 @@ use Sententiaregum\CoreDomain\User\Token;
 use Sententiaregum\CoreDomain\User\User;
 use Sententiaregum\Infrastructure\Test\RepositoryTestCase;
 
-class UserAggregateRespositoryTest extends RepositoryTestCase
+class UserTest extends RepositoryTestCase
 {
     public static function setUpBeforeClass()
     {
-        static::setUpRepositorySet(User::class);
+        static::setUpRepositorySet('SEN_User:User');
     }
 
     protected function tearDown()
@@ -47,7 +47,7 @@ class UserAggregateRespositoryTest extends RepositoryTestCase
 
     public function testFindByToken()
     {
-        $user = new User(null, 'password', null);
+        $user = new User(null, 'password', 'email@example.org');
         $user->createToken();
 
         $token = $user->getToken();
