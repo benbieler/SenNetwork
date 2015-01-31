@@ -40,9 +40,9 @@ abstract class RepositoryTestCase extends KernelTestCase
 
     protected function purgeEntities(array $entityClasses)
     {
-        $em = static::$entityManager;
+        $entityManager = static::$entityManager;
         foreach ($entityClasses as $entityClass) {
-            $em->createQuery(sprintf("DELETE FROM %s", $entityClass))->execute();
+            $entityManager->createQuery(sprintf("DELETE FROM %s", $entityClass))->execute();
         }
     }
 }
