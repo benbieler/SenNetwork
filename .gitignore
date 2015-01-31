@@ -12,3 +12,5 @@
 /composer.phar
 /.idea/*
 /src/Sententiaregum/Bundle/WebBundle/Resources/public/vendor/
+/app/check.php
+/app/SymfonyRequirements.php
