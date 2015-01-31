@@ -2,6 +2,7 @@ desc "This task installs the application on that server"
 task :deploy do
     sh %{composer install}
     sh %{bower install}
+    sh %{php app/console doctrine:schema:create}
 end
 
 desc "This task tests the application"
@@ -18,7 +19,7 @@ end
 
 desc "This task purges if the software should be uninstalled"
 task :uninstallData do
-    sh %{app/console doctrine:schema:drop}
+    sh %{php app/console doctrine:schema:drop}
 end
 
 desc "This task prepares the software for travis CI"
