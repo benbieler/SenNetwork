@@ -53,10 +53,10 @@ class UserTest extends RepositoryTestCase
         $token = $user->getToken();
         $this->assertInstanceOf(Token::class, $token);
 
-        $em = static::$entityManager;
-        $em->persist($token);
-        $em->persist($user);
-        $em->flush();
+        $entityManager = static::$entityManager;
+        $entityManager->persist($token);
+        $entityManager->persist($user);
+        $entityManager->flush();
 
         $result = static::$repository->findOneByApiKey($token->getApiKey());
         $this->assertInstanceOf(User::class, $result);
