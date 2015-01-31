@@ -46,7 +46,7 @@ class Authentication implements AuthenticationInterface
     /**
      * @var string
      */
-    private $ip;
+    private $requesterIp;
 
     /**
      * @param UserAggregateRepositoryInterface $userRepository
@@ -71,7 +71,7 @@ class Authentication implements AuthenticationInterface
      */
     public function setRequesterIp($requesterIp)
     {
-        $this->ip = (string) $requesterIp;
+        $this->requesterIp = (string) $requesterIp;
 
         return $this;
     }
@@ -91,7 +91,7 @@ class Authentication implements AuthenticationInterface
                 'Someone tried to authenticate with invalid credentials the account %s! Reason: %s! The ip was %s',
                 $authDTO->getUsername(),
                 $errorEvent->getFailReason(),
-                $this->ip ?: 'unknown'
+                $this->requesterIp ?: 'unknown'
             );
 
             $this->logger->notice($logEntry);
