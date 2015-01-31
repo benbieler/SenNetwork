@@ -1,7 +1,6 @@
 desc "This task installs the application on that server"
 task :deploy do
     sh %{composer install}
-    sh %{https://insight.sensiolabs.com/projects/cbf672e8-94ee-4817-b59b-0723dcbcce37}
     sh %{bower install}
 end
 
