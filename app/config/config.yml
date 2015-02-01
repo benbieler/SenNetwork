@@ -81,6 +81,20 @@ fos_rest:
 sensio_framework_extra:
     view: { annotations: false }
 
+# Bower Configuration
+sp_bower:
+    bundles:
+        SententiaregumWebBundle:
+            json_file:  bower.json
+            config_dir: Resources/config
+            asset_dir:  Resources/public/vendor
+            cache:
+                directory: Resources/public/cache
+    assetic:
+        enabled:           true
+        nest_dependencies: true
+
+# Sententiaregum Web Configuration
 sententiaregum_web:
     form_templates:
         enabled: false

@@ -24,7 +24,8 @@
         "predis/predis": "~0.8",
         "nelmio/api-doc-bundle": "~2.7",
         "jms/serializer-bundle": "~0.13",
-        "friendsofsymfony/rest-bundle": "~1.4"
+        "friendsofsymfony/rest-bundle": "~1.4",
+        "sp/bower-bundle": "~0.11"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
@@ -35,6 +36,7 @@
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sp\\BowerBundle\\Composer\\ScriptHandler::bowerInstall",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "php app/console security:check",
@@ -45,6 +47,7 @@
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sp\\BowerBundle\\Composer\\ScriptHandler::bowerInstall",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "php app/console security:check",

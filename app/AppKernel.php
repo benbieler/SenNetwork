@@ -39,6 +39,9 @@ class AppKernel extends Kernel
             new FOS\RestBundle\FOSRestBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
 
+            // bower assets
+            new Sp\BowerBundle\SpBowerBundle(),
+
             // sententiaregum
             new Sententiaregum\Bundle\UserBundle\SententiaregumUserBundle(),
             new Sententiaregum\Bundle\WebBundle\SententiaregumWebBundle(),

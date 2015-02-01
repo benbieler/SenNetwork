@@ -1,8 +1,17 @@
 desc "This task installs the application on that server"
 task :deploy do
     sh %{composer install}
-    sh %{bower install}
     sh %{php app/console doctrine:schema:create}
+end
+
+desc "This task updates the local application"
+task :update do
+    sh %{composer update}
+end
+
+desc "This tasks updates the remote application"
+task :updateRemote => "update" do
+    sh %{git pull}
 end
 
 desc "This task tests the application"
