@@ -2,7 +2,6 @@
 
 namespace Sententiaregum\Bundle\UserBundle\DependencyInjection;
 
-use Sententiaregum\Bridge\User\Service\AuthenticationInterface;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 

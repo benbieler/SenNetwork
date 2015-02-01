@@ -102,3 +102,8 @@ sp_bower:
 sententiaregum_web:
     form_templates:
         enabled: false
+
+# Sententiaregum User Bundle
+sententiaregum_user:
+    api_key_authentication:
+        enabled: true
