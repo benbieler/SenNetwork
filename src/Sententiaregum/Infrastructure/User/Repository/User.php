@@ -35,13 +35,13 @@ class User extends EntityRepository implements UserAggregateRepositoryInterface
         $result = $this->getEntityManager()
             ->createQueryBuilder()
             ->select('t')
-            ->from('Sententiaregum\CoreDomain\User\Token', 't')
+            ->from('SEN_User:Token', 't')
             ->where('t.apiKey = :apiKey')
             ->setParameter('apiKey', $apiKey)
             ->getQuery()
-            ->getResult();
+            ->getSingleResult();
 
-        /** @var $result \Sententiaregum\CoreDomain\User\Token[] */
-        return $result[0]->getUser();
+        /** @var $result \Sententiaregum\CoreDomain\User\Token */
+        return $result->getUser();
     }
 }
