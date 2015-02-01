@@ -99,11 +99,13 @@ class Password
     {
         if (!$this->isHashed()) {
             $this->isHashed = true;
-            $this->password = password_hash($this->password, PASSWORD_BCRYPT);
+            $password       = password_hash($this->password, PASSWORD_BCRYPT);
 
-            if (!$this->password) {
+            if (!$password) {
                 throw new UserDomainException('Cannot hash password since password_hash() returns false!');
             }
+
+            $this->password = $password;
         }
 
         return $this;
