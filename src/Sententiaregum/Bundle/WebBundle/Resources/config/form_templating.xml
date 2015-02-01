@@ -5,7 +5,7 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="sen.web.template_service" class="Sententiaregum\Bundle\WebBundle\Service\TemplateService">
+        <service id="sen.web.template_service" class="Sententiaregum\Bundle\WebBundle\Service\FormTemplateService">
             <argument type="service" id="templating" />
         </service>
     </services>

@@ -11,7 +11,7 @@
 
 namespace Sententiaregum\Bundle\WebBundle\Tests\Service;
 
-use Sententiaregum\Bundle\WebBundle\Service\TemplateService;
+use Sententiaregum\Bundle\WebBundle\Service\FormTemplateService;
 use Sententiaregum\Bundle\WebBundle\Service\Value\FormReference;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 
@@ -25,7 +25,7 @@ class TemplateServiceTest extends \PHPUnit_Framework_TestCase
             ->method('exists')
             ->will($this->returnValue(true));
 
-        $service       = new TemplateService($templating);
+        $service       = new FormTemplateService($templating);
         $formReference = new FormReference('form_alias', '@AcmeDemoBundle:Default:form.html.twig');
 
         $service->appendFormSet([
@@ -51,7 +51,7 @@ class TemplateServiceTest extends \PHPUnit_Framework_TestCase
             ->method('exists')
             ->will($this->returnValue(true));
 
-        $service = new TemplateService($templating);
+        $service = new FormTemplateService($templating);
         $service->findFormReferenceByAlias('test');
     }
 
@@ -67,7 +67,7 @@ class TemplateServiceTest extends \PHPUnit_Framework_TestCase
             ->method('exists')
             ->will($this->returnValue(false));
 
-        $service = new TemplateService($templating);
+        $service = new FormTemplateService($templating);
 
         $service->appendFormSet(
             [

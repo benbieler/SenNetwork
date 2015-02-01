@@ -18,7 +18,7 @@ use Symfony\Component\Templating\EngineInterface;
 /**
  * Simple template container implementation
  */
-class TemplateService
+class FormTemplateService
 {
     /**
      * @var EngineInterface

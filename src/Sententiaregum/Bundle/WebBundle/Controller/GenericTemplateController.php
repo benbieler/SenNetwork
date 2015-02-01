@@ -77,7 +77,7 @@ class GenericTemplateController extends Controller
     public function renderSymfonyFormAction($alias)
     {
         $form = $this->createForm($alias);
-        /** @var \Sententiaregum\Bundle\WebBundle\Service\TemplateService $templateService */
+        /** @var \Sententiaregum\Bundle\WebBundle\Service\FormTemplateService $templateService */
         $templateService = $this->get('sen.web.template_service');
 
         try {
