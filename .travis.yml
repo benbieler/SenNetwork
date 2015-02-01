@@ -12,7 +12,7 @@ services:
 
 script: rake test
 
-after_script: rake uninstallData
+after_script: rake uninstall
 
 matrix:
   allow_failures:

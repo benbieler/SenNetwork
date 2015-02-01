@@ -15,6 +15,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
 use Sententiaregum\Bridge\User\DTO\AuthDTO;
 use Sententiaregum\Bridge\User\Event\AuthEvent;
+use Sententiaregum\CoreDomain\User\Service\ApiKeyGeneratorInterface;
 use Sententiaregum\CoreDomain\User\UserAggregateRepositoryInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
@@ -44,23 +45,31 @@ class Authentication implements AuthenticationInterface
     private $entityManager;
 
     /**
+     * @var ApiKeyGeneratorInterface
+     */
+    private $apiKeyGenerator;
+
+    /**
      * @var string
      */
     private $requesterIp;
 
     /**
      * @param UserAggregateRepositoryInterface $userRepository
+     * @param ApiKeyGeneratorInterface $apiKeyGenerator
      * @param EventDispatcherInterface $eventDispatcher
      * @param EntityManagerInterface $entityManager
      * @param LoggerInterface $logger
      */
     public function __construct(
         UserAggregateRepositoryInterface $userRepository,
+        ApiKeyGeneratorInterface $apiKeyGenerator,
         EventDispatcherInterface $eventDispatcher,
         EntityManagerInterface $entityManager,
         LoggerInterface $logger
     ) {
         $this->logger          = $logger;
+        $this->apiKeyGenerator = $apiKeyGenerator;
         $this->userRepository  = $userRepository;
         $this->eventDispatcher = $eventDispatcher;
         $this->entityManager   = $entityManager;
@@ -107,7 +116,7 @@ class Authentication implements AuthenticationInterface
             return $dispatchedEvent;
         }
 
-        $userEntity->createToken();
+        $userEntity->createToken($this->apiKeyGenerator);
 
         $this->entityManager->persist($userEntity->getToken());
 

@@ -14,6 +14,7 @@ namespace Sententiaregum\CoreDomain\User;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sententiaregum\CoreDomain\User\Exception\UserDomainException;
+use Sententiaregum\CoreDomain\User\Service\ApiKeyGeneratorInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -289,13 +290,14 @@ class User implements UserInterface
     /**
      * Creates a token
      *
+     * @param ApiKeyGeneratorInterface $generator
+     *
      * @return $this
      */
-    public function createToken()
+    public function createToken(ApiKeyGeneratorInterface $generator)
     {
         if (null === $this->token) {
-            $apiKey = bin2hex(openssl_random_pseudo_bytes(100));
-            $this->token = new Token($apiKey, $this);
+            $this->token = new Token($generator->generate(), $this);
         }
 
         return $this;

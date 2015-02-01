@@ -2,6 +2,7 @@
 
 namespace Sententiaregum\Bundle\UserBundle\DependencyInjection;
 
+use Sententiaregum\Bridge\User\Service\AuthenticationInterface;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -20,9 +21,20 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('sententiaregum_user');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode
+            ->children()
+                ->arrayNode('api_key_authentication')
+                    ->canBeEnabled()
+                    ->children()
+                        ->scalarNode('credential_verify_service')
+                            ->defaultValue('sen.user.service.authentication')
+                        ->end()
+                        ->scalarNode('api_token_generator')
+                            ->defaultValue('sen.user.service.api_token_generator')
+                        ->end()
+                    ->end()
+                ->end()
+            ->end();
 
         return $treeBuilder;
     }

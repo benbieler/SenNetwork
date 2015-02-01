@@ -11,6 +11,7 @@
 
 namespace Sententiaregum\Infratstructure\User\Tests\Repository;
 
+use Sententiaregum\CoreDomain\User\Service\ApiKeyGenerator;
 use Sententiaregum\CoreDomain\User\Token;
 use Sententiaregum\CoreDomain\User\User;
 use Sententiaregum\Infrastructure\Test\RepositoryTestCase;
@@ -48,7 +49,7 @@ class UserTest extends RepositoryTestCase
     public function testFindByToken()
     {
         $user = new User(null, 'password', 'email@example.org');
-        $user->createToken();
+        $user->createToken(new ApiKeyGenerator());
 
         $token = $user->getToken();
         $this->assertInstanceOf(Token::class, $token);

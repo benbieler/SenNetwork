@@ -14,7 +14,7 @@
             <generator strategy="AUTO" />
         </id>
 
-        <field name="apiKey" length="200" type="string" />
+        <field name="apiKey" length="128" type="string" />
 
         <one-to-one field="user" target-entity="Sententiaregum\CoreDomain\User\User" mapped-by="token" />
         

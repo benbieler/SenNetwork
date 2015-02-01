@@ -42,7 +42,8 @@
             "php app/console security:check",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
-            "php app/check.php"
+            "php app/check.php",
+            "php app/console doctrine:schema:create --force"
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
@@ -53,7 +54,8 @@
             "php app/console security:check",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
-            "php app/check.php"
+            "php app/check.php",
+            "php app/console doctrine:schema:update --force"
         ]
     },
     "config": {

@@ -16,6 +16,7 @@ use Sententiaregum\Bridge\User\DTO\AuthDTO;
 use Sententiaregum\Bridge\User\Event\AuthEvent;
 use Sententiaregum\Bridge\User\Service\Authentication;
 use Sententiaregum\Bridge\User\Tests\Fixtures\LoggerFixture;
+use Sententiaregum\CoreDomain\User\Service\ApiKeyGeneratorInterface;
 use Sententiaregum\CoreDomain\User\User;
 use Sententiaregum\CoreDomain\User\UserAggregateRepositoryInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -27,6 +28,7 @@ class AuthenticationTest extends \PHPUnit_Framework_TestCase
         $authDTO = new AuthDTO('invalid', 'password');
         $service = new Authentication(
             $this->getMock(UserAggregateRepositoryInterface::class),
+            $this->getMock(ApiKeyGeneratorInterface::class),
             $this->getMock(EventDispatcherInterface::class),
             $this->getMock(EntityManagerInterface::class),
             $l = new LoggerFixture()
@@ -56,6 +58,7 @@ class AuthenticationTest extends \PHPUnit_Framework_TestCase
 
         $service = new Authentication(
             $repo,
+            $this->getMock(ApiKeyGeneratorInterface::class),
             $this->getMock(EventDispatcherInterface::class),
             $this->getMock(EntityManagerInterface::class),
             new LoggerFixture()
@@ -87,6 +90,7 @@ class AuthenticationTest extends \PHPUnit_Framework_TestCase
 
         $service = new Authentication(
             $repo,
+            $this->getMock(ApiKeyGeneratorInterface::class),
             $dispatcher,
             $this->getMock(EntityManagerInterface::class),
             new LoggerFixture()

@@ -1,33 +1,10 @@
-desc "This task installs the application on that server"
-task :deploy do
-    sh %{composer install}
-    sh %{php app/console doctrine:schema:create}
-end
-
-desc "This task updates the local application"
-task :update do
-    sh %{composer update}
-end
-
-desc "This tasks updates the remote application"
-task :updateRemote => "update" do
-    sh %{git pull}
-end
-
 desc "This task tests the application"
 task :test do
     sh %{bin/phpunit -c app}
 end
 
-desc "This task shows the dependencies of this application"
-task :showDependencies do
-    puts "PHP 5.5 or higher"
-    puts "Composer"
-    puts "Bower"
-end
-
 desc "This task purges if the software should be uninstalled"
-task :uninstallData do
+task :uninstall do
     sh %{php app/console doctrine:schema:drop --force}
 end
 
@@ -37,6 +14,5 @@ task :prepareCI do
     sh %{mysql -e 'CREATE DATABASE IF NOT EXISTS symfony;'}
     sh %{echo "use mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user = 'root';\nFLUSH PRIVILEGES;\n" | mysql -u root}
     sh %{npm install -g bower}
-    sh %{rake showDependencies}
-    sh %{rake deploy}
+    sh %{composer install}
 end

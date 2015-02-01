@@ -11,8 +11,10 @@
 
 namespace Sententiaregum\Bundle\UserBundle\Form\Type;
 
+use Sententiaregum\Bridge\User\DTO\AuthDTO;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * Simple form type for a registration form
@@ -38,5 +40,12 @@ class AuthFormType extends AbstractType
     public function getName()
     {
         return 'sen.user.form.auth';
+    }
+
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults([
+            'data_class' => AuthDTO::class
+        ]);
     }
 }
