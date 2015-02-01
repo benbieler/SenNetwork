@@ -11,6 +11,8 @@
 
 namespace Sententiaregum\CoreDomain\User;
 
+use Sententiaregum\CoreDomain\User\Exception\UserDomainException;
+
 /**
  * Value object containing a password
  */
@@ -90,12 +92,18 @@ class Password
      * Hashes the internal password
      *
      * @return $this
+     *
+     * @throws UserDomainException If the password_hash() function returns false
      */
     public function hash()
     {
         if (!$this->isHashed()) {
             $this->isHashed = true;
             $this->password = password_hash($this->password, PASSWORD_BCRYPT);
+
+            if (!$this->password) {
+                throw new UserDomainException('Cannot hash password since password_hash() returns false!');
+            }
         }
 
         return $this;

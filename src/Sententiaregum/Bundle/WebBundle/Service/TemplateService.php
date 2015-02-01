@@ -41,7 +41,7 @@ class TemplateService
     /**
      * Appends some forms
      *
-     * @param FormReference[] $elements
+     * @param array $elements
      *
      * @return $this
      *

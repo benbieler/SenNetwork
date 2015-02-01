@@ -11,7 +11,6 @@
 
 namespace Sententiaregum\Bundle\WebBundle\DependencyInjection;
 
-use Sententiaregum\Bundle\WebBundle\Service\Value\FormReference;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
