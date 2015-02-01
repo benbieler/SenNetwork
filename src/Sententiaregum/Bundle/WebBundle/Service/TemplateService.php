@@ -45,7 +45,6 @@ class TemplateService
      *
      * @return $this
      *
-     * @throws \InvalidArgumentException If the form is not an instance of FormReference
      * @throws \InvalidArgumentException If the template does not exist
      */
     public function appendFormSet(array $elements)
