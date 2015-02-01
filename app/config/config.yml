@@ -79,7 +79,11 @@ fos_rest:
 
 # Sensio Framework Configuration
 sensio_framework_extra:
-    view: { annotations: false }
+    router:   { annotations: true }
+    request:  { converters: true, auto_convert: true }
+    view:     { annotations: false }
+    cache:    { annotations: true }
+    security: { annotations: true }
 
 # Bower Configuration
 sp_bower:
@@ -87,9 +91,9 @@ sp_bower:
         SententiaregumWebBundle:
             json_file:  bower.json
             config_dir: Resources/config
-            asset_dir:  Resources/public/vendor
+            asset_dir:  ../public/vendor
             cache:
-                directory: Resources/public/cache
+                directory: ../public/cache
     assetic:
         enabled:           true
         nest_dependencies: true
