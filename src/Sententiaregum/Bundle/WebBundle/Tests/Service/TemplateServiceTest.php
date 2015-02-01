@@ -25,34 +25,18 @@ class TemplateServiceTest extends \PHPUnit_Framework_TestCase
             ->method('exists')
             ->will($this->returnValue(true));
 
-        $service = new TemplateService($templating);
+        $service       = new TemplateService($templating);
+        $formReference = new FormReference('form_alias', '@AcmeDemoBundle:Default:form.html.twig');
 
         $service->appendFormSet([
-            $formReference = new FormReference('form_alias', '@AcmeDemoBundle:Default:form.html.twig'),
-            new FormReference('else_alias')
+            ['form' => 'form_alias', 'template' => '@AcmeDemoBundle:Default:form.html.twig']
         ]);
 
         $reference = $service->findFormReferenceByAlias('form_alias');
 
         $this->assertInstanceOf(FormReference::class, $reference);
-        $this->assertSame($reference, $formReference);
-    }
-
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Form must be an instance of Sententiaregum\Bundle\WebBundle\Service\Value\FormReference
-     */
-    public function testFormMatcherGetsInvalidReference()
-    {
-        $templating = $this->getMock(EngineInterface::class);
-        $templating
-            ->expects($this->any())
-            ->method('exists')
-            ->will($this->returnValue(true));
-
-        $service = new TemplateService($templating);
-
-        $service->appendFormSet(['foo']);
+        $this->assertSame($reference->getTemplate(), $formReference->getTemplate());
+        $this->assertSame($reference->getFormAlias(), $formReference->getFormAlias());
     }
 
     /**
@@ -87,7 +71,7 @@ class TemplateServiceTest extends \PHPUnit_Framework_TestCase
 
         $service->appendFormSet(
             [
-                new FormReference('form_alias', '@AcmeDemoBundle:Invalid:invalid.html.twig')
+                ['form' => 'form_alias', 'template' => '@AcmeDemoBundle:Invalid:invalid.html.twig']
             ]
         );
     }

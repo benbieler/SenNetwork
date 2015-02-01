@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the sententiaregum application.
+ *
+ * Sententiaregum is a social network based on Symfony2 and AngularJS
+ *
+ * @copyright (c) 2014 Sententiaregum
+ * Please check out the license file in the document root of this application
+ */
+
 namespace Sententiaregum\Bundle\WebBundle\Controller;
 
 use FOS\RestBundle\Controller\Annotations\View;
@@ -39,6 +48,8 @@ class GenericTemplateController extends Controller
      *
      * @return \Symfony\Component\HttpFoundation\Response
      *
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException If the found form has no associated template
+     *
      * @Method({"GET"})
      * @Route(
      *     "/form/{alias}",
@@ -61,6 +72,7 @@ class GenericTemplateController extends Controller
      *         }
      *     }
      * )
+     * @Cache(expires="+6 hours", public=true)
      */
     public function renderSymfonyFormAction($alias)
     {

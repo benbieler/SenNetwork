@@ -23,6 +23,20 @@ class GenericTemplateControllerTest extends WebTestCase
         $client->request('GET', '/api/web/layout');
         $response = $client->getResponse();
 
+        $this->assertHtmlResult($response);
+    }
+
+    public function testFormRenderer()
+    {
+        $client = static::createClient();
+        $client->request('GET', '/api/web/form/form');
+        $response = $client->getResponse();
+
+        $this->assertHtmlResult($response);
+    }
+
+    protected function assertHtmlResult(Response $response)
+    {
         $this->assertInstanceOf(Response::class, $response);
         $this->assertNotInstanceOf(JsonResponse::class, $response);
 

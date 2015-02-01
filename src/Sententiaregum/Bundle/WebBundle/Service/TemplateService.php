@@ -12,6 +12,7 @@
 namespace Sententiaregum\Bundle\WebBundle\Service;
 
 use Sententiaregum\Bundle\WebBundle\Service\Value\FormReference;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Templating\EngineInterface;
 
 /**
@@ -50,22 +51,24 @@ class TemplateService
     public function appendFormSet(array $elements)
     {
         $templating = $this->templating;
+        $resolver   = new OptionsResolver();
 
-        array_map(
-            function ($element) use ($templating) {
-                if (!$element instanceof FormReference) {
-                    throw new \InvalidArgumentException(
-                        sprintf('Form must be an instance of %s', FormReference::class)
-                    );
-                }
+        array_walk(
+            $elements,
+            function (&$element) use ($templating, $resolver) {
+                $resolver->setRequired(['form', 'template']);
+                $resolver->setAllowedTypes('form', 'string');
+                $resolver->setAllowedTypes('template', 'string');
+
+                $data    = $resolver->resolve($element);
+                $element = new FormReference($data['form'], $data['template']);
 
                 if (!$templating->exists($element->getTemplate())) {
                     throw new \InvalidArgumentException(
                         sprintf('The template "%s" does not exist!', $element->getTemplate())
                     );
                 }
-            },
-            $elements
+            }
         );
         $this->formSet = array_merge($elements, $this->formSet);
 

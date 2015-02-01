@@ -12,3 +12,10 @@ framework:
 web_profiler:
     toolbar: false
     intercept_redirects: false
+
+# specific test associations
+sententiaregum_web:
+    form_templates:
+        enabled: true
+        associations:
+            form: ~

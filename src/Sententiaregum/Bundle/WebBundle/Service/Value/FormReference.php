@@ -33,7 +33,7 @@ class FormReference
     public function __construct($formAlias, $template = null)
     {
         $this->formAlias = (string) $formAlias;
-        $this->template  = $template ?: '@SententiaregumWebBundle:GenericTemplate:form.html.twig';
+        $this->template  = (string) $template;
     }
 
     /**

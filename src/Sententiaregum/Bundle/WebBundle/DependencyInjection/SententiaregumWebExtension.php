@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the sententiaregum application.
+ *
+ * Sententiaregum is a social network based on Symfony2 and AngularJS
+ *
+ * @copyright (c) 2014 Sententiaregum
+ * Please check out the license file in the document root of this application
+ */
+
 namespace Sententiaregum\Bundle\WebBundle\DependencyInjection;
 
 use Sententiaregum\Bundle\WebBundle\Service\Value\FormReference;
@@ -23,7 +32,7 @@ class SententiaregumWebExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
 
         if ($config['form_templates']['enabled']) {
             $loader->load('form_templating.xml');
@@ -31,11 +40,18 @@ class SententiaregumWebExtension extends Extension
             if ($container->hasDefinition('sen.web.template_service')) {
                 $references = [];
                 foreach ($config['form_templates']['associations'] as $formAlias => $templateName) {
-                    $references[] = new FormReference($formAlias, $templateName);
+                    if (empty($templateName)) {
+                        $templateName = '@SententiaregumWebBundle:GenericTemplate:form.html.twig';
+                    }
+
+                    $references[] = [
+                        'template' => $templateName,
+                        'form'     => $formAlias
+                    ];
                 }
 
                 $definition = $container->getDefinition('sen.web.template_service');
-                $definition->addMethodCall('appendFormSet', $references);
+                $definition->addMethodCall('appendFormSet', [$references]);
             }
         }
     }
