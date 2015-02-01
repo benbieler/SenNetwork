@@ -32,7 +32,7 @@ class ApiKeyAuthenticatorTest extends \PHPUnit_Framework_TestCase
         $request = Request::create('/');
         $request->headers->set(ApiKeyAuthenticator::API_KEY_HEADER, $apiKey);
 
-        $apiKeyAuthenticator = new ApiKeyAuthenticator($this->getMock(AdvancedUserProviderInterface::class));
+        $apiKeyAuthenticator = new ApiKeyAuthenticator();
         /** @var PreAuthenticatedToken $token */
         $token               = $apiKeyAuthenticator->createToken($request, $providerKey);
 
@@ -49,13 +49,13 @@ class ApiKeyAuthenticatorTest extends \PHPUnit_Framework_TestCase
     public function testCreateTokenWithEmptyRequest($apiKey, $providerKey)
     {
         $request = Request::create('/');
-        $apiKeyAuthenticator = new ApiKeyAuthenticator($this->getMock(AdvancedUserProviderInterface::class));
+        $apiKeyAuthenticator = new ApiKeyAuthenticator();
         $apiKeyAuthenticator->createToken($request, $providerKey);
     }
 
     public function testTokenSupport()
     {
-        $apiKeyAuthenticator = new ApiKeyAuthenticator($this->getMock(AdvancedUserProviderInterface::class));
+        $apiKeyAuthenticator = new ApiKeyAuthenticator();
 
         $providerKey = 'provider';
         $token = $this->getMockBuilder(PreAuthenticatedToken::class)->disableOriginalConstructor()->getMock();
@@ -89,9 +89,9 @@ class ApiKeyAuthenticatorTest extends \PHPUnit_Framework_TestCase
             ->method('findUserByApiKey')
             ->will($this->returnValue($user));
 
-        $authenticator = new ApiKeyAuthenticator($provider);
+        $authenticator = new ApiKeyAuthenticator();
         /** @var PreAuthenticatedToken $token */
-        $token         = $authenticator->authenticateToken($token, $this->getMock(UserProviderInterface::class), $providerKey);
+        $token         = $authenticator->authenticateToken($token, $provider, $providerKey);
 
         $this->assertInstanceOf(PreAuthenticatedToken::class, $token);
 
@@ -119,8 +119,8 @@ class ApiKeyAuthenticatorTest extends \PHPUnit_Framework_TestCase
             ->method('findUserByApiKey')
             ->will($this->returnValue(false));
 
-        $authenticator = new ApiKeyAuthenticator($provider);
-        $authenticator->authenticateToken($token, $this->getMock(UserProviderInterface::class), $providerKey);
+        $authenticator = new ApiKeyAuthenticator();
+        $authenticator->authenticateToken($token, $provider, $providerKey);
     }
 
     public function testFailureHandler()
@@ -136,7 +136,7 @@ class ApiKeyAuthenticatorTest extends \PHPUnit_Framework_TestCase
         $exception = new AuthenticationException();
         $exception->setToken($token);
 
-        $authenticator = new ApiKeyAuthenticator($this->getMock(AdvancedUserProviderInterface::class));
+        $authenticator = new ApiKeyAuthenticator();
 
         $response = $authenticator->onAuthenticationFailure(Request::create('/'), $exception);
         $this->assertInstanceOf(JsonResponse::class, $response);
@@ -145,6 +145,21 @@ class ApiKeyAuthenticatorTest extends \PHPUnit_Framework_TestCase
         $content = json_decode($response->getContent(), true);
         $this->assertSame('Credentials refused!', $content['reason']);
         $this->assertSame($username, $content['username']);
+    }
+
+    /**
+     * @expectedException \Sententiaregum\Bridge\User\Exception\RuntimeException
+     * @expectedExceptionMessage The api key provider must implement Sententiaregum\Bridge\User\Security\AdvancedUserProviderInterface
+     *
+     */
+    public function testAuthenticationWithInvalidUserProvider()
+    {
+        $userProvider = new ApiKeyAuthenticator();
+        $userProvider->authenticateToken(
+            $this->getMock(TokenInterface::class),
+            $this->getMock(UserProviderInterface::class),
+            'anon.'
+        );
     }
 
     public function getCredentialSet()

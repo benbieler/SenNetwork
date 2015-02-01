@@ -11,6 +11,7 @@
 
 namespace Sententiaregum\Bridge\User\Security;
 
+use Sententiaregum\Bridge\User\Exception\RuntimeException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\SimplePreAuthenticatorInterface;
@@ -30,19 +31,6 @@ class ApiKeyAuthenticator implements SimplePreAuthenticatorInterface, Authentica
      * @var string
      */
     const API_KEY_HEADER = 'X-SEN-USER-TOKEN';
-
-    /**
-     * @var AdvancedUserProviderInterface
-     */
-    private $userProvider;
-
-    /**
-     * @param AdvancedUserProviderInterface $userProvider
-     */
-    public function __construct(AdvancedUserProviderInterface $userProvider)
-    {
-        $this->userProvider = $userProvider;
-    }
 
     /**
      * {@inheritdoc}
@@ -67,11 +55,18 @@ class ApiKeyAuthenticator implements SimplePreAuthenticatorInterface, Authentica
      * @return PreAuthenticatedToken
      *
      * @throws AuthenticationException If the api key does not exist or is invalid
+     * @throws RuntimeException If $userProvider is not an instance of AdvancedUserProviderInterface
      */
     public function authenticateToken(TokenInterface $token, UserProviderInterface $userProvider, $providerKey)
     {
+        if (!$userProvider instanceof AdvancedUserProviderInterface) {
+            throw new RuntimeException(
+                sprintf('The api key provider must implement %s', AdvancedUserProviderInterface::class)
+            );
+        }
+
         $apiKey = $token->getCredentials();
-        $user   = $this->userProvider->findUserByApiKey($apiKey);
+        $user   = $userProvider->findUserByApiKey($apiKey);
 
         if (!$user) {
             throw new AuthenticationException(
