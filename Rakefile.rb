@@ -6,7 +6,7 @@ namespace :travis do
         sh "mysql -e 'CREATE DATABASE IF NOT EXISTS symfony;'"
         sh %{echo "use mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user = 'root';\nFLUSH PRIVILEGES;\n" | mysql -u root}
         sh "npm install -g bower"
-        Rake::task['deploy:up'].execute(true)
+        Rake::task['deploy:up'].execute[installDev => true]
     end
 
     desc "This task drops the build on travis ci"
