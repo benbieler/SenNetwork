@@ -8,7 +8,6 @@ sententiaregum_user:
     type:     annotation
     prefix:   /api/auth
 
-# app/config/routing.yml
 NelmioApiDocBundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
     prefix:   /api-doc

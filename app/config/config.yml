@@ -109,3 +109,8 @@ sententiaregum_web:
 sententiaregum_user:
     api_key_authentication:
         enabled: true
+
+# Nelmio ApiDoc Configuration
+nelmio_api_doc:
+    sandbox:
+        enabled: true

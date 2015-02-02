@@ -5,10 +5,10 @@ namespace Sententiaregum\Bundle\UserBundle\Controller;
 use FOS\RestBundle\Controller\Annotations\View;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sententiaregum\Bridge\User\DTO\AuthDTO;
 use Sententiaregum\Bundle\UserBundle\Exception\FailedAuthenticationException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -25,14 +25,21 @@ class AuthenticationController extends Controller
      *
      * @throws FailedAuthenticationException If the auth process has failed
      *
-     * @Route("/request-token.{_format}", name="sen_user_auth")
+     * @Route("/request-token.{_format}", name="sen_user_auth", requirements={"_format":"\w+"})
      * @Method({"GET", "POST"})
      * @View()
      * @ApiDoc(
-     *     description="This action generates api keys if the user is able to authenticate himself with credentials"
+     *     resource=true,
+     *     description="This action generates api keys if the user is able to authenticate himself with credentials",
      *     statusCodes={
      *         200="The action was successful",
      *         401="The auth processor denies access"
+     *     },
+     *     requirements={
+     *         "name"="_format",
+     *         "dataType"="string",
+     *         "requirement"="\w+",
+     *         "description" = "Type of the request (may be html or json)"
      *     }
      * )
      */
