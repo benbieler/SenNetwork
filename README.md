@@ -10,10 +10,6 @@ Sententiaregum Refactoring
 [![Codacy Badge](https://www.codacy.com/project/badge/c64875fe25804e8f80f85cfaf1a50fd1)](https://www.codacy.com/public/maximilianbosch27/SenNetwork)
 [![Code Coverage](https://scrutinizer-ci.com/g/Ma27/SenNetwork/badges/coverage.png?b=refactor)](https://scrutinizer-ci.com/g/Ma27/SenNetwork/?branch=refactor)
 
-####Dependencies
-[![Dependency Status](https://www.versioneye.com/user/projects/54ccb4d8de7924b9e400009b/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54ccb4d8de7924b9e400009b)
-[![Dependency Status](https://www.versioneye.com/user/projects/54ccb4d9de7924f81a0002ab/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54ccb4d9de7924f81a0002ab)
-
 
 1) What is sententiaregum
 -------------------------
