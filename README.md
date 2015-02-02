@@ -33,6 +33,7 @@ Clone repository
     
 Start VM and login over SSH
 
+    cd vagrant
     vagrant up
     vagrant ssh
 
