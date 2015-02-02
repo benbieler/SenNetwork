@@ -36,10 +36,12 @@ class AuthenticationController extends Controller
      *         401="The auth processor denies access"
      *     },
      *     requirements={
-     *         "name"="_format",
-     *         "dataType"="string",
-     *         "requirement"="\w+",
-     *         "description" = "Type of the request (may be html or json)"
+     *         {
+     *             "name"="_format",
+     *             "dataType"="string",
+     *             "requirement"="\w+",
+     *             "description" = "Type of the request (may be html or json)"
+     *         }
      *     }
      * )
      */
