@@ -74,8 +74,10 @@ fos_rest:
     exception:
         codes:
             'Symfony\Component\HttpKernel\Exception\NotFoundHttpException': 404
+            'Sententiaregum\Bundle\UserBundle\Exception\FailedAuthenticationException': 401
         messages:
             'Symfony\Component\HttpKernel\Exception\NotFoundHttpException': true
+            'Sententiaregum\Bundle\UserBundle\Exception\FailedAuthenticationException': true
 
 # Sensio Framework Configuration
 sensio_framework_extra:
