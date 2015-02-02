@@ -5,14 +5,14 @@ php:
   - 5.6
   - hhvm
 
-before_script: rake prepareCI
+before_script: rake travis:build
 
 services:
   - redis-server
 
-script: rake test
+script: rake test:all
 
-after_script: rake uninstallCI
+after_script: rake travis:purge
 
 matrix:
   allow_failures:

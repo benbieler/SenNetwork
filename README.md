@@ -36,13 +36,13 @@ Start VM and login over SSH
 Configure application (inside SSH interface)
 
     cd /var/www/sententiaregum
-    composer install --dev
+    rake deploy:up[true]
 
 Now you can start contributing!
 
 Full test
 
-    rake test
+    rake test:all
 
 3) Deploy
 ---------
