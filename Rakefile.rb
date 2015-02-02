@@ -1,3 +1,5 @@
+require 'rake'
+
 # Travis CI tasks
 namespace :travis do
     desc "This task prepares the travis ci for a new build"
