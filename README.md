@@ -14,9 +14,31 @@ Sententiaregum Refactoring
 [![Dependency Status](https://www.versioneye.com/user/projects/54ccb4d8de7924b9e400009b/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54ccb4d8de7924b9e400009b)
 [![Dependency Status](https://www.versioneye.com/user/projects/54ccb4d9de7924f81a0002ab/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54ccb4d9de7924f81a0002ab)
 
+
+1) What is sententiaregum
+-------------------------
 Sententiaregum is a project which combines AngularJS and Symfony2 in order to build a social network with a great UX.
 
 The frontend contains an angular Single Page Application (=SPA) and is styled with Foundation 5.
 The backend is built with Symfony2 and is a large REST API using FOSRest.
 
+2) Contribute
+-------------
 
+You can install sententiaregum locally in order to develop.
+
+Clone repository
+    git clone -b refactor https://github.com/Ma27/SenNetwork.git /path/to/folder
+    
+Start VM and configure
+    vagrant up
+    vagrant ssh
+    cd /var/www/sententiaregum
+    composer install
+
+Now you can start contributing!
+
+3) Deploy
+---------
+
+*in progress*
