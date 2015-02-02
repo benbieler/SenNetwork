@@ -5,7 +5,7 @@ namespace :travis do
         sh %{printf "\n" | pecl install imagick}
         sh "mysql -e 'CREATE DATABASE IF NOT EXISTS symfony;'"
         sh %{echo "use mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user = 'root';\nFLUSH PRIVILEGES;\n" | mysql -u root}
-        sh "npm install -g bower"
+        sh %{npm install -g bower}
         Rake::task['deploy:up'].execute[installDev => true]
     end
 
