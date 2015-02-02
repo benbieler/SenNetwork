@@ -47,4 +47,29 @@ Full test
 3) Deploy
 ---------
 
-*in progress*
+####Requirements
+- PHP 5.5 or higher
+- Bower
+- MySQL 5.5
+- Composer
+- Imagick extension for PHP
+- WebSockets
+
+####Installation
+Symfony requires some specific server configuration in order to work properly: [Symfony2 Server configuration](http://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html)
+
+The deployment is similar to the local installation but it doesn't use the vagrant environment:
+
+Install repository
+
+    git clone -b refactor https://github.com/Ma27/SenNetwork.git /path/to/webroot
+
+Execute rake tasks
+
+    rake deploy:up[false]
+
+Now is your installation deployed on the server and ready to use.
+
+Update application
+
+    rake deploy:modify
