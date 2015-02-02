@@ -33,13 +33,11 @@ end
 namespace :deploy do
     desc "This task runs the deployment"
     task :up, [:installDev] do |installDev|
-        if true == installDev
-            composerArg = '--dev'
+        if false == installDev
+            sh %{composer install --no-dev}
         else
-            composerArg = '--no-dev'
+            sh %{composer install}
         end
-
-        sh "composer install #{composerArg}"
     end
 
     desc "This task purges the deployed application"
