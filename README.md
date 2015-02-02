@@ -8,8 +8,6 @@ Sententiaregum Refactoring
 [![Code Coverage](https://scrutinizer-ci.com/g/Ma27/SenNetwork/badges/coverage.png?b=refactor)](https://scrutinizer-ci.com/g/Ma27/SenNetwork/?branch=refactor)
 [![Dependency Status](https://www.versioneye.com/user/projects/54ccb4d8de7924b9e400009b/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54ccb4d8de7924b9e400009b)
 
-<!-- #ToDo update branches when this version will be moved to master branch -->
-
 Sententiaregum is a project which combines AngularJS and Symfony2 in order to build a social network with a great UX.
 
 The frontend contains an angular Single Page Application (=SPA) and is styled with Foundation 5.

@@ -133,6 +133,6 @@ class Authentication implements AuthenticationInterface
      */
     public function signOut($userId)
     {
-        # TODO: Implement signOut() method.
+
     }
 }
