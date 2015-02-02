@@ -28,15 +28,24 @@ The backend is built with Symfony2 and is a large REST API using FOSRest.
 You can install sententiaregum locally in order to develop.
 
 Clone repository
+
     git clone -b refactor https://github.com/Ma27/SenNetwork.git /path/to/folder
     
-Start VM and configure
+Start VM and login over SSH
+
     vagrant up
     vagrant ssh
+
+Configure application (inside SSH interface)
+
     cd /var/www/sententiaregum
-    composer install
+    composer install --dev
 
 Now you can start contributing!
+
+Full test
+
+    rake test
 
 3) Deploy
 ---------
