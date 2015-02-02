@@ -3,10 +3,10 @@ namespace :travis do
     desc "This task prepares the travis ci for a new build"
     task :build do
         sh %{printf "\n" | pecl install imagick}
-    sh "mysql -e 'CREATE DATABASE IF NOT EXISTS symfony;'"
-    sh %{echo "use mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user = 'root';\nFLUSH PRIVILEGES;\n" | mysql -u root}
-    sh "npm install -g bower"
-    Rake::task['deploy:up'].execute(true)
+        sh "mysql -e 'CREATE DATABASE IF NOT EXISTS symfony;'"
+        sh %{echo "use mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user = 'root';\nFLUSH PRIVILEGES;\n" | mysql -u root}
+        sh "npm install -g bower"
+        Rake::task['deploy:up'].execute(true)
     end
 
     desc "This task drops the build on travis ci"
