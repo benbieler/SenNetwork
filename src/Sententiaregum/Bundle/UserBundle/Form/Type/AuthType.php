@@ -19,7 +19,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 /**
  * Simple form type for a registration form
  */
-class AuthFormType extends AbstractType
+class AuthType extends AbstractType
 {
     /**
      * Creates the form
@@ -39,13 +39,15 @@ class AuthFormType extends AbstractType
      */
     public function getName()
     {
-        return 'sen.user.form.auth';
+        return 'sen_user_form_auth';
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => AuthDTO::class
+            'data_class'      => AuthDTO::class,
+            'intention'       => 'request_api_key',
+            'csrf_protection' => false
         ]);
     }
 }

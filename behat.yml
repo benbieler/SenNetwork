@@ -1,0 +1,9 @@
+default:
+  formatters:
+      pretty: true
+  suites:
+    requestApiKey:
+      contexts:
+        - Sententiaregum\Bundle\UserBundle\Behat\RequestApiKeyContext
+      filters:
+        tags: "@requestApiKey"

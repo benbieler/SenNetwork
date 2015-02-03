@@ -25,7 +25,7 @@ class AuthenticationController extends Controller
      *
      * @throws FailedAuthenticationException If the auth process has failed
      *
-     * @Route("/request-token.{_format}", name="sen_user_auth", requirements={"_format":"\w+"})
+     * @Route("/api_key.{_format}", name="sen_user_auth", requirements={"_format":"\w+"})
      * @Method({"GET", "POST"})
      * @View()
      * @ApiDoc(
@@ -48,7 +48,7 @@ class AuthenticationController extends Controller
     public function authenticateTokenAction(Request $request)
     {
         $credentials = new AuthDTO(null, null);
-        $form        = $this->createForm('sen.user.form.auth', $credentials);
+        $form        = $this->createForm('sen_user_form_auth', $credentials);
 
         $form->handleRequest($request);
         if ($form->isValid()) {

@@ -37,6 +37,34 @@ class AuthDTO
     }
 
     /**
+     * Sets the username
+     *
+     * @param string $username
+     *
+     * @return $this
+     */
+    public function setUsername($username)
+    {
+        $this->username = (string) $username;
+
+        return $this;
+    }
+
+    /**
+     * Sets the password
+     *
+     * @param string $password
+     *
+     * @return $this
+     */
+    public function setPassword($password)
+    {
+        $this->password = (string) $password;
+
+        return $this;
+    }
+
+    /**
      * Returns the username
      *
      * @return string

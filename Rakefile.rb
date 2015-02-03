@@ -25,8 +25,13 @@ namespace :test do
         sh "bin/phpunit -c app --coverage-clover=coverage.clover"
     end
 
+    desc "Executes the behat test suite"
+    task :behat do
+        sh "bin/behat"
+    end
+
     desc "Executes all testsuites"
-    task :all => ['test:phpunit']
+    task :all => ['test:phpunit', 'test:behat']
 end
 
 # Deploy tasks

@@ -8,6 +8,9 @@ framework:
         storage_id: session.storage.mock_file
     profiler:
         collect: false
+    form:  # Disable csrf_protection in a test environment in order to avoid problems using a csrf token in a functional test
+        csrf_protection:
+            enabled: false
 
 web_profiler:
     toolbar: false
