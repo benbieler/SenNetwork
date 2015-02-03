@@ -22,7 +22,7 @@
         <field name="username" length="255" type="string" />
         <field name="password" length="255" type="string" />
         <field name="email" length="255" type="string" />
-        <field name="realName" length="255" type="string" />
+        <field name="realName" length="255" type="string" nullable="true" />
         <field name="registrationDate" type="datetime" />
         <field name="lastAction" type="datetime" />
         <field name="locked" type="boolean" />

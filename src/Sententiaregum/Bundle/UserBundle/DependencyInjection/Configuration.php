@@ -33,6 +33,21 @@ class Configuration implements ConfigurationInterface
                         ->end()
                     ->end()
                 ->end()
+                ->arrayNode('user_registration')
+                    ->canBeEnabled()
+                    ->children()
+                        ->arrayNode('default_registration_roles')
+                            ->prototype('scalar')->end()
+                        ->end()
+                    ->end()
+                ->end()
+                ->arrayNode('service')
+                    ->children()
+                        ->scalarNode('user_crud')
+                            ->defaultValue('sen.user.service.crud')
+                        ->end()
+                    ->end()
+                ->end()
             ->end();
 
         return $treeBuilder;

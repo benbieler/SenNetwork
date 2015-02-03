@@ -25,7 +25,7 @@ class AuthenticationController extends Controller
      *
      * @throws FailedAuthenticationException If the auth process has failed
      *
-     * @Route("/api_key.{_format}", name="sen_user_auth", requirements={"_format":"\w+"})
+     * @Route("/auth/api_key.{_format}", name="sen_user_auth", requirements={"_format":"\w+"})
      * @Method({"GET", "POST"})
      * @View()
      * @ApiDoc(

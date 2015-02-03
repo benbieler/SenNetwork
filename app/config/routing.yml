@@ -6,7 +6,7 @@ sententiaregum_web:
 sententiaregum_user:
     resource: "@SententiaregumUserBundle/Controller/"
     type:     annotation
-    prefix:   /api/auth
+    prefix:   /api
 
 NelmioApiDocBundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing.yml"

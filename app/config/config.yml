@@ -109,6 +109,9 @@ sententiaregum_web:
 sententiaregum_user:
     api_key_authentication:
         enabled: true
+    user_registration:
+        enabled:                    true
+        default_registration_roles: ['ROLE_USER']
 
 # Nelmio ApiDoc Configuration
 nelmio_api_doc:

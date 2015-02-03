@@ -4,10 +4,10 @@ namespace Sententiaregum\Bundle\UserBundle\DependencyInjection;
 
 use Sententiaregum\Bridge\User\Service\AuthenticationInterface;
 use Sententiaregum\CoreDomain\User\Service\ApiKeyGeneratorInterface;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
  * This is the class that loads and manages your bundle configuration
@@ -26,6 +26,13 @@ class SententiaregumUserExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('user.xml');
+        $loader->load('user_crud.xml');
+
+        if (isset($config['service']['user_crud'])) {
+            $container->setAlias('sen.user.crud.service', $config['service']['user_crud']);
+        } else {
+            $container->setAlias('sen.user.crud.service', 'sen.user.service.crud');
+        }
 
         if ($config['api_key_authentication']['enabled']) {
             $loader->load('api_key.xml');
@@ -58,6 +65,15 @@ class SententiaregumUserExtension extends Extension
             $container->setAlias(
                 'sen.user.auth.api_key_auth',
                 $config['api_key_authentication']['credential_verify_service']
+            );
+        }
+
+        if ($config['user_registration']['enabled']) {
+            $loader->load('registration.xml');
+
+            $container->setParameter(
+                'sen.user.param.default_roles',
+                $config['user_registration']['default_registration_roles']
             );
         }
     }
