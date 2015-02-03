@@ -53,6 +53,9 @@ class RequestApiKeyContext extends AbstractContext
             $email    = $row['email'];
 
             $user = new User($username, $password, $email);
+            if ('true' == $row['lock']) {
+                $user->lock();
+            }
             $entityManager->persist($user);
         }
         $entityManager->flush();
