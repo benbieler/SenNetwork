@@ -27,11 +27,13 @@ Clone repository
 
     git clone -b refactor https://github.com/Ma27/SenNetwork.git /path/to/folder
     
-Start VM and login over SSH
+Start VM
 
-    cd vagrant
-    vagrant up
-    vagrant ssh
+    rake vagrant:up
+
+Use SSH in order to access the CLI of the VM
+
+    cd vagrant && vagrant ssh
 
 Configure application (inside SSH interface)
 

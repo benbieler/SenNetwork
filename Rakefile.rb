@@ -34,6 +34,26 @@ namespace :test do
     task :all => ['test:phpunit', 'test:behat']
 end
 
+# Vagrant tasks
+namespace :vagrant do
+    desc "Starts and provisions the vagrant environment"
+    task :up do
+        Dir.chdir('vagrant') do
+            sh "vagrant plugin update"
+            sh "vagrant up"
+            sh "vagrant status"
+        end
+    end
+
+    desc "Destroys the machine"
+    task :destroy do
+        Dir.chdir('vagrant') do
+            sh "vagrant destroy"
+            sh "vagrant status"
+        end
+    end
+end
+
 # Deploy tasks
 namespace :deploy do
     desc "This task runs the deployment"
