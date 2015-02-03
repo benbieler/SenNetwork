@@ -14,3 +14,11 @@ Feature: request api key
        | username   | password |
        | Maximilian | s3cr3t   |
      Then I should have an api key
+
+  Scenario: invalid credentials
+    Given my name is "Maximilian"
+      And I don't have an api key
+     When I login with the following credentials:
+       | username   | password |
+       | Maximilian | invalid  |
+     Then I should see "Invalid credentials"

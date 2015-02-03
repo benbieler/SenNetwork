@@ -54,7 +54,7 @@ class AuthenticationTest extends \PHPUnit_Framework_TestCase
         $repo
             ->expects($this->any())
             ->method('findOneByName')
-            ->will($this->returnValue(new User('username', 'password', 'email@example.org')));
+            ->will($this->returnValue(new User('admin', '123456', 'email@example.org')));
 
         $service = new Authentication(
             $repo,
@@ -78,14 +78,14 @@ class AuthenticationTest extends \PHPUnit_Framework_TestCase
         $repo
             ->expects($this->any())
             ->method('findOneByName')
-            ->will($this->returnValue(new User('username', 'password', 'email@example.org')));
+            ->will($this->returnValue($user = new User('admin', '123456', 'email@example.org')));
 
         $dispatcher = $this->getMock(EventDispatcherInterface::class);
         $dispatcher
             ->expects($this->any())
             ->method('dispatch')
             ->will($this->returnValue(
-                (new AuthEvent(new User('username', 'password', 'email@example.org')))->fail('Any error')
+                (new AuthEvent(clone $user))->fail('Any error')
             ));
 
         $service = new Authentication(
@@ -104,6 +104,30 @@ class AuthenticationTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($result->getUser()->getToken());
 
         $this->assertSame('Any error', $result->getFailReason());
+    }
+
+    public function testInvalidPassword()
+    {
+        $authDTO = new AuthDTO('admin', '123456');
+        $repo    = $this->getMock(UserAggregateRepositoryInterface::class);
+        $repo
+            ->expects($this->any())
+            ->method('findOneByName')
+            ->will($this->returnValue(new User('admin', 'password', 'email@example.org')));
+
+        $service = new Authentication(
+            $repo,
+            $this->getMock(ApiKeyGeneratorInterface::class),
+            $this->getMock(EventDispatcherInterface::class),
+            $this->getMock(EntityManagerInterface::class),
+            new LoggerFixture()
+        );
+
+        $result = $service->signIn($authDTO);
+
+        $this->assertNull($result->getUser());
+        $this->assertTrue($result->isFailed());
+        $this->assertSame('Invalid credentials', $result->getFailReason());
     }
 
     private function assertContainsLogs(LoggerFixture $logger, $message)

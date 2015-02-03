@@ -126,6 +126,21 @@ class RequestApiKeyContext extends AbstractContext
     }
 
     /**
+     * @Then I should see :arg1
+     */
+    public function iShouldSee($arg1)
+    {
+        $response = $this->response;
+
+        $data    = json_decode($response->getContent(), true);
+        $message = $data['message'];
+
+        Test::assertSame($message, $arg1);
+        Test::assertSame(401, $response->getStatusCode());
+        Test::assertSame(401, $data['code']);
+    }
+
+    /**
      * Purges the database
      */
     protected function purgeDatabase()

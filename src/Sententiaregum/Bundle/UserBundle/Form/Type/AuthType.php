@@ -47,7 +47,7 @@ class AuthType extends AbstractType
         $resolver->setDefaults([
             'data_class'      => AuthDTO::class,
             'intention'       => 'request_api_key',
-            'csrf_protection' => false
+            'csrf_protection' => true
         ]);
     }
 }

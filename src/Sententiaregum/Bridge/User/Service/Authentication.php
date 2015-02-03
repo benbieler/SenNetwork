@@ -93,19 +93,10 @@ class Authentication implements AuthenticationInterface
         $userEntity = $this->userRepository->findOneByName($authDTO->getUsername());
 
         if (!$userEntity) {
-            $errorEvent = new AuthEvent();
-            $errorEvent->fail('Invalid credentials');
-
-            $logEntry = sprintf(
-                'Someone tried to authenticate with invalid credentials the account %s! Reason: %s! The ip was %s',
-                $authDTO->getUsername(),
-                $errorEvent->getFailReason(),
-                $this->requesterIp ?: 'unknown'
-            );
-
-            $this->logger->notice($logEntry);
-
-            return $errorEvent;
+            return $this->handleAuthFailure($authDTO);
+        }
+        if (!$userEntity->getPassword()->compare($authDTO->getPassword())) {
+            return $this->handleAuthFailure($authDTO);
         }
 
         $event = new AuthEvent($userEntity);
@@ -126,6 +117,30 @@ class Authentication implements AuthenticationInterface
         // if the dispatcher returns nothing,
         // the original event will be returned
         return $dispatchedEvent ?: $event;
+    }
+
+    /**
+     * Handles the failed authentication
+     *
+     * @param AuthDTO $authDTO
+     *
+     * @return AuthEvent
+     */
+    private function handleAuthFailure(AuthDTO $authDTO)
+    {
+        $errorEvent = new AuthEvent();
+        $errorEvent->fail('Invalid credentials');
+
+        $logEntry = sprintf(
+            'Someone tried to authenticate with invalid credentials the account %s! Reason: %s! The ip was %s',
+            $authDTO->getUsername(),
+            $errorEvent->getFailReason(),
+            $this->requesterIp ?: 'unknown'
+        );
+
+        $this->logger->notice($logEntry);
+
+        return $errorEvent;
     }
 
     /**

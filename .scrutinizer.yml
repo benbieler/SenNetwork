@@ -10,6 +10,7 @@ filter:
         - src/Sententiaregum/Bundle/UserBundle/Tests/
         - src/Sententiaregum/Bundle/WebBundle/Tests/
         - src/Sententiaregum/Infrastructure/User/Tests/
+        - src/Sententiaregum/Bundle/UserBundle/Behat/
 
 tools:
     php_code_sniffer:

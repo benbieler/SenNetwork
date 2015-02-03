@@ -1,6 +1,9 @@
 exclude_patterns:
     - src/Sententiaregum/Bundle/*Bundle/Tests
+    - src/Sententiaregum/Bundle/*Bundle/Behat
     - src/Sententiaregum/CoreBundle/*/Tests
+    - src/Sententiaregum/Infrastructure/*/Tests
+    - src/Sententiaregum/Bridge/*/Tests
     - devstack.yaml # Exclude vagrant stuff
     - vagrant       # which should not be inspected
     - web           # exlude web stuff
