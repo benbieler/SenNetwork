@@ -59,7 +59,10 @@ class AuthenticationController extends Controller
 
             $result = $authService->signIn($credentials);
             if ($result->isFailed()) {
-                throw new FailedAuthenticationException($result->getFailReason());
+                /** @var \Symfony\Component\Translation\TranslatorInterface $translator */
+                $translator = $this->get('translator');
+
+                throw new FailedAuthenticationException($translator->trans($result->getFailReason()));
             }
 
             $entityManager->flush();
