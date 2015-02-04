@@ -12,6 +12,7 @@
 namespace Sententiaregum\Bridge\User\DTO;
 
 use Sententiaregum\CoreDomain\User\Role;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * DTO containing the input of a user creation
@@ -20,16 +21,36 @@ class CreateUserDTO
 {
     /**
      * @var string
+     *
+     * @Assert\NotBlank(message="user.trans.username.not_blank")
+     * @Assert\Length(
+     *     min="3",
+     *     max="32",
+     *     minMessage="user.trans.username.short",
+     *     maxMessage="user.trans.username.long"
+     * )
+     * @Assert\Regex(pattern="/^[A-zäöüÄÖÜß0-9_\-\.]+$/i", message="user.trans.username.regex")
      */
     private $username;
 
     /**
      * @var string
+     *
+     * @Assert\NotBlank(message="user.trans.password.not_blank")
+     * @Assert\Length(
+     *     min="6",
+     *     max="4096",
+     *     minMessage="user.trans.password.short",
+     *     maxMessage="user.trans.password.long"
+     * )
      */
     private $password;
 
     /**
      * @var string
+     *
+     * @Assert\Email(message="user.trans.email.invalid")
+     * @Assert\NotBlank(message="user.trans.email.empty")
      */
     private $email;
 
@@ -40,6 +61,14 @@ class CreateUserDTO
 
     /**
      * @var string
+     *
+     * @Assert\Length(
+     *     min="3",
+     *     max="128",
+     *     minMessage="user.trans.realname.short",
+     *     maxMessage="user.trans.realname.long"
+     * )
+     * @Assert\Regex(pattern="/^[A-zäöüÄÖÜß0-9 ]+$/i", message="user.trans.realname.regex")
      */
     private $realName;
 
@@ -48,6 +77,7 @@ class CreateUserDTO
      * @param string $password
      * @param string $email
      * @param Role[] $roles
+     * @param string $realName
      */
     public function __construct($username, $password, $email, array $roles, $realName = null)
     {

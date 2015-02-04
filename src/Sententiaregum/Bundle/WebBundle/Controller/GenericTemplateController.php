@@ -31,6 +31,7 @@ class GenericTemplateController extends Controller
      * @Cache(expires="+6 hours", public=true)
      * @View()
      * @ApiDoc(
+     *     resource=true,
      *     description="This action renders the layout of the frontend",
      *     statusCodes={
      *         200="The layout was rendered successfully"
@@ -58,6 +59,7 @@ class GenericTemplateController extends Controller
      *     name="sen_web_form"
      * )
      * @ApiDoc(
+     *     resource=true,
      *     description="This action renders a symfony form",
      *     statusCodes={
      *         200="Returned when form was loaded successfully",
