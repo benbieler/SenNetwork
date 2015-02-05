@@ -9,7 +9,7 @@
  * Please check out the license file in the document root of this application
  */
 
-namespace Sententiaregum\Bridge\Validator\Constraint;
+namespace Sententiaregum\Bridge\User\Validator\Constraint;
 
 use Doctrine\Common\Annotations\Annotation\Target;
 use Symfony\Component\Validator\Constraint;

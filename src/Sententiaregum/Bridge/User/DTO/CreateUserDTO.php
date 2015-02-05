@@ -11,7 +11,7 @@
 
 namespace Sententiaregum\Bridge\User\DTO;
 
-use Sententiaregum\Bridge\Validator\Constraint\UniqueUser;
+use Sententiaregum\Bridge\User\Validator\Constraint\UniqueUser;
 use Sententiaregum\CoreDomain\User\Role;
 use Symfony\Component\Validator\Constraints as Assert;
 
