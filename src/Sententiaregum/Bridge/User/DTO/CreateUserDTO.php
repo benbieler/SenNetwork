@@ -11,6 +11,7 @@
 
 namespace Sententiaregum\Bridge\User\DTO;
 
+use Sententiaregum\Bridge\Validator\Constraint\UniqueUser;
 use Sententiaregum\CoreDomain\User\Role;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -30,6 +31,7 @@ class CreateUserDTO
      *     maxMessage="user.trans.username.long"
      * )
      * @Assert\Regex(pattern="/^[A-zäöüÄÖÜß0-9_\-\.]+$/i", message="user.trans.username.regex")
+     * @UniqueUser(message="user.trans.username.in_use", property="username")
      */
     private $username;
 
@@ -51,6 +53,7 @@ class CreateUserDTO
      *
      * @Assert\Email(message="user.trans.email.invalid")
      * @Assert\NotBlank(message="user.trans.email.empty")
+     * @UniqueUser(message="user.trans.email.in_use", property="email")
      */
     private $email;
 
