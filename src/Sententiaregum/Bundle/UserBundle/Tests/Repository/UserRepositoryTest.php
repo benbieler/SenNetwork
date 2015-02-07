@@ -120,7 +120,7 @@ class UserRepositoryTest extends RepositoryTestCase
         static::$entityManager->flush();
 
         $this->assertNotNull($u = $repo->findOneByName($user->getUsername()));
-        $roleId = $u->getRoles()[1];
+        $roleId = $u->getRoles()[0];
 
         $repo->delete($user);
         static::$entityManager->flush();
