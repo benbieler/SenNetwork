@@ -6,7 +6,7 @@ use FOS\RestBundle\Controller\Annotations\View;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sententiaregum\Bridge\User\DTO\AuthDTO;
+use Sententiaregum\Bundle\UserBundle\DTO\AuthDTO;
 use Sententiaregum\Bundle\UserBundle\Exception\FailedAuthenticationException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -53,7 +53,7 @@ class AuthenticationController extends Controller
         $form->handleRequest($request);
         if ($form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            /** @var \Sententiaregum\Bridge\User\Service\AuthenticationInterface $authService */
+            /** @var \Sententiaregum\Bundle\UserBundle\Service\AuthenticationInterface $authService */
             $authService = $this->get('sen.user.auth.api_key_auth');
             $authService->setRequesterIp($request->getClientIp());
 

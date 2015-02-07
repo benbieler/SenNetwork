@@ -5,7 +5,7 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="sen.user.service.api_token_generator" class="Sententiaregum\CoreDomain\User\Service\ApiKeyGenerator" />
+        <service id="sen.user.service.api_token_generator" class="Sententiaregum\Domain\User\Service\ApiKeyGenerator" />
     </services>
 
 </container>

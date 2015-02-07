@@ -11,7 +11,7 @@
 
 namespace Sententiaregum\Bundle\UserBundle\Form\Type;
 
-use Sententiaregum\Bridge\User\DTO\CreateUserDTO;
+use Sententiaregum\Bundle\UserBundle\DTO\CreateUserDTO;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;

@@ -1,9 +1,18 @@
 <?php
 
+/*
+ * This file is part of the sententiaregum application.
+ *
+ * Sententiaregum is a social network based on Symfony2 and AngularJS
+ *
+ * @copyright (c) 2014 Sententiaregum
+ * Please check out the license file in the document root of this application
+ */
+
 namespace Sententiaregum\Bundle\UserBundle\DependencyInjection;
 
-use Sententiaregum\Bridge\User\Service\AuthenticationInterface;
-use Sententiaregum\CoreDomain\User\Service\ApiKeyGeneratorInterface;
+use Sententiaregum\Bundle\UserBundle\Service\AuthenticationInterface;
+use Sententiaregum\Domain\User\Service\ApiKeyGeneratorInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader;
@@ -27,6 +36,7 @@ class SententiaregumUserExtension extends Extension
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('user.xml');
         $loader->load('user_crud.xml');
+        $loader->load('security.xml');
 
         if (isset($config['service']['user_crud'])) {
             $container->setAlias('sen.user.crud.service', $config['service']['user_crud']);

@@ -14,8 +14,8 @@ namespace Sententiaregum\Bundle\UserBundle\Behat;
 use Behat\Gherkin\Node\TableNode;
 use PHPUnit_Framework_Assert as Test;
 use Sententiaregum\Behat\AbstractContext;
-use Sententiaregum\CoreDomain\User\Token;
-use Sententiaregum\CoreDomain\User\User;
+use Sententiaregum\Domain\User\Token;
+use Sententiaregum\Domain\User\User;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**

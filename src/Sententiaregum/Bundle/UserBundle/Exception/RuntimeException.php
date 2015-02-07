@@ -9,10 +9,8 @@
  * Please check out the license file in the document root of this application
  */
 
-namespace Sententiaregum\Bundle\UserBundle;
+namespace Sententiaregum\Bundle\UserBundle\Exception;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
-
-class SententiaregumUserBundle extends Bundle
+class RuntimeException extends \RuntimeException
 {
 }

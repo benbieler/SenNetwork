@@ -9,10 +9,17 @@
  * Please check out the license file in the document root of this application
  */
 
-namespace Sententiaregum\Bundle\UserBundle;
+namespace Sententiaregum\Domain\User\Service;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
-
-class SententiaregumUserBundle extends Bundle
+/**
+ * Interface which provides a method to generate safe api keys
+ */
+interface ApiKeyGeneratorInterface
 {
+    /**
+     * Generates an api key
+     *
+     * @return string
+     */
+    public function generate();
 }

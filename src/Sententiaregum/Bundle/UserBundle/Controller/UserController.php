@@ -15,7 +15,7 @@ use FOS\RestBundle\Controller\Annotations\View;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sententiaregum\Bridge\User\DTO\CreateUserDTO;
+use Sententiaregum\Bundle\UserBundle\DTO\CreateUserDTO;
 use Sententiaregum\Bundle\UserBundle\Exception\UserCrudException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -53,9 +53,9 @@ class UserController extends Controller
         $form->handleRequest($request);
         if ($form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            /** @var \Sententiaregum\Bridge\User\Service\User $userService */
+            /** @var \Sententiaregum\Bundle\UserBundle\Service\User $userService */
             $userService   = $this->get('sen.user.crud.service');
-            /** @var \Sententiaregum\Infrastructure\User\Repository\User $repository */
+            /** @var \Sententiaregum\Bundle\UserBundle\Repository\UserRepository $repository */
             $repository    = $this->get('sen.user.repository');
 
             if (!$userService->create($dto)) {
@@ -63,12 +63,14 @@ class UserController extends Controller
             }
 
             $entityManager->flush();
+            #ToDo: use user create dto
             return [
                 'id'       => $repository->findOneByName($dto->getUsername())->getUserId(),
                 'location' => $this->generateUrl('sen_user_get', ['userId' => 5])
             ];
         }
 
+        #ToDo: dispatch "invalid input" event
         return $form;
     }
 
@@ -101,7 +103,7 @@ class UserController extends Controller
      */
     public function getUserAction($userId)
     {
-        /** @var \Sententiaregum\Infrastructure\User\Repository\User $repository */
+        /** @var \Sententiaregum\Bundle\UserBundle\Repository\UserRepository $repository */
         $repository = $this->container->get('sen.user.repository');
 
         $user = $repository->find($userId);

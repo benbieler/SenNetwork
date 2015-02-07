@@ -9,7 +9,7 @@
             <tag name="form.type" alias="sen_user_form_create" />
         </service>
 
-        <service id="sen.user.validator.unique_user.doctrine" class="Sententiaregum\Bridge\User\Validator\Constraint\UniqueUserValidator">
+        <service id="sen.user.validator.unique_user.doctrine" class="Sententiaregum\Bundle\UserBundle\Validator\Constraint\UniqueUserValidator">
             <argument type="service" id="doctrine" />
             <tag name="validator.constraint_validator" alias="sen.user.validator.unique_user" />
         </service>

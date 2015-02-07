@@ -17,7 +17,7 @@
             <tag name="form.type" alias="sen_user_form_auth" />
         </service>
 
-        <service id="sen.user.listener.auth.locked_user" class="Sententiaregum\Bridge\User\Event\Listener\IsLockedListener">
+        <service id="sen.user.listener.auth.locked_user" class="Sententiaregum\Bundle\UserBundle\EventListener\IsLockedListener">
             <tag name="kernel.event_listener" event="sen.domain.user.auth.success" method="onFinishedAuth" />
         </service>
     </services>

@@ -53,9 +53,9 @@ doctrine:
                     SEN_User:
                         type:      xml
                         is_bundle: false
-                        dir:       %kernel.root_dir%/../src/Sententiaregum/Infrastructure/User/Resources/doctrine
+                        dir:       %kernel.root_dir%/../src/Sententiaregum/Bundle/UserBundle/Resources/config/doctrine
                         alias:     SEN_User
-                        prefix:    Sententiaregum\CoreDomain\User
+                        prefix:    Sententiaregum\Domain\User
 
 # FOS Rest Configuration
 fos_rest:
