@@ -9,7 +9,7 @@
  * Please check out the license file in the document root of this application
  */
 
-namespace Sententiaregum\Bundle\UserBundle\Test\Repository;
+namespace Sententiaregum\Bundle\UserBundle\Test;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 

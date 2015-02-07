@@ -15,7 +15,7 @@ use Sententiaregum\Domain\User\Role;
 use Sententiaregum\Domain\User\Service\ApiKeyGenerator;
 use Sententiaregum\Domain\User\Token;
 use Sententiaregum\Domain\User\User;
-use Sententiaregum\Bundle\UserBundle\Test\Repository\RepositoryTestCase;
+use Sententiaregum\Bundle\UserBundle\Test\RepositoryTestCase;
 
 class UserRepositoryTest extends RepositoryTestCase
 {
@@ -103,7 +103,7 @@ class UserRepositoryTest extends RepositoryTestCase
         $this->assertInstanceOf(User::class, $persistedUser);
         $this->assertCount(1, $updatedUser->getFollowers());
         $this->assertCount(1, $updatedUser->getRoles());
-        $role = array_shift($updatedUser->getRoles());
+        $role = $updatedUser->getRoles()[1];
 
         $this->assertSame(Role::ADMIN, $role->getRole());
     }
@@ -120,7 +120,7 @@ class UserRepositoryTest extends RepositoryTestCase
         static::$entityManager->flush();
 
         $this->assertNotNull($u = $repo->findOneByName($user->getUsername()));
-        $roleId = array_shift($u->getRoles());
+        $roleId = $u->getRoles()[1];
 
         $repo->delete($user);
         static::$entityManager->flush();
